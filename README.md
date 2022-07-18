@@ -10,4 +10,4 @@ https://kim-chanmi.github.io/coding/index.html
  https://kim-chanmi.github.io/coding/javascript/index.html
 
  ### HTML 메인 페이지
- http://127.0.0.1:5500/html/index.html
+ https://kim-chanmi.github.io/coding//html/index.html
