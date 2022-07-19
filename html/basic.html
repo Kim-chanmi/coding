@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML 기초</title>
 
+    <link rel="stylesheet" href="asset/css/dracula.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
     <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
     <style>
         * {
@@ -95,7 +97,7 @@
             padding: 15px;
         }
         .code {
-            width: 18%;
+            width: 100%;
             background-color: #000;
             border-radius: 0 0 10px 10px;
             color: #fff;
@@ -182,11 +184,9 @@
                     </tr>
                 </tbody>
             </table>
-            
-            <p>
-                예시 1-1 <br>
-<div class="code">
-<pre><code>
+                    <h2>예시 1-1</h2>
+                    <div class="code">
+<pre><code class="language-js">
     &lt;!DOCTYPE html&gt; 
     &lt;html lang="ko"&gt; 
     &lt;head&gt; 
@@ -197,8 +197,7 @@
     &lt;/body&gt; 
     &lt;/html&gt;
 </code></pre> 
-</div>
-            </p>
+                    </div>           
             <p>
                 <ul>
                     <li>DOCTYPE 선언 : 문서의 형식을 브라우저에게 알려 줌으로써 브라우저가 HTML 문서의 내용을 올바르게 표시할 수 있도록 함</li>
