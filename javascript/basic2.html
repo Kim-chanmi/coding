@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>자바스크립트 기본 규칙</title>
+    <title>기본 명령어</title>
 
     <link href="https://webfontworld.github.io/gmarket/GmarketSans.css" rel="stylesheet">
     <style>
@@ -94,46 +94,61 @@
 <body>
     <header id="header">
         <h1>Javascript</h1>
-        <nav>
+        <nav class="header_nav">
             <ul>
                 <li><a href="javascript01.html">데이터 저장하기</a></li>
                 <li><a href="javascript02.html">데이터 출력하기</a></li>
                 <li><a href="javascript03.html">데이터 실행하기</a></li>
                 <li><a href="javascript04.html">데이터 제어하기</a></li>
             </ul>
-            
         </nav>
     </header>
     <section id="contents">
-        <h2>자바스크립트 기본 규칙</h2>
-        <ol class="numList">
-            <li>
-                하나의 실행문이 끝나면 마지막에 세미콜론(;)을 붙여 줍니다.<br>
-                세미콜론(;)을 붙여 주지 않아도 상관은 없으나, 자바스크립트를 처음 학습하는 경우에는 
-                하나의 실행문을 확인하고 넘어가는 차원에서 세미콜론(;) 붙여서 코딩하는 것이 좋음<br><br>
-                var num = 5;<br>
-                document.write(num);<br><br>
-            </li>
-
-            <li>대소문자를 구분합니다.<br><br>
-                var num = 5; <br>
-                document.write(num);  O <br>
-                document.write(Num);  X <br><br>
-            </li>
-            <li>가독성을 위해 들여쓰기를 사용합니다.<br>
-<pre><code>
-var avgDistance = function() {
-        var speed = distance * time;
-}
-</code></pre><br>
-
-            </li>
-            <li>주석(comment) 처리 방법에는 한 줄 주석처리와 여러 줄 주석처리가 있습니다. <br><br>
-                // 한 줄 주석 처리 방법입니다. <br><br>
-                /* 여러 줄<br>
-                    주석 처리 방법입니다. */ 
-            </li>
-        </ol>
+        <h2>기본 명령어</h2>
+               <table class="table">
+                <tr>
+                    <th>분류</th>
+                    <th>명령어</th>
+                </tr>
+                <tr>
+                    <td>입력</td>
+                    <td>promt('입력 제목', '입력 내용')</td>
+                </tr>
+                <tr>
+                    <td rowspan="3">출력</td>
+                    <td>document.write('출력 내용')</td>
+                </tr>
+                <tr>
+                    <td>alert('출력 내용')</td>
+                </tr>
+                <tr>
+                    <td>console.log('출력 내용')</td>
+                </tr>
+                <tr>
+                    <td>확인</td>
+                    <td>confirm('확인 내용')</td>
+                </tr>
+               </table>
+               <div>
+<pre><code class="language-js">
+&lt;!DOCTYPE&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;    
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;기본명령어&lt;/title&gt;
+    &lt;script&gt;  
+        promt('출력 페이지 수를 입력하세요!', ''); // ''는 작은따옴표 두 개 입니다.
+        alert('자바스크립트');
+        document.write('자바스크립트');
+        console.log('자바스크립트');
+        confirm('정말 삭제 하시겠습니까?');
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+                </div>
     </section>
 </body>
 </html>
