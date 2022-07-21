@@ -121,20 +121,20 @@ body {
     margin-top: 45px;
 }
 
-.document .t_title {
+.document .t_tit {
     font-size: 30px;
     line-height: 1.6;
     margin-bottom: 5px;
     font-weight: 400;
 }
-.document .t_title2 {
+.document .t_tit2 {
     font-size: 22px;
     line-height: 1.6;
     margin-top: 50px;
     margin-bottom: 5px;
     font-weight: 400;
 }
-.document .t_title3 {
+.document .t_tit3 {
     font-size: 16px;
     line-height: 1.6;
     margin-top: 5px;
