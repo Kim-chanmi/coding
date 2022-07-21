@@ -30,6 +30,7 @@
             <ul class="study">
                 <li><a href="study/basic.html">기본 규칙</a></li>
                 <li><a href="study/operator.html">연산자</a></li>
+                <li><a href="study/for.html">for문</a></li>
             </ul>
         </nav>
     </header>
@@ -84,6 +85,9 @@ document.write(z);
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample01_result">
+                            100<br>
+                            200<br>
+                            javascript
                         </div>
                     </details>
                 </div>
@@ -109,6 +113,9 @@ document.write(z);
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample02_result">
+                            100<br>
+                            200<br>
+                            javascript
                         </div>
                     </details>
                 </div>
@@ -132,6 +139,9 @@ document.write(arr[2]);
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample03_result">
+                            100<br>
+                            200<br>
+                            javascript
                         </div>
                     </details>
                 </div>
@@ -156,6 +166,10 @@ document.write(arr[2][1]);
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample04_result">
+                            100<br>
+                            200<br>
+                            javascript<br>
+                            jquery
                         </div>
                     </details>
                 </div>
@@ -177,6 +191,7 @@ document.write(arr.length);  //method는 괄호가 필요하지만 property는 �
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample05_result">
+                            3
                         </div>
                     </details>
                 </div>
@@ -189,20 +204,15 @@ document.write(arr.length);  //method는 괄호가 필요하지만 property는 �
                 <h3>06. 배열 : 데이터 불러오기 : for()문</h3>
                 <p></p>
                 <div class="script">
-<pre><code class="language-js">const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+<pre><code class="language-js">consr arr = [100, 200, 300, 400, 500]
 
-// document.write(arr[0]);
-// document.write(arr[1]);
-// document.write(arr[2]);
-// document.write(arr[3]);
-// document.write(arr[4]);
-// document.write(arr[5]);
-// document.write(arr[6]);
-// document.write(arr[7]);
-// document.write(arr[8]);
+<!-- document.write(arr[0]);
+document.write(arr[1]);
+document.write(arr[2]);
+document.write(arr[3]);
+document.write(arr[4]); -->
 
-//for(초기값, 조건식, 증감식) --for문 쓰는 법
-for(let i=0; i&lt;arr.length; i++){
+for{let i=0; i&lt;arr.length; i++}{         //위처럼 하나씩 출력하는 것이 아니라 한 번에 할 수 있음
     document.write(arr[i]);
 }
 
@@ -216,11 +226,7 @@ for(let i=0; i&lt;arr.length; i++){
                             200<br>
                             300<br>
                             400<br>
-                            500<br>
-                            600<br>
-                            700<br>
-                            800<br>
-                            900
+                            500
                         </div>
                     </details>
                 </div>
@@ -235,24 +241,14 @@ for(let i=0; i&lt;arr.length; i++){
                 <div class="script">
 <pre><code class="language-js">const num = [100, 200, 300, 400, 500];
 
-//for문을 이용해서 출력
-for(let i=0; i&lt;num.length; i++){            //앞에let 생략 가능
-    document.write(num[i]);
-}
-
-document.write("<br><br>")
-
-//forEach()를 이용해서 출력
-num.forEach(function(el){                //실행문 안에 실행문 -> 콜백 함수
+num.forEach(function(el){               //요소만 출력
     document.write(el);
 });
 
-//forEach() 3가지 인자(parameter)값
-document.write("<br><br>")              
-num.forEach(function(element, index, array){
-    document.write(element, "<br>");            //쉼표 자동으로 나옴. 
-    document.write(index, "<br>");
-    document.write(array, "<br>");
+num.forEach(function(element, index, array){            //function(요소, 인덱스, 배열값) 순서
+        document.write(element);
+        document.write(index);
+        document.write(array);
 });
 </code></pre>
                 </div>
@@ -260,10 +256,7 @@ num.forEach(function(element, index, array){
                     <details>
                         <summary>결과보기</summary>
                         <div class="sample07_result">
-                            100200300400500 --> for문에 대한 결과<br>
-
-                            100200300400500 --> forEach()에 대한 결과<br>
-
+                            100200300400500 //요소만 출력<br><br>
                             100<br>
                             0<br>
                             100,200,300,400,500<br>
@@ -278,13 +271,118 @@ num.forEach(function(element, index, array){
                             100,200,300,400,500<br>
                             500<br>
                             4<br>
-                            100,200,300,400,500<br>
+                            100,200,300,400,500
                         </div>
                     </details>
                 </div>
             </div>
         </div>
         <!-- sample07 -->
+
+        <div class="main_sample">
+            <div id="sample08" class="sample">
+                <h3>08. 배열 : 데이터 불러오기 : for of</h3>
+                <p></p>
+                <div class="script">
+<pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
+
+for{let i=0; i&lt;arr.length; i++}{         //for문 쓸 때 
+    document.write(arr[i]);
+}
+
+for(let i of arr){              //for문 쓸 때보다 간단하게 쓸 수 있음
+    document.write(i);
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample08_result">
+                            100<br>
+                            200<br>
+                            300<br>
+                            400<br>
+                            500<br> //여기까지 for문 값
+                            100<br>
+                            200<br>
+                            300<br>
+                            400<br>
+                            500<br>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+        <!-- sample08 -->
+
+        <div class="main_sample">
+            <div id="sample09" class="sample">
+                <h3>09. 배열 : 데이터 불러오기 : for in</h3>
+                <p></p>
+                <div class="script">
+<pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
+
+for(let i in arr){
+    document.write(i);       //for in은 기본적으로 인덱스 출력
+    document.write(arr[i]);     //for in으로 모든 요소 출력하는 법
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample09_result">
+                            100<br>
+                            200<br>
+                            300<br>
+                            400<br>
+                            500
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+        <!-- sample09 -->
+
+        <div class="main_sample">
+            <div id="sample10" class="sample">
+                <h3>10. 배열 : 데이터 불러오기 : map()</h3>
+                <p></p>
+                <div class="script">
+<pre><code class="language-js">const arr = [100, 200, 300, 400, 500];
+
+//forEach 이용해서 값 출력
+//arr.forEach(function(el){
+    //document.write(el);
+})
+arr.forEach(function(element, index, array){
+    document.write(element);
+    document.write(index);
+    document.write(array);
+})
+
+arr.map(function(el){
+    document.write(el);
+})
+arr.map(function(element, index, array){       //forEach처럼 element, index, array출력 가능
+    document.write(element);
+    document.write(index);
+    document.write(array);
+});
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample10_result">
+                            1002003004005001000100,200,300,400,5002001100,200,300,400,5003002100,200,300,400,5004003100,200,300,400,5005004100,200,300,400,500
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+        <!-- sample10 -->
 
     </main>
     <!-- //main -->
@@ -297,122 +395,83 @@ num.forEach(function(element, index, array){
         hljs.highlightAll();
     </script>
     <script>
-        //01
+        //06 for문
         {
-            // let x = 100;         
-            // let y = 200;
-            // let z = "javascript";
-
-            let x = 100,                //let 생략 가능
-                y = 200, 
-                z = "javascript";
-            
-            // document.write(x);
-            // document.write(y);
-            // document.write(z);
-
-            document.querySelector(".sample01_result").innerHTML = x + "<br>" + y + "<br>" + z
-        }
-
-        document.write("<br><br>")
-        
-        //02
-        {
-            const x = 100,
-                  y = 200,
-                  z = "javascript"
-            
-            // document.write(x);
-            // document.write(y);
-            // document.write(z);
-
-            document.querySelector(".sample02_result").innerHTML = x + "<br>" + y + "<br>" + z
-        }
-
-        document.write("<br><br>")
-
-        //03
-        {
-            const arr = [100, 200, "javascript"];
-
-            // document.write(arr[0]);
-            // document.write(arr[1]);
-            // document.write(arr[2]);
-
-            document.querySelector(".sample03_result").innerHTML = arr[0] + "<br>" + arr[1] + "<br>" + arr[2]
-        }
-
-        document.write("<br><br>")
-
-        //04
-        {
-            const arr = [100, 200, ["javascript", "jquery"]];
-
-            // document.write(arr[0]);
-            // document.write(arr[1]);
-            // document.write(arr[2][0]);
-            // document.write(arr[2][1]);
-
-            document.querySelector(".sample04_result").innerHTML = arr[0] + "<br>" + arr[1] + "<br>" + arr[2][0] + "<br>" + arr[2][1]
-            
-        }
-        document.write("<br><br>")
-
-        //05
-        {
-            const arr = [100, 200, "javascript"];
-
-            // document.write(arr.length);  //method는 괄호가 필요하지만 property는 필요 없음
-
-            document.querySelector(".sample05_result").innerHTML = arr.length
-        }
-
-        document.write("<br><br>")
-
-        //06
-        {
-            const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            // consr arr = [100, 200, 300, 400, 500]
 
             // document.write(arr[0]);
             // document.write(arr[1]);
             // document.write(arr[2]);
             // document.write(arr[3]);
             // document.write(arr[4]);
-            // document.write(arr[5]);
-            // document.write(arr[6]);
-            // document.write(arr[7]);
-            // document.write(arr[8]);
 
-            //for(초기값, 조건식, 증감식) <--for문 쓰는 법
-            // for(let i=0; i<arr.length; i++){
+            // for{let i=0; i<arr.length; i++}{
             //     document.write(arr[i]);
             // }
         }
-
-        document.write("<br><br>")
-
-        //07 forEach()
+        //07. forEach();
         {
             const num = [100, 200, 300, 400, 500];
 
-            //for문을 이용해서 출력
-            for(let i=0; i<num.length; i++){            //앞에let 생략 가능
-                document.write(num[i]);
-            }
+            // num.forEach(function(el){
+            //     document.write(el);
+            // });
 
-            document.write("<br><br>")
+            // num.forEach(function(element, index, array){            //function(요소, 인덱스, 배열값)
+            //         document.write(element);
+            //         document.write(index);
+            //         document.write(array);
+            // });
+        }
 
-            //forEach()를 이용해서 출력
-            num.forEach(function(el){                //실행문 안에 실행문 -> 콜백 함수
+        //08. 배열에 for of
+        {
+            // const arr = [100, 200, 300, 400, 500];
+
+            // for(let i=0; i<arr.length; i++){
+            //     document.write(arr[i]);
+            // }
+
+            // for(let i of arr){
+            //     document.write(i);
+            // }
+        }
+
+
+        document.write("<br>")
+        //09. 배열에 for in 
+        {
+            const arr = [100, 200, 300, 400, 500];
+
+            // for(let i in arr){
+            //     // document.write(i);       //인덱스 출력
+            //     document.write(arr[i]);     //요소들 모두 출력하는 법
+            // }
+        }
+
+        document.write("<br>")
+
+        //10. 배열 데이터 불러오기 : map()  <- 자바스크립트에서 만들어놓은것
+        {
+            const arr = [100, 200, 300, 400, 500];
+
+            // forEach 이용해서 값 출력
+            // arr.forEach(function(el){
+            //     document.write(el);
+            // })
+            // arr.forEach(function(element, index, array){
+            //     document.write(element);
+            //     document.write(index);
+            //     document.write(array);
+            // })
+
+            arr.map(function(el){
                 document.write(el);
-            });
-            
-            //forEach() 3가지 인자(parameter)값
-            document.write("<br><br>")              
-            num.forEach(function(element, index, array){
-                document.write(element, "<br>");            //쉼표 자동으로 나옴. 
-                document.write(index, "<br>");
-                document.write(array, "<br>");
+            })
+            arr.map(function(element, index, array){       //forEach 와 map 같음
+                document.write(element);
+                document.write(index);
+                document.write(array);
             });
         }
     </script>
