@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        body {
+            background-color: #fff3e0;
+        }
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #header {
+            width: 1200px;
+            height: 100px;
+            background-color: #ffe0b2;
+        }
+        #nav {
+            width: 1200px;
+            height: 100px;
+            background-color: #FFCC80;
+        }
+        #aside {
+            width: 400px;
+            height: 780px;
+            background-color: #ffb74d;
+        }
+        #section {
+            width: 800px;
+            height: 780px;
+            background-color: #ffa726;
+        }
+        #footer {
+            width: 1200px;
+            height: 100px;
+            background-color: #ff9800;
+        }
+        @media (max-width: 1280px) {
+            #wrap {
+                width: 100%;
+            }
+            #aside {
+                width: 35%;
+                height: 780px;
+
+            }
+            #section {
+                width: 65%;
+                height: 780px;
+                float: left;
+            }
+        }
+        @media (max-width: 768px) {
+            #wrap {
+                width: 100%;
+            }
+            #aside {
+                width: 35%;
+                height: 780px;
+                float: left;
+            }
+            #section {
+                width: 65%;
+                height: 780px;
+                float: left;
+            }
+        }
+        @media (max-width: 480px) {
+            #wrap {
+                width: 100%;
+            }
+            #aside {
+                width: 100%;
+                height: 300px;
+            }
+            #section {
+                width: 100%;
+                height: 480px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="aside"></div>
+        <div id="section"></div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+</html>
