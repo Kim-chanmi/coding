@@ -16,42 +16,36 @@
         #wrap {
             width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-areas: 
-                "header header header"
-                "nav nav nav"
-                "aside section article"
-                "footer footer footer"
-            ;
-            grid-template-columns: 300px 600px 300px;
-            grid-template-rows: 100px 100px 780px 100px;
         }
         #header {
+            height: 100px;
             background-color: #c8e6c9;
-            grid-area: header;
         }
         #nav {
+            height: 100px;
             background-color: #a5d6a7;
-            grid-area: nav;
+        }
+        #main {
+            display: grid;
+            grid-template-columns: 30% 40% 30%;
+            grid-template-rows: 780px;
         }
         #aside {
             background-color: #81c784;
-            grid-area: aside;
         }
         #section {
             background-color: #66bb6a;
-            grid-area: section;
         }
         #article {
             background-color: #4caf50;
-            grid-area: article;
         }
         #footer {
+ 
+            height: 100px;
             background-color: #43a047;
-            grid-area: footer;
         }
         @media (max-width: 1300px) {
-
+ 
         }
         @media (max-width: 768px) {
 
@@ -59,17 +53,19 @@
         @media (max-width: 480px) {
 
         }
-            
+
     </style>
 </head>
 <body>
     <div id="wrap">
-        <div id="header"></div>
-        <div id="nav"></div>
-        <div id="aside"></div>
-        <div id="section"></div>
-        <div id="article"></div>
-        <div id="footer"></div>
+        <header id="header"></header>
+        <nav id="nav"></nav>
+        <main id="main">
+            <aside id="aside"></aside>
+            <section id="section"></section>
+            <article id="article"></article>
+        </main>
+        <footer id="footer"></footer>
     </div>
 </body>
 </html>

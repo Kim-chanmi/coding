@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>레이아웃 유형03</title>
-    <!-- grid 방식 반응형 레이아웃 -->
+    <!-- flex 방식 레이아웃 -->
     <style>
         * {
             margin: 0;
@@ -26,30 +26,30 @@
             background-color: #81d4fa;
         }
         #main {
-            display: grid;
-            grid-template-areas: 
-                "aside article1 article1"
-                "aside article2 article2"
-                "aside article3 article3"
-            ;
-            grid-template-columns: 30% 70%;
-            grid-template-rows: 260px 260px 260px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 780px;
         }
         #aside {
+            width: 30%;
+            height: 780px;
             background-color: #4fc3f7;
-            grid-area: aside;
         }
         #article1 {
+            width: 70%;
+            height: 260px;
             background-color: #29b6f6;
-            grid-area: article1;
         }
         #article2 {
+            width: 70%;
+            height: 260px;
             background-color: #03a9f4;
-            grid-area: article2;
         }
         #article3 {
+            width: 70%;
+            height: 260px;
             background-color: #039be5;
-            grid-area: article3;
         }
         #footer {
             height: 100px;
@@ -57,42 +57,13 @@
         }
 
         @media (max-width: 1300px) {
-            #wrap {
-                width: 96%;
-            }
-            #main {
-                grid-template-areas: 
-                    "aside article1 article1"
-                    "aside article2 article3"
-                    "aside article2 article3";
-                grid-template-columns: 30% 35% 35%;
-                grid-template-rows: 260px 520px;
-            }
+
         }
         @media (max-width: 768px) {
-            #wrap {
-                width: 100%;
-            }
-            #main {
-                grid-template-areas: 
-                    "aside article1"
-                    "aside article2";
-                grid-template-columns: 30% 70%;
-                grid-template-rows: 390px 390px;
-            }
-            #article3 {
-                display: none;
-            }
+
         }
         @media (max-width: 480px) {
-            #main {
-                grid-template-areas: 
-                    "aside"
-                    "article1"
-                    "article2";
-                grid-template-columns: 100%;
-                grid-template-rows: 200px 430px 150px;
-            }
+
         }
     </style>
 </head>
