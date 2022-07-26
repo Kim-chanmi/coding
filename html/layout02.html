@@ -138,9 +138,191 @@ body {
 }
 </code></pre>
                 </div>
+                <h3 class="t_tit2">flex를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    레이아웃 배치 전용으로 나온 속성입니다. 
+                    float 방법보다 단조롭고 편한 방법입니다. float방법처럼 필요한 각각 
+                    요소들에 적용하는 것이 아닌 자식 요소를 감싸고 있는 부모 요소에게만 
+                    적용하면 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+}
+body {
+    background-color: #e8f4f5;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+#header {
+    height: 100px;
+    background-color: #c8e6c9;
+}
+#nav {
+    height: 100px;
+    background-color: #a5d6a7;
+}
+#main {
+    display: flex;
+}
+#aside {
+    width: 30%;
+    height: 780px;
+    background-color: #81c784;
+}
+#section {
+    width: 40%;
+    height: 780px;
+    background-color: #66bb6a;
+}
+#article {
+    width: 30%;
+    height: 780px;
+    background-color: #4caf50;
+}
+#footer {
+
+    height: 100px;
+    background-color: #43a047;
+}
+@media (max-width: 1300px) {
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px) {
+    #main {
+        flex-wrap: wrap;
+    }
+    #wrap {
+        width: 100%;
+    }
+    #aside {
+        width: 30%;
+        height: 630px;
+    }
+    #section {
+        width: 70%;
+        height: 630px;
+    }
+    #article {
+        width: 100%;
+        height: 150px;
+    }
+}
+@media (max-width: 480px) {
+    #aside {
+        width: 100%;
+        height: 200px;
+    }
+    #section {
+        width: 100%;
+        height: 430px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">grid를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    table처럼 두 방향(가로-세로) 레이아웃 시스템(2차원)입니다. 
+                    따라서 flex보다 더 복합적인 레이아웃 표현이 가능합니다. 
+                    flex와 마찬가지로 부모 요소에만 적용하면 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+}
+body {
+    background-color: #e8f4f5;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+#header {
+    height: 100px;
+    background-color: #c8e6c9;
+}
+#nav {
+    height: 100px;
+    background-color: #a5d6a7;
+}
+#main {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: 780px;
+}
+#aside {
+    background-color: #81c784;
+}
+#section {
+    background-color: #66bb6a;
+}
+#article {
+    background-color: #4caf50;
+}
+#footer {
+
+    height: 100px;
+    background-color: #43a047;
+}
+@media (max-width: 1300px) {
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px) {
+    #wrap {
+        width: 100%;
+    }
+    #main {
+        grid-template-areas: 
+            "aside section"
+            "article article"
+        ;
+        grid-template-columns: 30% 70% 100%;
+        grid-template-rows: 680px 150px;
+    }
+    #aside {
+        grid-area: aside;
+    }
+    #section {
+        grid-area: section;
+    }
+    #article {
+        grid-area: article;
+    }
+}
+@media (max-width: 480px) {
+    #wrap {
+        width: 100%;
+    }
+    #main {
+        grid-template-areas: 
+            "aside"
+            "section"
+            "article"
+        ;
+        grid-template-columns: 100%;
+        grid-template-rows: 200px 430px 150px;
+    }
+    #aside {
+        grid-area: aside;
+    }
+    #section {
+        grid-area: section;
+    }
+    #article {
+        grid-area: article;
+    }
+}
+</code></pre>
+                </div>
 
                 <h4 class="t_tit3">결과</h4>
-                <iframe height="300" style="width: 100%;" scrolling="no" title="layout04_float" src="https://codepen.io/kim-chanmi/embed/GRxvaWN?result-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                <iframe height="300" style="width: 100%;" scrolling="no" title="layout02_float" src="https://codepen.io/kim-chanmi/embed/GRxvaWN?result-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
                     See the Pen <a href="https://codepen.io/kim-chanmi/pen/GRxvaWN">
                     layout04_float</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
                     on <a href="https://codepen.io">CodePen</a>.

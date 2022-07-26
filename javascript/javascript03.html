@@ -160,8 +160,8 @@ func("함수가 실행되었습니다.3<br>");
             <div id="sample04" class="sample">
                 <h3>04. 리턴값 함수</h3>
                 <p>
-                    react에서 많이 사용합니다. 원래 실행문 안에 쓰면 오류나지만, 
-                    return 값이 있어서 값이 나오게 됩니다.
+                    함수 안에서 return을 만나게 되면 해당 함수를 호출한 곳으로
+                    결과 데이터를 반환해 주고 함수는 종료가 됩니다.
                 </p>
                 <div class="script">
 <pre><code class="language-js">function func(){
@@ -192,7 +192,7 @@ document.write(func());
             <div id="sample05" class="sample">
                 <h3>05. 화살표 함수 : 선언적 함수</h3>
                 <p>
-                    선언적함수를 화살표함수로 변경할 수 있습니다. 또한, 화살표 함수를 약식으로 표현할 수 있습니다.
+                    선언적함수를 화살표함수로 변경할 수 있습니다. 
                 </p>
                 <div class="script">
 <pre><code class="language-js">//화살표함수
@@ -201,7 +201,7 @@ func = () => {
 }
 func();
 
-//화살표함수 약식
+//화살표함수 괄호 생략
 func = () => document.write("함수가 실행되었습니다.5<br>");
 func();
 </code></pre>                                        
@@ -239,7 +239,7 @@ func();
 }
 func();
 
-//화살표함수 약식
+//화살표함수 괄호 생략
 const func = () => document.write("함수가 실행되었습니다.6<br>");
 func();
 </code></pre>                                        
@@ -269,9 +269,8 @@ func = (str) => {
 }
 func("함수가 실행되었습니다.7<br>");
 
-// 화살표함수 약식
-func = (str) => document.write(str); //화살표함수 약식
-func = str => document.write(str);   //약식에서 더 줄인 버전         
+func = (str) => document.write(str); //화살표함수 중괄호 삭제
+func = str => document.write(str);   // 괄호 삭제     
 func("함수가 실행되었습니다.7<br>");
 </code></pre>                                        
                 </div>
@@ -302,7 +301,6 @@ func("함수가 실행되었습니다.7<br>");
                 <h3>08. 화살표 함수 : 리턴값 함수</h3>
                 <p>
                     리턴값 함수를 화살표함수로 변경하는 방법입니다.
-                    화살표함수(리턴값함수)는 약식으로 변경할 수 없습니다.
                 </p>
                 <div class="script">
 <pre><code class="language-js">func = () => {

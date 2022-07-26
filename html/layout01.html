@@ -118,11 +118,150 @@ body {
 }
 </code></pre>
                 </div>
+                <h3 class="t_tit2">flex를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    레이아웃 배치 전용으로 나온 속성입니다. 
+                    float 방법보다 단조롭고 편한 방법입니다. float방법처럼 필요한 각각 
+                    요소들에 적용하는 것이 아닌 자식 요소를 감싸고 있는 부모 요소에게만 
+                    적용하면 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+}
+body {
+    background-color: #fff3e0;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #ffe0b2;
+}
+#nav {
+    width: 100%;
+    height: 100px;
+    background-color: #FFCC80;
+}
+#aside {
+    width: 30%;
+    height: 780px;
+    background-color: #ffb74d;
+}
+#section {
+    width: 70%;
+    height: 780px;
+    background-color: #ffa726;
+}
+#footer {
+    width: 100%;
+    height: 100px;
+    background-color: #ff9800;
+
+}
+@media (max-width: 1300px) {
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px) {
+    #wrap {
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    #aside {
+    width: 100%;
+    height: 300px;
+    }
+    #section {
+    width: 100%;
+    height: 480px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">grid를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    table처럼 두 방향(가로-세로) 레이아웃 시스템(2차원)입니다. 
+                    따라서 flex보다 더 복합적인 레이아웃 표현이 가능합니다. 
+                    flex와 마찬가지로 부모 요소에만 적용하면 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+}
+body {
+    background-color: #fff3e0;
+}
+#wrap {
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "nav nav"
+        "aside section"
+        "footer footer"
+    ;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: 100px 100px 780px 100px;
+}
+#header {
+    background-color: #ffe0b2;
+    grid-area: header;
+}
+#nav {
+    background-color: #FFCC80;
+    grid-area: nav;
+}
+#aside {
+    background-color: #ffb74d;
+    grid-area: aside;
+}
+#section {
+    background-color: #ffa726;
+    grid-area: section;
+}
+#footer {
+    background-color: #ff9800;
+    grid-area: footer;
+
+}
+@media (max-width: 1300px) {
+    #wrap {
+        width: 96%;
+    }
+}
+@media (max-width: 768px) {
+    #wrap {
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    #wrap {
+        grid-template-areas: 
+            "header"
+            "nav"
+            "aside" 
+            "section"
+            "footer";
+        grid-template-columns: 100%;
+        grid-template-rows: 100px 100px 300px 480px 100px;
+    }
+}
+</code></pre>
+                </div>
 
                 <h4 class="t_tit3">결과</h4>
-                <iframe height="300" style="width: 100%;" scrolling="no" title="layout04_float" src="https://codepen.io/kim-chanmi/embed/GRxvaWN?result-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-                    See the Pen <a href="https://codepen.io/kim-chanmi/pen/GRxvaWN">
-                    layout04_float</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                <iframe height="300" style="width: 100%;" scrolling="no" title="layout01_float" src="https://codepen.io/kim-chanmi/embed/RwMZXWv?result-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/kim-chanmi/pen/RwMZXWv">
+                    layout01_float</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
                     on <a href="https://codepen.io">CodePen</a>.
                 </iframe>
 
