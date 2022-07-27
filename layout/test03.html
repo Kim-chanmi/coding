@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0 auto;
+        }
+        #wrap {
+            margin: 0 auto;
+        }
+        #header {
+            width: 100%;
+            height: 100px;
+            background-color: #e0f2f1;
+        }
+        #main {
+            width: 100%;
+            height: 880px;
+            background-color: #26A69A;
+            overflow: hidden;
+        }
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: #00897B;
+        }
+        .container {
+            width: 1200px;
+            height: inherit;
+            background-color: #222;
+            margin: 0 auto;
+        }
+        #header .header {
+            width: 1200px;
+            height: 100px;
+            background-color: #b2dfdb;
+        }
+        #main .aside {
+            width: 300px;
+            height: 900px;
+            background-color: #4db6ac;
+            float: left;
+        }
+        #main .main_top {
+            overflow: hidden;
+            width: 900px;
+            height: 300px;
+        }
+        #main .main_top .article1 {
+            width: 300px;
+            height: 300px;
+            background-color: #68eee2;
+            float: left;
+        }
+        #main .main_top .article2 {
+            width: 300px;
+            height: 300px;
+            background-color: #5CDDD1;
+            float: left;
+        }
+        #main .main_top .article3 {
+            width: 300px;
+            height: 300px;
+            background-color: #68EEE2;
+            float: left;
+        }
+        #main .main_mid .content {
+            width: 900px;
+            height: 300px;
+            background-color: #009688;
+            float: left;
+        }
+        #main .main_bom .bom1 {
+            width: 450px;
+            height: 300px;
+            background-color: #39d1c3;
+            float: left;
+        }
+        #main .main_bom .bom2 {
+            width: 450px;
+            height: 300px;
+            background-color: #68D3C9;
+            float: left;
+        }
+        #footer .footer {
+            width: 1200px;
+            height: 100px;
+            background-color: #00796b;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="container">
+                <div class="header"></div>
+            </div>
+        </div>
+        <div id="main">
+            <div class="container">
+                <div class="aside"></div>
+                <div class="main_top">
+                    <div class="article1"></div>
+                    <div class="article2"></div>
+                    <div class="article3"></div>
+                </div>
+                <div class="main_mid">
+                    <div class="content"></div>
+                </div>
+                <div class="main_bom">
+                    <div class="bom1"></div>
+                    <div class="bom2"></div>
+                </div>
+
+            </div>
+        </div>
+        <div id="footer">
+            <div class="container">
+                <div class="footer"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let name = ["제목", "이미지 슬라이드", "메뉴1", "메뉴2", "메뉴3", "공지사항", "광고1", "광고2", "푸터"]
+        
+        // document.querySelector(".header").innerHTML = name[0]
+        // document.querySelector(".aside").innerHTML = name[1]
+        // document.querySelector(".article1").innerHTML = name[2]
+        // document.querySelector(".article2").innerHTML = name[3]
+        // document.querySelector(".article3").innerHTML = name[4]
+        // document.querySelector(".content").innerHTML = name[5]
+        // document.querySelector(".bom1").innerHTML = name[6]
+        // document.querySelector(".bom2").innerHTML = name[7]
+        // document.querySelector(".footer").innerHTML = name[8]
+
+        const obj = {a:"제목", b:"이미지 슬라이드", c:"메뉴1", d:"메뉴2", e:"메뉴3", f:"공지사항", g:"광고1", 
+                    h:"광고2", i:"푸터"}
+        
+        document.querySelector(".header").innerHTML = obj.a
+        document.querySelector(".aside").innerHTML = obj.b
+        document.querySelector(".article1").innerHTML = obj.c
+        document.querySelector(".article2").innerHTML = obj.d
+        document.querySelector(".article3").innerHTML = obj.e
+        document.querySelector(".content").innerHTML = obj.f
+        document.querySelector(".bom1").innerHTML = obj.g
+        document.querySelector(".bom2").innerHTML = obj.h
+        document.querySelector(".footer").innerHTML = obj.i
+    </script>
+</body>
+</html>

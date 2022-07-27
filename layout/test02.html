@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrap {
+            width: 1200px;
+        }
+        #header {
+            width: 1200px;
+            height: 100px;
+            overflow: hidden;
+        }
+        #header .logo {
+            width: 300px;
+            height: 100px;
+            background-color: #111;
+            color: #fff;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+        }
+        #header .menu {
+            width: 900px;
+            height: 100px;
+            background-color: #222;
+            color: #fff;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+        }
+        #banner {
+            width: 1200px;
+            overflow: hidden;
+        }
+        #banner .banner1 {
+            width: 800px;
+            height: 400px;
+            background-color: #333;
+            color: #fff;
+            float: left;
+            line-height: 400px;
+            text-align: center;
+        }
+        #banner .banner2 {
+            width: 400px;
+            height: 400px;
+            background-color: #444;
+            color: #fff;
+            float: left;
+            line-height: 400px;
+            text-align: center;
+        }
+        #content {
+            width: 1200px;
+            overflow: hidden;
+        }
+        #content .content1 {
+            width: 400px;
+            height: 300px;
+            background-color: #555;
+            color: #fff;
+            float: left;
+            line-height: 300px;
+            text-align: center;
+        }
+        #content .content2 {
+            width: 400px;
+            height: 300px;
+            background-color: #666;
+            color: #fff;
+            float: left;
+            line-height: 300px;
+            text-align: center;
+        }
+        #content .content3 {
+            width: 400px;
+            height: 300px;
+            background-color: #777;
+            color: #fff;
+            float: left;
+            line-height: 300px;
+            text-align: center;
+        }
+        #footer {
+            width: 1200px;
+            overflow: hidden;
+        }
+        #footer .footer1 {
+            width: 200px;
+            height: 100px;
+            background-color: #888;
+            color: #fff;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+        }
+        #footer .footer2 {
+            width: 800px;
+            height: 100px;
+            background-color: #999;
+            color: #fff;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+        }
+        #footer .footer3 {
+            width: 200px;
+            height: 100px;
+            background-color: #888;
+            color: #fff;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header">
+            <div class="logo">로고</div>
+            <div class="menu">
+                <script>
+                    for(let i=1; i<=13; i++){
+                    document.write(i)
+                }
+                </script>
+            </div>
+        </div>
+        <div id="banner">
+            <div class="banner1">
+                <script>
+                    for(let i=1; i<10; i+=2){
+                        document.write(i)
+                    }
+                </script>
+            </div>
+            <div class="banner2">광고</div>
+        </div>
+        <div id="content">
+            <div class="content1">공지사항</div>
+            <div class="content2">갤러리</div>
+            <div class="content3">팝업</div>
+        </div>
+        <div id="footer">
+            <div class="footer1">푸터</div>
+            <div class="footer2">COPYRIGHT</div>
+            <div class="footer3">SNS</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 테스트</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+        body {
+            background-color: #e8f4f5;
+        }
+        #wrap {
+            width: 100%;
+            margin: 0 auto;
+        }
+        #header {
+            height: 100px;
+            background-color: #c8e6c9;
+        }
+        #nav {
+            height: 100px;
+            background-color: #a5d6a7;
+        }
+        #content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #content1 {
+            width: 25%;
+            height: 780px;
+            background-color: #81C784;
+        }
+        #content2 {
+            width: 50%;
+            height: 780px;
+            background-color: #66bb6a;
+        }
+        #content3 {
+            width: 25%;
+            height: 780px;
+            background-color: #4caf50;
+        }
+        #footer {
+            height: 100px;
+            background-color: #43a047;
+        }
+        @media (max-width: 1300px){
+            #wrap {
+                width: 96%;
+            }
+        }
+        @media (max-width: 768px){
+            #wrap {
+                width: 100%;
+            }
+            #content1 {
+                width: 40%;
+                height: 630px;
+            }
+            #content2 {
+                width: 60%;
+                height: 630px;
+            }
+            #content3 {
+                width: 100%;
+                height: 150px;
+            }
+        }
+        @media (max-width: 480px){
+            #content1 {
+                width: 100%;
+                height: 200px;
+            }
+            #content2 {
+                width: 100%;
+                height: 430px;
+            }
+        }
+            
+
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="content">
+            <div id="content1"></div>
+            <div id="content2"></div>
+            <div id="content3"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+    <script>
+    </script>
+</body>
+</html>
