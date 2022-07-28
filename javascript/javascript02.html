@@ -34,6 +34,7 @@
                 <li><a href="study/if.html">조건문</a></li>
                 <li><a href="study/type.html">타입</a></li>
                 <li><a href="study/function.html">함수</a></li>
+                <li><a href="study/var.html">지역변수/전역변수</a></li>
             </ul>
         </nav>
     </header>
@@ -513,6 +514,46 @@ arr.map(function(element, index, array){       //forEach처럼 element, index, a
             //     document.write(index);
             //     document.write(array);
             // });
+        }
+        //11. 배열 : 데이터 불러오기 : 펼침연산자
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+        //for문 이용해서 하나씩 출력
+        {
+            for(let i=1; i<=arr.length; i++){
+                document.write(i);
+            }
+        }
+        document.write("<br>")
+        //forEach문 이용해서 하나씩 출력
+        {
+            arr.forEach(function(el, ind, arr){
+                document.write(el);
+                document.write(ind);
+                document.write(arr);
+            });
+        }
+        document.write("<br>")
+        //map() 이용해서 하나씩 출력
+        {
+            arr.map(function(el){
+                document.write(el);
+            })
+        }
+        document.write("<br>")
+        //for in 이용해서 출력
+        {
+            for(let i in arr){
+                document.write(i);
+                document.write(arr[i]);
+            }
+        }
+        document.write("<br>")
+        //for of 이용해서 출력
+        {
+            for(let i of arr){
+                document.write(i);
+            }
         }
     </script>
 </body>

@@ -35,6 +35,7 @@
                 <li><a href="study/if.html">조건문</a></li>
                 <li><a href="study/type.html">타입</a></li>
                 <li><a href="study/function.html">함수</a></li>
+                <li><a href="study/var.html">지역변수/전역변수</a></li>
             </ul>
         </nav>
     </header>
@@ -87,6 +88,7 @@
                     </details>
                 </div>
             </div>
+            <!-- sample01 -->
             <div id="sample02" class="sample">
                 <h3>02. if문 생략</h3>
                 <p>
@@ -113,6 +115,7 @@ else document.write("실행되었습니다(false).")
                     </details>
                 </div>
             </div>
+            <!-- sample02 -->
             <div id="sample03" class="sample">
                 <h3>03. 다중 if문</h3>
                 <p>
@@ -157,6 +160,7 @@ if(num == 90){
                     </details>
                 </div>
             </div>
+            <!-- sample03 -->
             <div id="sample04" class="sample">
                 <h3>04. 중첩 if문</h3>
                 <p>
@@ -201,6 +205,7 @@ if(num == 100){
                     </details>
                 </div>
             </div>
+            <!-- sample04 -->
             <div id="sample05" class="sample">
                 <h3>05. 삼항 연산자</h3>
                 <p>
@@ -244,6 +249,7 @@ if (num==100){
                     </details>
                 </div>
             </div>
+            <!-- sample05 -->
             <div id="sample06" class="sample">
                 <h3>06. switch문</h3>
                 <p>
@@ -300,6 +306,7 @@ switch(num){
                     </details>
                 </div>
             </div>
+            <!-- sample06 -->
             <div id="sample07" class="sample">
                 <h3>07. while문</h3>
                 <p>
@@ -331,6 +338,7 @@ while(num &lt;= 5){
                     </details>
                 </div>
             </div>
+            <!-- sample07 -->
             <div id="sample08" class="sample">
                 <h3>08. do while문</h3>
                 <p>
@@ -363,6 +371,7 @@ do {
                     </details>
                 </div>
             </div>
+            <!-- sample08 -->
             <div id="sample09" class="sample">
                 <h3>09. for문</h3>
                 <p>
@@ -388,6 +397,7 @@ do {
                     </details>
                 </div>
             </div>
+            <!-- sample09 -->
             <div id="sample10" class="sample">
                 <h3>10. 중첩 for문</h3>
                 <p>
@@ -418,6 +428,76 @@ do {
                     </details>
                 </div>
             </div>
+            <!-- sample10 -->
+            <div id="sample11" class="sample">
+                <h3>11. break문</h3>
+                <p>
+                    코드 실행 중 break문을 만나게 되면 현재 실행문을 중지시킵니다.
+                    아래의 예시를 보면 for문을 이용해 1~20출력시켰을 때 특정 조건을 만족하고
+                    break문을 만나면 멈추게 됩니다.
+                </p>
+                <div class="script">
+<pre><code class="language-js">for (let i=1; i&lt;=20; i++){
+    document.write(i);
+    if(i == 10){
+        break;  //10에서 멈춤
+    }
+}
+</code></pre>                                        
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample11_result">
+                            <script>
+                                {
+                                    for (let i=1; i<=20; i++){
+                                        document.write(i);
+                                        if(i == 10){
+                                            break;  //10에서 멈춤
+                                        }
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- sample11 -->
+            <div id="sample12" class="sample">
+                <h3>12. continue문</h3>
+                <p>
+                    continue문은 특정 조건을 만족했을 때 그 해당하는 값만 건너뛰기 할 수 있습니다.
+                </p>
+                <div class="script">
+<pre><code class="language-js">for (let i=1; i&=20; i++){
+            
+    if(i == 10){
+        continue;  //10생략하고 다음부터 읽음
+    }
+    document.write(i);  
+</code></pre>                                        
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample12_result">
+                            <script>
+                                {
+                                    for (let i=1; i<=20; i++){
+            
+                                        if(i == 10){
+                                            continue;
+                                        }
+                                        document.write(i);  //10생략하고 다음부터 읽음
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- sample12 -->
         </div>
         <div class="main_script"></div>
         <div class="main_desc"></div>
@@ -434,7 +514,7 @@ do {
         // //제어문 :조건문, 반복문, 중지, 건너뛰기
         // //01. if문
         // {
-        //     //false 나오는거 -> false, 0, undefined, null
+        //     //false 나오는거 -> false, 0, undefined, null, ""(빈문자열)
         //     //true, 1(true), "0"(true), "1"(true), 0<10, [], {}
         //     if(0){
         //         document.write("실행되었습니다(true).");
@@ -570,6 +650,32 @@ do {
         //         }
         //     }
         // }
+        //11. break문
+        //while문 이용해서 1~20 출력
+        // let num1 = 1;
+
+        // while(num1 <= 20){
+        //     document.write(num1);
+        //     num1++;
+        // }
+        //for문 이용해서 1~20 출력
+        for (let i=1; i<=20; i++){
+            document.write(i);
+            if(i == 10){
+                break;  //10에서 멈춤
+            }
+        }
+
+        //12. continue 문
+        //for문 이용해서 1~20 출력
+        for (let i=1; i<=20; i++){
+            
+            if(i == 10){
+                continue;
+            }
+            document.write(i);  //10생략하고 다음부터 읽음
+        }
+
 
     </script>
     <script src="../assets/js/highlight.min.js"></script>
