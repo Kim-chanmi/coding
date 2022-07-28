@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 01.선언젹 함수
+        function func(){
+            document.write("함수가 실행되었습니다.1")
+        }
+        func()
+        document.write("<br>")
+
+        // 02. 익명 함수
+        const func2 = function(){
+            document.write("함수가 실행되었습니다.2")
+        }
+        func2()
+        document.write("<br>")
+
+        // 03. 매개변수 함수
+        function func3(str){
+            document.write(str);
+        }
+        func3("함수가 실행되었습니다.3")
+        document.write("<br>")
+
+        //04. 리턴 함수
+        function func4(){
+            let str = "함수가 실행되었습니다.4"
+            return str;
+        }
+        document.write(func4())
+        document.write("<br>")
+
+        //05. 화살표 함수(선언적 함수)
+        func5=()=>{
+            document.write("함수가 실행되었습니다.5")
+        }
+        func5()
+        document.write("<br>")
+
+        //06. 화살표 함수(익명 함수)
+        const func6 = () => {
+            document.write("함수가 실행되었습니다.6")
+        }
+        func6()
+        document.write("<br>")
+
+        //07. 화살표 함수(매개변수 함수)
+        func7 = (str) => {
+            document.write(str);
+        }
+        func7("함수가 실행되었습니다.7")
+        document.write("<br>")
+
+        //08. 화살표 함수(리턴 함수)
+        func8 = () => {
+            let str = "함수가 실행되었습니다.8"
+            return str;
+        }
+        document.write(func8())
+    </script>
+</body>
+</html>
