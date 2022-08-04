@@ -44,37 +44,38 @@
     <main id="main">
         <div class="document">
             <h2 class="t_tit">퀴즈 효과02</h2>
-            <p class="t_desc">
-                자바스크립트를 이용하여 퀴즈를 만들 수 있습니다. 이번 퀴즈는 주관식 형태로, 정답을 입력하였을 때 정답인지 오답인지 확인할 수 있습니다.
+            <p class="t_desc2">
+                자바스크립트를 이용한 웹디자인기능사 필기 기출문제입니다. 이번 퀴즈는 주관식 형태로, 정답을 입력 후 확인을 누르면 정답인지 오답인지 확인할 수 있습니다.
             </p>
-            <div class="t_iframe">
-                <iframe height="300" style="width: 100%;" scrolling="no" title="quiz02"
-                    src="https://codepen.io/kim-chanmi/embed/LYddOzo?result-tab=html%2Cresult" frameborder="no"
-                    loading="lazy" allowtransparency="true" allowfullscreen="true">
-                    See the Pen <a href="https://codepen.io/kim-chanmi/pen/LYddOzo">
-                        quiz02</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
-                    on <a href="https://codepen.io">CodePen</a>.
-                </iframe>
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/quizEffect02.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/quizEffect02.html" target="_blank">원본 소스 보기</a>
             </div>
             <hr>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                퀴즈를 만들기 위한 자바스크립트 작성법입니다. 사용자의 정답과 문제 정답의 비교를 위해 if문을 사용합니다.
+            </p>
             <div class="t_code">
-<pre><code class="language-css">//선택자
-const quizType = document.querySelector(".quiz__type");                     //퀴즈 종류
-const quizNumber = document.querySelector(".quiz__question .number");       //퀴즈 번호
-const quizAsk = document.querySelector(".quiz__question .ask");             //퀴즈 질문
-const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
-const quizResult = document.querySelector(".quiz__answer .result");         //정답 결과
-const quizInput = document.querySelector(".quiz__answer .input");            //사용자 정답
-const quizView = document.querySelector(".quiz__view");                      //강아지
+<pre><code class="language-js">//선택자
+const quizType = document.querySelector(".quiz__type");                                 //퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");         //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");                       //퀴즈 질문
+const quizConfirm = document.querySelector(".quiz__answer .confirm");            //정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");                  //정답 결과
+const quizInput = document.querySelector(".quiz__answer .input");                   //사용자 정답
+const quizView = document.querySelector(".quiz__view");                                 //강아지
 
 
 //문제 정보
 const answerType = "웹디자인기능사";
 const answerNum = "2";
 const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어내는 기업이미지통합 전략은 무엇인가요?";
-let answerResult = "CIP";
+let answerResult = "CIP";   //const는 데이터변경이 불가하기 때문에 let으로 선언
 
-//문제 출력
+//문제 출력(textContent 사용)
 quizType.textContent = answerType;
 quizNumber.textContent = answerNum + ". ";
 quizAsk.textContent = answerAsk;
@@ -84,14 +85,14 @@ quizResult.textContent = "정답은 " +  answerResult + " 입니다.";
 quizResult.style.display = "none";
 
 //정답 확인
-quizConfirm.addEventListener("click", () => { //정답 버튼을 클릭했을 때
+quizConfirm.addEventListener("click", () => {           //화살표함수 사용. 정답 버튼을 클릭했을 때
     quizInput.style.display = "none";
     quizResult.style.display = "block";
     quizConfirm.style.display = "none";
     
     //사용자 정답
-    const userWord = quizInput.value.toLowerCase().trim(); //소문자, 여백없애주는거
-    answerResult = answerResult.toLowerCase().trim(); //우변을 좌변으로 대입
+    const userWord = quizInput.value.toLowerCase().trim(); //소문자로 변환toLowerCase(), 여백없애주는거trim()
+    answerResult = answerResult.toLowerCase().trim(); //'=' :우변을 좌변으로 대입   //위에서 let으로 선언했기 때문에 데이터변경 가능
 
     console.log(userWord)
     console.log(answerResult)
@@ -101,13 +102,13 @@ quizConfirm.addEventListener("click", () => { //정답 버튼을 클릭했을 �
     //사용자 정답 == 문제 정답(비교)
     if(userWord == answerResult){
         //정답
-        quizView.classList.add("like");
         //alert("정답입니다.")
+        quizView.classList.add("like");  
         quizInput.classList.add("like")
     } else {
         //오답
-        quizView.classList.add("dislike");
         //alert("오답입니다.")
+        quizView.classList.add("dislike");     
     }
 }); 
 </code></pre>
