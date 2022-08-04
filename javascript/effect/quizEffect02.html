@@ -87,7 +87,7 @@
         const answerType = "웹디자인기능사";
         const answerNum = "2";
         const answerAsk = "기업의 새로운 이념 구축에 필요한 이미지와 커뮤니케이션 시스템을 의도적, 계획적으로 만들어내는 기업이미지통합 전략은 무엇인가요?";
-        let answerResult = "CIP";
+        let answerResult = "CIP";   //const는 데이터변경이 불가하기 때문에 let으로 선언
 
         //문제 출력
         quizType.textContent = answerType;
@@ -99,14 +99,14 @@
         quizResult.style.display = "none";
 
         //정답 확인
-        quizConfirm.addEventListener("click", () => { //정답 버튼을 클릭했을 때
+        quizConfirm.addEventListener("click", () => { //화살표함수 사용. 정답 버튼을 클릭했을 때
             quizInput.style.display = "none";
             quizResult.style.display = "block";
             quizConfirm.style.display = "none";
             
             //사용자 정답
-            const userWord = quizInput.value.toLowerCase().trim(); //소문자, 여백없애주는거
-            answerResult = answerResult.toLowerCase().trim(); //우변을 좌변으로 대입
+            const userWord = quizInput.value.toLowerCase().trim(); //소문자로 변환toLowerCase(), 여백없애주는거trim()
+            answerResult = answerResult.toLowerCase().trim(); //우변을 좌변으로 대입    //위에서 let으로 선언했기 때문에 데이터변경 가능
 
             console.log(userWord)
             console.log(answerResult)

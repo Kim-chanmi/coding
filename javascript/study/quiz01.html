@@ -45,8 +45,7 @@
         <div class="document">
             <h2 class="t_tit">퀴즈 효과01</h2>
             <p class="t_desc2">
-                자바스크립트를 이용하여 퀴즈를 만들 수 있습니다. 웹디자인기능사 필기문제를 이용하여 문제를 만들어 봅시다.
-                이번 퀴즈는 정답확인하기를 클릭하면 정답을 확인할 수 있습니다.
+                자바스크립트를 이용하여 퀴즈를 만들 수 있습니다. 이번 퀴즈는 정답확인하기를 클릭하면 정답을 확인할 수 있습니다.
             </p>
 
             <hr>
@@ -66,12 +65,12 @@
             </p>
             <div class="t_code">
 <pre><code class="language-js">//선택자
-const quizType = document.querySelector(".quiz__type");                                 //퀴즈 종류
-const quizNumber = document.querySelector(".quiz__question .number");        //퀴즈 번호
-const quizAsk = document.querySelector(".quiz__question .ask");                     //퀴즈 질문
-const quizConfirm = document.querySelector(".quiz__answer .confirm");          //정답 확인 버튼
-const quizResult = document.querySelector(".quiz__answer .result");                //정답 결과
-const quizDog = document.querySelector(".quiz__view .dog");                        //강아지
+const quizType = document.querySelector(".quiz__type");                     //퀴즈 종류
+const quizNumber = document.querySelector(".quiz__question .number");       //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");             //퀴즈 질문
+const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");         //정답 결과
+const quizDog = document.querySelector(".quiz__view .dog");                 //강아지
 
 //문제 정보
 const answerType = "웹디자인기능사";
@@ -79,8 +78,8 @@ const answerNum = 1;
 const answerAsk = "인접하는 두 색의 경계 부분에 색상, 명도, 채도의 대비가 더욱 강하게 일어나는현상을 무엇이라고 하는가?";
 const answerResult = "연변대비";
 
-//출력(innerText 사용)
-quizType.innerText = answerType;    
+//출력
+quizType.innerText = answerType;
 quizNumber.innerText = answerNum + ". ";
 quizAsk.innerText = answerAsk;
 quizResult.innerText = answerResult;
