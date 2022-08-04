@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li class="active"><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">레이아웃05</h2>
+                <p class="t_desc">
+                    이번 레이아웃 역시 가운데 영역이 들어간 구조입니다.
+                </p>
+                <div class="t_iframe"><iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FVpms0SosMZS3SKdOBPKDdE%2F%25EB%25A0%2588%25EC%259D%25B4%25EC%2595%2584%25EC%259B%2583%3Fnode-id%3D508%253A51" allowfullscreen></iframe>
+                </div>
+
+                <h3 class="t_tit2">float을 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    'float'은 원래 '뜨다'라는 의미이며, 웹페이지에서 이미지를 어떻게 띄워서 
+                    텍스트와 함께 배치할 것인가에 대한 속성입니다. div태그로 틀을 잡는데, 
+                    div 태그는 block 특성을 가지고 있어 세로로 표시됩니다. 이것을 가로로 정렬시켜주는 것이 float입니다. 
+                    이 속성을 쓰면 요소가 보이지 않는 버그가 생기는데, 여기서는 clearfix;를 사용하였습니다..
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0 auto;
+    padding: 0;
+}
+#wrap {
+    width: 100%;
+    margin: 0 auto;
+}
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #EEEBE9;
+}
+#nav {
+    width: 100%;
+    height: 100px;
+    background-color: #B9AAA5;
+}
+#main {
+    width: 100%;
+    height: 780px;
+    background-color: #886F65;
+}
+#footer {
+    width: 100%;
+    height: 100px;
+    background-color: #4E342E;
+}
+.container {
+    width: 1200px;
+    height: inherit;
+    margin: 0 auto;
+    background-color: rgba(0,0,0,0.3);
+}
+#header .header{
+    width: 100%;
+    height: 100px;
+    background-color: #D5CCC9;
+}
+#nav .nav{
+    width: 100%;
+    height: 100px;
+    background-color: #9D8980;
+}
+#main .cont1 {
+    width: 100%;
+    height: 100px;
+    background-color: #74574A;
+}
+#main .cont2 {
+    width: 100%;
+    height: 200px;
+    background-color: #684D43;
+}
+#main .cont3 {
+    width: 50%;
+    height: 480px;
+    background-color: #594139;
+    float: left;
+}
+#main .cont4 {
+    width: 50%;
+    height: 480px;
+    background-color: #4A352F;
+    float: left;
+}
+#footer .footer {
+    width: 100%;
+    height: 100px;
+    background-color: #3e2723;
+}
+/* float으로 인한 영역깨짐 방지법
+    1. 깨지는 영역에 clear: both를 설정한다.
+    2. 부모 박스 영역에 overflow: hidden을 설정한다.
+    3. clearfix를 설정한다.
+*/
+/* clearfix */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: block;
+    line-height: 0;
+}
+.clearfix::after {
+    clear: both;
+}
+
+@media (max-width: 1220px){
+    .container {
+        width: 96%;
+    }
+    #main .cont1 {
+        width: 30%;
+        height: 780px;
+        float: left;
+    }
+    #main .cont2 {
+        width: 70%;
+        height: 390px;
+        float: left;
+    }
+    #main .cont3 {
+        width: 35%;
+        height: 390px;
+    }
+    #main .cont4 {
+        width: 35%;
+        height: 390px;
+    }
+}
+
+@media (max-width: 768px){
+    .container {
+        width: 100%;
+    }
+    #main .cont1 {
+        width: 30%;
+        height: 780px;
+    }
+    #main .cont2 {
+        width: 70%;
+        height: 260px;
+    }
+    #main .cont3 {
+        width: 70%;
+        height: 260px;
+    }
+    #main .cont4 {
+        width: 70%;
+        height: 260px;
+    }
+}
+@media (max-width: 480px){
+    #main .cont1 {
+        width: 100%;
+        height: 150px;
+    }
+    #main .cont2 {
+        width: 100%;
+        height: 210px;
+    }
+    #main .cont3 {
+        width: 100%;
+        height: 210px;
+    }
+    #main .cont4 {
+        width: 100%;
+        height: 210px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">flex를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    레이아웃 배치 전용으로 나온 속성입니다. 
+                    float 방법보다 단조롭고 편한 방법입니다. float방법처럼 필요한 각각 
+                    요소들에 적용하는 것이 아닌 자식 요소를 감싸고 있는 부모 요소에게만 
+                    적용하면 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+}
+#header {
+    height: 100px;
+    background-color: #eeebe9;
+}
+#nav {
+    height: 100px;
+    background-color: #B9AAA5;
+}
+#main {
+    height: 780px;
+    background-color: #886F65;
+}
+#footer {
+    height: 100px;
+    background-color: #4E342E;
+}
+.container {
+    width: 1200px;
+    height: inherit;
+    background-color: rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+.contents .left .cont1 {
+    width: 100%;
+    height: 100px;
+    background-color: #74574a;
+}
+.contents .right {
+    display: flex;
+    flex-wrap: wrap;
+}
+.contents .right .cont2 {
+    width: 100%;
+    height: 200px;
+    background-color: #684D43;
+}
+.contents .right .cont3 {
+    width: 50%;
+    height: 480px;
+    background-color: #594139;
+}
+.contents .right .cont4 {
+    width: 50%;
+    height: 480px;
+    background-color: #4A352F;
+}
+/* 미디어쿼리 */
+@media(max-width: 1220px){
+    .container {
+        width: 96%;
+    }
+    .contents {
+        display: flex;
+    }
+    .contents .left {
+        width: 30%;
+    }
+    .contents .left .cont1 {
+        width: 100%;
+        height: 780px;
+    }
+    .contents .right {
+        width: 70%;
+    }
+    .contents .right .cont2 {
+        width: 100%;
+        height: 390px;
+    }
+    .contents .right .cont3 {
+        width: 50%;
+        height: 390px;
+    }
+    .contents .right .cont4 {
+        width: 50%;
+        height: 390px;
+    }
+}
+@media(max-width: 768px){
+    .container {
+        width: 100%;
+    }
+    .contents {
+        display: flex;
+    }
+    .contents .right .cont2 {
+        width: 100%;
+        height: 260px;
+    }
+    .contents .right .cont3 {
+        width: 100%;
+        height: 260px;
+    }
+    .contents .right .cont4 {
+        width: 100%;
+        height: 260px;
+    }
+}
+@media(max-width: 480px){
+    .contents {
+        flex-wrap: wrap;
+    }
+    .contents .left {
+        width: 100%;
+        height: 150px;
+    }
+    .contents .right {
+        width: 100%;
+        height: 630px;
+    }
+    .contents .left .cont1 {
+        height: 150px;
+    }
+    .contents .right .cont2 {
+        height: 210px;
+    }
+    .contents .right .cont3 {
+        height: 210px;
+    }
+    .contents .right .cont4 {
+        height: 210px;
+    }
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">grid를 이용한 레이아웃</h3>
+                <p class="t_desc2">
+                    table처럼 두 방향(가로-세로) 레이아웃 시스템(2차원)입니다. 
+                    따라서 flex보다 더 복합적인 레이아웃 표현이 가능합니다. 
+                    flex와 마찬가지로 부모 요소에만 적용하면 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">* {
+    margin: 0;
+}
+#header {
+    width: 100%;
+    height: 100px;
+    background-color: #eeebe9;
+}
+#nav {
+    width: 100%;
+    height: 100px;
+    background-color: #B9AAA5;
+}
+#main {
+    width: 100%;
+    height: 780px;
+    background-color: #886F65;
+}
+#footer {
+    width: 100%;
+    height: 100px;
+    background-color: #4E342E;
+}
+.container {
+    width: 1200px;
+    height: inherit;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.contents {
+    display: grid;
+    grid-template-areas: 
+        "cont1 cont1"
+        "cont2 cont2"
+        "cont3 cont4"
+    ;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100px 200px 480px;
+}
+.contents .cont1 {
+    background-color: #74574a;
+    grid-area: cont1;
+}
+.contents .cont2 {
+    background-color: #684D43;
+    grid-area: cont2;
+}
+.contents .cont3 {
+    background-color: #594139;
+    grid-area: cont3;
+}
+.contents .cont4 {
+    background-color: #4A352F;
+    grid-area: cont4;
+} 
+@media (max-width: 1220px){
+    .container {
+        width: 96%;
+    }
+    .contents {
+        grid-template-areas: 
+            "cont1 cont2 cont2"
+            "cont1 cont3 cont4"
+        ;
+        grid-template-columns: repeat(3, 1fr);
+        /* 여러 가지 방법으로 grid-template-columns를 작성할 수 있습니다.
+        grid-template-columns: repeat(3, 33.3333%);
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 33.3333% 33.3333% 33.3333%; */
+        grid-template-rows: repeat(2, 1fr);            
+    }
+}
+@media (max-width: 768px){
+    .container {
+        width: 100%;
+    }
+    .contents {
+        grid-template-areas: 
+            "cont1 cont2"
+            "cont1 cont3"
+            "cont1 cont4"
+        ;
+        grid-template-columns: 30% 70%;
+        grid-template-rows: repeat(3, 1fr);            
+    }
+}
+@media (max-width: 480px){
+    .contents {
+        grid-template-areas: 
+            "cont1"
+            "cont2"
+            "cont3"
+            "cont4"
+        ;
+        grid-template-columns: 100%;
+        grid-template-rows: 150px 210px 210px 210px;            
+    }
+}
+</code></pre>
+                </div>
+
+                <h4 class="t_tit3">결과</h4>
+                <iframe height="700" style="width: 100%;" scrolling="no" title="layout05_float" src="https://codepen.io/kim-chanmi/embed/XWEzEar?result-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/kim-chanmi/pen/XWEzEar">
+                    layout05_float</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
