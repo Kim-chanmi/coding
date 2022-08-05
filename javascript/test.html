@@ -8,62 +8,22 @@
 </head>
 <body>
     <script>
-        // 01.선언젹 함수
-        function func(){
-            document.write("함수가 실행되었습니다.1")
-        }
-        func()
-        document.write("<br>")
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-        // 02. 익명 함수
-        const func2 = function(){
-            document.write("함수가 실행되었습니다.2")
+        //for문 이용해서 하나씩 출력
+        {
+            for(let i=0; i<arr.length; i++){
+                document.write(arr[i])
+            }
         }
-        func2()
         document.write("<br>")
-
-        // 03. 매개변수 함수
-        function func3(str){
-            document.write(str);
+        //forEach
+        {
+            arr.forEach(function(el){
+                document.write(el)
+            })
         }
-        func3("함수가 실행되었습니다.3")
-        document.write("<br>")
-
-        //04. 리턴 함수
-        function func4(){
-            let str = "함수가 실행되었습니다.4"
-            return str;
-        }
-        document.write(func4())
-        document.write("<br>")
-
-        //05. 화살표 함수(선언적 함수)
-        func5=()=>{
-            document.write("함수가 실행되었습니다.5")
-        }
-        func5()
-        document.write("<br>")
-
-        //06. 화살표 함수(익명 함수)
-        const func6 = () => {
-            document.write("함수가 실행되었습니다.6")
-        }
-        func6()
-        document.write("<br>")
-
-        //07. 화살표 함수(매개변수 함수)
-        func7 = (str) => {
-            document.write(str);
-        }
-        func7("함수가 실행되었습니다.7")
-        document.write("<br>")
-
-        //08. 화살표 함수(리턴 함수)
-        func8 = () => {
-            let str = "함수가 실행되었습니다.8"
-            return str;
-        }
-        document.write(func8())
+        
     </script>
 </body>
 </html>
