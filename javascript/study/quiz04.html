@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈이펙트04</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">퀴즈 효과04</h2>
+            <p class="t_desc2">
+                웹디자인기능사 필기 기출문제를 이용한 객관식(한 문제) 유형입니다. 
+            </p>
+            <div class="t_iframe" style="min-height: 1650px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/quizEffect04.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/quizEffect04.html" target="_blank">원본 소스 보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                퀴즈를 만들기 위한 자바스크립트 작성법입니다. 자세한 설명은 아래에 있습니다.
+            </p>
+            <div class="t_code">
+<pre><code class="language-js">//01. 선택자 : 다중 선택을 위해 querySelectorAll 사용
+const quizType = document.querySelectorAll(".quiz__type");                     //퀴즈 종류  
+const quizNumber = document.querySelectorAll(".quiz__question .number");       //퀴즈 번호
+const quizAsk = document.querySelectorAll(".quiz__question .ask");             //퀴즈 질문
+const quizConfirm = document.querySelectorAll(".quiz__answer .confirm");       //정답 확인 버튼
+const quizResult = document.querySelectorAll(".quiz__answer .result");         //정답 결과
+const quizInput = document.querySelectorAll(".quiz__answer .input");            //사용자 정답
+const quizView = document.querySelectorAll(".quiz__view");                      //강아지
+
+//02. 문제 정보 : 여러 가지 정보를 한 번에 담기 위해 객체 속에 데이터를 저장
+const quizInfo = [{
+        answerType: "웹디자인 기능사 2016년 1회 기출문제",
+        answerNum: "1",//3번,
+        answerAsk: "미적 대상을 구상하는 부분과 부분의 사이에 질적으로나 양적으로 모순되는 일 없이 질서가 잡혀 어울리는 것은?",
+        answerResult: "조화"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회 기출문제",
+        answerNum: "2",//7번
+        answerAsk: "한국산업표준(KS)에 따른 색의 3속성은 무엇입니까?",
+        answerResult: "Hue, Value, Chroma"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회 기출문제",
+        answerNum: "3",//8번
+        answerAsk: "같은 크기의 형을 상, 하로 겹칠 때 위쪽의 것이 크게 보이는 착시현상은?",
+        answerResult: "상방 거리의 과대착시"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회 기출문제",
+        answerNum: "4",//9번
+        answerAsk: "디자인 원리 중 동질의 부분이 조합될 때 이루어지는 것은?",
+        answerResult: "유사"
+    },
+]
+
+//03. 문제 출력 : for문과 forEach() 모두 사용 가능
+//for문 사용
+for(let i=0; i&lt;quizInfo.length; i++){
+        quizType[i].textContent = quizInfo[i].answerType;
+        quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
+        quizAsk[i].textContent = quizInfo[i].answerAsk;
+        quizResult[i].textContent = quizInfo[i].answerResult;
+};
+//forEach() 사용
+quizInfo.forEach((e, i) => {        //element, index
+    quizType[i].textContent = quizInfo[i].answerType;
+    quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
+    quizAsk[i].textContent = quizInfo[i].answerAsk;
+    quizResult[i].textContent = quizInfo[i].answerResult;
+});
+//하나씩 출력하는 방법: 비효율적
+// quizType[0].textContent = quizInfo[0].answerType;
+// quizType[1].textContent = quizInfo[1].answerType;
+// quizType[2].textContent = quizInfo[2].answerType;
+// quizType[3].textContent = quizInfo[3].answerType;
+
+// quizNumber[0].textContent = quizInfo[0].answerNum + ". ";
+// quizNumber[1].textContent = quizInfo[1].answerNum + ". ";
+// quizNumber[2].textContent = quizInfo[2].answerNum + ". ";
+// quizNumber[3].textContent = quizInfo[3].answerNum + ". ";
+
+// quizAsk[0].textContent = quizInfo[0].answerAsk;
+// quizAsk[1].textContent = quizInfo[1].answerAsk;
+// quizAsk[2].textContent = quizInfo[2].answerAsk;
+// quizAsk[3].textContent = quizInfo[3].answerAsk;
+
+// quizResult[0].textContent = quizInfo[0].answerResult;
+// quizResult[1].textContent = quizInfo[1].answerResult;
+// quizResult[2].textContent = quizInfo[2].answerResult;
+// quizResult[3].textContent = quizInfo[3].answerResult;
+
+//04. 정답 숨기기
+//for문 사용
+ for(let i=0; i&lt;quizInfo.length; i++){
+     quizResult[i].style.display = "none"
+ }
+//forEach() 사용
+quizInfo.forEach((e, i)=>{
+    quizResult[i].style.display = "none"
+});
+//하나씩 정답 숨기는 방법
+// quizResult[0].style.display = "none"
+// quizResult[1].style.display = "none"
+// quizResult[2].style.display = "none"
+// quizResult[3].style.display = "none"
+
+//05. 정답확인 : forEach() 사용
+// quizConfirm.addEventListener("click", () => {       //문제가 하나일때는 가능하지만 여러개이기 때문에 적절하지 않은 방법
+//     alert("ddd")
+// });
+quizConfirm.forEach((btn, num) => {      //버튼이 4개인 것을 자바스크립트에게 알려줌
+    btn.addEventListener("click", () => {
+        
+        //사용자 정담
+        const userWord = quizInput[num].value;    //해당 문제에 맞는 답변 불러오기
+
+        //console.log(userWord)                     //출력값을 console.log로 확인
+        //console.log(quizInfo[num].answerResult)
+                    
+        //사용자 정답 == 문제 정답(비교 확인)
+        if(userWord == quizInfo[num].answerResult){     //사용자 정답과 문제 정답 비교
+            //정답
+            //alert("정답")
+            quizView[num].classList.add("like");        //해당 문제에 맞게 출력되도록 [num] 입력 & 정답이면 강아지의 웃는 표정
+            quizConfirm[num].style.display = "none";    //정답 확인하기 버튼 없어지도록 설정
+        } else {
+            //오답
+            //alert("오답")
+            quizView[num].classList.add("dislike");     //오답이면 강아지의 슬픈 표정
+            quizConfirm[num].style.display = "none";    
+            quizResult[num].style.display = "block";    //정답이 보일 수 있게 설정
+            quizInput[num].style.display = "none";      //정답 입력칸 없어지게 설정
+        }
+    })
+});
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

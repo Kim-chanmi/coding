@@ -61,22 +61,25 @@
                 <div class="quiz__answer">
                     <div class="quiz__selects">
                         <label for="select1">
-                            <input type="radio" id="select1" name="select" value="1"> 
+                            <input type="radio" id="select1" class="select" name="select" value="1"> 
                             <span class="choice"></span>
                         </label>                                 
                         <label for="select2">
-                            <input type="radio" id="select2" name="select" value="2"> 
+                            <input type="radio" id="select2" class="select" name="select" value="2"> 
                             <span class="choice"></span>
                         </label>
                         <label for="select3">
-                            <input type="radio" id="select3" name="select" value="3"> 
+                            <input type="radio" id="select3" class="select" name="select" value="3"> 
                             <span class="choice"></span>
                         </label>
                         <label for="select4">
-                            <input type="radio" id="select4" name="select" value="4"> 
+                            <input type="radio" id="select4" class="select" name="select" value="4"> 
                             <span class="choice"></span>
                         </label>
                     </div>
+
+                    <button class="confirm">정답 확인하기</button>
+                    <div class="result"></div>
                 </div>
             </div>
  
@@ -91,25 +94,72 @@
 
     <script>
         //선택자
-        const quizType = document.querySelectorAll(".quiz__type");                     //퀴즈 종류  //All은 여러개 있다.
-        const quizNumber = document.querySelectorAll(".quiz__question .number");       //퀴즈 번호
-        const quizAsk = document.querySelectorAll(".quiz__question .ask");             //퀴즈 질문
-        const quizConfirm = document.querySelectorAll(".quiz__answer .confirm");       //정답 확인 버튼
-        const quizResult = document.querySelectorAll(".quiz__answer .result");         //정답 결과
-        const quizInput = document.querySelectorAll(".quiz__answer .input");            //사용자 정답
-        const quizView = document.querySelectorAll(".quiz__view");                      //강아지
+        const quizType = document.querySelector(".quiz__type");                     //퀴즈 종류  //All은 여러개 있다.
+        const quizNumber = document.querySelector(".quiz__question .number");       //퀴즈 번호
+        const quizAsk = document.querySelector(".quiz__question .ask");          //퀴즈 질문
+        const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
+        const quizResult = document.querySelector(".quiz__answer .result");         //정답 결과
+        const quizView = document.querySelector(".quiz__view");                     //강아지
+        const quizSelects = document.querySelector(".quiz__selects");               //객관식 보기
+        const quizChoice = quizSelects.querySelectorAll(".choice");                 //객관식 보기 더 빨리 찾을 수 있게
+        const quizselect = quizSelects.querySelectorAll(".select");                 //객관식 보기
         
         //문제 정보
         const quizInfo = [
             {
                 answerType : "웹디자인기능사 2022년 01회",
                 answerNum : "1",
-                answerAsk : "분신, 화신이라는 의미로 채팅, 온라인 게임 등 네트워크 환경에서 자신을 대신하여 커뮤니케이션에 참여하는 가상의 그림 또는 아이콘을 뜻하는 인터넷 용어는?",
-                answerChoice : ["아바타", "쿠키", "포털", "허브"],
-                answerResult : "1",
-                answerEx : "분신, 화신이라는 의미로 채팅, 온라인 게임 등 네트워크 환경에서 자신을 대신하여 커뮤니케이션에 참여하는 가상의 그림 또는 아이콘을 뜻하는 인터넷 용어는 아바타입니다."
+                answerAsk : "다음의 HTML 태그 중 종료 태그가 없는 것은?",
+                answerChoice : ["<HTML>", "<BODY>", "<HR>", "<DIV>"],
+                answerResult : "3",
+                answerEx : "<HR>태그는 종료 태그가 없습니다."
             }
-        ]
+        ];
+        
+        //문제출력 + 보기출력(나중에 충돌될 수 있으므로 한꺼번에 출력하기 위해 함수를 사용)
+        function updateQuiz(){
+            //문제 출력
+            quizType.textContent = quizInfo[0].answerType;
+            quizNumber.textContent = quizInfo[0].answerNum + ". ";
+            quizAsk.textContent = quizInfo[0].answerAsk;
+            quizResult.textContent = quizInfo[0].answerEx;
+
+            //보기 출력
+            for(let i=0; i<quizselect.length; i++){
+                quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+            }
+
+            //해설 숨기기
+            quizResult.style.display = "none";
+        }
+        updateQuiz();
+
+        //정답 확인
+        function answerQuiz(){
+            //사용자 선택한 정답 == 문제 정답
+            //사용자가 클릭한 input --> checked 
+
+            for(let i=0; i<quizselect.length; i++){
+                if(quizselect[i].checked == true){  //보기에 체크가 된 상태 확인
+                    //체크된 번호 == 문제 정답 번호 
+                    if(quizselect[i].value == quizInfo[0].answerResult){
+                        //alert("정답")
+                        quizView.classList.add("like");
+                    } else{
+                        //alert("오답")
+                        quizView.classList.add("dislike");
+                        quizResult.style.display = "block";
+                        quizConfirm.style.display = "none";
+                    }
+                } 
+            }
+        }
+
+        //정답 클릭
+        quizConfirm.addEventListener("click", answerQuiz);
+
+
+
 
 
     </script>
