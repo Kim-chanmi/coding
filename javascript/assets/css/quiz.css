@@ -231,6 +231,45 @@ body {
     opacity: 1;
     animation: wobble 0.6s;
 }
+.quiz__selects {
+    
+}
+.quiz__selects label {
+    display: flex;
+}
+.quiz__selects label input {
+    position: absolute;
+    left: -9999px;
+}
+.quiz__selects label span {
+    font-size: 20px;
+    line-height: 1.3px;
+    font-family: "Wooridaum";
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.quiz__selects label span::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    margin-right: 15px;
+    display: flex;
+    flex-shrink: 0;
+    box-shadow: inset 0px 0px 0px 4px rgb(187, 87, 87);
+    transition: all 0.25s;
+}
+.quiz__selects label input:checked + span {
+    background-color: rgb(186, 138, 138);
+}
+.quiz__selects label input:checked + span::before {
+    box-shadow: inset 0px 0px 0px 10px rgb(187, 87, 87)
+}
 @keyframes wobble {
     0%   {transform: translateX(0) rotate(0deg)}
     15%  {transform: translateX(-25%) rotate(-5deg)}

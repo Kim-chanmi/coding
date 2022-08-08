@@ -198,7 +198,7 @@
             {
                 answerType: "웹디자인 기능사 2016년 1회 기출문제",
                 answerNum: "2",//7번
-                answerAsk: "한국산업표준(KS)에 따른 색의 3속성으로 알맞은 것은?",
+                answerAsk: "한국산업표준(KS)에 따른 색의 3속성으로 알마맞은 것은?",
                 answerResult: "Hue, Value, Chroma"
             },
             {
@@ -216,27 +216,34 @@
         ]
         
         //문제 출력
-        quizInfo.forEach((e, i) => {
+        // for(let i=0; i<quizInfo.length; i++){
+        //     quizType[i].textContent = quizInfo[i].answerType;
+        //     quizNumber[i].textContent = quizInfo[i].answerNum;
+        //     quizAsk[i].textContent = quizInfo[i].answerAsk;
+        //     quizResult[i].textContent = quizInfo[i].answerResult;
+        // }
+        quizInfo.forEach(function(e, i){
             quizType[i].textContent = quizInfo[i].answerType;
-            quizNumber[i].textContent = quizInfo[i].answerNum;
+            quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
             quizAsk[i].textContent = quizInfo[i].answerAsk;
             quizResult[i].textContent = quizInfo[i].answerResult;
         })
 
-        //문제 숨기기
-        for(let i=0; i<quizInfo.length; i++){
-            quizResult[i].style.display = "none";
-        }
+        //정답 숨기기
+        quizInfo.forEach(function(e, i){
+            quizResult[i].style.display = "none"
+        })
 
         //정답 확인
         quizConfirm.forEach(function(btn, num){
             btn.addEventListener("click", function(){
+
                 const userWord = quizInput[num].value;
 
                 if(userWord == quizInfo[num].answerResult){
-                    quizView[num].classList.add("like")
-                } else {
-                    quizView[num].classList.add("dislike")
+                    quizView[num].classList.add("like");
+                } else{
+                    quizView[num].classList.add("dislike");
                 }
             })
         })
