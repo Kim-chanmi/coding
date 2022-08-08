@@ -22,4 +22,4 @@ https://kim-chanmi.github.io/coding/index.html
  https://kim-chanmi.github.io/coding//html/alphabet.html   
  
  ### Site 카드 유형
- https://github.com/Kim-chanmi/coding/blob/main/site/cardType/cardType01.html   
+ https://Kim-chanmi.github.io/coding/site/cardType01.html   
