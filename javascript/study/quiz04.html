@@ -46,9 +46,9 @@
         <div class="document">
             <h2 class="t_tit">퀴즈 효과04</h2>
             <p class="t_desc2">
-                웹디자인기능사 필기 기출문제를 이용한 객관식(한 문제) 유형입니다. 
+                웹디자인기능사 필기 기출문제를 이용한 객관식(한 문제) 유형입니다. 객관식 보기와 해설도 함께 볼 수 있습니다.
             </p>
-            <div class="t_iframe" style="min-height: 1650px; padding-top: 0;">
+            <div class="t_iframe" style="min-height: 1100px; padding-top: 0;">
                 <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/quizEffect04.html" frameborder="0"></iframe>
             </div>
             <div class="t_link">
@@ -60,122 +60,70 @@
                 퀴즈를 만들기 위한 자바스크립트 작성법입니다. 자세한 설명은 아래에 있습니다.
             </p>
             <div class="t_code">
-<pre><code class="language-js">//01. 선택자 : 다중 선택을 위해 querySelectorAll 사용
-const quizType = document.querySelectorAll(".quiz__type");                     //퀴즈 종류  
-const quizNumber = document.querySelectorAll(".quiz__question .number");       //퀴즈 번호
-const quizAsk = document.querySelectorAll(".quiz__question .ask");             //퀴즈 질문
-const quizConfirm = document.querySelectorAll(".quiz__answer .confirm");       //정답 확인 버튼
-const quizResult = document.querySelectorAll(".quiz__answer .result");         //정답 결과
-const quizInput = document.querySelectorAll(".quiz__answer .input");            //사용자 정답
-const quizView = document.querySelectorAll(".quiz__view");                      //강아지
+<pre><code class="language-js">//01. 선택자
+const quizType = document.querySelector(".quiz__type");                     //퀴즈 종류  
+const quizNumber = document.querySelector(".quiz__question .number");       //퀴즈 번호
+const quizAsk = document.querySelector(".quiz__question .ask");          //퀴즈 질문
+const quizConfirm = document.querySelector(".quiz__answer .confirm");       //정답 확인 버튼
+const quizResult = document.querySelector(".quiz__answer .result");         //정답 결과
+const quizView = document.querySelector(".quiz__view");                     //강아지
+const quizSelects = document.querySelector(".quiz__selects");               //객관식 보기
+const quizChoice = quizSelects.querySelectorAll(".choice");                 //객관식 보기 - 문제가 많아지면 보기가 많아져 찾는데 오래 걸리 수 있으므로 quizSelects 안에 있다는 것을 알려주기 위해 document대신 사용
+const quizselect = quizSelects.querySelectorAll(".select");                 //객관식 보기
 
-//02. 문제 정보 : 여러 가지 정보를 한 번에 담기 위해 객체 속에 데이터를 저장
-const quizInfo = [{
-        answerType: "웹디자인 기능사 2016년 1회 기출문제",
-        answerNum: "1",//3번,
-        answerAsk: "미적 대상을 구상하는 부분과 부분의 사이에 질적으로나 양적으로 모순되는 일 없이 질서가 잡혀 어울리는 것은?",
-        answerResult: "조화"
-    },
+//02. 문제 정보 : 배열 속의 객체에 문제 정보 데이터를 저장
+const quizInfo = [
     {
-        answerType: "웹디자인 기능사 2016년 1회 기출문제",
-        answerNum: "2",//7번
-        answerAsk: "한국산업표준(KS)에 따른 색의 3속성은 무엇입니까?",
-        answerResult: "Hue, Value, Chroma"
-    },
-    {
-        answerType: "웹디자인 기능사 2016년 1회 기출문제",
-        answerNum: "3",//8번
-        answerAsk: "같은 크기의 형을 상, 하로 겹칠 때 위쪽의 것이 크게 보이는 착시현상은?",
-        answerResult: "상방 거리의 과대착시"
-    },
-    {
-        answerType: "웹디자인 기능사 2016년 1회 기출문제",
-        answerNum: "4",//9번
-        answerAsk: "디자인 원리 중 동질의 부분이 조합될 때 이루어지는 것은?",
-        answerResult: "유사"
-    },
-]
+        answerType : "웹디자인기능사 2016년 04회",                                          //문제 타입
+        answerNum : "1",                                                                                 //문제 번호
+        answerAsk : "다음의 HTML 태그 중 종료 태그가 없는 것은?",                       //질문
+        answerChoice : ["&lt;HTML&gt;", "&lt;BODY&gt;", "&lt;HR&gt;", "&lt;DIV&gt;"],                        //보기
+        answerResult : "3",                                                                            //정답 번호    
+        answerEx : "&lt;HR&gt;태그는 종료 태그가 없습니다."                                      //문제 해설
+    }
+];
 
-//03. 문제 출력 : for문과 forEach() 모두 사용 가능
-//for문 사용
-for(let i=0; i&lt;quizInfo.length; i++){
-        quizType[i].textContent = quizInfo[i].answerType;
-        quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
-        quizAsk[i].textContent = quizInfo[i].answerAsk;
-        quizResult[i].textContent = quizInfo[i].answerResult;
-};
-//forEach() 사용
-quizInfo.forEach((e, i) => {        //element, index
-    quizType[i].textContent = quizInfo[i].answerType;
-    quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
-    quizAsk[i].textContent = quizInfo[i].answerAsk;
-    quizResult[i].textContent = quizInfo[i].answerResult;
-});
-//하나씩 출력하는 방법: 비효율적
-// quizType[0].textContent = quizInfo[0].answerType;
-// quizType[1].textContent = quizInfo[1].answerType;
-// quizType[2].textContent = quizInfo[2].answerType;
-// quizType[3].textContent = quizInfo[3].answerType;
+//03. 문제출력 + 보기출력 : 문제가 많아지면 서로 충돌될 수 있으므로 함수를 사용
+function updateQuiz(){
+    //문제 출력
+    quizType.textContent = quizInfo[0].answerType;
+    quizNumber.textContent = quizInfo[0].answerNum + ". ";
+    quizAsk.textContent = quizInfo[0].answerAsk;
+    quizResult.textContent = quizInfo[0].answerEx;
 
-// quizNumber[0].textContent = quizInfo[0].answerNum + ". ";
-// quizNumber[1].textContent = quizInfo[1].answerNum + ". ";
-// quizNumber[2].textContent = quizInfo[2].answerNum + ". ";
-// quizNumber[3].textContent = quizInfo[3].answerNum + ". ";
+    //보기 출력
+    for(let i=0; i&lt;quizselect.length; i++){
+        quizChoice[i].textContent = quizInfo[0].answerChoice[i];
+    }
 
-// quizAsk[0].textContent = quizInfo[0].answerAsk;
-// quizAsk[1].textContent = quizInfo[1].answerAsk;
-// quizAsk[2].textContent = quizInfo[2].answerAsk;
-// quizAsk[3].textContent = quizInfo[3].answerAsk;
+    //해설 숨기기
+    quizResult.style.display = "none";
+}
+updateQuiz();   //문제출력 함수 실행문
 
-// quizResult[0].textContent = quizInfo[0].answerResult;
-// quizResult[1].textContent = quizInfo[1].answerResult;
-// quizResult[2].textContent = quizInfo[2].answerResult;
-// quizResult[3].textContent = quizInfo[3].answerResult;
+//04. 정답 확인 : 함수 + 반복문 + 중첩if문 사용
+function answerQuiz(){
+    //사용자 선택한 정답 == 문제 정답(비교)
+    //사용자가 클릭한 input --> checked 
 
-//04. 정답 숨기기
-//for문 사용
- for(let i=0; i&lt;quizInfo.length; i++){
-     quizResult[i].style.display = "none"
- }
-//forEach() 사용
-quizInfo.forEach((e, i)=>{
-    quizResult[i].style.display = "none"
-});
-//하나씩 정답 숨기는 방법
-// quizResult[0].style.display = "none"
-// quizResult[1].style.display = "none"
-// quizResult[2].style.display = "none"
-// quizResult[3].style.display = "none"
+    for(let i=0; i&lt;quizselect.length; i++){
+        if(quizselect[i].checked == true){  //보기에 체크가 된 상태인지 확인
+            //체크된 번호 == 문제 정답 번호 
+            if(quizselect[i].value == quizInfo[0].answerResult){    //체크된 번호와 문제 정답 번호가 같으면
+                //alert("정답")
+                quizView.classList.add("like");                     //강아지가 웃는 반응
+            } else{                                                 //체크된 번호와 문제 정답 번호가 같지 않으면
+                //alert("오답")
+                quizView.classList.add("dislike");                  //강아지가 우는 반응
+                quizResult.style.display = "block";                 //해설 나타나기
+                quizConfirm.style.display = "none";                 //정답 확인하기 버튼 숨기기
+            }
+        } 
+    }
+}
 
-//05. 정답확인 : forEach() 사용
-// quizConfirm.addEventListener("click", () => {       //문제가 하나일때는 가능하지만 여러개이기 때문에 적절하지 않은 방법
-//     alert("ddd")
-// });
-quizConfirm.forEach((btn, num) => {      //버튼이 4개인 것을 자바스크립트에게 알려줌
-    btn.addEventListener("click", () => {
-        
-        //사용자 정담
-        const userWord = quizInput[num].value;    //해당 문제에 맞는 답변 불러오기
-
-        //console.log(userWord)                     //출력값을 console.log로 확인
-        //console.log(quizInfo[num].answerResult)
-                    
-        //사용자 정답 == 문제 정답(비교 확인)
-        if(userWord == quizInfo[num].answerResult){     //사용자 정답과 문제 정답 비교
-            //정답
-            //alert("정답")
-            quizView[num].classList.add("like");        //해당 문제에 맞게 출력되도록 [num] 입력 & 정답이면 강아지의 웃는 표정
-            quizConfirm[num].style.display = "none";    //정답 확인하기 버튼 없어지도록 설정
-        } else {
-            //오답
-            //alert("오답")
-            quizView[num].classList.add("dislike");     //오답이면 강아지의 슬픈 표정
-            quizConfirm[num].style.display = "none";    
-            quizResult[num].style.display = "block";    //정답이 보일 수 있게 설정
-            quizInput[num].style.display = "none";      //정답 입력칸 없어지게 설정
-        }
-    })
-});
+//05. 정답 클릭
+quizConfirm.addEventListener("click", answerQuiz); //정답 확인에서 선언한 함수 불러오기
 </code></pre>
             </div>
 

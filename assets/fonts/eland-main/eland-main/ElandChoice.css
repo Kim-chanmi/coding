@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'ElandChoice';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceLight.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceLight.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceLight.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceLight.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'ElandChoice';
+    font-weight: 500;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceMedium.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceMedium.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceMedium.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceMedium.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceMedium.ttf') format("truetype");
+    font-display: swap;
+} 
+@font-face {
+    font-family: 'ElandChoice';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceBold.eot?#iefix') format('embedded-opentype'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceBold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceBold.woff') format('woff'),
+         url('https://cdn.jsdelivr.net/gh/webfontworld/eland/ElandChoiceBold.ttf') format("truetype");
+    font-display: swap;
+} 

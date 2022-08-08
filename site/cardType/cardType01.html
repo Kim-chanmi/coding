@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드유형 01</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* cardType */
+        .card__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 32%;
+            background: #f5f5f5;
+        }
+        .card__body {
+            padding: 24px;
+        }
+        .card__body .tit {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .card__body .desc {
+            font-size: 18px;
+            line-height: 1.4;
+            color: #666;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cardType" class="card__wrap nexon section">
+        <h2>필라테스 강의</h2>
+        <p>각각의 기구에 맞는 필라테스 운동 강의입니다.</p>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg01.jpg" alt="매트 운동">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">매트 운동</h3>
+                    <p class="desc">소도구를 이용한 매트운동입니다. 아령을 이용하여 여러 가지 근육을 움직이며 운동을 할 수 있습니다. 요가매트와 1kg 아령을 준비해 주세요.</p>
+                    <a class="btn" href="/">더 자세히 보기</a>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg02.jpg" alt="리포머 운동">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">리포머 운동</h3>
+                    <p class="desc">리포머를 이용한 필라테스 운동입니다. 각각의 무게별로 스프링이 있으며, 자신에게 맞게 스프링을 선택하시면 됩니다. 다칠 위험이 있으니 주의하여 주세요.</p>
+                    <a class="btn" href="/">더 자세히 보기</a>
+                </div>
+            </article>
+            <article class="card">
+                <figure>
+                    <img src="img/card_bg03.jpg" alt="캐딜락 운동">
+                </figure>
+                <div class="card__body">
+                    <h3 class="tit">캐딜락 운동</h3>
+                    <p class="desc">캐딜락을 이용한 필라테스 운동입니다. 다양한 동작을 할 수 있는 기구이지만, 떨어질 위험이 있으니 주의하여 주세요. 캐딜락을 이용한 코어 운동을
+                        알아보겠습니다.</p>
+                    <a class="btn" href="/">더 자세히 보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

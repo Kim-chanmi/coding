@@ -266,7 +266,7 @@ body {
     transition: all 0.25s;
 }
 .quiz__selects label input:checked + span {
-    background-color: rgb(232, 187, 187);
+    background-color: rgb(244, 202, 202);
 }
 .quiz__selects label input:checked + span::before {
     box-shadow: inset 0px 0px 0px 10px rgb(187, 87, 87)
