@@ -20,3 +20,6 @@ https://kim-chanmi.github.io/coding/index.html
  ### HTML 메인 페이지
  https://kim-chanmi.github.io/coding//html/index.html   
  https://kim-chanmi.github.io/coding//html/alphabet.html   
+ 
+ ### Site 카드 유형
+ https://github.com/Kim-chanmi/coding/blob/main/site/cardType/cardType01.html   
