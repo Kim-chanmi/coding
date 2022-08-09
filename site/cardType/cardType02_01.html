@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카드유형 01</title>
+    <title>카드유형 02</title>
     <style>
-        /* fonts */
-        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+        /* font */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
 
         .nexon {
-            font-family: 'NexonLv1Gothic';
+            font-family: 'GmarketSans';
             font-weight: 400;
         }
 
@@ -27,7 +27,7 @@
         }
 
         img {
-            width: 100%;
+            /* width: 100%; */
         }
 
         h1,
@@ -59,7 +59,7 @@
         }
 
         .section>p {
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 300;
             color: #666;
             text-align: center;
@@ -67,22 +67,22 @@
         }
 
         /* cardType */
-        .card__inner {
+        .card__top {
             display: flex;
             justify-content: space-between;
+            margin-bottom: 50px;
         }
-
         .card {
-            width: 32%;
+            width: 30%;
             background: #f5f5f5;
         }
 
         .card__body {
-            padding: 24px;
+            padding: 20px;
         }
 
         .card__body .tit {
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 10px;
         }
 
@@ -90,7 +90,7 @@
             font-size: 18px;
             line-height: 1.4;
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
             font-weight: 300;
         }
     </style>
@@ -98,36 +98,21 @@
 
 <body>
     <section id="cardType" class="card__wrap nexon section">
-        <h2>필라테스 강의</h2>
-        <p>각각의 기구에 맞는 필라테스 운동 강의입니다.</p>
-        <div class="card__inner container">
+        <h2>반려견 기르기</h2>
+        <p>
+            반려견을 기르는 분들을 위한 사이트 입니다.<br>
+            유용하고 다양한 정보들이 많이 있으니 소중히 봐주세요.
+        </p>
+        <div class="card__top container">
             <article class="card">
                 <figure class="card__header">
-                    <img src="img/card_bg01.jpg" alt="매트 운동">
+                    <img src="img/card2_bg01.jpg" alt="강아지 산책">
                 </figure>
                 <div class="card__body">
-                    <h3 class="tit">매트 운동</h3>
-                    <p class="desc">소도구를 이용한 매트운동입니다. 아령을 이용하여 여러 가지 근육을 움직이며 운동을 할 수 있습니다. 요가매트와 1kg 아령을 준비해 주세요.</p>
-                    <a class="btn" href="/">
-                        더 자세히 보기
-                        <span aria-hidden="true">
-                            <svg width="59" height="8" viewBox="0 0 59 8" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M58.3536 4.35355C58.5488 4.15829 58.5488 3.84171 58.3536 3.64645L55.1716 0.464466C54.9763 0.269204 54.6597 0.269204 54.4645 0.464466C54.2692 0.659728 54.2692 0.976311 54.4645 1.17157L57.2929 4L54.4645 6.82843C54.2692 7.02369 54.2692 7.34027 54.4645 7.53553C54.6597 7.7308 54.9763 7.7308 55.1716 7.53553L58.3536 4.35355ZM0 4.5H58V3.5H0L0 4.5Z"
-                                    fill="black" />
-                            </svg>
-                        </span>
-                    </a>
-                </div>
-            </article>
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card_bg02.jpg" alt="리포머 운동">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">리포머 운동</h3>
-                    <p class="desc">리포머를 이용한 필라테스 운동입니다. 각각의 무게별로 스프링이 있으며, 자신에게 맞게 스프링을 선택하시면 됩니다. 다칠 위험이 있으니 주의하여 주세요.
+                    <h3 clss="tit">반려견 산책</h3>
+                    <p class="desc">
+                        반려견 산책시 의 준비물과 주의사항들입니다.
+                        동네별로 산책하기 좋은 장소들 소개도 있습니다.
                     </p>
                     <a class="btn" href="/">
                         더 자세히 보기
@@ -143,13 +128,61 @@
                 </div>
             </article>
             <article class="card">
-                <figure>
-                    <img src="img/card_bg03.jpg" alt="캐딜락 운동">
+                <figure class="card__header">
+                    <img src="img/card2_bg01.jpg" alt="강아지 산책">
                 </figure>
                 <div class="card__body">
-                    <h3 class="tit">캐딜락 운동</h3>
-                    <p class="desc">캐딜락을 이용한 필라테스 운동입니다. 다양한 동작을 할 수 있는 기구이지만, 떨어질 위험이 있으니 주의하여 주세요. 캐딜락을 이용한 코어 운동을
-                        알아보겠습니다.</p>
+                    <h3 clss="tit">반려견 산책</h3>
+                    <p class="desc">
+                        반려견 산책시 의 준비물과 주의사항들입니다.
+                        동네별로 산책하기 좋은 장소들 소개도 있습니다.
+                    </p>
+                    <a class="btn" href="/">
+                        더 자세히 보기
+                        <span aria-hidden="true">
+                            <svg width="59" height="8" viewBox="0 0 59 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M58.3536 4.35355C58.5488 4.15829 58.5488 3.84171 58.3536 3.64645L55.1716 0.464466C54.9763 0.269204 54.6597 0.269204 54.4645 0.464466C54.2692 0.659728 54.2692 0.976311 54.4645 1.17157L57.2929 4L54.4645 6.82843C54.2692 7.02369 54.2692 7.34027 54.4645 7.53553C54.6597 7.7308 54.9763 7.7308 55.1716 7.53553L58.3536 4.35355ZM0 4.5H58V3.5H0L0 4.5Z"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card2_bg01.jpg" alt="강아지 산책">
+                </figure>
+                <div class="card__body">
+                    <h3 clss="tit">반려견 산책</h3>
+                    <p class="desc">
+                        반려견 산책시 의 준비물과 주의사항들입니다.
+                        동네별로 산책하기 좋은 장소들 소개도 있습니다.
+                    </p>
+                    <a class="btn" href="/">
+                        더 자세히 보기
+                        <span aria-hidden="true">
+                            <svg width="59" height="8" viewBox="0 0 59 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M58.3536 4.35355C58.5488 4.15829 58.5488 3.84171 58.3536 3.64645L55.1716 0.464466C54.9763 0.269204 54.6597 0.269204 54.4645 0.464466C54.2692 0.659728 54.2692 0.976311 54.4645 1.17157L57.2929 4L54.4645 6.82843C54.2692 7.02369 54.2692 7.34027 54.4645 7.53553C54.6597 7.7308 54.9763 7.7308 55.1716 7.53553L58.3536 4.35355ZM0 4.5H58V3.5H0L0 4.5Z"
+                                    fill="black" />
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card2_bg01.jpg" alt="강아지 산책">
+                </figure>
+                <div class="card__body">
+                    <h3 clss="tit">반려견 산책</h3>
+                    <p class="desc">
+                        반려견 산책시 의 준비물과 주의사항들입니다.
+                        동네별로 산책하기 좋은 장소들 소개도 있습니다.
+                    </p>
                     <a class="btn" href="/">
                         더 자세히 보기
                         <span aria-hidden="true">
