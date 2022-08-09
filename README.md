@@ -23,4 +23,4 @@ https://kim-chanmi.github.io/coding/index.html
  
  ### Site 카드 유형
  https://Kim-chanmi.github.io/coding/site/cardType/cardType01.html   
- https://Kim-chanmi.github.io/coding/site/cardType/cardType02.html   
+ https://Kim-chanmi.github.io/coding/site/cardType/cardType02.html    
