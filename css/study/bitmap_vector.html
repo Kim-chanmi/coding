@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">01. 비트맵(Bitmap)이란?</h2>
+                <p class="t_desc2">
+                    비트맵은 웹 상에서 가장 많이 접하는 이미지 포맷입니다. <i>JPG, PNG, GIF</i> 모두 비트맵 확장자입니다. 
+                    비트맵은 이미지의 각 점들을 <i>픽셀 단위</i>로 나타낸 형태이며, 사각 픽셀이 모여있기 때문에, 확대 시 <i>'계단현상'</i> 또는
+                    <i>'깨짐현상'</i>이 발생합니다. 비트맵 방식의 이미지 표현은 컴퓨터에게 부담을 덜 주는 구조를 갖고 있기 때문에,
+                    웹에서의 이미지 표시, 사실 표현, 특수효과, 합성, 보정 작업 등에 주로 사용됩니다. 또한, 픽셀 하나당
+                    모두 색상 설정이 되어 있어, 사이즈가 커질수록 <i>용량 또한 무거워</i>집니다.
+                </p>
+                <h3 class="t_tit2">[BMP, JPG, GIF, PNG, webp의 특징]</h3>
+                <p class="t_desc">
+                    <i>BMP</i> : 픽셀 데이터를 압축하지 않고 그대로 저장합니다. 구조가 간단한 반면,  파일 용량은 커지는 단점이 있습니다. <br>
+                    <i>JPG</i> : 화려한 효과와 포토샵 효과를 표현합니다. 손실 압축을 사용합니다. <br>
+                    <i>GIP</i> : 256 이하의 색상을 가진 무손실 압축을 사용합니다. 애니메이션 구현이 가능합니다. <br>
+                    <i>PNG</i> : 256색상 영상뿐만 아니라 트루컬러 영상도 지원합니다. 무손실 압축을 사용하기 때문에 파일 용량은 커지지만 픽셀 값이 변경되지 않은 장점이 있습니다.<br>
+                    <i>webp</i> : 새로 나온 확장자로, png와 jpg의 장점을 모두 가지고 있습니다.
+                </p>
+                <hr>
+                <h2 class="t_tit">02. 벡터(Vector)란?</h2>
+                <p class="t_desc2">
+                    벡터 방식은 비트맵과 상반되는 방식으로 이미지를 표현합니다. <i>수학적인 연산</i>으로 이미지를 표현하기 때문에 확대해도 
+                    절대 <i>깨지는 현상이 없으며, 경계 또한 선명하고 뚜렷</i>합니다. 하지만, 이러한 방식의 이미지 표현은 컴퓨터에 엄청난 부담이 가해지므로
+                    웹에서는 잘 사용하지 않으며 주로 <i>도형, 글자 등을 그리는 작업</i>에 주로 사용됩니다. 또한, 수학적인 연산으로 만들어졌기 때문에
+                    사이즈를 키워도 <i>용량은 변하지 않습니다.</i>
+                </p>
+                <h3 class="t_tit2">[AI, EPS, SVG, PDF의 특징]</h3>
+                <p class="t_desc">
+                    <i>AI</i> : illustrator가 소유하고 있으며 일부 예외는 있지만 자체 프로그램으로 읽고 편집할 수 있습니다. <br>
+                    <i>EPS</i> : 2차원 벡터 그래픽, 텍스트, 비트맵 이미지를 지원합니다. <br>
+                    <i>SVG</i> : 벡터, 래스터 이미지, 텍스트로 구성된 이미지의 텍스트 기반 설명입니다. 해상도의 영향을 받지 않으며 고화질 이미지를 적은 용량의 파일로 만들 수 있습니다. <br>
+                    <i>PDF</i> : 벡터와 래스터 그래픽을 모두 표시할 수 있는 범용 표준 파일 형식입니다.<br>
+                </p>
+                <hr>
+                <h2 class="t_tit">03. 비트맵과 벡터 비교</h2>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class ="ce">비트맵(Bitmap)</th>
+                            <th class ="ce">벡터(Vector)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class ="ce">정의</td>
+                            <td>직사각형의 픽셀에 저장된 비트 정보의 집합</td>
+                            <td>수학적인 함수 관계로 만든 그래픽 이미지</td>
+                        </tr>
+                        <tr>
+                            <td class ="ce">확대</td>
+                            <td>계단 현상</td>
+                            <td>뚜렷한 외곽선</td>
+                        </tr>
+                        <tr>
+                            <td class ="ce">변화/회전</td>
+                            <td>이미지 품질 손상</td>
+                            <td>변화 없음</td>
+                        </tr>
+                        <tr>
+                            <td class ="ce">특징</td>
+                            <td>사실적인 표현, 특수 효과, 풍부한 색감 표현</td>
+                            <td>선명한 표현, 효과적인 응용 작업</td>
+                        </tr>
+                        <tr>
+                            <td class ="ce">단점</td>
+                            <td>이미지의 축소, 확대로 인한 이미지 품질 손상</td>
+                            <td>사진과 같은 이미지 그래픽의 정교한 작업의 한계점</td>
+                        </tr>
+                        <tr>
+                            <td class ="ce">확장자</td>
+                            <td>JPG, PNG, GIF, websp 등</td>
+                            <td>AI, SVG, VML 등</td>
+                        </tr>
+                        <tr>
+                            <td class ="ce">프로그램</td>
+                            <td>포토샵, 페인터 등</td>
+                            <td>일러스트레이터, 플래시 등</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
