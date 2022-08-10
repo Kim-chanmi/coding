@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>카드유형 01</title>
+    <title>카드 유형02</title>
     <style>
         /* fonts */
-        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
 
-        .nexon {
-            font-family: 'NexonLv1Gothic';
-            font-weight: 400;
+        .gmark {
+            font-family: 'GmarketSans';
+            font-weight: 500;
         }
 
         /* reset */
@@ -28,7 +28,6 @@
 
         img {
             width: 100%;
-            margin-bottom: 20px;
         }
 
         h1,
@@ -67,224 +66,140 @@
             margin-bottom: 70px;
         }
 
-        /* cardType */
+        .gray {
+            background-color: #f5f5f5;
+        }
+
+        /* ir 효과(이미지 대체 효과 == alt) */
+        .ir {
+            display: block;
+            overflow: hidden;
+            font-size: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+
+        /* cardType02 */
         .card__inner {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
         }
 
-        .card {
+        .card__inner .card {
             width: 24%;
-        }
-
-        .card__body {}
-
-        .card__body .tit {
-            font-size: 28px;
-            margin-bottom: 10px;
             position: relative;
         }
-
-        .card__body .desc {
-            font-size: 18px;
-            line-height: 1.4;
-            color: #666;
+        .card__inner .card:first-child {
             margin-bottom: 50px;
-            font-weight: 300;
         }
-
-        .card__body .btn {
+        .card__inner .card img {
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .card__inner .card .tit {
+            font-size: 28px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            padding-right: 20px;
+        }
+        .card__inner .card .desc {
+            font-size: 18px;
+            font-weight: 300;
+            color: #666;
+            line-height: 1.4;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+        .card__inner .card .more {
+            width: 24px;
+            height: 24px;
+            background-image: url(img/arrow.svg);
+            display: block;
             position: absolute;
             right: 0;
+            top: 230px;
+            border-radius: 5px;
         }
     </style>
 </head>
 
 <body>
-    <section id="cardType" class="card__wrap nexon section">
+    <section id="cardType02" class="card__wrap gmark section">
         <h2>반려견 기르기</h2>
         <p>
-            반려견을 기르는 분들을 위한 사이트 입니다. <br>
+            반려견을 기르는 분들을 위한 사이트 입니다.<br>
             유용하고 다양한 정보들이 많이 있으니 소중히 봐주세요.
         </p>
-        <div class="card__inner container">
+        <div class="card__inner container gray">
             <article class="card">
-                <figure class="card__header">
-                    <img src="img/card2_bg01.jpg" alt="반려견 산책">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">
-                        반려견 산책
-                        <a class="btn" href="#">
-                            <span aria-hidden="true">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="5" fill="#AF6FD7" fill-opacity="0.79" />
-                                    <path
-                                        d="M22.7071 16.7071C23.0976 16.3166 23.0976 15.6834 22.7071 15.2929L16.3431 8.92893C15.9526 8.53841 15.3195 8.53841 14.9289 8.92893C14.5384 9.31946 14.5384 9.95262 14.9289 10.3431L20.5858 16L14.9289 21.6569C14.5384 22.0474 14.5384 22.6805 14.9289 23.0711C15.3195 23.4616 15.9526 23.4616 16.3431 23.0711L22.7071 16.7071ZM10 17H22V15H10V17Z"
-                                        fill="white" />
-                                </svg>
-                            </span>
-                        </a>
-                    </h3>
-                    <p class="desc">반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
-                </div>
+                <img src="img/card_bg02_01.jpg" alt="반려견 산책">
+                <h3 class="tit">반려견 산책</h3>
+                <p class="desc">
+                    반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 산책 시에는
+                </p>
+                <a href="#" class="more"><span class="ir">더보기</span></a>
             </article>
             <article class="card">
-                <figure class="card__header">
-                    <img src="img/card2_bg02.jpg" alt="반려견 산책">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">
-                        반려견 산책
-                        <a class="btn" href="#">
-                            <span aria-hidden="true">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="5" fill="#AF6FD7" fill-opacity="0.79" />
-                                    <path
-                                        d="M22.7071 16.7071C23.0976 16.3166 23.0976 15.6834 22.7071 15.2929L16.3431 8.92893C15.9526 8.53841 15.3195 8.53841 14.9289 8.92893C14.5384 9.31946 14.5384 9.95262 14.9289 10.3431L20.5858 16L14.9289 21.6569C14.5384 22.0474 14.5384 22.6805 14.9289 23.0711C15.3195 23.4616 15.9526 23.4616 16.3431 23.0711L22.7071 16.7071ZM10 17H22V15H10V17Z"
-                                        fill="white" />
-                                </svg>
-                            </span>
-                        </a>
-                    </h3>
-                    <p class="desc">반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
-                </div>
+                <img src="img/card_bg02_02.jpg" alt="반려견 산책">
+                <h3 class="tit">반려견 산책</h3>
+                <p class="desc">
+                    반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 산책 시에는
+                </p>
+                <a href="#" class="more"><span class="ir">더보기</span></a>
             </article>
             <article class="card">
-                <figure>
-                    <img src="img/card2_bg03.jpg" alt="반려견 산책">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">
-                        반려견 산책
-                        <a class="btn" href="#">
-                            <span aria-hidden="true">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="5" fill="#AF6FD7" fill-opacity="0.79" />
-                                    <path
-                                        d="M22.7071 16.7071C23.0976 16.3166 23.0976 15.6834 22.7071 15.2929L16.3431 8.92893C15.9526 8.53841 15.3195 8.53841 14.9289 8.92893C14.5384 9.31946 14.5384 9.95262 14.9289 10.3431L20.5858 16L14.9289 21.6569C14.5384 22.0474 14.5384 22.6805 14.9289 23.0711C15.3195 23.4616 15.9526 23.4616 16.3431 23.0711L22.7071 16.7071ZM10 17H22V15H10V17Z"
-                                        fill="white" />
-                                </svg>
-                            </span>
-                        </a>
-                    </h3>
-                    <p class="desc">반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
-                </div>
+                <img src="img/card_bg02_03.jpg" alt="반려견 산책">
+                <h3 class="tit">반려견 산책</h3>
+                <p class="desc">
+                    반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 산책 시에는
+                </p>
+                <a href="#" class="more"><span class="ir">더보기</span></a>
             </article>
             <article class="card">
-                <figure>
-                    <img src="img/card2_bg04.jpg" alt="반려견 산책">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">
-                        반려견 산책
-                        <a class="btn" href="#">
-                            <span aria-hidden="true">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="5" fill="#AF6FD7" fill-opacity="0.79" />
-                                    <path
-                                        d="M22.7071 16.7071C23.0976 16.3166 23.0976 15.6834 22.7071 15.2929L16.3431 8.92893C15.9526 8.53841 15.3195 8.53841 14.9289 8.92893C14.5384 9.31946 14.5384 9.95262 14.9289 10.3431L20.5858 16L14.9289 21.6569C14.5384 22.0474 14.5384 22.6805 14.9289 23.0711C15.3195 23.4616 15.9526 23.4616 16.3431 23.0711L22.7071 16.7071ZM10 17H22V15H10V17Z"
-                                        fill="white" />
-                                </svg>
-                            </span>
-                        </a>
-                    </h3>
-                    <p class="desc">반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
-                </div>
-            </article>
-        </div>
-        <div class="card__inner container">
-            <article class="card">
-                <figure class="card__header">
-                    <img src="img/card2_bg05.jpg" alt="반려견 산책">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">
-                        반려견 산책
-                        <a class="btn" href="#">
-                            <span aria-hidden="true">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="5" fill="#AF6FD7" fill-opacity="0.79" />
-                                    <path
-                                        d="M22.7071 16.7071C23.0976 16.3166 23.0976 15.6834 22.7071 15.2929L16.3431 8.92893C15.9526 8.53841 15.3195 8.53841 14.9289 8.92893C14.5384 9.31946 14.5384 9.95262 14.9289 10.3431L20.5858 16L14.9289 21.6569C14.5384 22.0474 14.5384 22.6805 14.9289 23.0711C15.3195 23.4616 15.9526 23.4616 16.3431 23.0711L22.7071 16.7071ZM10 17H22V15H10V17Z"
-                                        fill="white" />
-                                </svg>
-                            </span>
-                        </a>
-                    </h3>
-                    <p class="desc">반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
-                </div>
+                <img src="img/card_bg02_04.jpg" alt="반려견 산책">
+                <h3 class="tit">반려견 산책</h3>
+                <p class="desc">
+                    반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 산책 시에는
+                </p>
+                <a href="#" class="more"><span class="ir">더보기</span></a>
             </article>
             <article class="card">
-                <figure class="card__header">
-                    <img src="img/card2_bg06.jpg" alt="반려견 산책">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">
-                        반려견 산책
-                        <a class="btn" href="#">
-                            <span aria-hidden="true">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="5" fill="#AF6FD7" fill-opacity="0.79" />
-                                    <path
-                                        d="M22.7071 16.7071C23.0976 16.3166 23.0976 15.6834 22.7071 15.2929L16.3431 8.92893C15.9526 8.53841 15.3195 8.53841 14.9289 8.92893C14.5384 9.31946 14.5384 9.95262 14.9289 10.3431L20.5858 16L14.9289 21.6569C14.5384 22.0474 14.5384 22.6805 14.9289 23.0711C15.3195 23.4616 15.9526 23.4616 16.3431 23.0711L22.7071 16.7071ZM10 17H22V15H10V17Z"
-                                        fill="white" />
-                                </svg>
-                            </span>
-                        </a>
-                    </h3>
-                    <p class="desc">반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
-                </div>
+                <img src="img/card_bg02_05.jpg" alt="반려견 산책">
+                <h3 class="tit">반려견 산책</h3>
+                <p class="desc">
+                    반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 산책 시에는
+                </p>
+                <a href="#" class="more"><span class="ir">더보기</span></a>
             </article>
             <article class="card">
-                <figure>
-                    <img src="img/card2_bg07.jpg" alt="반려견 산책">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">
-                        반려견 산책
-                        <a class="btn" href="#">
-                            <span aria-hidden="true">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="5" fill="#AF6FD7" fill-opacity="0.79" />
-                                    <path
-                                        d="M22.7071 16.7071C23.0976 16.3166 23.0976 15.6834 22.7071 15.2929L16.3431 8.92893C15.9526 8.53841 15.3195 8.53841 14.9289 8.92893C14.5384 9.31946 14.5384 9.95262 14.9289 10.3431L20.5858 16L14.9289 21.6569C14.5384 22.0474 14.5384 22.6805 14.9289 23.0711C15.3195 23.4616 15.9526 23.4616 16.3431 23.0711L22.7071 16.7071ZM10 17H22V15H10V17Z"
-                                        fill="white" />
-                                </svg>
-                            </span>
-                        </a>
-                    </h3>
-                    <p class="desc">반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
-                </div>
+                <img src="img/card_bg02_06.jpg" alt="반려견 산책">
+                <h3 class="tit">반려견 산책</h3>
+                <p class="desc">
+                    반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 산책 시에는
+                </p>
+                <a href="#" class="more"><span class="ir">더보기</span></a>
             </article>
             <article class="card">
-                <figure>
-                    <img src="img/card2_bg08.jpg" alt="반려견 산책">
-                </figure>
-                <div class="card__body">
-                    <h3 class="tit">
-                        반려견 산책
-                        <a class="btn" href="#">
-                            <span aria-hidden="true">
-                                <svg width="26" height="26" viewBox="0 0 32 32" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="32" height="32" rx="5" fill="#AF6FD7" fill-opacity="0.79" />
-                                    <path
-                                        d="M22.7071 16.7071C23.0976 16.3166 23.0976 15.6834 22.7071 15.2929L16.3431 8.92893C15.9526 8.53841 15.3195 8.53841 14.9289 8.92893C14.5384 9.31946 14.5384 9.95262 14.9289 10.3431L20.5858 16L14.9289 21.6569C14.5384 22.0474 14.5384 22.6805 14.9289 23.0711C15.3195 23.4616 15.9526 23.4616 16.3431 23.0711L22.7071 16.7071ZM10 17H22V15H10V17Z"
-                                        fill="white" />
-                                </svg>
-                            </span>
-                        </a>
-                    </h3>
-                    <p class="desc">반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
-                </div>
+                <img src="img/card_bg02_07.jpg" alt="반려견 산책">
+                <h3 class="tit">반려견 산책</h3>
+                <p class="desc">
+                    반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 산책 시에는
+                </p>
+                <a href="#" class="more"><span class="ir">더보기</span></a>
+            </article>
+            <article class="card">
+                <img src="img/card_bg02_08.jpg" alt="반려견 산책">
+                <h3 class="tit">반려견 산책</h3>
+                <p class="desc">
+                    반려견 산책시 의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 산책 시에는
+                </p>
+                <a href="#" class="more"><span class="ir">더보기</span></a>
             </article>
         </div>
     </section>
