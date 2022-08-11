@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 이펙트</title>
+
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+
+    <link href="https://webfontworld.github.io/woori/Wooridaum.css" rel="stylesheet">
+    <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
+</head>
+
+<body>
+    <heeader id="header">
+        <h1><a href="../javascript01.html">Quiz </a><em>객관식(여러문제) 유형</em></h1>
+        <nav>
+            <ul>
+                <li><a href="quizEffect01.html">1</a></li>
+                <li><a href="quizEffect02.html">2</a></li>
+                <li><a href="quizEffect03.html">3</a></li>
+                <li><a href="quizEffect04.html">4</a></li>
+                <li class="active"><a href="quizEffect05.html">5</a></li>
+                <li><a href="quizEffect06.html">6</a></li>
+            </ul>
+        </nav>
+    </heeader>
+    <!-- header -->
+    <main id="main">
+        <div class="quiz__wrap">
+            <!-- <div class="quiz">
+                <span class="quiz__type"></span>
+                <h2 class="quiz__question">
+                    <span class="number"></span>
+                    <div class="ask"></div>
+                </h2>
+                <div class="quiz__view">
+                    <div class="true">정답입니다!</div>
+                    <div class="false">틀렸습니다!</div>
+                    <div class="dog">
+                        <div class="head">
+                            <div class="ears"></div>
+                            <div class="face"></div>
+                            <div class="eyes">
+                                <div class="teardrop"></div>
+                            </div>
+                            <div class="nose"></div>
+                            <div class="mouth">
+                                <div class="tongue"></div>
+                            </div>
+                            <div class="chin"></div>
+                        </div>
+                        <div class="body">
+                            <div class="tail"></div>
+                            <div class="legs"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="quiz__answer">
+                    <div class="quiz__selects">
+                        <label for="select1">
+                            <input type="radio" id="select1" class="select" name="select" value="1"> 
+                            <span class="choice"></span>
+                        </label>                                 
+                        <label for="select2">
+                            <input type="radio" id="select2" class="select" name="select" value="2"> 
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select3">
+                            <input type="radio" id="select3" class="select" name="select" value="3"> 
+                            <span class="choice"></span>
+                        </label>
+                        <label for="select4">
+                            <input type="radio" id="select4" class="select" name="select" value="4"> 
+                            <span class="choice"></span>
+                        </label>
+                    </div>
+
+                    <button class="confirm">정답 확인하기</button>
+                    <div class="result"></div>
+                </div>
+            </div> -->
+
+
+        </div>
+    </main>
+    <!-- main -->
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+
+    <script>
+        //문제 정보
+        const quizInfo = [
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "1",
+                answerAsk: "색의 수축, 팽창의 효과에 가장 큰 영향을 주는 요소는?",
+                answerChoice: {
+                    1: "색약",
+                    2: "명도",
+                    3: "잔상",
+                    4: "중량"
+                },
+                answerResult: "2",
+                answerEx: "색의 수축, 팽창의 효과에 가장 큰 영향을 주는 요소는 명도입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "2",
+                answerAsk: "면(plane)에 대한 설명으로 틀린 것은?",
+                answerChoice: {
+                    1: "폭은 있으나 길이가 없다.",
+                    2: "이동하는 선의 자취가 면을 이룬다.",
+                    3: "공간을 구성하는 단위이다.",
+                    4: "넓이는 있으나 두께는 없다."
+                },
+                answerResult: "1",
+                answerEx: "면에는 길이가 있습니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "3",
+                answerAsk: "디자인에서 사용되는 용어 설명으로 잘못된 것은?",
+                answerChoice: {
+                    1: "2차원의 화면이나 형식 위에, 3차원의 공간에 존재하는 형(shape)이나 형태(form)를 표시하는 것을 투시(perspective)라 한다.",
+                    2: "장소나 위치 또는 방위가 변화되는 과정이나 움직임을 시차(parallax)라고 한다.",
+                    3: "점진적 변화, 규칙적 단계에 의해 진행되는 변화과정을 그라데이션(gradation)이라고 한다.",
+                    4: "시각적 영역 안에서 어떤 형이나 형태가 다른 형이나 형태를 부분적으로 덮어 감추어지는 현상을 중첩이라 한다."
+                },
+                answerResult: "2",
+                answerEx: "시차(parallax)란 어떤 물체를 서로 다른 두 지점에서 보았을 때 생기는 방향의 차이를 말합니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "4",
+                answerAsk: "병원 수술실의 색채계획으로 가장 적당한 배색은?",
+                answerChoice: {
+                    1: "갈색계열",
+                    2: "무채색계열",
+                    3: "녹색계열",
+                    4: "보라색계열"
+                },
+                answerResult: "3",
+                answerEx: "병원 수술실의 색채계획으로 가장 적당한 배색은 녹색계열입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "5",
+                answerAsk: "색입체를 단순화한 각 부분의 명칭이 맞는 것은? (단, A는 입체의 상하, /B는 입체의 가로방향, C는 입체의 둘레를 의미한다.)",
+                answerChoice: {
+                    1: "A-색상, B-채도, C-명도",
+                    2: "A-채도, B-명도, C-색상",
+                    3: "A-명도, B-색상, C-채도",
+                    4: "A-명도, B-채도, C-색상"
+                },
+                answerResult: "4",
+                answerEx: "입체의 상하(A)는 명도, 입체의 가로방향(B)는 채도, 입체의 둘레(C)는 색상입니다."
+            },
+            {
+                answerType: "웹디자인기능사 2010년 04회",
+                answerNum: "6",
+                answerAsk: "기계화와 대량생산에 의한 생활용품의 품질 저하에 반대하여 윌리엄 모리스를 중심으로 영국에서 일어난 수공예 부흥 운동은?",
+                answerChoice: {
+                    1: "독일공작연맹운동",
+                    2: "미술공예운동",
+                    3: "미래파운동",
+                    4: "바우하우스"
+                },
+                answerResult: "2",
+                answerEx: "기계화와 대량생산에 의한 생활용품의 품질 저하에 반대하여 윌리엄 모리스를 중심으로 영국에서 일어난 수공예 부흥 운동은 미술공예운동 입니다."
+            },
+        ];
+
+        //선택자
+        const quizwrap = document.querySelector(".quiz__wrap");
+
+        //문제출력
+        function updateQuiz() {
+            const exam = [];
+
+            quizInfo.forEach((question, number) => {
+                exam.push(`
+                    <div class="quiz">
+                        <span class="quiz__type">${question.answerType}</span>
+                        <h2 class="quiz__question">
+                            <span class="number">${question.answerNum}</span>
+                            <div class="ask">${question.answerAsk}</div>
+                        </h2>
+                        <div class="quiz__view">
+                            <div class="true">정답입니다!</div>
+                            <div class="false">틀렸습니다!</div>
+                            <div class="dog">
+                                <div class="head">
+                                    <div class="ears"></div>
+                                    <div class="face"></div>
+                                    <div class="eyes">
+                                        <div class="teardrop"></div>
+                                    </div>
+                                    <div class="nose"></div>
+                                    <div class="mouth">
+                                        <div class="tongue"></div>
+                                    </div>
+                                    <div class="chin"></div>
+                                </div>
+                                <div class="body">
+                                    <div class="tail"></div>
+                                    <div class="legs"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="quiz__answer">
+                            <div class="quiz__selects">
+                                <label for="select1">
+                                    <input type="radio" id="select1" class="select" name="select" value="1"> 
+                                    <span class="choice"></span>
+                                </label>                                 
+                                <label for="select2">
+                                    <input type="radio" id="select2" class="select" name="select" value="2"> 
+                                    <span class="choice"></span>
+                                </label>
+                                <label for="select3">
+                                    <input type="radio" id="select3" class="select" name="select" value="3"> 
+                                    <span class="choice"></span>
+                                </label>
+                                <label for="select4">
+                                    <input type="radio" id="select4" class="select" name="select" value="4"> 
+                                    <span class="choice"></span>
+                                </label>
+                            </div>
+
+                            <button class="confirm">정답 확인하기</button>
+                            <div class="result"></div>
+                        </div>
+                    </div>
+                `);
+            })
+            // console.log(exam);
+            quizwrap.innerHTML = exam.join('');
+        }
+        updateQuiz();
+
+
+
+    </script>
+</body>
+
+</html>
