@@ -30,11 +30,11 @@
                 </p>
 
                 <h3 class="t_tit2">1. Figma로 디자인하기</h3>
-                <p class="t_box">Figma를 이용해 그리드를 나누어 전체적인 틀을 만들어줍니다. 각 구역간의 수치는 정확히 해주는게 중요합니다. </p>
+                <p class="t_desc">Figma를 이용해 그리드를 나누어 전체적인 틀을 만들어줍니다. 각 구역간의 수치는 정확히 해주는게 중요합니다. </p>
                 <div class="t_iframe"><iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwekJoc9v02DAwnYntVRBDb%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D185%253A3" allowfullscreen></iframe>
                 </div>
                 <h3 class="t_tit2">2. HTML</h3>
-                <p class="t_box">
+                <p class="t_desc">
                     화살표 버튼을 넣어주기 위해 svg파일로 저장 후 페이지 소스를 복사해 붙여줍니다. 웹표준 준수를 위해 aria-hidden="true"도 함께 넣어줍니다.
                 </p>
                 <div class="t_code">
@@ -114,9 +114,22 @@
 </code></pre>
                 </div>
                 <h3 class="t_tit2">3. CSS</h3>
-                <p class="t_box">
+                <p class="t_desc">
                     Figma를 이용해 만든 디자인을 보며 css설정을 합니다. display: flex;와 justify-content: space-between;를 사용하여 정렬을 맞춰줍니다.
                     웹표준을 준수하기 위해 ir효과를 사용합니다.
+                </p>
+                <p class="t_box">
+                    <strong>IR(Image Replacement)</strong> : 의미가 포함되어 있는 이미지를 배경으로 표현하고, 
+                    그에 상응하는 내용을 텍스트로 대신해 기입하는 방법 <br>
+                    <strong>* 사용 방법 *</strong>  <br>
+                    .ir {  <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display: block; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size: 0; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;line-height: 0; <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-indent: -9999px; <br>
+                    }
+
                 </p>
                 <div class="t_code">
 <pre><code class="language-css">/* fonts */
@@ -247,6 +260,7 @@ h6 {
                 </div>
                 <div class="t_link">
                     <a href="https://github.com/Kim-chanmi/coding/blob/main/site/cardType/cardType02.html" target="_blank">원본 소스 보기</a>
+                    <a href="https://Kim-chanmi.github.io/coding/site/cardType/cardType02.html" target="_blank">원본 사이트 보기</a>
                 </div>
 
             </div>
