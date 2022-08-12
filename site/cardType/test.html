@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+        .score {
+            font-family: 'SCoreDream';
+            font-weight: 300;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        /* blind */
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+
+        /* cardType */
+        body {
+            background-color: #2254c3;
+        }
+
+        .card__inner {
+            display: flex;
+        }
+
+        .card__inner .card {
+            background-color: #fff;
+            width: 33.3333%;
+            padding: 26px;
+        }
+
+        .card__inner .card:nth-child(1) {
+            border-right: 1px solid #eee;
+        }
+
+        .card__inner .card:nth-child(2) {
+            border-right: 1px solid #eee;
+        }
+
+        .card__header {
+            position: relative;
+        }
+
+        .card__header img {
+            border-radius: 10px;
+            box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .card__header figcaption {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 6px 16px;
+            border-radius: 50px;
+            background-color: #fff;
+
+        }
+
+        .card__contents h3 {
+            font-size: 20px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .card__contents p {
+            font-size: 16px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .card__footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .card__footer h4 {
+            text-align: right;
+        }
+
+        .card__footer em {
+            font-style: normal;
+            color: #666;
+            display: block;
+        }
+
+        .card__footer span {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+            margin-left: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="cardType03" class="card__wrap score section">
+        <h2 class="blind">스포츠</h2>
+        <div class="card__inner container">
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg03_01.jpg" alt="Surfing">
+                    <figcaption>surfing</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>여름에 즐길 수 있는 익스트림 레저 스포츠01</h3>
+                    <p>여름에 즐길 수 있는 익스트림 레저 스포츠 첫번째는 서핑입니다. 바다에서도 즐길 수 있지만 인공 서핑장에서도 즐길 수 있습니다. 경기도 시흥시의</p>
+                </div>
+                <div class="card__footer">
+                    <h4>Cree Percy <em>9Resources</em></h4>
+                    <span><img src="img/card_bg03_icon01.png" alt="Eric"></span>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg03_02.jpg" alt="Surfing">
+                    <figcaption>surfing</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>여름에 즐길 수 있는 익스트림 레저 스포츠01</h3>
+                    <p>여름에 즐길 수 있는 익스트림 레저 스포츠 첫번째는 서핑입니다. 바다에서도 즐길 수 있지만 인공 서핑장에서도 즐길 수 있습니다. 경기도 시흥시의</p>
+                </div>
+                <div class="card__footer">
+                    <h4>Cree Percy <em>9Resources</em></h4>
+                    <span><img src="img/card_bg03_icon02.png" alt="Eric"></span>
+                </div>
+            </article>
+            <article class="card">
+                <figure class="card__header">
+                    <img src="img/card_bg03_03.jpg" alt="Surfing">
+                    <figcaption>surfing</figcaption>
+                </figure>
+                <div class="card__contents">
+                    <h3>여름에 즐길 수 있는 익스트림 레저 스포츠01</h3>
+                    <p>여름에 즐길 수 있는 익스트림 레저 스포츠 첫번째는 서핑입니다. 바다에서도 즐길 수 있지만 인공 서핑장에서도 즐길 수 있습니다. 경기도 시흥시의</p>
+                </div>
+                <div class="card__footer">
+                    <h4>Cree Percy <em>9Resources</em></h4>
+                    <span><img src="img/card_bg03_icon03.png" alt="Eric"></span>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>
