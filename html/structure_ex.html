@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구조 관련 요소 예제</title>
+    <style>
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+        h1, h2, h3 {
+            font-weight: normal;
+            font-size: 14px;
+        }
+        .wrap {
+            width: 1200px;
+            font-size: 14px;
+        }
+
+        /* header */
+        .header {
+            height: 150px;
+            background-color: #e59797;
+            margin-bottom: 10px;
+            display: flex;
+        }
+        .header .logo {
+            width: 10%;
+            margin: 20px;
+            height: 110px;
+            background-color: #ecb7b7;
+        }
+        .header .logo>h1 {
+            color: #fff;
+            text-align: center;
+            width: 80px;
+            height: 20px;
+            background-color: #c5c5c5;
+            margin-top: 10px;
+        }
+        .header .logo>p {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .header .menu {
+            width: 90%;
+        }
+        .header .menu>h2 {
+            text-align: center;
+            width: 80px;
+            height: 20px;
+            background-color: #000;
+            color: #fff;
+            margin-bottom: 32px;
+            margin-top: 28px;
+        }
+        .header .menu .nav_menu {
+            width: 900px;
+            height: 50px;
+            background-color: #ecb7b7;
+        }
+        .header .menu .nav_menu>h2 {
+            text-align: center;
+            color: #fff;
+            width: 80px;
+            height: 20px;
+            background-color: #c5c5c5;
+            margin: 0;
+        }
+        .header .menu .nav_menu .nav {
+            text-align: center;
+        }
+        .header .menu li {
+            list-style: none;
+            display: inline;
+            padding: 35px;
+        }
+        .main {
+            height: 500px;
+            background-color: #e59797;
+            margin-bottom: 10px;
+            display: flex;
+            position: relative;
+        }
+        .main .contents {
+            width: 434px;
+            height: 460px;
+            background-color: #ecb7b7;
+            margin: 20px;
+        }
+        .main .contents>h3 {
+            color: #fff;
+            text-align: center;
+            width: 80px;
+            height: 20px;
+            background-color: #c5c5c5;
+            margin: 0;
+        }
+        .main .contents>p {
+            text-align: center;
+            margin-top: 203px;
+        }
+        .main .contents2 {
+            width: 407px;
+            height: 460px;
+            background-color: #ecb7b7;
+            margin-top: 20px;
+        }
+        .main .contents2>h3 {
+            color: #fff;
+            text-align: center;
+            width: 80px;
+            height: 20px;
+            background-color: #c5c5c5;
+            margin: 0;
+        }
+        .main .contents2>p {
+            text-align: center;
+            margin-top: 203px;
+        }
+        .main .article {
+            width: 279px;
+            height: 200px;
+            background-color: #ecb7b7;
+            margin: 20px;
+        }
+        .main .article>h3 {
+            color: #fff;
+            text-align: center;
+            width: 80px;
+            background-color: #c5c5c5;
+            margin: 0;
+        }
+        .main .article>p {
+            text-align: center;
+            margin-top: 71px;
+        }
+        .main .ad {
+            width: 279px;
+            height: 240px;
+            background-color: #ecb7b7;
+            margin-left: 20px;
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+        .main .ad>h3 {
+            color: #fff;
+            text-align: center;
+            width: 80px;
+            height: 20px;
+            background-color: #c5c5c5;
+            margin: 0;
+        }
+        .main .ad>p {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .footer {
+            height: 100px;
+            background-color: #e59797;
+            position: relative;
+        }
+        .footer>h2 {
+            text-align: center;
+            color: #fff;
+            width: 80px;
+            height: 20px;
+            background-color: #000;
+            margin: 0;
+        }
+        .footer .address {
+            width: 495px;
+            height: 35px;
+            background-color: #ecb7b7;
+            margin-left: 170px;
+            position: relative;
+            margin-bottom: 5px;
+            position: absolute;
+            top: 10px;
+        }
+        .footer .address>h3 {
+            text-align: center;
+            color: #fff;
+            width: 68px;
+            height: 20px;
+            background-color: #c5c5c5;
+            margin: 0;
+        }
+        .footer .address>p {
+            margin-left: 100px;
+            position:absolute;
+            top: 10px;
+        }
+        .footer .p {
+            width: 495px;
+            height: 35px;
+            background-color: #ecb7b7;
+            margin-left: 170px;
+            position: relative;
+            position:absolute;
+            top: 55px;
+        }
+        .footer .p>h3 {
+            text-align: center;
+            color: #fff;
+            width: 68px;
+            height: 20px;
+            background-color: #c5c5c5;
+            margin: 0;
+        }
+        .footer .p>p {
+            margin-left: 100px;
+            position:absolute;
+            top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <section id="html_ex" class="wrap">
+        <header class="header">
+            <div class="logo">
+                <h1>h1</h1>
+                <p>반응형 웹</p>
+            </div>
+            <div class="menu">
+                <h2>header</h2>
+                <div class="nav_menu">
+                    <h2>nav</h2>
+                    <nav class="nav">
+                        <ul>
+                            <li>MENU01</li>
+                            <li>MENU02</li>
+                            <li>MENU03</li>
+                            <li>MENU04</li>
+                            <li>MENU05</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        <div class="main">
+            <section class="contents">
+                <h3>section</h3>
+                <p>콘텐츠 그룹01</p>
+            </section>
+            <section class="contents2">
+                <h3>section</h3>
+                <p>콘텐츠 그룹01</p>
+            </section>
+            <article class="article">
+                <h3>article</h3>
+                <p>주요 기사</p>
+            </article>
+            <aside class="ad">
+                <h3>aside</h3>
+                <p>광고</p>
+            </aside>
+        </div>
+        <footer class="footer">
+            <h2>footer</h2>
+            <div class="address">
+                <h3>address</h3>
+                <p>경기도 안산시 사동  031)000-0000   chanmi0517@naver.com</p>
+            </div>
+            <div class="p">
+                <h3>p</h3>
+                <p>COPYRIGHT © ALL rights reserved.</p>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>

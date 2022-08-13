@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">구조 관련 요소</h2>
+                <p class="t_desc2">
+                    기존 HTML에서는 콘텐츠의 구조를 구분할 수 있는 시맨틱한 요소가 제공되지 않았지만, HTML5에서는 구조를 설계할 수 있는 
+                    main, nav, section, article, aside, header, footer 등 다양한 <i>구조 관련 요소</i>가 새롭게 추가되었습니다.
+                    오늘은 구조 관련 요소들에 대해 알아보겠습니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>요소 유형</th>
+                            <th>태그명</th>
+                            <th>태그의 의미 및 특징</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="12">블록 레벨 요소</td>
+                            <td rowspan="2">&lt;header&gt;<br>&lt;/header&gt;</td>
+                            <td>1. HTML 문서의 헤더 영역을 의미하는 태그로 제목이나 내비게이션, 검색 등의 내용들을 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있지만 &lt;header&gt;, &lt;footer&gt; 태그는 포함할 수 없습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">&lt;sectionn&gt;<br>&lt;/section&gt;</td>
+                            <td>1. HTML 문서에서 맥락이 같은 요소들을 주제별로 그룹화해주는 태그이며 섹션 주제에 대한 제목 요소(&lt;h2&gt;~&lt;h6&gt;)를 포함하는 것이 좋습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트 요소, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">&lt;footer&gt;<br>&lt;/footer&gt;</td>
+                            <td>1. HTML 문서의 푸터 영역을 의미하는 태그로 섹션 작성자나 저작권에 대한 정보, 관련된 문서의 링크를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있지만 &lt;header&gt;, &lt;footer&gt; 태그는 포함할 수 없습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">&lt;nav&gt;<br>&lt;/nav&gt;</td>
+                            <td>1. HTML 문서의 메인 메뉴나 목차 등을 정의해 주는 태그입니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">&lt;article&gt;<br>&lt;/article&gt;</td>
+                            <td>1. HTML 문서 내에서 독립적으로 배포 또는 재사용이 가능한 게시물, 뉴스 기사, 블로그 포스팅 등을 의미하는 태그이며 제목 요소(&lt;h2&gt;~&lt;h6&gt;)를 포함하는 것이 좋습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">&lt;aside&gt;<br>&lt;/aside&gt;</td>
+                            <td>1. 메인 콘텐츠와 직접적으로 연관이 없는 영역을 의미하는 태그이며 HTML 문서의 오른쪽이나 왼쪽의 사이드 메뉴나 광고 등의 영역으로</td>
+                        </tr>
+                        <tr>
+                            <td>2. 텍스트, 인라인 요소, 블록 레벨 요소를 포함할 수 있습니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
