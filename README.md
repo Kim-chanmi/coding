@@ -28,3 +28,6 @@ https://kim-chanmi.github.io/coding/index.html
  https://Kim-chanmi.github.io/coding/site/cardType/cardType01.html   
  https://Kim-chanmi.github.io/coding/site/cardType/cardType02.html    
  https://Kim-chanmi.github.io/coding/site/cardType/cardType03.html    
+ 
+ ### HTML 기본 구조
+ https://github.com/Kim-chanmi/coding/blob/main/html/structure_ex.html   
