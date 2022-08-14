@@ -31,3 +31,6 @@ https://kim-chanmi.github.io/coding/index.html
  
  ### HTML 기본 구조
  https://kim-chanmi.github.io/coding/html/structure_ex.html   
+ 
+ ### CSS Media query 
+ https://Kim-chanmi.github.io/coding/css/study/mediaquery_ex.html    
