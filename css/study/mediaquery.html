@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">미디어쿼리(Media query)</h2>
+                <p class="t_desc2">
+                    미디어쿼리란 화면 해상도, 기기 방향 등의 조건으로 HTML에 적용하는 스타일을 전환할 수 있는 CSS의 속성 중 하나입니다.
+                    뷰포트의 해상도에 따라 CSS를 분기시키는 미디어쿼리는 반응형 프로젝트에서 반드시 필요한 기법입니다.
+                </p>
+                <h3 class="t_tit2">01. &lt;link~media=""&gt;</h3>
+                <div class="t_code">
+<pre><code>&lt;link rel="stylesheet" type="text/css" media="all and (min-width: 1000px)" href="style_pc.css"&gt;
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    위 예시는 최소 가로폭이 1000px, 즉 1000px 보다 넓은 해상도일 때에 style_pc.css를 연결한다는 뜻입니다.
+                    태블릿이나 모바일 기기마다 가로폭이 다른데, 크롬 브라우저에서 <i>개발자 도구</i>를 열고 <i>Toggle device Toolbar</i>를 누르면
+                    기기마다의 해상도도 확인할 수 있고 기기 모델도 추가할 수 있습니다. 또한 다음 트로이(http://troy.daum.net/)에서는 기기별 해상도를
+                    제공하고 실제 작동 화면을 확인할 수 있는 VIEW를 제공합니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>모바일 기기</th>
+                            <th>가로</th>
+                            <th>세로</th>
+                        </tr>
+                    </thead>
+                    <tbody class="ce">
+                        <tr>
+                            <td>iPhone X</td>
+                            <td>375</td>
+                            <td>812</td>
+                        </tr>
+                        <tr>
+                            <td>iPhone 6,7,8</td>
+                            <td>375</td>
+                            <td>667</td>
+                        </tr>
+                        <tr>
+                            <td>iPhone 6,7,8 plus</td>
+                            <td>414</td>
+                            <td>736</td>
+                        </tr>
+                        <tr>
+                            <td>iPhone 5</td>
+                            <td>320</td>
+                            <td>568</td>
+                        </tr>
+                        <tr>
+                            <td>Galaxy S5, S8</td>
+                            <td>360</td>
+                            <td>640</td>
+                        </tr>
+                        <tr>
+                            <td>Galaxy Note 8</td>
+                            <td>360</td>
+                            <td>640</td>
+                        </tr>
+                        <tr>
+                            <td>iPad Pro</td>
+                            <td>1024</td>
+                            <td>1366</td>
+                        </tr>
+                        <tr>
+                            <td>.<br>.<br>.</td>
+                            <td>.<br>.<br>.</td>
+                            <td>.<br>.<br>.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">02. @media</h3>
+                <p class="t_desc">
+                    처음 로딩할 때 성능이 저하되지 않도록 CSS 파일을 하나로 만들어서 CSS 내부에서 조건에 따라 분기시키는 것이 일반적인
+                    형태의 반응형웹 CSS입니다.
+                </p>
+                <div class="t_code">
+<pre><code>@media all and (min-width: 1000px) {
+    모든 기기에서 해상도가 최소 1000px 인 경우 적용할 속성들...    
+}
+//all은 Media Type을 나타냅니다. and 전, 후에 띄어 씁니다.
+</code></pre>
+                </div>
+                <br>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>Media Type</th>
+                            <th>설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="ce">all</td>
+                            <td>모든 미디어 장치에 사용(기본값)</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">print</td>
+                            <td>프린터에 사용</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">screen</td>
+                            <td>PC, 태블릿, 스마트폰에 사용</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">speech</td>
+                            <td>스크린리더기가 페이지를 읽는데 사용</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit3">[예시 01]</h3>
+                <div class="t_code">
+<pre><code>body { color: red;}
+@media only screen and (max-width: 768px) {
+    body {color: blue;}
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    위 예시는 원래 글자색이 빨간색인데, 화면이 768px보다 작아졌을 때는 파란색으로 지정한다는 뜻이므로 PC에서는 글자 색상이 빨간색으로,
+                    모바일에서는 파란색으로 나타나게 됩니다.
+                </p>
+                <h3 class="t_tit3">[예시 02]</h3>
+                <div class="t_code">
+<pre><code>body { color: blue;}
+@media only screen and (min-width: 768px) {
+    body {color: red;}
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    위 예시는 원래 글자색이 파란색인데, 화면이 768px보다 커지면 글자색을 빨간색으로 지정한다는 뜻이므로
+                    모바일 우선으로 하면서도 같은 결과를 가져옵니다.
+                </p>
+                <h3 class="t_tit3">[예시 03]</h3>
+                <div class="t_code">
+<pre><code>@media only screen and (orientation: portrait) {
+    body {background: skyblue;}
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    미디어쿼리를 이용하여 브라우저의 방향에 따라 다른 레이아웃을 제공할 수 있습니다. 
+                    위 예시는 모바일 기기를 세워 세로가 가로보다 긴 모양이 되면 배경색을 하늘색으로 지정한다는 뜻입니다.
+                </p>
+                <h3 class="t_tit3">[예시 04]</h3>
+                <div class="t_code">
+<pre><code>@media only screen and (orientation: landscape) {
+    body {background: lightgreen;}
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    위 예시는 모바일 기기를 눕혀 가로가 세로보다 긴 방향이 되면 배경색을 연두색으로 지정한다는 뜻입니다.
+                </p>
+                <h3 class="t_tit3">[예시 05]</h3>
+                <div class="t_code">
+<pre><code>@media screen and (max-width: 900px) and (min-width: 600px), (min-width: 1100px) {
+    body {color: red;}    
+}
+</code></pre>
+                </div>
+                <p class="t_box">
+                    쉼표로 구분하여 조건을 추가할 수 있습니다. 위 예시는 가로가 600px에서 900px 사이일 때, 그리고 1100px 이상일 떄에만
+                    글자색을 빨간색으로 한다는 뜻입니다.
+                </p>
+                <h3 class="t_tit2">03. Media query 실습</h3>
+                <p class="t_desc">
+                    반응형 웹이라고 해서 LukeW의 5가지 패턴대로만 디자인해야 하는 것은 아니지만, 해상도 구분은 지금까지 그대로 참고해도 될 것 같으니,
+                    모바일과 태블릿 그리고 PC의 경계를 768px, 1024px, 1280px로 하여 레이아웃이 달라지는 media query를 실습해 보겠습니다.
+                </p>
+                <h3 class="t_tit3">01. 레이아웃 템플릿</h3>
+                <div class="t_iframe">
+                    <iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwekJoc9v02DAwnYntVRBDb%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D994%253A171" allowfullscreen></iframe>
+                </div>
+                <h3 class="t_tit3">02. 레이아웃 HTML</h3>
+                <p class="desc">
+                    레이아웃 HTML입니다. CSS에서 float 방법을 사용할 예정이기 때문에, 미리 clear 클래스를 붙였습니다.
+                </p>
+                <div class="t_code">
+<pre><code>&lt;body&gt;
+    &lt;div class="wrap"&gt;
+        &lt;header&gt;
+            &lt;h1&gt;Musee d'Orsay&lt;/h1&gt;
+        &lt;/header&gt;
+        &lt;div id="container" class="clear"&gt;
+            &lt;div class="lnb"&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;작가의 작품&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;작가의 시대&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;작가의 일생&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class="content"&gt;
+                &lt;h2&gt;PICTURES&lt;/h2&gt;
+                &lt;p&gt;
+                    &lt;a href="#"&gt;피리부는 소년&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;고흐의 방&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;황색 그리스도가 있는 화가의 자화상&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;오페라좌의 관현악단&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;만종&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;제비꽃 장식을 단 베르트모리조&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;피리부는 소년&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;고흐의 방&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;황색 그리스도가 있는 화가의 자화상&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;오페라좌의 관현악단&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;만종&lt;/a&gt;&lt;br&gt;
+                    &lt;a href="#"&gt;제비꽃 장식을 단 베르트모리조&lt;/a&gt;&lt;br&gt;
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="aside"&gt;
+                &lt;ul class="ext"&gt;
+                    &lt;li&gt;
+                        &lt;h2&gt;Workshop Go&lt;/h2&gt;
+                        &lt;a href="#"&gt;Life drawing workshop&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;h2&gt;Summer Exhibition&lt;/h2&gt;
+                        &lt;a href="#"&gt;A-level Summer Exibition Online 2010&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;h2&gt;RA Collection&lt;/h2&gt;
+                        &lt;a href="#"&gt;RA Collections&lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;footer&gt;
+            &lt;p&gt;&copy;2018 Les Amis du Musee d'Orsay. All rights reserved.&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit3">03. 레이아웃 CSS</h3>
+                <p class="desc">
+                    레이아웃 CSS입니다. 모바일 우선으로 코딩합니다. 모바일 레이아웃은 모두 100%이니 요소들에 어떤 요소에도 float 또는 position이 없고
+                    width를 지정할 필요가 없습니다. box-sizint: border-box;를 기본 속성으로 부여한 것은 가로 폭과 계산 없이 편하게 여백을 주려는 의도 때문입니다.
+                </p>
+                <div class="t_code">
+<pre><code>h1, h2, ul, li, p, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style-type: none;
+}
+.clear:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+a {
+    line-height: 1.5;
+    color: #333;
+}
+body {
+    background: #f1f1f1;
+    font-size: 13px;
+}
+header {
+    background: coral;
+}
+h1 {
+    font-size: 25px;
+    color: #cc0;
+    padding: 10px;
+    color: #fff;
+}
+.lnb li {
+    margin: 10px;
+    padding: 10px;
+    background: lightgreen;
+}
+.content {
+    padding: 20px;
+}
+h2 {
+    font-size: 20px;
+}
+.ext {
+    margin: 10px;
+    padding: 20px;
+    background: lightgreen;
+}
+footer {
+    padding: 10px;
+    background: #aaa;
+}
+
+//태블릿 사이즈
+@media all and (min-width: 768px) and (max-width: 1024px) {
+    .lnb {
+        float: left;
+        width: 25%;
+    }
+    .content {
+        float: left;
+        width: 75%;
+    }
+    .aside {
+        clear: both;
+    }
+}
+
+//PC사이즈
+@media all and (min-width: 1025px) {
+    .wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    .lnb {
+        float: left;
+        width: 20%;
+    }
+    .content {
+        float: left;
+        width: 50%;
+    }
+    .aside {
+        float: right;
+        width: 30%;
+    }
+}
+</code></pre>
+                </div>
+                <div class="t_iframe" style="min-height: 900px; padding-top: 0;">
+                    <iframe src="https://kim-chanmi.github.io/coding/html/structure_ex.html" frameborder="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
