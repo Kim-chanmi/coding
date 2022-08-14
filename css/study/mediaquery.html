@@ -369,8 +369,37 @@ footer {
 </code></pre>
                 </div>
                 <div class="t_iframe" style="min-height: 900px; padding-top: 0;">
-                    <iframe src="https://kim-chanmi.github.io/coding/html/structure_ex.html" frameborder="0"></iframe>
+                    <iframe src="https://github.com/Kim-chanmi/coding/blob/main/css/study/mediaquery_ex.html" frameborder="0"></iframe>
                 </div>
+                <h3 class="t_tit2">04. media query를 흉내내는 script</h3>
+                <div class="t_code">
+<pre><code>function initLayout() {
+    var widthWin = $(window).width():
+    if (widthWin &lt; 1000) $('body').addClass('mob').removeClass('PC');
+    else $('body').removeClass('mob').addClass('PC');
+}
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    창의 가로 크기를 재고 1000px 보다 좁으면 body에 mob 클래스를 붙이고 pc 클래스는 제거하고, 1000px 이상이면 body에 pc 클래스를 붙이고, 
+                    mob 클래스는 제거한다는 뜻입니다.
+                </p>
+                <div class="t_code">
+<pre><code>$(window).resize(function) {
+    initLayout();    
+}
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    미리 만들어둔 스크립트를 창 크기가 바뀔 때마다 실행합니다.
+                </p>
+                <div class="t_code">
+<pre><code>body.mob {max-width: 720px;}
+</code></pre>
+                </div>
+                <p class="t_desc">
+                    css에서 body.mob에 속성을 추가하면 모바일일 때의 속성이 등록되는 것입니다.
+                </p>
             </div>
         </div>
 
