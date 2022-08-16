@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지유형 01</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+        .Nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        /* imageType01 */
+        .card__inner {
+            display: flex;
+        }
+        .card__inner .image {
+            width: 50%;
+            margin-right: 20px;
+            position: relative;
+        }
+        .card__inner .image .tit {
+            font-size: 32px;
+            position: absolute;
+            top: 177px;
+            left: 30px;
+            color: #fff;
+        }
+        .card__inner .image .desc {
+            font-size: 18px;
+            position: absolute;
+            top: 224px;
+            left: 30px;
+            color: #000;
+            line-height: 1.4;
+            font-weight: 300;
+        }
+
+        .card__inner .image .more {
+            width: 120px;
+            height: 23px;
+            margin: 8px 390px 0 0;
+            padding: 11px 20px 9px 19px;
+            background-color: #da7740;
+            position: absolute;
+            left: 30px;
+            top: 280px;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="imageType01" class="image__wrap Nexon section">
+        <h2>반려견 기르기</h2>
+        <p>반려견을 기르는 분들을 위한 사이트 입니다.</p>
+        <div class="card__inner container">
+            <article class="image ir">
+                <img src="../cardType/img/img_bg_01.jpg" alt="강아지 산책">
+                <h2 class="tit">강아지 산책</h2>
+                <p class="desc">반려견 산책시의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
+                <a href="#" class="more">자세히보기</a>
+            </article>
+            <article class="image">
+                <img src="../cardType/img/img_bg_02.jpg" alt="강아지 산책">
+                <h2 class="tit">강아지 산책</h2>
+                <p class="desc">반려견 산책시의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다.</p>
+                <a href="#" class="more">자세히보기</a>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>
