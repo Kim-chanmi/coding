@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지유형 02</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/GmarketSans/GmarketSans.css');
+
+        .Gmarket {
+            font-family: 'GmarketSans';
+            font-weight: 400;
+        }
+
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section>p {
+            font-size: 22px;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+        /* imageType01 */
+        .image__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+        .image {
+            width: 32%;
+            height: 520px;
+            position: relative;
+            overflow: hidden;
+
+        }
+        .image__box {}
+        .image__box img {
+            vertical-align: top;
+            transition: all 0.5s ease-in-out;
+        }
+        .image__desc {
+            position: absolute;
+            left: 0;
+            bottom: -100px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            padding: 23px 20px;
+            box-sizing: border-box;
+            color: #fff;
+            transition: all 0.3s ease-in-out;
+        }
+        .img1 .image__desc{background-color: rgba(86, 68, 68, 0.5);}
+        .img2 .image__desc{background-color: rgba(86, 68, 68, 0.5);}
+        .img3 .image__desc{background-color: rgba(131, 102, 102, 0.4);}
+        .img1 .image__desc {
+            
+        }
+        .image:hover .image__desc {
+            bottom: 0;
+        }
+        .image:hover .image__box img {
+            transform: scale(1.03);
+        }
+        .image__desc h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .image__desc .more {
+            font-size: 16px;
+            color: #fff;
+        }
+        .image__desc .more:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="imageType01" class="image__wrap Gmarket section">
+        <h2>캐나다 여행</h2>
+        <p>캐나다 여행을 위한 사이트입니다.</p>
+        <div class="image__inner container">
+            <article class="image img1">
+                <figure class="image__box">
+                    <img src="img/img_bg_02_01.jpg" alt="Vancouver">
+                </figure>
+                <div class="image__desc">
+                    <h3>Vancouver</h3>
+                    <a class="more" href="#" title="자세히 보기" >자세히보기</a>
+                </div>
+            </article>
+            <article class="image img2">
+                <figure class="image__box">
+                    <img src="img/img_bg_02_02.jpg" alt="Quebec">
+                </figure>
+                <div class="image__desc">
+                    <h3>Quebec</h3>
+                    <a class="more" href="#" title="자세히 보기" >자세히보기</a>
+                </div>
+            </article>
+            <article class="image img3">
+                <figure class="image__box">
+                    <img src="img/img_bg_02_03.jpg" alt="Niagara Falls">
+                </figure>
+                <div class="image__desc">
+                    <h3>Niagara Falls</h3>
+                    <a class="more" href="#" title="자세히 보기" >자세히보기</a>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

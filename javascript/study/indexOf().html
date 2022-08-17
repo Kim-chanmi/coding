@@ -42,7 +42,7 @@
     <!-- //header -->
     <main id="main">
         <div class="document">
-            <h1 class="t_tit">indexOf()</h1>
+            <h1 class="t_tit">1. indexOf()</h1>
             <p class="t_desc2">
                 문자열에서 특정 문자의 위치를 찾고 <i>숫자를 반환</i>합니다. 이때, 데이터가 없으면 -1을 출력합니다.
             </p>
@@ -88,6 +88,67 @@ const currentStr13 = str1.indexOf("reference", 12);
                             const currentStr11 = str1.indexOf("reference", 1); //11
                             const currentStr12 = str1.indexOf("reference", 11); //11
                             const currentStr13 = str1.indexOf("reference", 12); //-1
+
+                            document.write(currentStr1, "<br>")
+                            document.write(currentStr2, "<br>")
+                            document.write(currentStr3, "<br>")
+                            document.write(currentStr4, "<br>")
+                            document.write(currentStr5, "<br>")
+                            document.write(currentStr6, "<br>")
+                            document.write(currentStr7, "<br>")
+                            document.write(currentStr8, "<br>")
+                            document.write(currentStr9, "<br>")
+                            document.write(currentStr10, "<br>")
+                            document.write(currentStr11, "<br>")
+                            document.write(currentStr12, "<br>")
+                            document.write(currentStr13)
+                        }
+                        </script>
+                    </div>
+                </details>
+            </div>
+            <h1 class="t_tit">2. lastIndexOf()</h1>
+            <p class="t_desc2">
+                문자열에서 특정 문자의 위치를 찾고 <i>숫자를 반환</i>합니다. 이때, 데이터가 없으면 -1을 출력합니다.
+            </p>
+            <p class="t_desc">다음은 lastIndexOf() 메서드의 예시입니다.</p>
+            <div class="t_code">
+<pre><code class="language-js">const str1 = "javascript reference";
+const currentStr1 = str1.lastIndexOf("javascript"); 
+const currentStr2 = str1.lastIndexOf("reference"); 
+const currentStr3 = str1.lastIndexOf("j");
+const currentStr4 = str1.lastIndexOf("a"); 
+const currentStr5 = str1.lastIndexOf("v"); 
+const currentStr6 = str1.lastIndexOf("jquery"); 
+const currentStr7 = str1.lastIndexOf("b");
+const currentStr8 = str1.lastIndexOf("javascript", 0); 
+const currentStr9 = str1.lastIndexOf("javascript", 1);
+const currentStr10 = str1.lastIndexOf("reference", 0); 
+const currentStr11 = str1.lastIndexOf("reference", 1); 
+const currentStr12 = str1.lastIndexOf("reference", 11);
+const currentStr13 = str1.lastIndexOf("reference", 12); 
+</code></pre>                                        
+            </div>
+            <div class="result">
+                <details>
+                    <summary>결과보기</summary>
+                    <div class="sample01_result">
+                        <script>
+                        {
+                            const str1 = "javascript reference";
+                            const currentStr1 = str1.lastIndexOf("javascript"); //0
+                            const currentStr2 = str1.lastIndexOf("reference"); //11
+                            const currentStr3 = str1.lastIndexOf("j"); //0
+                            const currentStr4 = str1.lastIndexOf("a"); //3 ->뒤에서부터 세기 때문에
+                            const currentStr5 = str1.lastIndexOf("v"); //2
+                            const currentStr6 = str1.lastIndexOf("jquery"); //-1
+                            const currentStr7 = str1.lastIndexOf("b"); //-1
+                            const currentStr8 = str1.lastIndexOf("javascript", 0); //0
+                            const currentStr9 = str1.lastIndexOf("javascript", 1); //0
+                            const currentStr10 = str1.lastIndexOf("reference", 0); //-1
+                            const currentStr11 = str1.lastIndexOf("reference", 1); //-1
+                            const currentStr12 = str1.lastIndexOf("reference", 11); //11
+                            const currentStr13 = str1.lastIndexOf("reference", 12); //11
 
                             document.write(currentStr1, "<br>")
                             document.write(currentStr2, "<br>")

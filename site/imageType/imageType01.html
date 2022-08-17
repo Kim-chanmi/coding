@@ -66,11 +66,11 @@
             text-align: center;
         }
         /* imageType01 */
-        .card__inner {
+        .image__inner {
             display: flex;
             justify-content: space-between;
         }
-        .card__inner .image {
+        .image {
             width: 49%;
             height: 370px;
             padding: 200px 30px 30px 30px;
@@ -82,12 +82,12 @@
         .image.img2 {
             background: url(img/img_bg_02.jpg) no-repeat center / cover;
         }
-        .card__inner .image .image__tit {
+        .image__title {
             font-size: 32px;
             margin-bottom: 10px;
             color: #fff;
         }
-        .card__inner .image .image__desc {
+        .image__desc {
             font-size: 18px;
             margin-bottom: 10px;
             color: #000;
@@ -100,7 +100,7 @@
             -webkit-box-orient: vertical;
         }
 
-        .card__inner .image .image__more {
+        .image__btn {
             padding: 10px 20px;
             background-color: #da7740;
             font-size: 16px;
@@ -109,6 +109,9 @@
             font-weight: 300;
             display: inline-block;
         }
+        .image__btn.yellow {
+            background-color: #DAAD40;
+        }
     </style>
 </head>
 
@@ -116,16 +119,16 @@
     <section id="imageType01" class="image__wrap Nexon section">
         <h2>반려견 기르기</h2>
         <p>반려견을 기르는 분들을 위한 사이트 입니다.</p>
-        <div class="card__inner container">
+        <div class="image__inner container">
             <article class="image img1">
-                <h3 class="image__tit">강아지 산책</h3>
+                <h3 class="image__title">강아지 산책</h3>
                 <p class="image__desc">반려견 산책시의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 강아지 산책시에는 목줄을 반드시 착용하시기 바랍니다.</p>
-                <a href="#" class="image__more">자세히보기</a>
+                <a class="image__btn" href="#" title="자세히 보기" >자세히보기</a>
             </article>
             <article class="image img2">
-                <h3 class="image__tit">강아지 산책</h3>
+                <h3 class="image__title">강아지 산책</h3>
                 <p class="image__desc">반려견 산책시의 준비물과 주의사항들입니다. 동네별로 산책하기 좋은 장소들 소개도 있습니다. 강아지 산책시에는 목줄을 반드시 착용하시기 바랍니다.</p>
-                <a href="#" class="image__more">자세히보기</a>
+                <a class="image__btn yellow" href="#" title="자세히 보기" >자세히보기</a>
             </article>
         </div>
     </section>
