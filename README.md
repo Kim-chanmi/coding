@@ -35,6 +35,7 @@ https://kim-chanmi.github.io/coding/index.html
  
  ### Site 이미지 유형
  https://Kim-chanmi.github.io/coding/site/imageType/imageType01.html   
+ https://Kim-chanmi.github.io/coding/site/imageType/imageType02.html   
  ### HTML 기본 구조
  https://kim-chanmi.github.io/coding/html/structure_ex.html   
  
