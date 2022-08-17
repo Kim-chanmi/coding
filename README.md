@@ -19,6 +19,7 @@ https://kim-chanmi.github.io/coding/index.html
  
  ### 서치 이펙트
  https://kim-chanmi.github.io/coding/javascript/effect/searchEffect01.html   
+ https://kim-chanmi.github.io/coding/javascript/effect/searchEffect02.html   
  
  ### HTML 메인 페이지
  https://kim-chanmi.github.io/coding//html/index.html   
