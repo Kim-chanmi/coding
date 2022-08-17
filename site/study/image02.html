@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">이미지유형01</h2>
+                <p class="t_desc2">
+                    사진 한 장은 수 백 마디의 이야기가 담겨 있습니다. 그리고 현재의 웹사이트 역시 동일한 시각적 영향을 가지고 있습니다. 
+                    따라서 데이터의 시각화가 점점 더 중요해지고 있습니다. 이미지 유형 중 두 번째 이미지 유형 제작 방법에 대해 알아보겠습니다.
+                </p>
+
+                <h3 class="t_tit2">1. Figma로 디자인하기</h3>
+                <p class="t_box">Figma를 이용해 그리드를 나누어 전체적인 틀을 만들어줍니다. 각 구역간의 수치는 정확히 해주는게 중요합니다. </p>
+                <div class="t_iframe"><iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwekJoc9v02DAwnYntVRBDb%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1265%253A113" allowfullscreen></iframe></iframe>
+                </div>
+                <h3 class="t_tit2">2. HTML</h3>
+                <p class="t_box">
+                    웹표준 준수를 위해 시맨틱 태그를 사용합니다. 이번 유형에서는 img 태그를 이용하여 이미지를 삽입하였습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-html">&lt;section id="imageType01" class="image__wrap Gmarket section"&gt;
+    &lt;h2&gt;캐나다 여행&lt;/h2&gt;
+    &lt;p&gt;캐나다 여행을 위한 사이트입니다.&lt;/p&gt;
+    &lt;div class="image__inner container"&gt;
+        &lt;article class="image img1"&gt;
+            &lt;figure class="image__box"&gt;
+                &lt;img src="img/img_bg_02_01.jpg" alt="Vancouver"&gt;
+            &lt;/figure&gt;
+            &lt;div class="image__desc"&gt;
+                &lt;h3&gt;Vancouver&lt;/h3&gt;
+                &lt;a class="more" href="#" title="자세히 보기" &gt;자세히보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="image img2"&gt;
+            &lt;figure class="image__box"&gt;
+                &lt;img src="img/img_bg_02_02.jpg" alt="Quebec"&gt;
+            &lt;/figure&gt;
+            &lt;div class="image__desc"&gt;
+                &lt;h3&gt;Quebec&lt;/h3&gt;
+                &lt;a class="more" href="#" title="자세히 보기" &gt;자세히보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+        &lt;article class="image img3"&gt;
+            &lt;figure class="image__box"&gt;
+                &lt;img src="img/img_bg_02_03.jpg" alt="Niagara Falls"&gt;
+            &lt;/figure&gt;
+            &lt;div class="image__desc"&gt;
+                &lt;h3&gt;Niagara Falls&lt;/h3&gt;
+                &lt;a class="more" href="#" title="자세히 보기" &gt;자세히보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/article&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">3. CSS</h3>
+                <p class="t_box">
+                    Figma를 이용해 만든 디자인을 보며 css설정을 합니다. 이번 시간에는 블러 효과와 텍스트가 숨어있다가 마우스를 올렸을 떄 나타나는 효과까지 설정하였습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/GmarketSans/GmarketSans.css');
+
+.Gmarket {
+    font-family: 'GmarketSans';
+    font-weight: 400;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+/* common */
+.container {
+    width: 1160px;
+    padding: 0 20px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+.section {
+    padding: 120px 0;
+}
+
+.section>h2 {
+    font-size: 50px;
+    line-height: 1;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.section>p {
+    font-size: 22px;
+    font-weight: 300;
+    color: #666;
+    margin-bottom: 70px;
+    text-align: center;
+}
+/* imageType02 */
+.image__inner {
+    display: flex;
+    justify-content: space-between;
+}
+.image {
+    width: 32%;
+    height: 520px;
+    position: relative;
+    overflow: hidden;       //숨김
+
+}
+.image__box img {
+    vertical-align: top;
+    transition: all 0.5s ease-in-out;       
+}
+.image__desc {
+    position: absolute;
+    left: 0;
+    bottom: -100px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);    //blur 효과
+    padding: 23px 20px;
+    box-sizing: border-box;
+    color: #fff;
+    transition: all 0.3s ease-in-out;       
+}
+.img1 .image__desc{background-color: rgba(86, 68, 68, 0.5);}
+.img2 .image__desc{background-color: rgba(86, 68, 68, 0.5);}
+.img3 .image__desc{background-color: rgba(131, 102, 102, 0.4);}
+.img1 .image__desc {
+    
+}
+.image:hover .image__desc {        //마우스 올렸을 때 텍스트가 나타나는 효과
+    bottom: 0;
+}
+.image:hover .image__box img {      //마우스 올렸을 때 사진이 확대되는 효과
+    transform: scale(1.03);
+}
+.image__desc h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.image__desc .more {
+    font-size: 16px;
+    color: #fff;
+}
+.image__desc .more:hover {
+    text-decoration: underline;
+}
+</code></pre>
+                </div>
+                <hr>
+                <h4 class="t_tit3">최종결과</h4>
+                <div class="t_iframe" style="min-height: 900px; padding-top: 0;">
+                    <iframe src="https://Kim-chanmi.github.io/coding/site/imageType/imageType02.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link">
+                    <a href="https://github.com/Kim-chanmi/coding/blob/main/site/imageType/imageType02.html" target="_blank">원본 소스 보기</a>
+                    <a href="https://Kim-chanmi.github.io/coding/site/imageType/imageType02.html" target="_blank">원본 사이트 보기</a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

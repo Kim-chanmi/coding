@@ -47,37 +47,45 @@
             <h2 class="t_tit">검색 효과02</h2>
             <p class="t_desc2">
                 자바스크립트를 이용하여 검색효과 만들 수 있습니다. 사용자가 입력한 키워드를 정확하게 찾을 수 있습니다.
+                includes()메서드를 이용하여 CSS 속성 검색하기를 만들어 보았습니다.
             </p>
 
             <hr>
 
             <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
-                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/searchEffect01.html" frameborder="0"></iframe>
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/searchEffect02.html" frameborder="0"></iframe>
             </div>
             <div class="t_link">
-                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/searchEffect01.html" target="_blank">원본 소스 보기</a>
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/searchEffect02.html" target="_blank">원본 소스 보기</a>
             </div>
             <hr>
             <h3 class="t_tit2">자바스크립트</h3>
             <p class="t_desc">
-                검색효과를 만들기 위한 자바스크립트 작성법입니다. <i>includes()</i>메서드를 이용하여 출력하였습니다. 
+                검색효과를 만들기 위한 자바스크립트 작성법입니다. 여기서는 <i>includes()</i>메서드를 이용하여 출력하였습니다. 
                 includes() 메서드는 문자열이 특정 요소를 포함하고 있는지 판별하여 <i>불린(true, false)</i>으로 반환합니다.
+                따라서, includes() 메서드의 특성을 사용하여 자바스크립트를 작성하였습니다.
             </p>
             <div class="t_code">
 <pre><code class="language-js">//선택자
 const searchBox = document.querySelector(".search__box input"); //input 박스, 검색 영역
 const searchList = document.querySelectorAll(".search__list ul li"); //목록 리스트
+const searchInfo = document.querySelector(".search__info .num");  //전체 개수
 
-searchBox.addEventListener("keyup", () => {
+//속성 갯수 설정하기
+searchInfo.textContent = searchList.length; //length를 이용
+
+//검색 영역
+searchBox.addEventListener("keyup", ()=>{
     const searchWord = searchBox.value; //사용자가 입력한 키워드
 
     searchList.forEach(el => {
-        const cssName = el.dataset.name;
+        const cssName = el.dataset.name; //CSS 속성의 모든 값
+        //console.log(cssName);  -> css 속성이 모두 들어왔는지 확인
 
-        if(cssName.indexOf(searchWord)){
-            el.classList.add("hide");
+        if(cssName.includes(searchWord)){   //true를 반환하면 "hide"를 제거하고 false를 반환하면 "hide" 추가
+            el.classList.remove("hide");
         } else {
-            el.classList.remove("hide");    //indexOf()값이 0(false)이 출력되는 값만 hide를 지워줌
+            el.classList.add("hide");
         }
     });
 });
