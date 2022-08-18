@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li class="active"><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h1 class="t_tit">강아지 애니메이션</h1>
+                <p class="t_desc2">
+                    오늘은 아래와 같은 움직이는 강아지를 만들어 보았습니다. 머리와 몸통, 꼬리를 흔드는 아주 귀여운 강아지입니다. 코드펜을 이용하여 평소와 다르게 HTML(Pug)와 CSS(SCSS)를 사용하였는데요. 
+                    SCSS는 CSS를 간편하게 쓸 수 있습니다. SCSS에 대한 자세한 설명은 따로 포스팅 했으니 참고해 주시기 바랍니다.
+                </p>
+                <div class="t_iframe">
+                    <iframe height="300" style="width: 100%;" scrolling="no" title="CSS Dog" src="https://codepen.io/kim-chanmi/embed/JjLwrOe?result-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/kim-chanmi/pen/JjLwrOe">
+                        CSS Dog</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </iframe>
+                </div>
+                <h3 class="t_tit2">Pug를 통한 구조 짜기</h3>
+                <div class="t_code">
+<pre><code class="language-css">.dog
+    .dog-body
+      .dog-tail
+        .dog-tail
+          .dog-tail
+            .dog-tail
+              .dog-tail
+                .dog-tail
+                  .dog-tail
+                    .dog-tail
+    .dog-torso
+    .dog-head
+      .dog-ears
+        .dog-ear
+        .dog-ear
+      .dog-eyes
+        .dog-eye
+        .dog-eye
+      .dog-muzzle
+        .dog-tongue
+</code></pre>
+                </div>
+                <h3 class="t_tit2">SCSS를 이용한 효과주기</h3>
+                <div class="t_code">
+<pre><code class="language-css">$dog-width: 100px;  //SCSS의 변수 선언법은 앞에 '$'붙이기
+$interval: 200ms;
+$color-gray: #f1c3b8;
+$easing: ease-in-out;
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+html, body {
+    background: #ffefe5;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+    position: relative;
+}
+
+//dog
+.dog {
+    width: $dog-width;
+    height: $dog-width;
+    z-index: 1;
+
+    &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(black, 0.03);
+    transform: translatey(-30%) scale(1.5);
+    }
+    
+    * {
+    position: absolute;
+    }
+}
+.dog-body, .dog-head, .dog-torso {
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+//dog-body
+.dog-body {
+    top: -50%;
+    box-shadow: inset 0 -15px 0 0 $color-gray;
+    animation: dog-body $interval $easing infinite alternate;
+    
+    &:before {
+    content: '';
+    position: absolute;
+    bottom: 90%;
+    right: 50%;
+    width: 90%;
+    height: 90%;
+    background: rgba(white, 0.4);
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 10%;
+    border-top-right-radius: 10%;
+    transform-origin: right bottom;
+    animation: dog-tail-blur $interval $interval / 6 $easing infinite alternate both;
+    
+    @keyframes dog-tail-blur {
+        0% {
+        transform: rotate(0);
+        opacity: 0;
+        }
+        50% {
+        opacity: 1;
+        }
+        100% {
+        opacity: 0;
+        transform: rotate(90deg);
+        }
+    }
+    }
+    
+    @keyframes dog-body {
+    from {transform: translatex(-10%)}
+    to {transform: translatex(10%)}
+    }
+}
+
+//dog-head
+.dog-head {
+    animation: dog-head $interval * 9 cubic-bezier(0.11, 0.79, 0, 0.99) infinite;
+    
+    @keyframes dog-head {
+    0% {transform: rotate(45deg)}
+    33% {transform: rotate(-45deg)}
+    66% {transform: rotate(0deg)}
+    100% {transform: rotate(45deg)}
+    }
+}
+
+//dog-torso
+.dog-torso {
+    top: -20%;
+    background: white;
+    box-shadow: inset 0 -15px 0 0 $color-gray;
+    animation: dog-torso $interval $easing infinite alternate-reverse;
+    
+    @keyframes dog-torso {
+    0%{transform: translatex(-5%);}
+    100%{transform: translatex(5%);}
+    }
+}
+
+//dog-eyes
+.dog-eyes {
+    width: 60%;
+    top: 55%;
+    left: 20%;
+    z-index: 1;
+    
+    &:before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: pink;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    z-index: 0;
+    border: 4px solid white;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    border-top-width: 0;
+    transform: rotate(-45deg)
+    }
+}
+
+.dog-eye {
+    width: 5px;
+    height: 15px;
+    border-radius: 50%;
+    background: #000;
+    z-index: 1;
+    
+    &:first-child {
+    left: 0;
+    }
+    &:last-child {
+    right: 0;
+    }
+}
+
+.dog-muzzle {
+    width: 60%;
+    left: 20%;
+    height: 50%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    bottom: -15%;
+    background: white;
+    
+    &:before, &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    }
+    
+    &:before {
+    width: 6px;
+    height: 20px;
+    bottom: 0;
+    background: $color-gray;
+    left: calc(50% - 3px);
+    }
+    
+    &:after {
+    background: black;
+    width: 20px;
+    height: 15px;
+    bottom: 12px;
+    left: calc(50% - 10px);
+    border-bottom-left-radius: 60% 60%;
+    border-bottom-right-radius: 60% 60%;
+    border-top-left-radius: 50% 40%;
+    border-top-right-radius: 50% 40%;
+    }
+}
+
+//dog-ears
+.dog-ears {
+    width: 40%;
+    top: 25%;
+    left: 30%;
+    
+    
+}
+.dog-ear {
+    bottom: -10px;
+    height: 50px;
+    width: 50px;
+    background: $color-gray;
+    
+    &:first-child {
+    right: 100%;
+    border-bottom-left-radius: 80%;
+    border-top-right-radius: 80%;
+    box-shadow: inset -15px 15px 0 1px white;
+    transform: rotate(10deg);
+    }
+    &:last-child {
+    left: 100%;
+    border-bottom-right-radius: 80%;
+    border-top-left-radius: 80%;
+    box-shadow: inset 15px 15px 0 0 white;
+    transform: rotate(-10deg);
+    }
+}
+
+.dog-tongue {
+    width: 40%;
+    height: 100%;
+    left: calc(50% - 20px);
+    z-index: -1;
+    transform-origin: center top;
+    
+    &:before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    background: #fd3163;
+    animation: dog-tongue-inner $interval / 2 $easing infinite alternate;
+    
+    @keyframes dog-tongue-inner {
+        from {transform: translatey(5%)}
+        to {transform: translatey(22%)}
+    }
+    }
+}
+
+//dog-tail
+.dog-tail {
+    $tail-width: 22px;
+    width: $tail-width;
+    height: $tail-width * 1.1;
+    background: white;
+    bottom: 40%;
+    border-radius: $tail-width / 2;
+    left: calc(50% - #{$tail-width / 2});
+    transform-origin: center bottom;
+    
+    .dog-tail {
+    animation: dog-tail-segment $interval $easing infinite alternate;
+    
+    @keyframes dog-tail-segment {
+        0% {transform: rotate(-10deg)}
+        100% {transform: rotate(10deg)}
+    }
+    }
+}
+
+.dog-body > .dog-tail {
+    bottom: 90%;
+}
+</code></pre>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

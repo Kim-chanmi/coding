@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">SCSS(Syntactically Awesome StyleSheet</h2>
+                <p class="t_desc2">
+                    <i>CSS</i>는 복잡한 언어는 아니지만 작업이 커지고 코드가 많아질수록 불편함이 생기게 됩니다. 예를들어 선택자의 과용과 연산 기능의 한계, 구문의 부재 등등 
+                    프로젝트가 커지면 <i>코드 중복이 많아지고 복잡해져 유지보수가 어려워지게</i> 됩니다. <i>SCSS</i>는 코드의 재활용성을 올리고, 가독성을 올리는 등
+                    CSS에서 보이던 단점을 보완하고, 개발의 효율을 올리기 위해 등장한 <i>CSS 전처리기 언어</i> 입니다. CSS를 편리하게 사용할 수 있도록 하며 추가 기능 또한 있는 확장판
+                    스크립트 언어라고 보시면 됩니다. 여기서 CSS 전처리기 언어는 CSS 문법과 유사하지만 선택자의 중첩이나 조건문, 반복문, 다양한 단위의 연산 등 표준 CSS보다 훨씬
+                    많은 기능을 사용해서 편리하게 작성할 수 있습니다.
+                </p>
+                <h3 class="t_tit2">01. SCSS의 장점</h3>
+                <p class="t_box">
+                    1. CSS보다 심플한 표기법으로 CSS를 <i>구조화하여 표현</i>할 수 있습니다.<br>
+                    2. <i>가독성과 재사용성</i>을 높여주어 유지보수가 쉬워지게 도와줍니다.<br>
+                    3. <i>선택자의 중첩</i>을 통해 반복되는 부모요소 선택자 사용을 줄일 수 있습니다.<br>
+                    4. 프로그래밍 언어에서 사용하는 <i>조건문, 반복문</i>을 통해서 동적으로 CSS 관리가 가능합니다.
+                </p>
+                <h3 class="t_tit2">02. SCSS의 단점</h3>
+                <p class="t_box">
+                    1. 전처리기를 위해 <i>도구가 필요</i>합니다.<br>
+                    2. <i>컴파일 시간</i>이 소요됩니다.
+                </p>
+                <h3 class="t_tit2">03. SCSS의 문법</h3>
+                <h3 class="t_tit3">1. Data Types</h3>
+                <p class="t_box">
+                    CSCC는 다양한 데이터 타입을 정의하고 있어 이를 변수처럼 활용할 수 있습니다.
+                </p>
+                <table class="t_table">
+                    <tbody>
+                        <tr>
+                            <td class="ce">Numbers</td>
+                            <td>숫자</td>
+                            <td>1, .82, 20px, 2em…</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">Strings</td>
+                            <td>문자</td>
+                            <td>bold, relative, "/images/a.png", "dotum"</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">Colors</td>
+                            <td>색상 표현</td>
+                            <td>red, blue, #FFFF00, rgba(255,0,0,.5)</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">Booleans</td>
+                            <td>논리</td>
+                            <td>true, false</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">Nulls</td>
+                            <td>아무것도 없음</td>
+                            <td>null</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">Lists</td>
+                            <td>공백이나 ,로 구분된 값의 목록</td>
+                            <td>(apple, orange, banana), apple orange</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">Maps</td>
+                            <td>Lists와 유사하나 값이 Key: Value 형태</td>
+                            <td>(apple: a, orange: o, banana: b)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="t_code">
+<pre><code>$boolean: true;
+$string: hello;
+$color: red;
+$number: 720;
+$list: red, orange, yellow, green, blue;
+$map: (
+    l: light,
+    d: dark,
+);  
+</code></pre>
+                </div>
+                <h3 class="t_tit3">2. Nesting (중첩)</h3>
+                <p class="t_box">
+                    nesting을 통해 상위 선택자의 반복을 줄일 수 있습니다. 이를 통해 복잡한 구조를 더 편리하게 개선하게 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code>/* SCSS */
+
+.section {
+    width: 100%;
+    
+    .list {
+    padding: 20px;
+    
+    li {
+        float: left;
+    }
+    }
+}
+
+/* Compile to CSS */
+
+.section {
+    width: 100%;
+}
+
+.section .list {
+    padding: 20px;
+}
+
+.section .list li {
+    float: left;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit3">3. & (상위 선택자 참조)</h3>
+                <p class="t_box">
+                    Nesting(중첩) 내부에서 & 키워드는 상위(부모) 선택자로 치환됩니다.
+                </p>
+                <div class="t_code">
+<pre><code>/* SCSS */
+
+.btn {
+    position: absolute;
+    
+    &.active {
+    color: red;
+    }
+}
+
+.list {
+    li {
+    &:last-child {
+        margin-right: 0;
+    }
+    }
+}
+
+
+/* Compile to CSS */
+
+.btn {
+    position: absolute;
+}
+
+.btn.active {
+    color: red;
+}
+
+.list li:last-child {
+    margin-right: 0;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit3">4. Variables (변수)</h3>
+                <p class="t_box">
+                    반복적으로 사용되거나 관리하고 싶은 값을 변수로 지정할 수 있습니다. 다만 변수 이름 앞에는 항상 $를 붙여야 합니다.
+                </p>
+                <div class="t_code">
+<pre><code>/* SCSS */
+
+$color-primary: #e96900;
+$url-images: "/assets/images/";
+$w: 200px;
+
+.box {
+    width: $w;
+    margin-left: $w;
+    background: $color-primary url($url-images + "bg.jpg");
+}
+
+
+/* Compile to CSS */
+
+.box {
+    width: 200px;
+    margin-left: 200px;
+    background: #e96900 url("/assets/images/bg.jpg");
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit3">5. Operations (연산)</h3>
+                <p class="t_box">
+                    연산자는 레이아웃을 디테일하게 디자인할 때 유용하게 쓰일 수 있습니다.
+                </p>
+                <table class="t_table">
+                    <tbody>
+                        <tr>
+                            <td class="ce">+</td>
+                            <td class="ce">더하기</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">-</td>
+                            <td class="ce">빼기</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">*</td>
+                            <td class="ce">곱하기</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">/</td>
+                            <td class="ce">나누기</td>
+                        </tr>
+                        <tr>
+                            <td class="ce">%</td>
+                            <td class="ce">나머지</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit3">6. Mixins (재활용)</h3>
+                <p class="t_box">
+                    Mixin은 재사용할 CSS 스타일을 정의할 수 있는 유용한 기능입니다. @mixin을 통해 스타일을 선언하고 @include을 통해 사용합니다.
+                </p>
+                <div class="t_code">
+<pre><code>/* 선언 - @mixin */
+
+@mixin large-text {
+    font: {
+    size: 22px;
+    weight: bold;
+    family: sans-serif;
+    }
+    color: orange;
+
+    &::after {
+    content: "!!";
+    }
+
+    span.icon {
+    background: url("/images/icon.png");
+    }
+}
+
+
+/* 사용 - @include */
+
+h1 {
+    @include large-text;
+}
+
+div {
+    @include large-text;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit3">7. Functions (함수)</h3>
+                <p class="t_box">
+                    함수를 정의하여 사용할 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code>/* SCSS */
+
+$max-width: 980px;
+
+@function columns($number: 1, $columns: 12) {
+    @return $max-width * ($number / $columns);
+}
+
+.box_group {
+    width: $max-width;
+
+    .box1 {
+    width: columns(); // 1
+    }
+    
+    .box2 {
+    width: columns(8);
+    }
+    
+    .box3 {
+    width: columns(3);
+    }
+}
+
+
+/* Compile to CSS */
+
+.box_group {
+    /* 총 너비 */
+    width: 980px;
+}
+
+.box_group .box1 {
+    /* 총 너비의 약 8.3% */
+    width: 81.66667px;
+}
+
+.box_group .box2 {
+    /* 총 너비의 약 66.7% */
+    width: 653.33333px;
+}
+
+.box_group .box3 {
+    /* 총 너비의 25% */
+    width: 245px;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit3">8. Condition (조건)</h3>
+                <p class="t_box">
+                    조건의 참 거짓에 따라 하나의 값을 반환합니다. JavaScript의 삼항 연산자와 구조가 비슷합니다. 또한, 조건에 따른 분기 처리도 가능합니다. 이것은 JavaScript의 if-else문과 구조가 비슷합니다.
+                </p>
+                <div class="t_code">
+<pre><code>/* SCSS */
+$width: 555px;
+
+div {
+    width: if($width > 300px, $width, null);
+}
+
+$color: orange;
+
+div {
+  @if $color == strawberry {
+    color: #fe2e2e;
+  } @else if $color == orange {
+    color: #fe9a2e;
+  } @else if $color == banana {
+    color: #ffff00;
+  } @else {
+    color: #2a1b0a;
+  }
+}
+
+/* Compile to CSS */
+
+div {
+  width: 555px;
+}
+
+div {
+    color: #fe9a2e;
+  }
+</code></pre>
+                </div>
+                <h3 class="t_tit3">9. Built-in Functions (내장 함수)</h3>
+                <p class="t_box">
+                    Sass에선 기본적으로 다양한 내장 함수를 제공합니다. 종류가 다양하니 필요에 따라 찾아보면서 사용하는 것을 권장합니다.
+                </p>
+                <div class="t_code">
+<pre><code>.item:nth-child(1) {
+background-color: $color;
+}
+.item:nth-child(2) {
+background-color: lighten($color, 20%);
+}
+.item:nth-child(3) {
+color: white;
+background-color: darken($color, 20%);
+}
+.item:nth-child(4) {
+background-color: grayscale($color);
+}
+.item:nth-child(5) {
+background-color: rgba($color, 0.3);
+}
+.item:nth-child(6) {
+background-color: invert($color);
+}
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
