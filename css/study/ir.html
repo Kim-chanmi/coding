@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">이미지 스프라이트(Image Sprite)</h2>
+                <p class="t_desc2">
+                    이미지 스프라이트란 여러 개의 이미지를 <i>하나의 이미지</i>로 합쳐서 관리하는 이미지를 의미합니다. 이미지를 다운받기 위한
+                    서버 요청과 로딩 시간을 단축해주는 효과가 있습니다. 또한, 많은 이미지 파일을 관리하는 대신 몇 개의 스프라이트 이미지 파일만을
+                    관리하면 되므로 매우 간편합니다.
+                </p>
+                <h4 class="t_tit3">이미지 스프라이트의 장단점</h4>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>장점</th>
+                            <th>단점</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>이미지 로딩 속도가 최적화 됩니다.</td>
+                            <td>상황에 따라 유지보수가 어려울 수 있습니다.</td>
+                        </tr>
+                        <tr>
+                            <td>HTML 마크업이 간결해지고 스크린 리더의 탐색 속도가 향상됩니다.</td>
+                            <td>데이터 관리에 문제가 생기면 이미지의 로딩이 불가능합니다.</td>
+                        </tr>
+                        <tr>
+                            <td>하나의 파일만 관리하면 됩니다.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">1. Figma 예시</h3>
+                <p class="t_desc">다음은 피그마를 이용해 제작한 이미지 스프라이트 예시입니다. 아이콘들은 50px씩 간격을 주었고, SVG 파일로 저장하였습니다.</p>
+                <div class="t_iframe"><iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwekJoc9v02DAwnYntVRBDb%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1462%253A5142" allowfullscreen></iframe></iframe>
+                </div>
+                <h3 class="t_tit2">2. HTML</h3>
+                <p class="t_desc">
+                    이미지를 스프라이트를 사용하기 위한 HTML 작성 예시입니다. 백그라운드로 넣기 위해 a 태그를 사용했고, ir 효과를 주기 위해 class="ir"로 설정하였습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-html"> &lt;div class="image__sns"&gt;
+    &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;공유&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;트위터&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;인스타그램&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;유투브&lt;/span&gt;&lt;/a&gt;
+    &lt;a href="#" class="link"&gt;&lt;span class="ir"&gt;페이스북&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">3. CSS</h3>
+                <p class="t_desc">
+                    이미지 스프라이트를 본격적으로 사용하기 위한 CSS 예시입니다. 백그라운드 효과로 아이콘 이미지를 불러옵니다. 
+                    그리고 스크린리더기에 읽히기 위해 ir효과를 더해줍니다. 
+                </p>
+                <div class="t_box">
+                    <i>ir효과</i> <br>
+                    웹 접근성 준수를 위해 이미지 사용 시 대체 텍스트를 제공해야 합니다. 단순히 스크린 리더 사용자뿐 아니라 검색 엔진의 효과적인 내용 수집을 위해서라도 필수적입니다.
+                    ir효과는 이미지 대체 텍스트 제공을 위한 css 기법입니다.
+                </div>
+                <div class="t_code">
+<pre><code class="language-css">/* ir효과 사용 */
+    .ir {
+    display: block;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    text-indent: -9999px;
+}
+.image__sns a {
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border-radius: 50%;
+    display: block;
+    margin-bottom: 5px;
+    background: url(img/image_bg03_icon.svg) no-repeat;  /* 백그라운드 효과로 아이콘 불러오기 */
+}
+/* 아이콘 다섯개를 하나씩 출력하기 위해 position 설정하기. 
+    간격은 50px이므로 50px씩 간격을 줍니다. */
+.image__sns a:nth-child(1){}
+.image__sns a:nth-child(2){
+    background-position: -50px 0;
+}
+.image__sns a:nth-child(3){
+    background-position: -100px 0;
+}
+.image__sns a:nth-child(4){
+    background-position: -150px 0;
+}
+.image__sns a:nth-child(5){
+    background-position: -200px 0;
+}
+.image:hover .image__sns{
+    opacity: 1;
+}
+</code></pre>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
