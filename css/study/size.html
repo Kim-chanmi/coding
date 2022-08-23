@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">CSS 단위</h2>
+                <p class="t_desc2">
+                    CSS에서는 다양한 단위들이 사용됩니다. 오늘은 CSS에서 쓰이는 단위들을 알아보겠습니다. 
+                </p>
+                <h3 class="t_tit2">01. <i>px</i></h3>
+                <p class="t_desc">
+                    해상도에 따라 달라지는 기본 단위로서 다음과 같이 표현합니다.
+                </p>
+                <div class="t_code">
+<pre><code>font-size: 12px;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">02. <i>%</i></h3>
+                <p class="t_desc">
+                    부모 요소의 글자 크기를 100% 기준으로 계산한 %단위로 다음과 같이 표현합니다.
+                </p>
+                <div class="t_code">
+<pre><code>font-size: 150%;
+</code></pre>
+                </div>
+                <p class="t_box">
+                    특별한 설정이 없다면 기본값인 16px이 100%가 되므로 150%는 24px이 됩니다. 만약 부모 요소가 10px이었다면 150%는 15px이 될 것입니다.
+                </p>
+                <h3 class="t_tit2">03. <i>em</i></h3>
+                <p class="t_desc">
+                    부모 요소의 글자 크기를 100% 기준으로 계산한 100분의 1 단위로 다음과 같이 표현합니다.
+                </p>
+                <div class="t_code">
+<pre><code>font-size: 1.5em;
+</code></pre>
+                </div>
+                <p class="t_box">
+                    특별한 설정이 없다면 기본값인 16px이 1em이 되므로, 1.5em은 24px(16px*1.5=24px)이 됩니다. 
+                    만약 부모 요소가 10px이었다면 1.5em은 15px이 될 것입니다.
+                </p>
+                <h4 class="t_tit3">[글자 크기를 각 단위로 환산했을 때]</h4>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>px</th>
+                            <th>%</th>
+                            <th>em</th>
+                            <th>pt</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>6px</td>
+                            <td>37.50%</td>
+                            <td>0.375em</td>
+                            <td>5pt</td>
+                        </tr>
+                        <tr>
+                            <td>7px</td>
+                            <td>43.80%</td>
+                            <td>0.438em</td>
+                            <td>5pt</td>
+                        </tr>
+                        <tr>
+                            <td>8px</td>
+                            <td>50%</td>
+                            <td>0.500em</td>
+                            <td>6pt</td>
+                        </tr>
+                        <tr>
+                            <td>9px</td>
+                            <td>56.30%</td>
+                            <td>0.563em</td>
+                            <td>7pt</td>
+                        </tr>
+                        <tr>
+                            <td>10px</td>
+                            <td>62.50%</td>
+                            <td>0.625em</td>
+                            <td>8pt</td>
+                        </tr>
+                        <tr>
+                            <td>11px</td>
+                            <td>68.80%</td>
+                            <td>0.688em</td>
+                            <td>8pt</td>
+                        </tr>
+                        <tr>
+                            <td>12px</td>
+                            <td>75.00%</td>
+                            <td>0.750em</td>
+                            <td>9pt</td>
+                        </tr>
+                        <tr>
+                            <td>13px</td>
+                            <td>81.30%</td>
+                            <td>0.813em</td>
+                            <td>10pt</td>
+                        </tr>
+                        <tr>
+                            <td>14px</td>
+                            <td>87.50%</td>
+                            <td>0.875em</td>
+                            <td>11pt</td>
+                        </tr>
+                        <tr>
+                            <td>15px</td>
+                            <td>93.80%</td>
+                            <td>0.938em</td>
+                            <td>11pt</td>
+                        </tr>
+                        <tr>
+                            <td>16px</td>
+                            <td>100%</td>
+                            <td>1.000em</td>
+                            <td>12pt</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">04. <i>rem</i></h3>
+                <p class="t_desc">
+                    rem은 em과 비슷하지만 부모 요소가 아닌 최상위 요소의 크기를 100% 기준으로 계산합니다.
+                    rem의 r은 root 즉, html 요소를 뜻하므로 html 요소에서 지정한 글자 크기가 1rem이 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code>font-size: 1.5rem;
+</code></pre>
+                </div>
+                <div class="t_desc">em, rem 차이 예시입니다. 코드펜의 html과 css를 참고해주세요.</div>
+                <iframe height="300" style="width: 100%;" scrolling="no" title="CSS size" src="https://codepen.io/kim-chanmi/embed/dymLyPw?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/kim-chanmi/pen/dymLyPw">
+                    CSS size</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+                <h3 class="t_tit2">05. <i>vw, vh</i></h3>
+                <p class="t_desc">
+                    vw는 뷰포트 너비값의 100분의 1 단위, vh는 뷰포트 높이값의 100분의 1 단위입니다.
+                    다음 예문은 글자 크기가 뷰포트 너비의 10% 크기라는 의미입니다.
+                </p>
+                <div class="t_code">
+<pre><code>font-size: 10vw;
+</code></pre>
+                </div>
+                <div class="t_desc">다음 예제에서는 h3는 뷰포트의 5%에 해당하는 글자 크기를 갖게 되고, p는 뷰포트의 50%에 해당하는 가로 크기를 가지게 됩니다.</div>
+                <iframe height="300" style="width: 100%;" scrolling="no" title="css vw" src="https://codepen.io/kim-chanmi/embed/WNzWNwG?default-tab=css%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/kim-chanmi/pen/WNzWNwG">
+                    css vw</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                  </iframe>
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

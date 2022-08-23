@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">CSS 색상 표현 방법</h2>
+                <p class="t_desc2">
+                    CSS의 색상은 글자색(color) 뿐 아니라 배경색(background), 테두리색(border) 등 다양한 CSS 속성들에 적용됩니다. 
+                    색상을 표현하는 방법에 대해 어떤 것들이 있는지 알아보겠습니다.
+                </p>
+                <h3 class="t_tit2">01. 색상명</h3>
+                <p class="t_desc">
+                    해당 색상을 의미하는 <i>고유명사를 속성값</i>으로 사용합니다. 사용할 수 있는 속성값으로는 red, green, blue, aqua, corel, 등 여러 가지가 있으나
+                    해당 색상값을 의미하는 단어를 미리 알고 있어야 합니다. http://www.w3schools.com에 접속하여 Learn CSS > Color Colors를 클릭하면
+                    등록된 색상명을 확인할 수 있습니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성 값</th>
+                            <th>속성 설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>color: orange;</td>
+                            <td>글자를 오렌지색으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>background: beige;</td>
+                            <td>배경색을 베이지색으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>border-color: tomato;</td>
+                            <td>테두리를 토마토색으로 표현</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">02. HEX값</h3>
+                <p class="t_desc">
+                    red, green, blue의 세 가지 색을 16진수 00~ff 사이의 수치를 표현하는 것으로서 <i>#rrggbb 형태</i>로 기술합니다. #aabbcc와 같이 세 가지 색 모두
+                    두 자리 값이 같으면 #abc라고 한자리로 줄여쓸 수 있습니다. red, green, blue는 빛의 3원색이므로 값이 커지면 더 밝은 색이 됩니다. 
+                    따라서 최대값 #ffffff는 흰색을 의미하고, 최소값 #000000은 검정색을 의미하며, 가운데 자리만 최대값인 #00ff00은 green색을 의미합니다. 
+                    이와 같이 red, green, blue의 16진수 두 자리 값을 적절히 배합하면 어떤 색이 나올지 예상할 수 있습니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>HEX 값</th>
+                            <th>속성 설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>color: #000000;</td>
+                            <td>red:0, green:0, blue:0 색상으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>color: #ff0000;</td>
+                            <td>red:255, green:0, blue:0 색상으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>color: #00ff00;</td>
+                            <td>red:0, green:255, blue:0 색상으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>color: #0000ff;</td>
+                            <td>red:0, green:0, blue:255 색상으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>color: #ffff00;</td>
+                            <td>red:255, green:255, blue:0 색상으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>color: #00ffff;</td>
+                            <td>red:0, green:255, blue:255 색상으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>color: #ff00ff;</td>
+                            <td>red:255, green:0, blue:255 색상으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>color: #ffffff;</td>
+                            <td>red:255, green:255, blue:255 색상으로 표현</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">03. RGB값 / RGBA값</h3>
+                <p class="t_desc">
+                    <i>RGB값</i>은 rgb(red, green, blue) 형태로 기술하며 red, green, blue는 10진수 0~255사이의 수치로 표현합니다. 
+                    <i>RGBA값</i>은 rgba(red, green, blue, alpha) 형태로 기술하며 alpha는 0~1 사이의 투명도를 나타냅니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성 값</th>
+                            <th>속성 설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>color: rgb(255, 128, 0);</td>
+                            <td>글자를 red:255, green:128, blue:0 색상으로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>color: rgba(255, 0, 0, 0.5);</td>
+                            <td>배경색을 빨간색 반투명으로 표현</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">04. HSL값 / HSLA값</h3>
+                <p class="t_desc">
+                    <i>HSL값</i>은 hsl(hue, saturation, lightness) 형태로 기술하며 hue(색상)는 0~360 색상환 값, saturation(채도)과 lightness(명도)는 % 값으로 표현합니다. 
+                    <i>HSLA값</i>은 hsla(hue, saturation, lightness, alpha) 형태로 기술하며 alpha는 0~1 사이의 투명도를 나타냅니다.
+                </p>
+                <table class="t_table">
+                    <thead>
+                        <tr>
+                            <th>속성 값</th>
+                            <th>속성 설명</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>color: hsl(300, 100%, 50%);</td>
+                            <td>글자를 색상:300도, 채도:100%, 명도:50%로 표현</td>
+                        </tr>
+                        <tr>
+                            <td>background: hsla(0, 100%, 100%, 0.5);</td>
+                            <td>배경을 빨간색 반투명으로 표현</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 class="t_tit2">05. 색상 표현법 예시</h3>
+                <iframe height="300" style="width: 100%;" scrolling="no" title="css color ex" src="https://codepen.io/kim-chanmi/embed/xxWexBN?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                    See the Pen <a href="https://codepen.io/kim-chanmi/pen/xxWexBN">
+                    css color ex</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </iframe>
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
