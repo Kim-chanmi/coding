@@ -212,7 +212,7 @@
 
             const quizChoice = quizSelects.querySelectorAll(".choice");
 
-            for(let i=0; i<quizChoice.length; i++){
+            for (let i = 0; i < quizChoice.length; i++) {
                 quizChoice[i].setAttribute("onclick", "choiceSelected(this)");
             }
 
@@ -223,37 +223,38 @@
         updateQuiz(quizCount);
 
         const choiceSelected = (answer) => {
-           let userAnswer = answer.textContent; //사용자가 체크한 정답
-           let currentAnswer = quizInfo[quizCount].answerResult;    //문제 정답
+            let userAnswer = answer.textContent; //사용자가 체크한 정답
+            let currentAnswer = quizInfo[quizCount].answerResult;    //문제 정답
 
-           if(userAnswer == currentAnswer){
+            if (userAnswer == currentAnswer) {
                 console.log("정답")
                 quizView.classList.add("like");
                 quizScore++
                 console.log(quizScore)
-           } else {
+            } else {
                 console.log("오답")
                 quizView.classList.add("dislike");
                 quizResult.style.display = "block";
-           }
-           quizConfirm.style.display = "block";
+            }
+            quizConfirm.style.display = "block";
         }
 
         //정답 확인 버튼
         const answerQuiz = () => {
+            
+
+            //마지막 문제
+            if (quizInfo.length - 1 == quizCount) {
+                if (quizScore >= quizCount * 0.6) {
+                    quizConfirm.textContent = `총 ${quizInfo.length}문제 중에 ${quizScore}문제를 맞췄습니다. 합격입니다.😍`
+                } else
+                    quizConfirm.textContent = `총 ${quizInfo.length}문제 중에 ${quizScore}문제를 맞췄습니다. 불합격입니다.😭`
+            }
             quizCount++;
             updateQuiz(quizCount);
             quizView.classList.remove("like", "dislike")
+        }
 
-            //마지막 문제
-            if(quizInfo.length -1 == quizCount){
-                if(quizScore >= quizCount*0.6){
-                    quizConfirm.textContent = "총 " + quizInfo.length + "문제 중에 " + quizScore + "문제를 맞췄습니다. 합격입니다.😍"
-                } else 
-                    quizConfirm.textContent = "총 " + quizInfo.length + "문제 중에 " + quizScore + "문제를 맞췄습니다. 불합격입니다.😭"
-                }
-            }
-       
 
         quizConfirm.addEventListener("click", answerQuiz);
     </script>

@@ -15,7 +15,7 @@
 
 <body>
     <heeader id="header">
-        <h1><a href="../javascript01.html">Quiz </a><em>객관식(여러 문제) 확인하기 : 점순</em></h1>
+        <h1><a href="../javascript01.html">Quiz </a><em>객관식(여러 문제) 확인하기 : 점수</em></h1>
         <nav>
             <ul>
                 <li><a href="quizEffect01.html">1</a></li>
@@ -542,10 +542,10 @@
                 answerNum: "35",
                 answerAsk: "HTML 태그 종류와 그 기능에 대한 설명으로 옳은 것은?",
                 answerChoice: {
-                    1: "<CENTER></CENTER> : 왼쪽 정렬을 한다.",
-                    2: "<I></I> : 글자를 이탤릭(Italic)체로 지정한다.",
-                    3: "<PRE></PRE> : 기본 폰트의 크기를 지정한다.",
-                    4: "<HN></HN> : 그림을 삽입한다."
+                    1: "&lt;CENTER&gt;&lt;/CENTER&gt; : 왼쪽 정렬을 한다.",
+                    2: "&lt;I&gt;&lt;/I&gt; : 글자를 이탤릭(Italic)체로 지정한다.",
+                    3: "&lt;PRE&gt;&lt;/PRE&gt; : 기본 폰트의 크기를 지정한다.",
+                    4: "&lt;HN&gt;&lt;/HN&gt; : 그림을 삽입한다."
                 },
                 answerResult: "2",
                 answerEx: "center태그 안의 요소는 가운데 정렬입니다. pre태그는 미리 서식을 지정한 텍스트를 나타냅니다. hn태그는 주로 본문에 큰 글씨로 제목을 나타낼때에 사용이되는 태그입니다."
@@ -936,7 +936,7 @@
                     </div>
                 </div>
                 `);
-                
+
             });
 
             exam.push(`
@@ -963,7 +963,7 @@
 
                 console.log(userAnswer)
 
-                if(userAnswer == question.answerResult){
+                if (userAnswer == question.answerResult) {
                     console.log("정답")
                     quizView[number].classList.add("like");
                     quizScore++;
@@ -983,16 +983,17 @@
 
             let Ex = document.querySelector(".quiz__confirm .ex");
 
-            if(quizScore>=40){
-                Ex.innerHTML = quizInfo.length + "개 중 " + quizScore + "개 맞았습니다." + "<br>" + "합격입니다.😍"
+            Ex.innerHTML = quizInfo.length + "개 중 " + quizScore + "개 맞았습니다." + "<br>"
+
+            if (quizScore >= 36) {
+                Ex.innerHTML += "합격입니다.😍"
             } else {
-                Ex.innerHTML = quizInfo.length + "개 중 " + quizScore + "개 맞았습니다." + "<br>" + "불합격입니다.😭"
+                Ex.innerHTML += "불합격입니다.😭"
             }
         }
 
         //정답 클릭
         document.querySelector(".quiz__confirm .check").addEventListener("click", answerQuiz);
-        
     </script>
 </body>
 
