@@ -57,11 +57,120 @@
                     </details>
                 </div>
             </div>
+            <div class="test_box">
+                <h3 class="title">1.2 for문을 이용해서 1부터 100까지 출력하시오</h3>
+                <div class="code">
+<pre><code class="line-numbers language-js">{
+    let num = 1;
+    
+    while(num &lt;= 100){
+        document.write(num);
+        num++;
+    }
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample01_result">
+                            <script>
+                                {
+                                    let num = 1;
+    
+                                    while(num <= 100){
+                                        document.write(num, "<br>");
+                                        num++;
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div class="test_box">
+                <h3 class="title">1.3 for문을 이용해서 1부터 100까지 출력하시오(짝수, 홀수)</h3>
+                <div class="code">
+<pre><code class="line-numbers language-js">{
+    let num = 1;
+    
+    while(num &lt;= 100){
+        document.write(num);
+        num++;
+    }
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample01_result">
+                            <script>
+                                {
+                                    let num = 1;
+    
+                                    while(num <= 100){
+                                        document.write(num, "<br>");
+                                        num++;
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <div class="test_box">
+                <h3 class="title">1.4 for문을 이용해서 1부터 100까지 합을 출력하시오</h3>
+                <div class="code">
+<pre><code class="line-numbers language-js">{
+    let sum = 0;
+
+    for(let i=1; i&lt;=100; i++){
+        //document.write(i);
+        //sum = sum + i;
+        sum += i;
+    }
+    document.write(sum);
+}
+</code></pre>
+                </div>
+                <div class="result">
+                    <details>
+                        <summary>결과보기</summary>
+                        <div class="sample01_result">
+                            <script>
+                                {
+                                    let sum = 0;
+
+                                    for(let i=1; i<=100; i++){
+                                        //document.write(i);
+                                        //sum = sum + i;
+                                        sum += i;
+                                    }
+                                    document.write(sum);
+                                }
+                            </script>
+                        </div>
+                    </details>
+                </div>
+            </div>
         </div>
 
     </main>
 
     <script src="../assets/js/prism.min.js"></script>
+    <script>
+        {
+            let sum = 0;
+
+            for(let i=1; i<=100; i++){
+                //document.write(i);
+                //sum = sum + i;
+                sum += i;
+            }
+            document.write(sum);
+        }
+    </script>
 </body>
 
 </html>
