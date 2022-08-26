@@ -1,5 +1,6 @@
 /* 웹폰트 */
 @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
 
 
 /* 여백 초기화 */
@@ -34,6 +35,7 @@ body {
 #header {
     border-bottom: 1px dashed #dcdcdc;
     padding-bottom: 40px;
+    text-align: center;
 }
 #main {
     padding: 40px 0;
@@ -46,27 +48,35 @@ body {
 #footer a:hover {
     text-decoration: underline;
 }
-
+/* container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 /* header 영역 */
 #header h1 a {
     font-size: 60px;
     font-weight: 700;
+    color: rgb(236, 163, 163);
 }
 .header_nav ul li {
     display: inline;
 }
 .header_nav ul li.active a {
-    background-color: #000;
+    background-color: rgb(236, 163, 163);
     color: #fff;
 }
 .header_nav ul li a {
-    border: 1px solid #222;
+    border: 1px dotted rgb(235, 186, 186);
     padding: 8px 25px;
     display: inline-block;
     margin-bottom: 7px;
+    font-family: 'GmarketSans';
+    color: rgb(101, 47, 47);
 }
 .header_nav ul li a:hover {
-    background-color: #000;
+    background-color: rgb(236, 163, 163);
     color: #fff;
 }
 .header_nav .study {
@@ -100,9 +110,46 @@ body {
     color: #666;
 }
 .main_sample .result {
-    margin-bottom: 80px;    
+    margin-bottom: 80px;   
+    margin-top: 10px;
+    background-color: #666;
+    padding: 10px;
+    border-radius: 5px;
 }
 
+/* intro_menu */
+.intro_menu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.5);
+    padding: 3vw;
+    border-radius: 2vw;
+    font-size: 1vw;
+    text-align: center;
+}
+.intro_menu li a {
+    color: #fe8fa2;
+    line-height: 1.8
+}
+.intro_menu li a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px){
+    .intro_menu {
+        width: 90%;
+        padding: 14px;
+    }
+    .intro_menu li {
+        font-size: 16px;
+    }
+    .intro_menu li a {
+        font-size: 16px;
+    }
+}
 /* sample */
 .sample {
     margin-bottom: 80px;
