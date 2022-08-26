@@ -60,6 +60,7 @@ a {
     background-color: #f2f2f2;
     padding: 10px;
     cursor: pointer;
+    border-radius: 5px;
 }
 #main .result div {
     margin: 10px;
