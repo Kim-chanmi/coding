@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li class="active"><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h1 class="t_tit">애니메이션01</h1>
+                <p class="t_desc2">
+                    오늘은 아래와 같이 두 원이 돌아가는 애니메이션을 만들어 보았습니다.
+                </p>
+                <div class="t_iframe">
+                    <iframe height="300" style="width: 100%;" scrolling="no" title="animation02" src="https://codepen.io/kim-chanmi/embed/eYMwQqG?default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/kim-chanmi/pen/eYMwQqG">
+                        animation02</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </iframe>
+                </div>
+                <h3 class="t_tit2">HTML</h3>
+                <div class="t_code">
+<pre><code class="language-css">&lt;div class="loading"&gt;
+    &lt;span class="circle1"&gt;&lt;/span&gt;
+    &lt;span class="circle2"&gt;&lt;/span&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">CSS</h3>
+                <div class="t_code">
+<pre><code class="language-css">body {
+    height: 100vh;
+    background-image: linear-gradient(-60deg, #DBE6F6 0%, #C5796D 100%)
+}
+/* 위/아래 원 사이 */
+.loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 150px;
+    animation: loading 1s ease 100;
+}
+/* 위에 있는 원 */
+.loading .circle1 {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #C5796D;
+}
+/* 아래에 있는 원 */
+.loading .circle2 {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #DBE6F6;
+    margin-top: 110px;
+}
+/* 원 애니메이션 */
+@keyframes loading {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+</code></pre>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>

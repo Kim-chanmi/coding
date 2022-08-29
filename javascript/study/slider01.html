@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 이펙트01</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">슬라이드 이펙트 - 트랜지션 효과</h2>
+            <p class="t_desc2">
+                다섯 장의 이미지를 3초에 한 장씩 넘어가는 효과를 만들어 보았습니다. 마지막 다섯 번째 이미지가 되었을 때 멈추는 것이 아니라 첫 번째 이미지로 넘어갑니다.
+                사이트의 우측 하단에 소스 보기를 누르면 html, css, javascript 소스를 모두 확인할 수 있습니다. 여기서는 javascript에 대해 자세히 알아보겠습니다.
+            </p>
+            <div class="t_iframe" style="min-height: 900px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/sliderEffect01.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/sliderEffect01.html"
+                    target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/sliderEffect01.html" target="_blank">원본 사이트
+                    보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                슬라이드 효과를 위한 자바스크립트 작성법입니다. 슬라이드 효과를 위해 setInterval 함수를 사용합니다. setInterval은 일정한 시간 간격을 두고 반복해서 실행하고 싶을 때 사용합니다. 
+                첫 번째 이미지를 안보이게 하고 두 번째 이미지를 보이게 하기 위해 opacity 속성을 사용합니다. 
+            </p>
+            <div class="sample01_result">
+                <div class="t_code">
+<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+const sliderImg = sliderWrap.querySelector(".slider__img"); //구체적인 위치값을 주기 위해 document 대신 sliderWrap 사용
+const slider = sliderWrap.querySelectorAll(".slider");
+
+let currentIndex = 0;               //현재 보이는 이미지
+let sliderCount = slider.length;    //이미지 갯수
+
+setInterval(() => {
+    let nextIndex = (currentIndex + 1) % sliderCount;   //다음 이미지 
+    //1 % 5 = 1, 2, 3, 4, 0, 1, 2, 3, 4, 0 ...  //나머지 값 이용해서 처음 이미지로 넘어오게
+
+    slider[currentIndex].style.opacity = "0";  //첫 번째 이미지를 안보이게
+    slider[nextIndex].style.opacity = "1";  //두 번째 이미지를 보이게
+
+    currentIndex = nextIndex;
+
+    console.log(currentIndex)
+}, 3000);   //1000은 1초
+</code></pre>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

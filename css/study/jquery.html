@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">jQuery란?</h2>
+                <p class="t_desc2">
+                    jQuery란 자바스크립트 언어를 간편하게 사용할 수 있도록 단순화시킨 오픈 소스 기반의 <i>자바스크립트 라이브러리</i>입니다. 
+                    제이쿼리를 이용하면 문서 객체 모델(DOM)과 이벤트에 관한 처리를 손쉽게 구현할 수 있습니다.
+                    또한, Ajax 응용 프로그램 및 플러그인도 제이쿼리를 활용하여 빠르게 개발할 수 있습니다.
+                </p>
+                <h3 class="t_tit2">01. jQuery 장점</h3>
+                <p class="t_desc">
+                    제이쿼리는 주요 웹 브라우저의 구버전을 포함한 <i>대부분의 브라우저</i>에서 지원됩니다. HTML DOM을 손쉽게 조작할 수 있으며, CSS 스타일도 간단히 적용할 수 있습니다.
+                    애니메이션 효과나 대화형 처리를 간단하게 적용해 줍니다. 같은 동작을 하는 프로그램을 더욱 <i>짧은 코드로 구현</i>할 수 있습니다. 다양한 플러그인과 참고할 수 있는 문서가 많이 존재합니다.
+                    오픈 라이선스를 적용하여 누구나 <i>자유롭게 사용</i>할 수 있습니다.
+                </p>
+                <h3 class="t_tit2">02. jQuery 적용</h3>
+                <p class="t_desc">
+                    제이쿼리는 자바스크립트 라이브러리이므로, 제이쿼리 파일은 <i>자바스크립트 파일(.js 파일) 형태</i>로 존재합니다.
+                    따라서 웹 페이지에서 제이쿼리를 사용하기 위해서는 제이쿼리 파일을 먼저 웹 페이지에 로드(load)해야 합니다.
+                    파일을 다운받아 로드하는 방법 외에도 <i>CDN(Content Delivery Network)을 이용하여 로드</i>하는 방법이 있습니다.
+                </p>
+                <h3 class="t_tit3">02-1. 파일을 다운받아 로드하는 방법</h3>
+                <div class="t_code">
+<pre><code>&lt;head&gt;
+
+    &lt;script src="/파일경로/제이쿼리파일명.js"&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit3">02-2. CDN을 이용하여 로드하는 방법</h3>
+                <p class="t_desc">
+                    CDN(Content Delivery Network)이란 웹 사이트의 접속자가 서버에서 콘텐츠를 다운받아야 할 때, 자동으로 가장 가까운 서버에서 다운받도록 하는 기술입니다.
+                    이 기술을 이용하면 특정 서버에 트래픽이 집중되지 않고, 콘텐츠 <i>전송 시간이 매우 빨라지는 장점</i>이 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code>&lt;head&gt;
+
+    &lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"&gt;&lt;/script&gt;
+
+&lt;/head&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">03. 적용</h3>
+                <div class="t_iframe">
+                    <iframe height="300" style="width: 100%;" scrolling="no" title="jquery" src="https://codepen.io/kim-chanmi/embed/xxWoeYM?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/kim-chanmi/pen/xxWoeYM">
+                        jquery</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </div>
+                
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

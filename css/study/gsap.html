@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">GSAP란?</h2>
+                <p class="t_desc2">
+                    GSAP는 GrennSock에서 만든 자바스크립트 <i>애니메이션 라이브러리</i>입니다. css로 애니메이션 효과를 줄 수 있지만 그 이상의 복잡한 애니메이션을 
+                    구현할 수 있습니다.
+                </p>
+                <h3 class="t_tit2">01. 설치</h3>
+                <p class="t_desc">
+                    공식 사이트에서 받거나 CDN, 혹은 npm install gsap로 설치할 수 있습니다. <i>CDN이란</i> Contents Delivery Network의 약자로, 데이터를 분산된 서버에서 받아오는 것을 말합니다.
+                    GSAP이나 jQuery의 라이브러리를 호스팅된 서버에 직접 설치해서 사용할 수도 있지만, CDN을 사용하면 클라이언트가 직접 자신의 위치로 라이브러리를 전송받게 됩니다.
+                </p>
+                <div class="t_code">
+<pre><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"&gt;&lt;/script&gt;
+</code></pre>
+                </div>
+                
+                <hr>
+                <h3 class="t_tit2">02. gsap.to()</h3>
+                <p class="t_desc">
+                    gsap.to에는 2가지 필수값이 필요합니다. 대상과 속성입니다. 
+                </p>
+                <div class="t_iframe" style="min-height: 900px; padding-top: 0; margin-bottom: 20px;">
+                    <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/sliderEffect02.html"
+                        frameborder="0"></iframe>
+                </div>
+                <div class="t_code">
+<pre><code>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js">&lt;/script&gt;
+    &lt;script&gt;
+        const slider = document.querySelectorAll(".slider")
+        let currentIndex = 0;
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slider.length;
+
+            gsap.to(".slider__inner", {
+                x : -800 * currentIndex
+            });
+        }, 2000);
+    &lt;/script&gt;
+</code></pre>
+                </div>
+                
+                <hr>
+                <h3 class="t_tit2">03. gsap.play(), .pause(), resume(), reverse(), restart()</h3>
+                <p class="t_desc">
+                    play()는 애니메이션을 실행하고, pause()는 중단합니다. resume()은 재개하고 reverse()는 반전합니다.
+                    restart()는 다시 시작합니다.
+                </p>
+                <div class="t_code">
+<pre><code>var tween = gsap.to(".box1", { duration: 8, x: 400, width: 400, paused: true, });
+
+document.querySelector("#play").onclick = function() { return tween.play(); }
+document.querySelector("#pause").onclick = function() { return tween.pause(); }
+document.querySelector("#resume").onclick = function() { return tween.resume(); }
+document.querySelector("#reverse").onclick = function() { return tween.reverse(); }
+document.querySelector("#restart").onclick = function() { return tween.restart(); }
+</code></pre>
+                </div>
+                <h3 class="t_tit2">04. TimeLine</h3>
+                <p class="t_desc">
+                    delay를 사용해서 애니메이션을 순차적으로 실행할 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code>var tl = gsap.timeline();
+
+tl.to(".box1", { duration: 3, x: 200, ease: 'steps(10)' });
+tl.to(".box1", {duration: 3, y: 200, opacity: 1, });
+tl.to(".box1", { duration: 3, x: 0, width: 200, backgroundColor: 'red', });
+tl.to(".box1", { duration: 3, y: 0, height: 200, });
+</code></pre>
+                </div>
+                
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
