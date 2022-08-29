@@ -30,6 +30,10 @@ https://kim-chanmi.github.io/coding/index.html
  https://kim-chanmi.github.io/coding//html/index.html   
  https://kim-chanmi.github.io/coding//html/alphabet.html   
  
+ ### 슬라이드 이펙트
+ https://kim-chanmi.github.io/coding/javascript/effect/sliderEffect01.html   
+ https://kim-chanmi.github.io/coding/javascript/effect/sliderEffect02.html   
+ 
  ### CSS 메인 페이지
  https://kim-chanmi.github.io/coding/css/index.html   
  
