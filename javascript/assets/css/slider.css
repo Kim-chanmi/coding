@@ -103,6 +103,20 @@ a {
 #header li.active a {
     background-color: #1B1C2E;
 }
+
+/* layout */
+#header {
+    z-index: 2000;
+}
+#main {
+    position: relative;
+    z-index: 1000;
+}
+#footer {
+    position: relative;
+    z-index: 3000;
+}
+
 /* footer */
 #footer .source {
     position: absolute;
@@ -113,6 +127,7 @@ a {
     padding: 10px 30px;
     font-size: 14px;
 }
+
 /* modal__wrap */
 .modal__wrap {}
 .modal__btn {
@@ -327,7 +342,7 @@ pre code.hljs {
         display: none;
     }
 }
-@media (max-width: 600px){
+@media (max-width: 800px){
     #header {
         width: 100%;
         text-align: center;
