@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">jQuery 선택자</h2>
+            <p class="t_desc">
+                jQuery 선택자는 CSS 선택자와 의미가 같은 것이 많습니다. jQuery는 html 요소와 관련된 기능구현이 많아 그만큼
+                CSS와 매우 밀접한 관계가 있습니다. 
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">jQuery 선택자 형식</h3>
+            <p class="t_box">
+                $("선택자")<br>
+                $("#gnb")
+            </p>
+            <p class="t_desc">
+                자바스크립트는 1995년 넷스케이프 커뮤니케이션의 브렌던 아이크가 개발하였스며 Netscape Navigsator2.0에 구현되었습니다. 
+                1996년에는 마이크로소프트사의 Internet Explorer3.0 탑재되었으며 java 애플릿으로 구현된 웹 브라우저의 지지부진한 보급과 
+                맞물려 빠르게 보급되었습니다. 1997년부터 ESMAScript를 따르는 표준화 작업을 통해 현재는 모든 브라우저에서 지원됩니다.
+            </p>
+
+            <h3 class="t_tit">기본 선택자</h3>
+            <table class="t_table">
+                <thead>
+                    <tr>
+                        <th>선택자 종류</th>
+                        <th colspan="2">설명</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class ="ce">태그 선택자</td>
+                        <td class ="ce">$("p")</td>
+                        <td>p 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">id 선택자</td>
+                        <td class ="ce">$("#gnb")</td>
+                        <td>#gnb 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">class 선택자</td>
+                        <td class ="ce">$(".logo")</td>
+                        <td>.logo인 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">자식 선택자</td>
+                        <td class ="ce">$("#gnb > ul > li")</td>
+                        <td>#gnb의 자식 요소의 자식 요소 li를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">하위 선택자</td>
+                        <td class ="ce">$("#gnb ul")</td>
+                        <td>#gnb의 하위에 있는 모든 ul 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">인접 선택자</td>
+                        <td class ="ce">$("#visual + #content")</td>
+                        <td>#visual 다음에 오는 #content 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">형제 선택자</td>
+                        <td class ="ce">$("#visual ~ #footer")</td>
+                        <td>#visual의 형제 요소 #footer를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">종속 선택자</td>
+                        <td class ="ce">$("div.util")</td>
+                        <td>div 요소 중 class가 util인 요소를 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">그룹 선택자</td>
+                        <td class ="ce">$(".left, .right, #banner")</td>
+                        <td>.left .right, #banner 요소들을 선택합니다.</td>
+                    </tr>
+                    <tr>
+                        <td class ="ce">전체 선택자</td>
+                        <td class ="ce">$("*")</td>
+                        <td>모든 요소를 선택합니다.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <hr>
+
+            <h3 class="t_tit2">자바스크립트 사용 방법</h3>
+            <p class="t_desc">
+                자바스크립트의 사용 방법은 
+                1. 외부파일 
+                2. 스크립트 태그 
+                3. 태그에 직접 기술하는 방법이 있습니다.
+            </p>
+
+            <div class="t_code">
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ko"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Javasript&lt;/title&gt;
+    &lt;!-- 1. 외부 파일로 로드하는 방법 --&gt;
+    &lt;script type="text/Javasript" src="js/script.js"&gt;&lt;/script&gt;
+    &lt;!-- 2. script 태그 사이에 기술하는 방법 --&gt;
+    &lt;script&gt;
+        document.write("Javasript");
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- 3. 태그에 직접 기술하는 방법 --&gt;
+    &lt;a href="#" onclick="alert('Javasript')"&gt;&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+</html>
