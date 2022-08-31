@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">텍스트유형02</h2>
+                <p class="t_desc2">
+                    오늘은 사이트의 텍스트유형 두 번째를 만들어 보았습니다. 제목이 왼쪽에 있는 유형입니다.
+                </p>
+
+                <h3 class="t_tit2">1. Figma로 디자인하기</h3>
+                <p class="t_box">Figma를 이용해 그리드를 나누어 전체적인 틀을 만들어줍니다. 각 구역간의 수치는 정확히 해주는게 중요합니다.</p>
+                <div class="t_iframe"><iframe src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwekJoc9v02DAwnYntVRBDb%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1660%253A25500" allowfullscreen></iframe>
+                </div>
+                <h3 class="t_tit2">2. HTML</h3>
+                <p class="t_box">
+                    웹표준 준수를 위해 시맨틱 태그를 사용합니다. section태그는 보통 제목태그를 포함합니다. 내용을 한꺼번에 넣는 것이 아니라, 하나씩 확인하면서 진행하면 실수와 시간을 줄일 수 있습니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-html">&lt;body&gt;
+    &lt;section id="textType02" class="text__wrap gmarket section"&gt;
+        &lt;div class="text__inner container"&gt;
+            &lt;div class="text_left"&gt;
+                &lt;p class="tit"&gt;CANADA&lt;/p&gt;
+                &lt;h2&gt;캐나다(CA)&lt;br&gt; 여행소개&lt;/h2&gt;
+                &lt;p&gt;캐나다로 여행하는 사람들을 위한 여행소개입니다. 즐거운 여행 되세요 !&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="text_right"&gt;
+                &lt;article class="text"&gt;
+                    &lt;div class="icon icon1"&gt;
+                        &lt;img src="img/icon1.svg" alt="아이콘1"&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class="text_tit"&gt;밴쿠버&lt;/h3&gt;
+                    &lt;p class="text_desc"&gt;
+                        캐나다의 서부에 위치한 밴쿠버입니다. 밴쿠버는 2010년 동계올림픽이 개최된 곳입니다. 살기 좋은 도시 순위에서 매년 5위 안에 손꼽히는 인기 지역입니다.
+                    &lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article class="text"&gt;
+                    &lt;div class="icon icon2"&gt;
+                        &lt;img src="img/icon2.svg" alt="아이콘2"&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class="text_tit"&gt;토론토&lt;/h3&gt;
+                    &lt;p class="text_desc"&gt;
+                        캐나다에서 규모가 큰 도시입니다. 주변 도시들에서 볼거리가 많은 곳으로, 김연아 선수가 스케이트 탄 곳도 구경할 수 있습니다.
+                    &lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article class="text"&gt;
+                    &lt;div class="icon icon3"&gt;
+                        &lt;img src="img/icon3.svg" alt="아이콘3"&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class="text_tit"&gt;퀘벡&lt;/h3&gt;
+                    &lt;p class="text_desc"&gt;
+                        캐나다의 퀘벡입니다. 도깨비 촬영지로 유명한 곳인데요. 지명은 강이 좁아지는 곳을 뜻한다고 합니다.
+                    &lt;/p&gt;
+                &lt;/article&gt;
+                &lt;article class="text"&gt;
+                    &lt;div class="icon icon4"&gt;
+                        &lt;img src="img/icon4.svg" alt="아이콘4"&gt;
+                    &lt;/div&gt;
+                    &lt;h3 class="text_tit"&gt;나이아가라 폭포&lt;/h3&gt;
+                    &lt;p class="text_desc"&gt;
+                        캐나다의 나이아가라 폭포입니다. 미국에서도 볼 수 있지만 캐나다에서 보는 경관이 더 좋다고 합니다.
+                    &lt;/p&gt;
+                &lt;/article&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/body&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">3. CSS</h3>
+                <p class="t_box">
+                    Figma를 이용해 만든 디자인을 보며 css설정을 합니다. display: flex;와 justify-content: space-between;를 사용하여 정렬을 맞춰줍니다. n줄 효과도 넣어줍니다.
+                </p>
+                <div class="t_code">
+<pre><code class="language-css">/* fonts */
+@import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+.gmarket {
+    font-family: 'GmarketSans';
+    font-weight: 500;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+
+.container {
+    width: 1160px;
+    margin: 0 auto;
+    min-width: 1160px;
+}
+
+.section {
+    padding: 120px 0;
+}
+.text_left {
+    width: 20%;
+}
+.text_left .tit {
+    padding: 4px 58px;
+    display: inline-block;
+    line-height: normal;
+    background-color: #ff2d2d;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.text_left>h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.text_left>p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+.text__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.text_right {
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.text {
+    width: 43%;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 75px;
+}
+.text .icon1 {
+    background-color: #dababa;
+}
+.text .icon2 {
+    background-color: #f5d1f9;
+}
+.text .icon3 {
+    background-color: #f0e9a7;
+}
+.text .icon4 {
+    background-color: #c0fdc6;
+}
+.text_tit {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.text_desc {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.4;
+    color: #666;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+}
+</code></pre>
+                </div>
+                <hr>
+                <h4 class="t_tit3">최종결과</h4>
+                <div class="t_iframe" style="min-height: 900px; padding-top: 0;">
+                    <iframe src="https://Kim-chanmi.github.io/coding/site/textType/textType02.html" frameborder="0"></iframe>
+                </div>
+                <div class="t_link">
+                    <a href="https://github.com/Kim-chanmi/coding/blob/main/site/textType/textType02.html" target="_blank">원본 소스 보기</a>
+                    <a href="https://Kim-chanmi.github.io/coding/site/textType/textType02.html" target="_blank">원본 사이트 보기</a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+</html>
