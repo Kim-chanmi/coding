@@ -981,33 +981,33 @@ func("함수가 실행되었습니다.", "함수가 실행되었습니다.");
     
     <script src="assets/js/highlight.min.js"></script>
     <script>
-        {
-            (function func(){
-                document.write("함수가 실행되었습니다.");
-            }());
+        // {
+        //     (function func(){
+        //         document.write("함수가 실행되었습니다.");
+        //     }());
 
-            (() => {
-                document.write("함수가 실행되었습니다.");
-            })();
-        }
-        {
-            function func(str){
-                document.write(str);
-            }
-            func("함수가 실행되었습니다.")
+        //     (() => {
+        //         document.write("함수가 실행되었습니다.");
+        //     })();
+        // }
+        // {
+        //     function func(str){
+        //         document.write(str);
+        //     }
+        //     func("함수가 실행되었습니다.")
 
-            function func(str="함수가 실행되었습니다."){
-                document.write(str);
-            }
-            func()
-        }
-        {
-            function func(a, b){
-                document.write(arguments[0]);
-                document.write(arguments[1]);
-            }
-            func("함수가 실행되었습니다.", "함수가 실행되었습니다.");
-        }
+        //     function func(str="함수가 실행되었습니다."){
+        //         document.write(str);
+        //     }
+        //     func()
+        // }
+        // {
+        //     function func(a, b){
+        //         document.write(arguments[0]);
+        //         document.write(arguments[1]);
+        //     }
+        //     func("함수가 실행되었습니다.", "함수가 실행되었습니다.");
+        // }
         // // 선언적 함수
         // {
         // function func(){

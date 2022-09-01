@@ -32,10 +32,11 @@
             
             <div class="search__box">
                 <label for="search">검색하기</label>
-                <input type="text" id="search" placeholder="CSS 속성을 입력해주세요!">
+                <input type="text" id="search" placeholder="CSS 속성 및 유형을 입력해주세요!">
             </div>
             <div class="search__info">
-                <div>CSS 속성 갯수 : <span class="num">0</span></div>
+                <div class="type">플렉스, 애니메이션, 백그라운드, 기타 등등 유형 별로 검색해보세요!</div>
+                전체 속성 갯수 : <span class="num">0</span>
             </div>
             <div class="search__list">
                 <div class="css">
@@ -439,18 +440,18 @@
         const searchInfo = document.querySelector(".search__info .num");  //전체 개수
 
         //속성 갯수 설정하기
-        searchInfo.textContent = searchList.length;
+        searchInfo.textContent = searchList.length; //length를 이용
 
         //검색 영역
         searchBox.addEventListener("keyup", ()=>{
             const searchWord = searchBox.value; //사용자가 입력한 키워드
 
             searchList.forEach(el => {
-                const cssType = el.dataset.type;    //CSS 유형 모든 값
-                const cssName = el.dataset.name; //CSS 속성의 모든 값
+                const cssName = el.querySelector("strong").innerHTML; //CSS 속성의 모든 값
+                const cssType = el.dataset.type;
                 //console.log(cssName);  -> css 속성이 모두 들어왔는지 확인
 
-                if(cssName.includes(searchWord) || cssType.includes(searchWord)){
+                if(cssName.includes(searchWord)||cssType.includes(searchWord)){   //true를 반환하면 "hide"를 제거하고 false를 반환하면 "hide" 추가
                     el.classList.remove("hide");
                 } else {
                     el.classList.add("hide");
