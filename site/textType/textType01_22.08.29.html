@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 유형01</title>
+    <style>
+        /* font */
+        @import url('https://webfontworld.github.io/gmarket/GmarketSans.css');
+
+        .Nexon {
+            font-family: 'NexonLv1Gothic';
+            font-weight: 400;
+        }
+        /* reset */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        /* common */
+        .container {
+            width: 1160px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 1160px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section>h2 {
+            font-size: 50px;
+            line-height: 1;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .section>p {
+            font-size: 16px;
+            font-weight: 300;
+            color: #000;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        /* textType */
+        .text__inner {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .text {
+            width: 29%;
+            padding: 20px;
+        }
+        .text:hover {
+            background-color: #f5f5f5;
+        }
+        .icon1 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #e7bbbb;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 70px;
+        }
+        .icon2 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #dababa;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 70px;
+        }
+        .icon3 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #f5d1f9;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 70px;
+        }
+        .icon4 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #96acfb;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 70px;
+        }
+        .icon5 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #bff0a7;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 70px;
+        }
+        .icon6 {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #c0fdc6;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 70px;
+        }
+        .text__tit {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .text__desc {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 18px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3; 
+            -webkit-box-orient: vertical;
+        }
+        .btn {
+            font-size: 16px;
+            font-weight: 300;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <section id="textType01" class="text__wrap Nexon section">
+        <p>텍스트 유형01</p>
+        <h2>반려견 기르기</h2>
+        <div class="text__inner container">
+            <article class="text">
+                <div class="icon1">
+                    <img class="img1" src="img/icon1.svg" alt="반려견 산책">
+                </div>
+                <h3 class="text__tit">반려견 산책</h3>
+                <p class="text__desc">
+                    반려견 산책을 위한 설명입니다. 반려견 산책 시 주의할 점과 준비물의 소개가 있습니다. 산책하기 좋은 장소도 소개되어 있습니다.
+                </p>
+                <a class="btn" href="#" title="더보기" >더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon2">
+                    <img class="img2" src="img/icon2.svg" alt="반려견 산책">
+                </div>
+                <h3 class="text__tit">반려견 간식</h3>
+                <p class="text__desc">
+                    반려견 간식을 위한 설명입니다. 반려견 간식 구입처 등을 알 수 있고, 인기 많은 간식을 확인할 수 있습니다.
+                </p>
+                <a class="btn" href="#" title="더보기" >더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon3">
+                    <img class="img3" src="img/icon3.svg" alt="반려견 산책">
+                </div>
+                <h3 class="text__tit">반려견 건강</h3>
+                <p class="text__desc">
+                    반려견 건강과 관련한 설명입니다. 반려견이 아플 때 대처 방법들과 병원 소개가 담겨있습니다.
+                </p>
+                <a class="btn" href="#" title="더보기" >더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon4">
+                    <img class="img4" src="img/icon4.svg" alt="반려견 산책">
+                </div>
+                <h3 class="text__tit">반려견 커뮤니티</h3>
+                <p class="text__desc">
+                    반려견들을 위한 커뮤니티입니다. 견주들끼리 반려견의 정보를 공유할 수 있고, 함께 산책할 수도 있습니다.
+                </p>
+                <a class="btn" href="#" title="더보기" >더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon5">
+                    <img class="img5" src="img/icon5.svg" alt="반려견 산책">
+                </div>
+                <h3 class="text__tit">반려견 훈련</h3>
+                <p class="text__desc">
+                    반려견 훈련을 위한 설명입니다. 반려견의 배변훈련, 사회성 훈련, 사회성 훈련 등을 확인할 수 있습니다. 
+                </p>
+                <a class="btn" href="#" title="더보기" >더보기</a>
+            </article>
+            <article class="text">
+                <div class="icon6">
+                    <img class="img6" src="img/icon6.svg" alt="반려견 산책">
+                </div>
+                <h3 class="text__tit">반려견 옷</h3>
+                <p class="text__desc">
+                    반려견 옷을 위한 설명입니다. 반려견이 산책 시 입을 옷, 비 올 때 입을 옷 등이 있습니다. 인기많은 옷도 확인할 수 있습니다.
+                </p>
+                <a class="btn" href="#" title="더보기" >더보기</a>
+            </article>
+        </div>
+    </section>
+</body>
+</html>
