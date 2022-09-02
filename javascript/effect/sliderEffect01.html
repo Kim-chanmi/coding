@@ -241,7 +241,7 @@ setInterval(() => {
     <!-- //footer -->
     <script src="../assets/js/highlight.min.js"></script>
     <script src="../assets/js/common.js"></script>
-    <script>
+    <!-- <script>
         const sliderWrap = document.querySelector(".slider__wrap");
         const sliderImg = sliderWrap.querySelector(".slider__img"); /* 구체적인 위치값을 주기 위해 document 대신 sliderWrap 사용 */
         const slider = sliderWrap.querySelectorAll(".slider");
@@ -260,6 +260,24 @@ setInterval(() => {
 
             console.log(currentIndex)
         }, 3000);   //1000은 1초
+    </script> -->
+
+    <script>
+        const sliderWrap = document.querySelector(".slider__wrap");
+        const sliderImg = sliderWrap.querySelector(".slider__img");
+        const slider = sliderWrap.querySelectorAll(".slider")
+
+        let currentIndex = 0;
+        let sliderCount = slider.length;
+
+        setInterval(() => {
+            let nextIndex = (currentIndex + 1) % sliderCount;
+
+            slider[currentIndex].style.opacity = "0";
+            slider[nextIndex].style.opacity = "1";
+
+            currentIndex = nextIndex;
+        }, 2000);
     </script>
 </body>
 </html>
