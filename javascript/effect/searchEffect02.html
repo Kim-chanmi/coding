@@ -35,7 +35,7 @@
                 <input type="text" id="search" placeholder="CSS 속성 및 유형을 입력해주세요!">
             </div>
             <div class="search__info">
-                <div class="type">플렉스, 애니메이션, 백그라운드, 기타 등등 유형 별로 검색해보세요!</div>
+                <div class="type">배경, 애니메이션, 백그라운드, 기타 등등 유형 별로 검색해보세요!</div>
                 전체 속성 갯수 : <span class="num">0</span>
             </div>
             <div class="search__list">
@@ -151,7 +151,7 @@
                         <li data-name="column-count" data-type= "기타"><strong>column-count</strong> : column-count는 컬럼의 수를 정의합니다.</li>
                         <li data-name="column-fill" data-type= "기타"><strong>column-fill</strong> : column-fill은 열의 지정방법을 정의합니다.</li>
                         <li data-name="column-gap (grid-column-gap)" data-type= "기타"><strong>column-gap (grid-column-gap)</strong> : column-gap (grid-column-gap)은 컬럼의 간격을 정의합니다.</li>
-                        <li data-name="column-rule"><strong>column-rule</strong> : column-rule은 컬럼 라인의 가로값, 스타일, 컬러를 정의합니다.</li>
+                        <li data-name="column-rule" data-type="기타"><strong>column-rule</strong> : column-rule은 컬럼 라인의 가로값, 스타일, 컬러를 정의합니다.</li>
                         <li data-name="column-rule-color" data-type= "기타"><strong>column-rule-color</strong> : column-rule-color는 컬럼의 라인 색을 정의합니다.</li>
                         <li data-name="column-rule-style" data-type= "기타"><strong>column-rule-style</strong> : column-rule-style은 컬럼 라인의 스타일을 정의합니다.</li>
                         <li data-name="column-rule-width" data-type= "기타"><strong>column-rule-width</strong> : column-rule-width는 컬럼 라인의 가로값을 정의합니다.</li>
@@ -192,7 +192,7 @@
                         <li data-name="font-variant-alternates" data-type= "텍스트"><strong>font-variant-alternates</strong> : font-variant-alternates는 대체 글리프의 사용을 제어합니다.</li>
                         <li data-name="font-variant-caps" data-type= "텍스트"><strong>font-variant-caps</strong> : font-variant-caps는 대문자에 대한 대체 글리프의 사용을 제어합니다.</li>
                         <li data-name="font-variant-east-asian" data-type= "텍스트"><strong>font-variant-east-asian</strong> : font-variant-east-asian는 일본어 및 중국어와 같은 동아시아 스크립트에 대한 대체 글리프 사용을 제어합니다.</li>
-                        <li data-name="font-variant-ligatures"><strong>font-variant-ligatures</strong> : font-variant-ligatures는 적용되는 요소의 텍스트 콘텐츠에 사용되는 합자 및 컨텍스트 형식을 제어합니다.</li>
+                        <li data-name="font-variant-ligatures" data-type="텍스트"><strong>font-variant-ligatures</strong> : font-variant-ligatures는 적용되는 요소의 텍스트 콘텐츠에 사용되는 합자 및 컨텍스트 형식을 제어합니다.</li>
                         <li data-name="font-variant-numeric" data-type= "텍스트"><strong>font-variant-numeric</strong> : font-variant-numeric은 숫자, 분수 및 서수 마커에 대한 대체 글리프의 사용을 제어합니다.</li>
                         <li data-name="font-variant-position" data-type= "텍스트"><strong>font-variant-position</strong> : font-variant-position은 위 첨자 또는 아래 첨자로 배치되는 더 작은 대체 글리프의 사용을 제어합니다.</li>
                         <li data-name="font-variation-settings" data-type= "텍스트"><strong>font-variation-settings</strong> : font-variation-settings는 Variable fonts(가변 폰트) 의 폰트 스타일을 제어합니다.</li>
@@ -450,6 +450,7 @@
                 const cssName = el.querySelector("strong").innerHTML; //CSS 속성의 모든 값
                 const cssType = el.dataset.type;
                 //console.log(cssName);  -> css 속성이 모두 들어왔는지 확인
+                // console.log(cssType)
 
                 if(cssName.includes(searchWord)||cssType.includes(searchWord)){   //true를 반환하면 "hide"를 제거하고 false를 반환하면 "hide" 추가
                     el.classList.remove("hide");
@@ -457,6 +458,8 @@
                     el.classList.add("hide");
                 }
             });
+            const searchList2 = document.querySelectorAll(".search__list ul .hide");
+            searchInfo.textContent = searchList.length -= searchList2.length;
         });
     </script>
 
