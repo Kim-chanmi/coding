@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롯데월드 어드벤쳐</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+        .score {
+            font-family: 'SCoreDream';
+            font-weight: 400;
+        }
+
+        .container {
+            width: 960px;
+            padding: 0 20px;
+            margin: 0 auto;
+            min-width: 960px;
+        }
+
+        /* 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        em {
+            font-style: normal;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* header */
+        .header__inner {
+            width: 100%;
+            margin: 0 auto;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-sizing: border-box;
+            margin-top: 60px;
+        }
+
+        .header__logo {
+            width: 10%;
+            align-items: start;
+        }
+
+        .header__menu {
+            width: 90%;
+            text-align: right;
+        }
+
+        .header__menu li {
+            display: inline;
+        }
+
+        .header__menu li a {
+            padding: 13px 30px;
+            margin: 0 5px;
+            text-align: right;
+        }
+
+        /* banner */
+        .banner__wrap {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .banner__img {
+            width: 960px;
+            overflow: hidden;
+        }
+
+        .banner__inner {
+            display: flex;
+            flex-wrap: wrap;
+            width: 2880px;
+        }
+
+        .banner {
+            width: 960px;
+        }
+
+        .banner:nth-child(1) {
+            z-index: 3;
+        }
+
+        .banner:nth-child(2) {
+            z-index: 2;
+        }
+
+        .banner:nth-child(3) {
+            z-index: 1;
+        }
+
+        /* textType */
+        .text__inner {
+            width: 44%;
+            padding: 20px;
+            border: 1px solid #eee;
+            position: relative;
+        }
+
+        .text__tit {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        em {
+            font-size: 16px;
+            font-weight: normal;
+            color: #666;
+        }
+
+        li {
+            line-height: 1.8;
+            font-weight: 300;
+            color: #666;
+        }
+
+        .text__wrap {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        li>span {
+            text-align: right;
+        }
+
+        span {
+            position: absolute;
+            right: 30px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .span {
+            position: absolute;
+            right: 50px;
+        }
+        .more::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: -20px;
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: url(img/more.jpg) no-repeat right;
+        }
+        /* image */
+        .image__wrap {
+            margin-top: 20px;
+        }
+
+        .image__inner {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 40px;
+            box-sizing: border-box;
+        }
+
+        .img {
+            width: 220px;
+        }
+
+        .img__tit {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .img__tit2 {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 300;
+        }
+        /* footer */
+        .footer__inner {
+            margin: 40px 0;
+            padding-bottom: 40px;
+        }
+        .footer__desc {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 20px;
+            line-height: 1.6
+        }
+        .copyright {
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container score">
+        <header id="headerType" class="header__wrap">
+            <div class="header__inner">
+                <div class="header__logo">
+                    <figure>
+                        <img src="img/logo.jpg" alt="롯데월드">
+                    </figure>
+                </div>
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="#">즐길거리</a></li>
+                        <li><a href="#">요금/우대 혜택</a></li>
+                        <li><a href="#">참여프로그램</a></li>
+                        <li><a href="#">이용가이드</a></li>
+                        <li><a href="#">소통서비스</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- headerType -->
+
+        <section id="bannerType" class="banner__wrap">
+            <div class="banner__img">
+                <figure class="banner__inner">
+                    <div class="banner"><img src="img/banner01.jpg" alt="배너1"></div>
+                    <div class="banner"><img src="img/banner02.jpg" alt="배너2"></div>
+                    <div class="banner"><img src="img/banner03.jpg" alt="배너3"></div>
+                </figure>
+            </div>
+        </section>
+        <!-- bannerType -->
+
+        <section id="textType01" class="text__wrap section">
+            <div class="text__inner">
+                <h2 class="text__tit">롯데월드 소식 | <em>뉴스·공지</em> <span class="span"><a href="#" class="more">더보기</a></span></h2>
+                <ul>
+                    <li>그럴싸진관 미라클 <span>2020.12.12</span></li>
+                    <li>드림스테이지 '힘내 소중한 너' <span>2020.12.12</span></li>
+                    <li>'힘내 소중한 너' 음원 발매 <span>2020.12.12</span></li>
+                    <li>이용 요금 조정 안내 <span>2020.12.12</span></li>
+                </ul>
+            </div>
+            <div class="img__inner">
+                <figure class="img05">
+                    <img src="img/img05.jpg" alt="">
+                </figure>
+            </div>
+        </section>
+        <!-- textType -->
+
+        <section id="imageType" class="image__wrap section">
+            <h2 class="img__tit">특별한 경험</h2>
+            <div class="image__inner">
+                <figure>
+                    <img class="img" src="img/img01.jpg" alt="">
+                    <h3 class="img__tit2">연간회원안내</h3>
+                </figure>
+                <figure>
+                    <img class="img" src="img/img02.jpg" alt="">
+                    <h3 class="img__tit2">프리미엄투어</h3>
+                </figure>
+                <figure>
+                    <img class="img" src="img/img03.jpg" alt="">
+                    <h3 class="img__tit2">공연참여 프로그램</h3>
+                </figure>
+                <figure>
+                    <img class="img" src="img/img04.jpg" alt="">
+                    <h3 class="img__tit2">단체프로그램</h3>
+                </figure>
+            </div>
+        </section>
+        <!-- imageType -->
+        <footer id="footerType">
+            <div class="footer__inner">
+                <p class="footer__desc">
+                    서울특별시 송파구 올림픽로 240 호텔롯데 롯데월드 | 대표자 : 박동기<br>
+                    사업자등록번호: 219-85-00014 | 통신판매업신고번호: 송파 제5513호 | 전화 : 1661-2000
+                </p>
+                <div class="copyright">
+                    COPYRIGHT2018LOTTEWORLD.ALLRIGHTS RESERVED.
+                </div>
+            </div>
+        </footer>
+        <!-- footerType -->
+    </div>
+
+    <script>
+        const bannerInner = document.querySelector(".banner__inner");
+        const banner = document.querySelectorAll(".banner");
+        let currentIndex = 0;
+
+        bannerInner.style.transition = "all 0.6s";
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % banner.length;
+            bannerInner.style.transform = "translateX(" + -960 * currentIndex + "px)";
+        }, 2000);
+    </script>
+</body>
+
+</html>

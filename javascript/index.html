@@ -464,10 +464,47 @@
                 display: none;
             }
         }
+        .link {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            z-index: 100000;
+        }
+        .link li {
+            list-style: none;
+            display: inline;
+        }
+        .link li a {
+            width: 30px;
+            height: 30px;
+            border-radius: 50px;
+            text-align: center;
+            line-height: 33px;
+            display: inline-block;
+            border: 1px solid rgb(236, 163, 163);
+            background: rgb(236, 163, 163);
+            color: #fff;
+            text-transform: uppercase;
+            font-family: 'GmarketSans';
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .link li a:hover {
+             background: #fff;
+             color: rgb(236, 163, 163);
+        }
     </style>
 </head>
 
 <body>
+    <div class="link">
+        <ul>
+            <li><a href="https://se-se.tistory.com/" target="_blank">t</a></li>
+            <li><a href="https://github.com/Kim-chanmi/coding" target="_blank">g</a></li>
+            <li><a href="https://github1s.com/Kim-chanmi/coding" target="_blank">v</a></li>
+        </ul>
+    </div>
     <main>
         <div class="dog">
             <div class="wrap">
