@@ -8,6 +8,7 @@
     <title>퀴즈 이펙트</title>
 
     <link rel="stylesheet" href="../assets/css/quiz.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
 
     <link href="https://webfontworld.github.io/woori/Wooridaum.css" rel="stylesheet">
     <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
@@ -175,8 +176,521 @@
     <!-- main -->
     <footer id="footer">
         <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+        <div class="modal__wrap">
+            <div class="modal__btn">소스 보기</div>
+            <div class="modal__cont">
+                <div class="window">
+                    <div class="title-bar">
+                        <div class="title">QuizEffect03</div>
+                        <div class="minimize">
+                            <div class="symbol"></div>
+                        </div>
+                        <div class="maximize">
+                            <div class="symbol"></div>
+                        </div>
+                        <div class="close">
+                            <div class="symbol"></div>
+                        </div>
+                    </div>
+                    <div class="menu-bar">
+                        <span class="active">JAVASCRIPT</span>
+                        <span>HTML</span>
+                        <span>CSS</span>
+                    </div>
+                    <div class="content-container">
+                        <div class="content">
+                            <div class="main">
+                                <div class="active">
+<pre><code class="language-js">//선택자
+const quizType = document.querySelectorAll(".quiz__type");                     //퀴즈 종류  //All은 여러개 있다.
+const quizNumber = document.querySelectorAll(".quiz__question .number");       //퀴즈 번호
+const quizAsk = document.querySelectorAll(".quiz__question .ask");             //퀴즈 질문
+const quizConfirm = document.querySelectorAll(".quiz__answer .confirm");       //정답 확인 버튼
+const quizResult = document.querySelectorAll(".quiz__answer .result");         //정답 결과
+const quizInput = document.querySelectorAll(".quiz__answer .input");            //사용자 정답
+const quizView = document.querySelectorAll(".quiz__view");                      //강아지
+
+//문제 정보
+const quizInfo = [{
+        answerType: "웹디자인 기능사 2016년 1회 기출문제",
+        answerNum: "1",//3번,
+        answerAsk: "미적 대상을 구상하는 부분과 부분의 사이에 질적으로나 양적으로 모순되는 일 없이 질서가 잡혀 어울리는 것은?",
+        answerResult: "조화"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회 기출문제",
+        answerNum: "2",//7번
+        answerAsk: "한국산업표준(KS)에 따른 색의 3속성은 무엇입니까?",
+        answerResult: "Hue, Value, Chroma"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회 기출문제",
+        answerNum: "3",//8번
+        answerAsk: "같은 크기의 형을 상, 하로 겹칠 때 위쪽의 것이 크게 보이는 착시현상은?",
+        answerResult: "상방 거리의 과대착시"
+    },
+    {
+        answerType: "웹디자인 기능사 2016년 1회 기출문제",
+        answerNum: "4",//9번
+        answerAsk: "디자인 원리 중 동질의 부분이 조합될 때 이루어지는 것은?",
+        answerResult: "유사"
+    },
+]
+
+//문제 출력
+// for(let i=0; i&lt;quizInfo.length; i++){
+//     quizType[i].textContent = quizInfo[i].answerType;
+//     quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
+//     quizAsk[i].textContent = quizInfo[i].answerAsk;
+//     quizResult[i].textContent = quizInfo[i].answerResult;
+// }
+
+quizInfo.forEach((e, i) => {        //element, index
+    quizType[i].textContent = quizInfo[i].answerType;
+    quizNumber[i].textContent = quizInfo[i].answerNum + ". ";
+    quizAsk[i].textContent = quizInfo[i].answerAsk;
+    quizResult[i].textContent = quizInfo[i].answerResult;
+});
+
+// quizType[0].textContent = quizInfo[0].answerType;
+// quizType[1].textContent = quizInfo[1].answerType;
+// quizType[2].textContent = quizInfo[2].answerType;
+// quizType[3].textContent = quizInfo[3].answerType;
+
+
+// quizNumber[0].textContent = quizInfo[0].answerNum + ". ";
+// quizNumber[1].textContent = quizInfo[1].answerNum + ". ";
+// quizNumber[2].textContent = quizInfo[2].answerNum + ". ";
+// quizNumber[3].textContent = quizInfo[3].answerNum + ". ";
+
+
+// quizAsk[0].textContent = quizInfo[0].answerAsk;
+// quizAsk[1].textContent = quizInfo[1].answerAsk;
+// quizAsk[2].textContent = quizInfo[2].answerAsk;
+// quizAsk[3].textContent = quizInfo[3].answerAsk;
+
+
+// quizResult[0].textContent = quizInfo[0].answerResult;
+// quizResult[1].textContent = quizInfo[1].answerResult;
+// quizResult[2].textContent = quizInfo[2].answerResult;
+// quizResult[3].textContent = quizInfo[3].answerResult;
+
+//정답 숨기기
+// for(let i=0; i&lt;quizInfo.length; i++){
+//     quizResult[i].style.display = "none"
+// }
+
+quizInfo.forEach((e, i)=>{
+    quizResult[i].style.display = "none"
+});
+
+// quizResult[0].style.display = "none"
+// quizResult[1].style.display = "none"
+// quizResult[2].style.display = "none"
+// quizResult[3].style.display = "none"
+
+//정답확인
+// quizConfirm.addEventListener("click", () => {       //quizConfirm이 여러개인것을 알려줘야 함
+//     alert("ddd")
+// });
+quizConfirm.forEach((btn, num) => {      //버튼이 4개인 것을 알려줌, index
+    btn.addEventListener("click", () => {
+        
+        //사용자 정담
+        const userWord = quizInput[num].value;    //해당 문제에 맞는 답변 불러오기
+                    
+        //사용자 정답 == 문제 정답(비교 확인)
+        if(userWord == quizInfo[num].answerResult){
+            //정답
+            //alert("정답")
+            quizView[num].classList.add("like");
+            quizConfirm[num].style.display = "none";
+        } else {
+            //오답
+            //alert("오답")
+            quizView[num].classList.add("dislike");
+            quizConfirm[num].style.display = "none";
+            quizResult[num].style.display = "block";
+            quizInput[num].style.display = "none";
+        }
+    })
+});
+</code></pre>
+                                </div>
+                                <div>
+<pre><code class="language-html">&lt;div class="quiz__wrap"&gt;
+    &lt;div class="quiz"&gt;
+        &lt;span class="quiz__type"&gt;&lt;/span&gt;
+        &lt;h2 class="quiz__question"&gt;
+            &lt;span class="number"&gt;&lt;/span&gt;
+            &lt;div class="ask"&gt;&lt;/div&gt;
+        &lt;/h2&gt;
+        &lt;div class="quiz__view"&gt;
+            &lt;div class="true"&gt;정답입니다!&lt;/div&gt;
+            &lt;div class="false"&gt;틀렸습니다!&lt;/div&gt;
+            &lt;div class="dog"&gt;
+                &lt;div class="head"&gt;
+                    &lt;div class="ears"&gt;&lt;/div&gt;
+                    &lt;div class="face"&gt;&lt;/div&gt;
+                    &lt;div class="eyes"&gt;
+                        &lt;div class="teardrop"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="nose"&gt;&lt;/div&gt;
+                    &lt;div class="mouth"&gt;
+                        &lt;div class="tongue"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="chin"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="body"&gt;
+                    &lt;div class="tail"&gt;&lt;/div&gt;
+                    &lt;div class="legs"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="quiz__answer"&gt;
+            &lt;input type="text" class="input" placeholder="정답을 입력해주세요!"&gt;
+            &lt;button class="confirm"&gt;정답 확인하기&lt;/button&gt;
+            &lt;div class="result"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 01 --&gt;
+    &lt;div class="quiz"&gt;
+        &lt;span class="quiz__type"&gt;&lt;/span&gt;
+        &lt;h2 class="quiz__question"&gt;
+            &lt;span class="number"&gt;&lt;/span&gt;
+            &lt;div class="ask"&gt;&lt;/div&gt;
+        &lt;/h2&gt;
+        &lt;div class="quiz__view"&gt;
+            &lt;div class="true"&gt;정답입니다!&lt;/div&gt;
+            &lt;div class="false"&gt;틀렸습니다!&lt;/div&gt;
+            &lt;div class="dog"&gt;
+                &lt;div class="head"&gt;
+                    &lt;div class="ears"&gt;&lt;/div&gt;
+                    &lt;div class="face"&gt;&lt;/div&gt;
+                    &lt;div class="eyes"&gt;
+                        &lt;div class="teardrop"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="nose"&gt;&lt;/div&gt;
+                    &lt;div class="mouth"&gt;
+                        &lt;div class="tongue"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="chin"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="body"&gt;
+                    &lt;div class="tail"&gt;&lt;/div&gt;
+                    &lt;div class="legs"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="quiz__answer"&gt;
+            &lt;input type="text" class="input" placeholder="정답을 입력해주세요!"&gt;
+            &lt;button class="confirm"&gt;정답 확인하기&lt;/button&gt;
+            &lt;div class="result"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 02 --&gt;
+    &lt;div class="quiz"&gt;
+        &lt;span class="quiz__type"&gt;&lt;/span&gt;
+        &lt;h2 class="quiz__question"&gt;
+            &lt;span class="number"&gt;&lt;/span&gt;
+            &lt;div class="ask"&gt;&lt;/div&gt;
+        &lt;/h2&gt;
+        &lt;div class="quiz__view"&gt;
+            &lt;div class="true"&gt;정답입니다!&lt;/div&gt;
+            &lt;div class="false"&gt;틀렸습니다!&lt;/div&gt;
+            &lt;div class="dog"&gt;
+                &lt;div class="head"&gt;
+                    &lt;div class="ears"&gt;&lt;/div&gt;
+                    &lt;div class="face"&gt;&lt;/div&gt;
+                    &lt;div class="eyes"&gt;
+                        &lt;div class="teardrop"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="nose"&gt;&lt;/div&gt;
+                    &lt;div class="mouth"&gt;
+                        &lt;div class="tongue"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="chin"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="body"&gt;
+                    &lt;div class="tail"&gt;&lt;/div&gt;
+                    &lt;div class="legs"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="quiz__answer"&gt;
+            &lt;input type="text" class="input" placeholder="정답을 입력해주세요!"&gt;
+            &lt;button class="confirm"&gt;정답 확인하기&lt;/button&gt;
+            &lt;div class="result"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 03 --&gt;
+    &lt;div class="quiz"&gt;
+        &lt;span class="quiz__type"&gt;&lt;/span&gt;
+        &lt;h2 class="quiz__question"&gt;
+            &lt;span class="number"&gt;&lt;/span&gt;
+            &lt;div class="ask"&gt;&lt;/div&gt;
+        &lt;/h2&gt;
+        &lt;div class="quiz__view"&gt;
+            &lt;div class="true"&gt;정답입니다!&lt;/div&gt;
+            &lt;div class="false"&gt;틀렸습니다!&lt;/div&gt;
+            &lt;div class="dog"&gt;
+                &lt;div class="head"&gt;
+                    &lt;div class="ears"&gt;&lt;/div&gt;
+                    &lt;div class="face"&gt;&lt;/div&gt;
+                    &lt;div class="eyes"&gt;
+                        &lt;div class="teardrop"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="nose"&gt;&lt;/div&gt;
+                    &lt;div class="mouth"&gt;
+                        &lt;div class="tongue"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="chin"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="body"&gt;
+                    &lt;div class="tail"&gt;&lt;/div&gt;
+                    &lt;div class="legs"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="quiz__answer"&gt;
+            &lt;input type="text" class="input" placeholder="정답을 입력해주세요!"&gt;
+            &lt;button class="confirm"&gt;정답 확인하기&lt;/button&gt;
+            &lt;div class="result"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- 04 --&gt;
+&lt;/div&gt;
+</code></pre>
+                                </div>
+                                <div>
+<pre><code class="language-css">.quiz__wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    flex-wrap: wrap;
+}
+.quiz {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    border: 8px ridge #cacaca;
+    margin: 10px;
+}
+.quiz__type {
+    background-color: #cacaca;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    border: 3px ridge #cacaca;
+    color: #3b3b3b;
+    font-family: "DungGeunMo";
+    padding: 4px;
+}
+.quiz__question {
+    border-top: 6px ridge #cacaca;
+    border-bottom: 6px ridge #cacaca;
+    padding: 20px;
+    font-family: "Wooridaum";
+    line-height: 1.3;
+}
+.quiz__question .number {
+    color: rgb(187, 87, 87);
+}
+.quiz__question .ask {
+    display: inline;
+}
+.quiz__answer {
+    border-top: 6px ridge #cacaca;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+.quiz__answer .confirm {
+    border: 6px ridge #cacaca;
+    width: 100%;
+    font-size: 22px;
+    padding: 13px 20px;
+    background-color: #b6b6b6;
+    font-family: "Wooridaum";
+    cursor: pointer;
+}
+.quiz__answer .result {
+    width: 100%;
+    font-size: 22px;
+    line-height: 1.4;
+    padding: 13px 20px;
+    border: 6px ridge #cacaca;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Wooridaum";
+}
+.quiz__answer .input {
+    width: 100%;
+    border: 6px ridge #cacaca;
+    font-size: 22px;
+    padding: 13px 20px;
+    background-color: #fff;
+    font-family: "Wooridaum";
+    margin-bottom: 10px;  
+}
+.quiz__view {
+    background-color: #f5f5f5;
+    font-family: "Wooridaum";
+    position: relative;
+    overflow: hidden;
+}
+.quiz__view .true {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    background-color:  rgb(187, 87, 87);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    left: 70%;
+    top: 100px;
+    opacity: 0;
+}
+.quiz__view .false {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    background-color:  #fff;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    right: 70%;
+    top: 100px;
+    opacity: 0;
+}
+.quiz__view.like .true {
+    opacity: 1;
+    animation: wobble 0.6s;
+}
+.quiz__view.dislike .false {
+    opacity: 1;
+    animation: wobble 0.6s;
+}
+.quiz__selects {
+    margin: 5px 0;
+}
+.quiz__selects label {
+    display: flex;
+}
+.quiz__selects label input {
+    position: absolute;
+    left: -9999px;
+}
+.quiz__selects label span {
+    font-size: 20px;
+    line-height: 1.3;
+    font-family: "Wooridaum";
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.quiz__selects label span::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    margin-right: 15px;
+    display: flex;
+    flex-shrink: 0;
+    box-shadow: inset 0px 0px 0px 4px rgb(187, 87, 87);
+    transition: all 0.25s;
+}
+.quiz__selects label input:checked + span {
+    background-color: rgb(244, 202, 202);
+}
+.quiz__selects label input:checked + span::before {
+    box-shadow: inset 0px 0px 0px 10px rgb(187, 87, 87);
+}
+.quiz__confirm {
+    width: 100%;
+    text-align: center;
+}
+.quiz__confirm .check {
+    font-size: 22px;
+    line-height: 1.3;
+    padding: 13px 60px;
+    border: 6px ridge #cacaca;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Wooridaum";
+    cursor: pointer;
+    margin: 40px 0;
+    transition: background 0.3s;
+}
+.quiz__confirm .check:hover {
+    background: rgba(187, 87, 87, 0.263)
+}
+@keyframes wobble {
+    0%   {transform: translateX(0) rotate(0deg)}
+    15%  {transform: translateX(-25%) rotate(-5deg)}
+    30%  {transform: translateX(20%) rotate(3deg)}
+    45%  {transform: translateX(-15%) rotate(-3deg)}
+    60%  {transform: translateX(10%) rotate(2deg)}
+    75%  {transform: translateX(-5%) rotate(-1deg)}
+    100% {transform: translateX(0) rotate(0deg)}
+}
+</code></pre>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
     </footer>
     <!-- footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        //모달
+        const modalBtn = document.querySelector(".modal__btn");
+        const modalClose = document.querySelector(".close")
+        const modalCont = document.querySelector(".modal__cont");
+
+
+        modalBtn.addEventListener("click", () => {
+            modalCont.classList.add("show");
+            modalCont.classList.remove("hide");
+        })
+
+        modalClose.addEventListener("click", () => {
+            modalCont.classList.add("hide");
+        })
+
+        //탭 메뉴
+        const tabBtn = document.querySelectorAll(".window .menu-bar > span");
+        const tabCont = document.querySelectorAll(".content .main > div");
+
+        tabBtn.forEach((element, index) => {
+            element.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                tabBtn.forEach(li => {
+                    li.classList.remove("active");
+                });
+
+                element.classList.add("active");
+
+                tabCont.forEach(div => {
+                    div.style.display = "none";
+                });
+
+                tabCont[index].style.display = "block";
+            });
+        });
+    </script>
 
     <script>
         //선택자

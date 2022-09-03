@@ -8,6 +8,7 @@
     <title>퀴즈 이펙트</title>
 
     <link rel="stylesheet" href="../assets/css/quiz.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
 
     <link href="https://webfontworld.github.io/woori/Wooridaum.css" rel="stylesheet">
     <link href="https://webfontworld.github.io/DungGeunMo/DungGeunMo.css" rel="stylesheet">
@@ -90,16 +91,483 @@
                     <button class="confirm">다음 문제 보기👍</button>
                 </div>
             </div>
-
-
         </div>
     </main>
     <!-- main -->
     <footer id="footer">
         <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+        <footer id="footer">
+            <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+            <div class="modal__wrap">
+                <div class="modal__btn">소스 보기</div>
+                <div class="modal__cont">
+                    <div class="window">
+                        <div class="title-bar">
+                            <div class="title">QuizEffect06</div>
+                            <div class="minimize">
+                                <div class="symbol"></div>
+                            </div>
+                            <div class="maximize">
+                                <div class="symbol"></div>
+                            </div>
+                            <div class="close">
+                                <div class="symbol"></div>
+                            </div>
+                        </div>
+                        <div class="menu-bar">
+                            <span class="active">JAVASCRIPT</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <div class="content-container">
+                            <div class="content">
+                                <div class="main">
+                                    <div class="active">
+<pre><code class="language-js">//문제 정보
+const quizInfo = [
+    {
+        answerType: "웹디자인기능사 2010년 04회",
+        answerNum: "1",
+        answerAsk: "색의 수축, 팽창의 효과에 가장 큰 영향을 주는 요소는?",
+        answerChoice: [
+            "색약",
+            "명도",
+            "잔상",
+            "중량"
+        ],
+        answerResult: "명도",
+        answerEx: "색의 수축, 팽창의 효과에 가장 큰 영향을 주는 요소는 '명도'입니다."
+    },
+    {
+        answerType: "웹디자인기능사 2010년 04회",
+        answerNum: "2",
+        answerAsk: "면(plane)에 대한 설명으로 틀린 것은?",
+        answerChoice: [
+            "폭은 있으나 길이가 없다.",
+            "이동하는 선의 자취가 면을 이룬다.",
+            "공간을 구성하는 단위이다.",
+            "넓이는 있으나 두께는 없다."
+        ],
+        answerResult: "폭은 있으나 길이가 없다.",
+        answerEx: "면에는 길이가 있습니다."
+    },
+    {
+        answerType: "웹디자인기능사 2010년 04회",
+        answerNum: "3",
+        answerAsk: "디자인에서 사용되는 용어 설명으로 잘못된 것은?",
+        answerChoice: [
+            "2차원의 화면이나 형식 위에, 3차원의 공간에 존재하는 형(shape)이나 형태(form)를 표시하는 것을 투시(perspective)라 한다.",
+            "장소나 위치 또는 방위가 변화되는 과정이나 움직임을 시차(parallax)라고 한다.",
+            "점진적 변화, 규칙적 단계에 의해 진행되는 변화과정을 그라데이션(gradation)이라고 한다.",
+            "시각적 영역 안에서 어떤 형이나 형태가 다른 형이나 형태를 부분적으로 덮어 감추어지는 현상을 중첩이라 한다."
+        ],
+        answerResult: "장소나 위치 또는 방위가 변화되는 과정이나 움직임을 시차(parallax)라고 한다.",
+        answerEx: "시차(parallax)란 어떤 물체를 서로 다른 두 지점에서 보았을 때 생기는 방향의 차이를 말합니다."
+    },
+    {
+        answerType: "웹디자인기능사 2010년 04회",
+        answerNum: "4",
+        answerAsk: "병원 수술실의 색채계획으로 가장 적당한 배색은?",
+        answerChoice: [
+            "갈색계열",
+            "무채색계열",
+            "녹색계열",
+            "보라색계열"
+        ],
+        answerResult: "녹색계열",
+        answerEx: "병원 수술실의 색채계획으로 가장 적당한 배색은 '녹색계열'입니다."
+    },
+    {
+        answerType: "웹디자인기능사 2010년 04회",
+        answerNum: "5",
+        answerAsk: "색입체를 단순화한 각 부분의 명칭이 맞는 것은? (단, A는 입체의 상하, /B는 입체의 가로방향, C는 입체의 둘레를 의미한다.)",
+        answerChoice: [
+            "A-색상, B-채도, C-명도",
+            "A-채도, B-명도, C-색상",
+            "A-명도, B-색상, C-채도",
+            "A-명도, B-채도, C-색상"
+        ],
+        answerResult: "A-명도, B-채도, C-색상",
+        answerEx: "입체의 상하(A)는 명도, 입체의 가로방향(B)는 채도, 입체의 둘레(C)는 색상입니다."
+    }
+];
+
+const quizType = document.querySelector(".quiz__type");     //문제 유형
+const quizQuestion = document.querySelector(".quiz__question");     //문제 번호, 질문
+const quizSelects = document.querySelector(".quiz__selects");       //객관식 보기
+const quizResult = document.querySelector(".quiz__answer .result") //해설
+const quizConfirm = document.querySelector(".quiz__answer .confirm") //정답 확인버튼
+const quizView = document.querySelector(".quiz__view");     //강아지
+
+let quizCount = 0;
+let quizScore = 0;
+
+// 문제 출력
+const updateQuiz = (index) => {
+    const questionTag = `
+        &lt;span class="number"&gt;${quizInfo[index].answerNum}. &lt;/span&gt;
+        &lt;div class="ask"&gt;${quizInfo[index].answerAsk}&lt;/div&gt;
+    `
+    const choiceTag = `
+        &lt;label for="select1"&gt;
+            &lt;input type="radio" id="select1" class="select" name="select" value="1"&gt; 
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[0]}&lt;/span&gt;
+        &lt;/label&gt;                                 
+        &lt;label for="select2"&gt;
+            &lt;input type="radio" id="select2" class="select" name="select" value="2"&gt; 
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[1]}&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label for="select3"&gt;
+            &lt;input type="radio" id="select3" class="select" name="select" value="3"&gt; 
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[2]}&lt;/span&gt;
+        &lt;/label&gt;
+        &lt;label for="select4"&gt;
+            &lt;input type="radio" id="select4" class="select" name="select" value="4"&gt; 
+            &lt;span class="choice"&gt;${quizInfo[index].answerChoice[3]}&lt;/span&gt;
+        &lt;/label&gt;
+    `;
+    //문제 출력
+    quizQuestion.innerHTML = questionTag;       //퀴즈 유형
+    quizSelects.innerHTML = choiceTag;      //번호, 질문
+    quizType.innerHTML = quizInfo[index].answerType;  //객관식
+    quizResult.innerHTML = quizInfo[index].answerEx; //해설
+
+    const quizChoice = quizSelects.querySelectorAll(".choice");
+
+    for (let i = 0; i &lt; quizChoice.length; i++) {
+        quizChoice[i].setAttribute("onclick", "choiceSelected(this)");
+    }
+
+    //문제, 해설 숨기기
+    quizResult.style.display = "none";
+    quizConfirm.style.display = "none";
+}
+updateQuiz(quizCount);
+
+const choiceSelected = (answer) => {
+    let userAnswer = answer.textContent; //사용자가 체크한 정답
+    let currentAnswer = quizInfo[quizCount].answerResult;    //문제 정답
+
+    if (userAnswer == currentAnswer) {
+        console.log("정답")
+        quizView.classList.add("like");
+        quizScore++
+        console.log(quizScore)
+    } else {
+        console.log("오답")
+        quizView.classList.add("dislike");
+        quizResult.style.display = "block";
+    }
+    quizConfirm.style.display = "block";
+}
+
+//정답 확인 버튼
+const answerQuiz = () => {
+    
+    //마지막 문제
+    if (quizInfo.length - 1 == quizCount) {
+        if (quizScore >= quizCount * 0.6) {
+            quizConfirm.textContent = `총 ${quizInfo.length}문제 중에 ${quizScore}문제를 맞췄습니다. 합격입니다.😍`
+        } else
+            quizConfirm.textContent = `총 ${quizInfo.length}문제 중에 ${quizScore}문제를 맞췄습니다. 불합격입니다.😭`
+    }
+    quizCount++;
+    updateQuiz(quizCount);
+    quizView.classList.remove("like", "dislike")
+}
+
+
+quizConfirm.addEventListener("click", answerQuiz);
+</code></pre>
+                                    </div>
+                                    <div>
+<pre><code class="language-html">&lt;div class="quiz__wrap"&gt;
+    &lt;div class="quiz"&gt;
+        &lt;span class="quiz__type"&gt;&lt;/span&gt;
+        &lt;h2 class="quiz__question"&gt;
+            &lt;!-- &lt;span class="number"&gt;&lt;/span&gt;
+            &lt;div class="ask"&gt;&lt;/div&gt; --&gt;
+        &lt;/h2&gt;
+        &lt;div class="quiz__view"&gt;
+            &lt;div class="true"&gt;정답입니다!&lt;/div&gt;
+            &lt;div class="false"&gt;틀렸습니다!&lt;/div&gt;
+            &lt;div class="dog"&gt;
+                &lt;div class="head"&gt;
+                    &lt;div class="ears"&gt;&lt;/div&gt;
+                    &lt;div class="face"&gt;&lt;/div&gt;
+                    &lt;div class="eyes"&gt;
+                        &lt;div class="teardrop"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="nose"&gt;&lt;/div&gt;
+                    &lt;div class="mouth"&gt;
+                        &lt;div class="tongue"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="chin"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="body"&gt;
+                    &lt;div class="tail"&gt;&lt;/div&gt;
+                    &lt;div class="legs"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="quiz__answer"&gt;
+            &lt;div class="quiz__selects"&gt;
+                &lt;!-- &lt;label for="select1"&gt;
+                    &lt;input type="radio" id="select1" class="select" name="select" value="1"&gt; 
+                    &lt;span class="choice"&gt;&lt;/span&gt;
+                &lt;/label&gt;                                 
+                &lt;label for="select2"&gt;
+                    &lt;input type="radio" id="select2" class="select" name="select" value="2"&gt; 
+                    &lt;span class="choice"&gt;&lt;/span&gt;
+                &lt;/label&gt;
+                &lt;label for="select3"&gt;
+                    &lt;input type="radio" id="select3" class="select" name="select" value="3"&gt; 
+                    &lt;span class="choice"&gt;&lt;/span&gt;
+                &lt;/label&gt;
+                &lt;label for="select4"&gt;
+                    &lt;input type="radio" id="select4" class="select" name="select" value="4"&gt; 
+                    &lt;span class="choice"&gt;&lt;/span&gt;
+                &lt;/label&gt; --&gt;
+            &lt;/div&gt;
+
+            &lt;div class="result"&gt;&lt;/div&gt;
+            &lt;button class="confirm"&gt;다음 문제 보기👍&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                                    </div>
+                                    <div>
+<pre><code class="language-css">.quiz__wrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 150px;
+    flex-wrap: wrap;
+}
+.quiz {
+    max-width: 500px;
+    width: 100%;
+    background-color: #fff;
+    border: 8px ridge #cacaca;
+    margin: 10px;
+}
+.quiz__type {
+    background-color: #cacaca;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    border: 3px ridge #cacaca;
+    color: #3b3b3b;
+    font-family: "DungGeunMo";
+    padding: 4px;
+}
+.quiz__question {
+    border-top: 6px ridge #cacaca;
+    border-bottom: 6px ridge #cacaca;
+    padding: 20px;
+    font-family: "Wooridaum";
+    line-height: 1.3;
+}
+.quiz__question .number {
+    color: rgb(187, 87, 87);
+}
+.quiz__question .ask {
+    display: inline;
+}
+.quiz__answer {
+    border-top: 6px ridge #cacaca;
+    padding: 10px;
+    background-color: #f5f5f5;
+}
+.quiz__answer .confirm {
+    border: 6px ridge #cacaca;
+    width: 100%;
+    font-size: 22px;
+    padding: 13px 20px;
+    background-color: #b6b6b6;
+    font-family: "Wooridaum";
+    cursor: pointer;
+}
+.quiz__answer .result {
+    width: 100%;
+    font-size: 22px;
+    line-height: 1.4;
+    padding: 13px 20px;
+    border: 6px ridge #cacaca;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Wooridaum";
+}
+.quiz__answer .input {
+    width: 100%;
+    border: 6px ridge #cacaca;
+    font-size: 22px;
+    padding: 13px 20px;
+    background-color: #fff;
+    font-family: "Wooridaum";
+    margin-bottom: 10px;  
+}
+.quiz__view {
+    background-color: #f5f5f5;
+    font-family: "Wooridaum";
+    position: relative;
+    overflow: hidden;
+}
+.quiz__view .true {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    background-color:  rgb(187, 87, 87);
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    left: 70%;
+    top: 100px;
+    opacity: 0;
+}
+.quiz__view .false {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    background-color:  #fff;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    right: 70%;
+    top: 100px;
+    opacity: 0;
+}
+.quiz__view.like .true {
+    opacity: 1;
+    animation: wobble 0.6s;
+}
+.quiz__view.dislike .false {
+    opacity: 1;
+    animation: wobble 0.6s;
+}
+.quiz__selects {
+    margin: 5px 0;
+}
+.quiz__selects label {
+    display: flex;
+}
+.quiz__selects label input {
+    position: absolute;
+    left: -9999px;
+}
+.quiz__selects label span {
+    font-size: 20px;
+    line-height: 1.3;
+    font-family: "Wooridaum";
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.quiz__selects label span::before{
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    margin-right: 15px;
+    display: flex;
+    flex-shrink: 0;
+    box-shadow: inset 0px 0px 0px 4px rgb(187, 87, 87);
+    transition: all 0.25s;
+}
+.quiz__selects label input:checked + span {
+    background-color: rgb(244, 202, 202);
+}
+.quiz__selects label input:checked + span::before {
+    box-shadow: inset 0px 0px 0px 10px rgb(187, 87, 87);
+}
+.quiz__confirm {
+    width: 100%;
+    text-align: center;
+}
+.quiz__confirm .check {
+    font-size: 22px;
+    line-height: 1.3;
+    padding: 13px 60px;
+    border: 6px ridge #cacaca;
+    box-sizing: border-box;
+    text-align: center;
+    font-family: "Wooridaum";
+    cursor: pointer;
+    margin: 40px 0;
+    transition: background 0.3s;
+}
+.quiz__confirm .check:hover {
+    background: rgba(187, 87, 87, 0.263)
+}
+@keyframes wobble {
+    0%   {transform: translateX(0) rotate(0deg)}
+    15%  {transform: translateX(-25%) rotate(-5deg)}
+    30%  {transform: translateX(20%) rotate(3deg)}
+    45%  {transform: translateX(-15%) rotate(-3deg)}
+    60%  {transform: translateX(10%) rotate(2deg)}
+    75%  {transform: translateX(-5%) rotate(-1deg)}
+    100% {transform: translateX(0) rotate(0deg)}
+}
+</code></pre>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </footer>
     </footer>
     <!-- footer -->
 
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+
+        //모달
+        const modalBtn = document.querySelector(".modal__btn");
+        const modalClose = document.querySelector(".close")
+        const modalCont = document.querySelector(".modal__cont");
+
+
+        modalBtn.addEventListener("click", () => {
+            modalCont.classList.add("show");
+            modalCont.classList.remove("hide");
+        })
+
+        modalClose.addEventListener("click", () => {
+            modalCont.classList.add("hide");
+        })
+
+        //탭 메뉴
+        const tabBtn = document.querySelectorAll(".window .menu-bar > span");
+        const tabCont = document.querySelectorAll(".content .main > div");
+
+        tabBtn.forEach((element, index) => {
+            element.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                tabBtn.forEach(li => {
+                    li.classList.remove("active");
+                });
+
+                element.classList.add("active");
+
+                tabCont.forEach(div => {
+                    div.style.display = "none";
+                });
+
+                tabCont[index].style.display = "block";
+            });
+        });
+    </script>
     <script>
         //문제 정보
         const quizInfo = [

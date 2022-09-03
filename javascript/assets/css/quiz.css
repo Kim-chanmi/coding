@@ -1,3 +1,5 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
 /* reset */
 * {
     margin: 0;
@@ -302,24 +304,27 @@ body {
 /* modal__wrap */
 .modal__wrap {}
 .modal__btn {
-    color: #fff;
-    border: 1px solid #fff;
-    border-radius: 50px;
+    color: #000;
+    border: 1px solid #bababa;
+    background-color: #bababa;
+    border-radius: 10px;
     display: inline-block;
     padding: 10px 20px;
     position: absolute;
     right: 20px;
-    bottom: 20px;
+    bottom: 10px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
+    font-family: "DungGeunMo";
 }
 .modal__btn:hover {
-    background-color: #fff;
+    background-color: #a4a2a2;
     color: #1B1C2E;
 }
 .modal__cont {
+    font-family: "Inconsolata", monospace;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.3);
     position: fixed;
     left: 0;
@@ -330,127 +335,141 @@ body {
     justify-content: center;
     transform: scale(0);
 }
-.modal__box {
+.window {
     width: 70%;
     height: 70vh;
-    overflow-y: auto;
-    border-radius: 0.6rem;
-    box-shadow: 0 10px 20px -5px hsl(180deg 2% 10%);
-    transform: scale(0);
-    overflow: hidden;
-}
-.modal__box .title {
-    padding-inline: 1rem;
-    background-color: #1B1C2E;
+    background-color: #c7c7c7;
+    padding: 4px;
+    border-left: 2px solid #FCFCFC;
+    border-top: 2px solid #FCFCFC;
+    border-right: 2px solid #2A2A2A;
+    border-bottom: 2px solid #2A2A2A;
+  }
+  
+.title-bar {
+    background-color: #000080;
+    padding: 4px;
+    height: 30px;
+    width: 100%;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-    color: #fff;
-    height: 50px;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-}
-.modal__box .title .dot {
-    width: 15px;
-    height: 15px;
-    background-color: rgb(232, 170, 170);
-    display: inline-block;
-    border-radius: 50%;
     position: relative;
-    margin-left: 2rem;
-}
-.modal__box .title .dot::before {
-    content: '';
+  }
+.title-bar .title {
     position: absolute;
-    left: 25px;
-    top: 0;
-    width: 15px;
-    height: 15px;
-    background-color: rgb(228, 194, 194);
-    border-radius: 50%;
+    left: 10px;
+    color: #fff;
 }
-.modal__box .title .dot::after {
-    content: '';
-    position: absolute;
-    right: 25px;
-    top: 0;
-    width: 15px;
-    height: 15px;
-    background-color: rgb(235, 135, 135);
-    border-radius: 50%;
-}
-.modal__box .title .plus {
-    background: #282936;
-    padding: 0.5rem 0.5rem 0.3rem 0.5rem;
-    border-radius: 0.5rem;
-    color: #7A7D9D;
-}
-.modal__box .title .tabs {
-    display: flex;
-    margin-left: 50px;
-}
-.modal__box .title .tabs > div {
-    color: #7A7D9D;
-    background-color: #282936;
-    padding: 0.35rem 0.8rem 0.25rem 0.8rem;
-    margin-right: 0.5rem;
+.title-bar > .minimize, .title-bar > .maximize, .title-bar > .close {
+    width: 26px;
+    height: 22px;
+    background-color: #c7c7c7;
+    margin-left: 4px;
+    border-left: 2px solid #FCFCFC;
+    border-top: 2px solid #FCFCFC;
     display: flex;
     align-items: center;
-    border-radius: 0.4rem;
-    text-transform: uppercase;
+    justify-content: center;
     cursor: pointer;
+  }
+.title-bar > .minimize:hover, .title-bar > .maximize:hover, .title-bar > .close:hover {
+    background-color: #bababa;
+    border-left: 2px solid #2A2A2A;
+    border-top: 2px solid #2A2A2A;
+    border-right: 2px solid #FCFCFC;
+    border-bottom: 2px solid #FCFCFC;
+  }
+.title-bar > .minimize {
+    align-items: flex-end;
+  }
+.title-bar > .minimize > .symbol {
+    width: 60%;
+    height: 3px;
+    background-color: #000000;
+    margin-bottom: 2px;
+  }
+.title-bar > .maximize > .symbol {
+    width: 70%;
+    height: 80%;
+    border: 2px solid #000000;
+    border-top-width: 4px;
+  }
+.title-bar > .close > .symbol {
+    width: 70%;
+    height: 3px;
+    background-color: #000000;
+    transform: rotate(45deg);
+  }
+.title-bar > .close > .symbol::after {
+    content: "";
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #000000;
+    transform: rotate(90deg);
+  }
+.menu-bar .active {
+    background-color: #aeadad;
 }
-.modal__box .title .tabs > div.active {
-    background-color: #111229;
-}
-.modal__box .title .tabs > div em {
-    font-style: normal;
-}
-.modal__box .title .tabs > div .favicon {
-    margin-right: 0.4rem;
-    margin-top: 0.2rem;
-}
-.modal__box .title .tabs > div .close {
-    margin-left: 4rem;
-}
-.modal__box .cont {
+.menu-bar > span {
+    padding: 5px 15px;
+    display: inline-block;
+    text-align: left;
+    cursor: pointer;
+  }
+.menu-bar > span::first-letter {
+    text-decoration: underline;
+  }
+.menu-bar > span:hover {
+    background-color: #bababa;
+  }
+.content-container {
+    height: 62vh;
+    text-align: left;
+    border: 2px solid #000;
     background-color: #282936;
+  }
+.content-container .content {
+    display: flex;
     height: 100%;
     overflow-y: auto;
+  }
+.content-container .content .main {
+    width: 100%;
+    padding: 0.1px 0 0 0.3px;
     box-sizing: border-box;
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
-}
-.modal__box .cont > div {
+  }
+.content .main > div {
     display: none;
-}
-.modal__box .cont > div.active {
+  }
+.content .main > div.active {
     height: 100%;
     display: block;
+  }
+/* scroll */
+::-webkit-scrollbar {
+    width: 20px;
+    height: 20px;
 }
-.modal__close {
-    position: absolute;
-    right: 20px;
-    top: 20px;
-    background-color: #111229;
-    padding: 1rem 1rem 0.8rem 1rem;
-    border-radius: 5px;
-    box-shadow: 0 5px 7px -5px hsl(180deg 2% 10%);
+::-webkit-scrollbar-track {
+    background: #d7d7d7;
+}
+::-webkit-scrollbar-thumb {
     cursor: pointer;
-    transition: all 0.3s;
+    background: #c7c7c7;
+    border-left: 1px solid #FCFCFC;
+    border-top: 1px solid #FCFCFC;
+    border-right: 1px solid #2A2A2A;
+    border-bottom: 1px solid #2A2A2A;
 }
-.modal__close:hover {
-    background-color: #1f2049;
+::-webkit-scrollbar-thumb:hover {
+    background: #bababa;
 }
-.modal__close svg {
-    color: #fff;
-}
-pre {
-    height: 100%;
-}
-pre code.hljs {
-    height: 100vh;
-}
-/* 모달 애니메이션 */
+  
+  /* 모달 애니메이션 */
 .modal__cont.show { /* 전체 배경 */
     animation: foldOut 1s ease forwards;
 }
