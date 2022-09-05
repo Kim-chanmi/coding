@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <div class="main_refer">
+            <div class="document">
+                <h2 class="t_tit">푸터유형01</h2>
+                <p class="t_desc2">
+                    사이트의 제일 아래부분을 차지하는 푸터유형 만들기에 대해 알아보겠습니다.
+                </p>
+
+                <h3 class="t_tit2">1. Figma로 디자인하기</h3>
+                <p class="t_box">Figma를 이용해 그리드를 나누어 전체적인 틀을 만들어줍니다. 각 구역간의 수치는 정확히 해주는게 중요합니다. </p>
+                <div class="t_iframe"><iframe
+                        src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwekJoc9v02DAwnYntVRBDb%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1955%253A1845"
+                        allowfullscreen></iframe></iframe>
+                </div>
+                <h3 class="t_tit2">2. HTML</h3>
+                <p class="t_box">
+                    웹표준 준수를 위해 시맨틱 태그를 사용합니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;section id="footerType" class="footer__wrap nexon section gray"&gt;
+    &lt;h2 class="blind"&gt;푸터 영역&lt;/h2&gt;
+    &lt;div class="footer__inner container"&gt;
+        &lt;div class="footer__menu"&gt;
+            &lt;div&gt;
+                &lt;h3&gt;사이트&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;웹표준 사이트&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;반응형 사이트&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;패럴랙스 사이트&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;포트폴리오 사이트&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;헤더 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;메뉴 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;메뉴 유형02&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;슬라이드 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;슬라이드 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;슬라이드 유형02&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;이미지 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href=""&gt;이미지 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;이미지 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;이미지/텍스트 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;이미지/텍스트 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;텍스트 유형01&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;컨텍츠 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;카드 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;카드 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;카드 유형03&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;푸터 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;푸터 메뉴 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;푸터 컨택트 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;푸터 이메일 유형03&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="footer__right"&gt;
+            2022 Webstoryboy. Portfolio is Power&lt;br&gt;
+            All rights reserved.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">3. CSS</h3>
+                <p class="t_box">
+                    Figma를 이용해 만든 디자인을 보며 css설정을 합니다.
+                </p>
+                <div class="t_code">
+                    <pre><code class="language-css">/* font */
+    @import url('https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css');
+
+    .nexon {
+        font-family: 'NexonLv1Gothic';
+        font-weight: 400;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /* container */
+    .container {
+        width: 1160px;
+        padding: 0 20px;
+        margin: 0 auto;
+        min-width: 1160px;
+    }
+
+    /* 블라인드 효과 */
+    .blind {
+        position: absolute;
+        clip: rect(0 0 0 0);
+        width: 1px;
+        height: 1px;
+        margin: -1px;
+        overflow: hidden
+    }
+
+    /* 배경 */
+    .gray {
+        background-color: #f5f5f5;
+    }
+
+    /* section 공통 요소 */
+    .section {
+        padding: 120px 0;
+    }
+
+    .footer__menu {
+        display: flex;
+        margin-bottom: 70px;
+    }
+
+    .footer__menu>div {
+        width: 16%;
+    }
+
+    .footer__menu h3 {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .footer__menu li a {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .footer__right {
+        border-top: 1px solid #d9d9d9;
+        text-align: center;
+        padding-top: 40px;
+        color: #666;
+        line-height: 1.5;
+    }
+</code></pre>
+                </div>
+                <hr>
+                <h4 class="t_tit3">최종결과</h4>
+                <div class="t_iframe" style="min-height: 900px; padding-top: 0;">
+                    <iframe src="https://Kim-chanmi.github.io/coding/site/bannerType/bannerType01.html"
+                        frameborder="0"></iframe>
+                </div>
+                <div class="t_link">
+                    <a href="https://github.com/Kim-chanmi/coding/blob/main/site/bannerType/bannerType01.html"
+                        target="_blank">원본 소스 보기</a>
+                    <a href="https://Kim-chanmi.github.io/coding/site/bannerType/bannerType01.html" target="_blank">원본
+                        사이트
+                        보기</a>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
