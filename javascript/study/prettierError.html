@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">Prettier 설정 방법</h2>
+            <p class="t_desc">
+                Prettier 설치 방법과 적용이 되지 않았을 때 해결방법을 알아보겠습니다.
+            </p>
+            <h2 class="t_tit">Prettier 설치 방법</h2>
+            <p class="t_desc">
+                Extensions(ctrl + shift + X)에 들어가서 prettier 검색 후 설치를 해줍니다.
+                VSCode 종료 후 다시 실행하여 설치됐는지 우측 하단을 통하여 확인 후, ctrl + s 를 눌러 적용이 되는지 체크합니다.
+
+            </p>
+            <h2 class="t_tit">Prettier 적용 안됐을 때</h2>
+            <p class="t_desc">
+                Prettier 적용이 되지 않았을 때는 설정(ctrl+,)에 들어가서 'editor format on save'를 검색 후, 체크박스에 체크 해줍니다.
+                이 방법으로 해결이 안된다면, 다시 검색창에 'json'을 검색합니다. Edit in setting.json 파일을 클릭합니다.
+                editor.formatOnSave가 true인지 확인하고, false라면 true로 바꿔줍니다.
+            </p>
+            <h2 class="t_tit">Prettier 적용 안됐을 때 최종</h2>
+            <p class="t_box">
+                그래도 해결이 안 된다면, <br>
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "[typescriptreact]": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode"
+                },
+                "[typescript]": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode"
+                }, <br>
+                위 코드를 추가시켜 줍니다.
+            </p>
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>
