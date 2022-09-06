@@ -28,7 +28,14 @@
     <link rel="stylesheet" href="assets/css/banner.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 
-
+    <style>
+        .header__menu li.active a {
+            background: #000;
+            color: #fff;
+            border-radius: 20px;
+            box-sizing: content-box;
+        }
+    </style>
 
 </head>
 
@@ -51,11 +58,11 @@
             </div>
             <nav class="header__menu">
                 <ul>
-                    <li><a href="#">헤더 영역</a></li>
-                    <li><a href="#">슬라이드 영역</a></li>
-                    <li><a href="#">배너 영역</a></li>
-                    <li><a href="#">컨텐츠 영역</a></li>
-                    <li><a href="#">푸터 영역</a></li>
+                    <li class="active"><a href="#imageType">이미지 영역</a></li>
+                    <li><a href="#imgTextType">이미지/텍스트 영역</a></li>
+                    <li><a href="#cardType">카드 영역</a></li>
+                    <li><a href="#bannerType">배너 영역</a></li>
+                    <li><a href="#textType01">텍스트 영역</a></li>
                 </ul>
             </nav>
             <div class="header__member">
@@ -66,7 +73,7 @@
     <!-- headerType -->
 
     <main id="mainType">
-        <section id="slider" class="slider__wrap nexon">
+        <section id="slider" class="slider__wrap nexon content__item">
             <h2 class="blind">슬라이드 영역</h2>
             <div class="slider__inner">
                 <div class="slider">
@@ -100,7 +107,7 @@
         </section>
         <!-- sliderType -->
 
-        <section id="imageType" class="image__wrap nexon section">
+        <section id="imageType" class="image__wrap nexon section content__item">
             <h2>포트폴리오 만들기</h2>
             <p>포트폴리오 모음 사이트 입니다.</p>
             <div class="image__inner container">
@@ -120,7 +127,7 @@
         </section>
         <!-- imageType -->
 
-        <section id="imgTextType" class="imgText__wrap nexon section gray">
+        <section id="imgTextType" class="imgText__wrap nexon section gray content__item">
             <h2 class="blind">유용한 사이트 살펴보기</h2>
             <div class="imgText__inner container">
                 <div class="imgText__txt">
@@ -146,7 +153,7 @@
         </section>
         <!-- imgTextType -->
 
-        <section id="cardType" class="card__wrap nexon section">
+        <section id="cardType" class="card__wrap nexon section content__item">
             <h2>웹사이트 강의</h2>
             <p>각각의 영역에 맞는 웹사이트 강의입니다.</p>
             <div class="card__inner container">
@@ -219,7 +226,7 @@
         </section>
         <!-- cardType -->
 
-        <section id="bannerType" class="banner__wrap nexon">
+        <section id="bannerType" class="banner__wrap nexon content__item">
             <h2 class="blind">배너 영역</h2>
             <div class="banner__inner">
                 <h3 class="title">반려견 키우기</h3>
@@ -232,7 +239,7 @@
         </section>
         <!-- bannerType -->
 
-        <section id="textType01" class="text__wrap nexon section">
+        <section id="textType01" class="text__wrap nexon section content__item">
             <span>텍스트 유형01</span>
             <h2 class="mb70">반려견 기르기</h2>
             <div class="text__inner container">
@@ -272,7 +279,7 @@
     </main>
     <!-- main -->
 
-    <footer id="footerType" class="footer__wrap nexon section gray">
+    <footer id="footerType" class="footer__wrap nexon section gray content__item">
         <h2 class="blind">푸터 영역</h2>
         <div class="footer__inner container">
             <div class="footer__menu">
@@ -333,6 +340,32 @@
         </div>
     </footer>
     <!-- footerType -->
+
+    <script>
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+            //forEach()
+            document.querySelectorAll(".content__item").forEach((element, index) => {
+                if (scrollTop >= element.offsetTop + 600) {
+                    document.querySelectorAll(".header__menu li").forEach(li => {
+                        li.classList.remove("active")
+                    });
+                    document.querySelector(".header__menu li:nth-child(" + (index + 1) + ")").classList.add("active");
+                }
+            });
+        });
+
+
+        //스크롤 이동
+        document.querySelectorAll(".header__menu li a").forEach(li => {
+            li.addEventListener("click", (e) => {
+                e.preventDefault();
+                document.querySelector(li.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -54,41 +54,422 @@
             <hr>
 
             <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
-                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/searchEffect01.html"
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/parallaxEffect01.html"
                     frameborder="0"></iframe>
             </div>
             <div class="t_link">
-                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/searchEffect01.html"
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/parallaxEffect01.html"
                     target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/parallaxEffect01.html" target="_blank">원본
+                    사이트 보기</a>
             </div>
             <hr>
             <h3 class="t_tit2">자바스크립트</h3>
             <p class="t_desc">
-                검색효과를 만들기 위한 자바스크립트 작성법입니다. <i>indexOf()</i>메서드를 이용하여 출력하였습니다. indexOf()는 문자열에서 특정 문자의 위치를 찾아 숫자를 반환하는
-                메서드입니다.
-                따라서 indexOf()값이 0(false)이 출력되는 값만 hide를 지워주어 내가 원하는 <i>키워드를 출력</i>할 수 있습니다.
+                패럴랙스 효과를 만들기 위한 자바스크립트 작성법입니다.
             </p>
             <div class="t_code">
-                <pre><code class="language-js">//선택자
-const searchBox = document.querySelector(".search__box input"); //input 박스, 검색 영역
-const searchList = document.querySelectorAll(".search__list ul li"); //목록 리스트
+                <pre><code class="language-js">const scroll = document.querySelector("#parallax__info .scroll span")
+window.addEventListener("scroll", () => {   //스크롤 했을 때
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop; //세로 스크롤 값 구하는 3가지 방법(브라우저마다 지원 여부가 다름)
 
-searchBox.addEventListener("keyup", () => {
-    const searchWord = searchBox.value; //사용자가 입력한 키워드
+    //for문
+    // for (let i = 1; i &lt; 10; i++) {
+    //     if (scrollTop >= document.getElementById("section" + i).offsetTop) {
+    //         document.querySelectorAll("#parallax__nav li").forEach(li => {
+    //             li.classList.remove("active")
+    //         });
+    //         document.querySelector("#parallax__nav li:nth-child(" + i + ")").classList.add("active");
+    //     }
+    // }
 
-    searchList.forEach(el => {
-        const cssName = el.dataset.name;
-
-        if(cssName.indexOf(searchWord)){
-            el.classList.add("hide");
-        } else {
-            el.classList.remove("hide");    //indexOf()값이 0(false)이 출력되는 값만 hide를 지워줌
+    //forEach()
+    document.querySelectorAll(".content__item").forEach((element, index) => {   //forEach를 이용하여 각 .content__item 클래스의 요소들을 가져옵니다.
+        if (scrollTop >= element.offsetTop - 2) {                               //만약 scrollTop(브라우저의 최상단에서 스크롤 한 값)이 .content__item 클래스 요소의 상단과의 거리 값의 이상이라면
+            document.querySelectorAll("#parallax__nav li").forEach(li => {
+            li.classList.remove("active")                                       //#parallax__nav li의 active 값을 지워주고
+            });
+            document.querySelector("#parallax__nav li:nth-child(" + (index + 1) + ")").classList.add("active"); //li의 n번째 값에 active를 추가합니다. index는 0부터 인식하기 때문에 + 1을 합니다.
         }
+    });
+
+    //info
+    document.querySelector(".scroll span").innerText = Math.round(scrollTop);   //소수점은 반올림 하기 위해 Math.round 사용
+
+    for (let i = 1; i &lt; 10; i++) {
+        document.querySelector(".offset" + i).innerText = document.getElementById("section" + i).offsetTop;
+    }
+
+});
+
+//스크롤 이동
+document.querySelectorAll("#parallax__nav li a").forEach(li => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"  //부드러운 효과
+        });
     });
 });
 </code></pre>
             </div>
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_desc">
+                패럴랙스 효과를 만들기 위한 HTML 작성법입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;header id="header"&gt;
+    &lt;h1&gt;Javascript parallax Effect01&lt;/h1&gt;
+    &lt;p&gt;패럴랙스 이펙트 - 메뉴 이동&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="parallaxEffect01.html"&gt;1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect03.html"&gt;3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect04.html"&gt;4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect05.html"&gt;5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect06.html"&gt;6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="parallaxEffect07.html"&gt;7&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/header&gt;
+&lt;!-- header --&gt;
 
+&lt;nav id="parallax__nav"&gt;
+    &lt;ul&gt;
+        &lt;li class="active"&gt;&lt;a href="#section1"&gt;메뉴1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;메뉴2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section3"&gt;메뉴3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section4"&gt;메뉴4&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section5"&gt;메뉴5&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section6"&gt;메뉴6&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section7"&gt;메뉴7&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section8"&gt;메뉴8&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section9"&gt;메뉴9&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;!-- parallax__nav --&gt;
+
+&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;언제나 현재에 집중할수 있다면 행복할것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;진정으로 웃으려면 고통을 참아야하며, 고통을 즐길 줄 알아야 한다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;한번의 실패와 영원한 실패를 혼동하지 마라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;계단을 밟아야 계단 위에 올라설수 있다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;행복은 습관이다,그것을 몸에 지니라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;1퍼센트의 가능성, 그것이 나의 길이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;그대의 하루 하루를 그대의 마지막 날이라고 생각하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;작은 기회로 부터 종종 위대한 업적이 시작된다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc"&gt;최고에 도달하려면 최저에서 시작하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- main --&gt;
+
+&lt;aside id="parallax__info"&gt;
+    &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+    &lt;div class="info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;#section1 offset() : &lt;span class="offset1"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section2 offset() : &lt;span class="offset2"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section3 offset() : &lt;span class="offset3"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section4 offset() : &lt;span class="offset4"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section5 offset() : &lt;span class="offset5"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section6 offset() : &lt;span class="offset6"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section7 offset() : &lt;span class="offset7"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section8 offset() : &lt;span class="offset8"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;#section9 offset() : &lt;span class="offset9"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/aside&gt;
+&lt;!-- parallax__info --&gt;
+</code></pre>
+            </div>
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_desc">
+                패럴랙스 효과를 만들기 위한 CSS 작성법입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-css">/* parallaxType  */
+#parallax__nav {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    border-radius: 50px;
+}
+
+#parallax__nav li {
+    display: inline;
+    margin: 0 5px;
+}
+
+#parallax__nav li a {
+    display: inline-block;
+    height: 30px;
+    padding: 5px 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+#parallax__nav li.active a {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-sizing: content-box;
+}
+
+#parallax__cont {
+    max-width: 1600px;
+    width: 98%;
+    margin: 0 auto;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+.content__item {
+    width: 1000px;
+    max-width: 70vw;
+    margin: 30vw auto;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    text-align: left;
+    margin-right: 0;
+    position: relative;
+    padding-top: 7vw;
+}
+
+.content__item:nth-child(2n) {
+    /* even, 2n+1, 2n*8 등등 가능 */
+    margin-left: 0;
+    text-align: right;
+}
+
+.content__item__num {
+    font-size: 35vw;
+    font-family: "Lato";
+    font-weight: 100;
+    position: absolute;
+    left: -5vw;
+    top: -16vw;
+    opacity: 0.07;
+    z-index: -2;
+}
+
+.content__item:nth-child(2n) .content__item__num {
+    left: auto;
+    right: -5vw;
+}
+
+.content__item__title {
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.content__item__imgWrap {
+    width: 100%;
+    padding-bottom: 56.25%;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.content__item__img {
+    position: absolute;
+    background: url(../assets/img/effect_bg05@2x-min.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 110%;
+    height: 110%;
+    left: -5%;
+    top: -5%;
+    filter: saturate(0%);
+    transition: all 1s;
+}
+
+.content__item:nth-child(1) .content__item__img {
+    background-image: url(../assets/img/effect_bg11-min.jpg);
+}
+
+.content__item:nth-child(2) .content__item__img {
+    background-image: url(../assets/img/effect_bg12-min.jpg);
+}
+
+.content__item:nth-child(3) .content__item__img {
+    background-image: url(../assets/img/effect_bg13-min.jpg);
+}
+
+.content__item:nth-child(4) .content__item__img {
+    background-image: url(../assets/img/effect_bg14-min.jpg);
+}
+
+.content__item:nth-child(5) .content__item__img {
+    background-image: url(../assets/img/effect_bg15-min.jpg);
+}
+
+.content__item:nth-child(6) .content__item__img {
+    background-image: url(../assets/img/effect_bg16-min.jpg);
+}
+
+.content__item:nth-child(7) .content__item__img {
+    background-image: url(../assets/img/effect_bg17-min.jpg);
+}
+
+.content__item:nth-child(8) .content__item__img {
+    background-image: url(../assets/img/effect_bg18-min.jpg);
+}
+
+.content__item:nth-child(9) .content__item__img {
+    background-image: url(../assets/img/effect_bg19-min.jpg);
+}
+
+.content__item__desc {
+    font-size: 4vw;
+    line-height: 1.4;
+    margin-top: -5vw;
+    margin-left: -4vw;
+    word-break: keep-all;
+}
+
+.content__item:nth-child(even) .content__item__desc {
+    margin-left: auto;
+    margin-right: -4vw;
+}
+
+#parallax__info {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#parallax__info li,
+.scrollTop {
+    line-height: 1.4;
+}
+
+@media (max-width: 800px) {
+    #parallax__cont {
+        margin-top: 70vw;
+    }
+
+    #parallax__nav {
+        padding: 10px;
+        right: auto;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #parallax__nav li {
+        display: block;
+        margin: 5px;
+    }
+
+    #parallax__nav li a {
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 5px;
+        height: auto;
+        line-height: 1;
+    }
+
+    #parallax__nav li.active a {
+        border-radius: 5px;
+    }
+
+    #parallax__info {
+        left: 10px;
+        bottom: 10px;
+    }
+}
+</code></pre>
+            </div>
         </div>
     </main>
     <!-- //main -->
