@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li class="active"><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h1 class="t_tit">svg 애니메이션</h1>
+                <p class="t_desc2">
+                    오늘은 아래와 같은 텍스트 애니메이션을 만들어 보았습니다.
+                </p>
+                <div class="t_iframe">
+                    <iframe height="300" style="width: 100%;" scrolling="no" title="Text Animation"
+                        src="https://codepen.io/kim-chanmi/embed/BaxoRzE?default-tab=result" frameborder="no"
+                        loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/kim-chanmi/pen/BaxoRzE">
+                            Text Animation</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </div>
+                <h3 class="t_tit2">HTML</h3>
+                <div class="t_code">
+                    <pre><code class="language-css">&lt;svg viewBox="0 0 1320 300"&gt;
+    &lt;text x="50%" y="50%" dy="40px" text-anchor="middle"&gt;
+        abcdefg
+    &lt;/text&gt;
+&lt;/svg&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">CSS</h3>
+                <div class="t_code">
+                    <pre><code class="language-css">@font-face {
+    font-family: 'CrownMychew';
+    font-weight: normal;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/crown/CrownMychew.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/crown/CrownMychew.eot?#iefix') format('embedded-opentype'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/crown/CrownMychew.woff2') format('woff2'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/crown/CrownMychew.woff') format('woff'),
+            url('https://cdn.jsdelivr.net/gh/webfontworld/crown/CrownMychew.ttf') format("truetype");
+    font-display: swap;
+}
+body {
+    background-color: #e3f2fd;
+}
+svg {
+    font-family: 'CrownMychew';
+    font-size: 140px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-transform: uppercase;
+    animation: stroke 5s infinite alternate;
+    fill: rgba(72,138,204,1);
+}
+@keyframes stroke {
+    0% {
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    fill: rgba(72,138,204,0);
+    stroke: rgba(54,95,160,1);
+    stroke-width: 2;
+    }
+    70% {
+    fill: rgba(72,138,204,0);
+    stroke: rgba(54,95,160,1);
+    }
+    80% {
+    fill: rgba(72,138,204,0);
+    stroke: rgba(54,95,160,1);
+    }
+    100% {
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    fill: rgba(72,138,204,1);
+    stroke: rgba(54,95,160,0);
+    stroke: 0;
+    }
+}
+</code></pre>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>
