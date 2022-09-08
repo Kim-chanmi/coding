@@ -822,6 +822,18 @@
     <script src="../assets/js/docs.min.js"></script>
     <script src="../assets/js/prism.js"></script>
     <script>
+        $(".start1").click(function () {
+            $(".timing.bg1 > div").addClass("show");
+            setTimeout(function () {
+                $(".timing.bg1 > div").removeClass("show");
+            }, 2000);
+        });
+        $(".start2").click(function () {
+            $(".timing.bg2 > div").addClass("show");
+            setTimeout(function () {
+                $(".timing.bg2 > div").removeClass("show");
+            }, 4000);
+        });
         $(".stepBtnStart").click(function (e) {
             e.preventDefault();
             $(".stepbox").removeClass("stop").addClass("start");

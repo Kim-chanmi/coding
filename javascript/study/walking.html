@@ -131,7 +131,7 @@
 }
 
 .step .stepbox {
-    width: 800px;
+    width: 800px;   //사진의 너비
     height: 600px;
     background: url(../../animation/img/walking.jpg);
     border-radius: 0;
@@ -139,7 +139,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    animation: ani 1s steps(24, start) infinite;
+    animation: ani 1s steps(24, start) infinite;    //총 프레임 수 24장
 }
 
 .step .stepbox.start {
@@ -156,7 +156,7 @@
     }
 
     100% {
-        background-position: -19200px 0;
+        background-position: -19200px 0;    //사진의 너비(800) * 총 프레임 수(24장)
     }
 }
 
