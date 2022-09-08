@@ -22,18 +22,18 @@
   }
   
   /* scroll */
-  ::-webkit-scrollbar {
+  .modal__box ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
-  ::-webkit-scrollbar-track {
+  .modal__box ::-webkit-scrollbar-track {
     background: #f1f1f1;
   }
-  ::-webkit-scrollbar-thumb {
+  .modal__box ::-webkit-scrollbar-thumb {
     background: #1b1c2e;
     border-radius: 20px;
   }
-  ::-webkit-scrollbar-thumb:hover {
+  .modal__box ::-webkit-scrollbar-thumb:hover {
     background: #2d2e49;
   }
   /* header */
