@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 만들기 - 실전 유형 01</title>
+
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">사이트 만들기 - 실전 유형 01</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="cardType_study01.html">카드 유형 01</a></li>
+                <li><a href="cardType_study02.html">카드 유형 02</a></li>
+                <li><a href="cardType_study03.html">카드 유형 03</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- // header -->
+
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">웹 사이트 제작 01</h2>
+            <p class="t_desc2">
+                그동안 올렸던 유형들을 한 곳에 모아 한 가지 주제를 정하고 실전 사이트를 만들었습니다. 이번 사이트는 식물키우기와 관련된 사이트입니다.
+            </p>
+
+            <hr>
+
+            <h3 class="t_tit2">Figma</h3>
+            <p class="t_box">Figma를 이용해 레이아웃을 만들었습니다.</p>
+            <div class="t_iframe">
+                <iframe
+                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FwekJoc9v02DAwnYntVRBDb%2F%25EC%2582%25AC%25EC%259D%25B4%25ED%258A%25B8-%25EB%25A7%258C%25EB%2593%25A4%25EA%25B8%25B0%3Fnode-id%3D1960%253A2350"
+                    allowfullscreen></iframe>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_desc">
+                웹표준 준수를 위해 시맨틱 태그를 사용합니다. 또한, 스킵네비게이션을 사용하였습니다. 스킵네비게이션은 웹접근성을 위한 가장 기본적인 버튼으로, 키보드의 TAB 키를 눌렀을 때 해당
+                영역으로 갈 수 있는 메뉴 바로가기를 나타냅니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;div id="skip"&gt;
+    &lt;a href="#"&gt;헤더 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;슬라이드 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;이미지 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;이미지/텍스트 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;카드 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;배너 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;텍스트 영역 바로가기&lt;/a&gt;
+    &lt;a href="#"&gt;푸터 영역 바로가기&lt;/a&gt;
+&lt;/div&gt;
+&lt;!-- skip --&gt;
+&lt;header id="headerType" class="header__wrap nexon"&gt;
+    &lt;div class="header__inner"&gt;
+        &lt;div class="header__logo"&gt;
+            &lt;a href="#"&gt;Plant &lt;em&gt;site&lt;/em&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;nav class="header__menu"&gt;
+            &lt;ul&gt;
+                &lt;li class="active"&gt;&lt;a href="#slider"&gt;MAIN&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#imageType"&gt;반려식물&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#imgTextType"&gt;칼럼/뉴스&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#cardType"&gt;식물성장&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#bannerType"&gt;문의사항&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#textType01"&gt;식물정보&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+        &lt;div class="header__member"&gt;
+            &lt;a href="#"&gt;로그인&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="header__icon"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/header&gt;
+&lt;!-- headerType --&gt;
+
+&lt;main id="mainType"&gt;
+    &lt;section id="slider" class="slider__wrap nexon content__item"&gt;
+        &lt;h2 class="blind"&gt;슬라이드 영역&lt;/h2&gt;
+        &lt;div class="slider__inner"&gt;
+            &lt;div class="slider"&gt;
+                &lt;div class="slider__img"&gt;
+                    &lt;div class="desc"&gt;
+                        &lt;span&gt;PLANT&lt;/span&gt;
+                        &lt;h3&gt;반려식물 키우기&lt;/h3&gt;
+                        &lt;p&gt;
+                            반려식물 혼자 키우기 힘드시죠? &lt;br&gt;
+                            우리가 당신과 함께하겠습니다.
+                        &lt;/p&gt;
+                        &lt;div class="btn"&gt;
+                            &lt;a href="#"&gt;자세히 보기&lt;/a&gt;
+                            &lt;a href="#" class="black"&gt;사이트 보기&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="slider__arrow"&gt;
+                    &lt;a href="#" class="left"&gt;&lt;span class="ir"&gt;이전 이미지&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="right"&gt;&lt;span class="ir"&gt;다음 이미지&lt;/span&gt;&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;div class="slider__dot"&gt;
+                    &lt;a href="#" class="dot active"&gt;&lt;span class="ir"&gt;1&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;2&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="dot"&gt;&lt;span class="ir"&gt;3&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="play"&gt;&lt;span class="ir"&gt;플레이&lt;/span&gt;&lt;/a&gt;
+                    &lt;a href="#" class="stop"&gt;&lt;span class="ir"&gt;정지&lt;/span&gt;&lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- sliderType --&gt;
+
+    &lt;section id="imageType" class="image__wrap nexon section content__item"&gt;
+        &lt;h2&gt;반려식물 키우기&lt;/h2&gt;
+        &lt;p&gt;반려식물을 기르는 분들을 위한 사이트 입니다.&lt;/p&gt;
+        &lt;div class="image__inner container"&gt;
+            &lt;article class="image img1"&gt;
+                &lt;h3 class="image__title"&gt;식물의 종류&lt;/h3&gt;
+                &lt;p class="image__desc"&gt;다양한 식물의 종류들을 알아볼 것입니다. 초보자가 기르기 쉬운 식물, 공기정화에 탁월한 식물, 선물하기 좋은 식물 등을 알아볼 예...
+                &lt;/p&gt;
+                &lt;a class="image__btn" href="#" title="자세히 보기"&gt;자세히보기&lt;/a&gt;
+            &lt;/article&gt;
+            &lt;article class="image img2"&gt;
+                &lt;h3 class="image__title"&gt;인테리어&lt;/h3&gt;
+                &lt;p class="image__desc"&gt;식물을 이용한 다양한 인테리어들을 알아볼 것입니다. 식물의 크기에 따른 공간, 위치 등등이 있습니다. 많은 예시들이 있으니 구경...
+                &lt;/p&gt;
+                &lt;a class="image__btn yellow" href="#" title="자세히 보기"&gt;자세히보기&lt;/a&gt;
+            &lt;/article&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- imageType --&gt;
+
+    &lt;section id="imgTextType" class="imgText__wrap nexon section gray content__item"&gt;
+        &lt;h2 class="blind"&gt;유용한 사이트 살펴보기&lt;/h2&gt;
+        &lt;div class="imgText__inner container"&gt;
+            &lt;div class="imgText__txt"&gt;
+                &lt;span&gt;Plant&lt;/span&gt;
+                &lt;h3&gt;식물 관련 칼럼
+                    살펴보기&lt;/h3&gt;
+                &lt;p&gt;식물과 관련된 다양한 칼럼과 뉴스들을 살펴보는 공간입니다.&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;식물이 병드는 이유&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;식물이 스트레스 받는 이유&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;환경 관리&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;식물 심리테스트&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;병충해 관리&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;초보자 매뉴얼&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div class="imgText__img img1"&gt;
+                &lt;a href="#"&gt;초보자 매뉴얼&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="imgText__img img2"&gt;
+                &lt;a href="#" class="blue"&gt;식물 심리테스트&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- imgTextType --&gt;
+
+    &lt;section id="cardType" class="card__wrap nexon section content__item"&gt;
+        &lt;h2&gt;식물 성장 엿보기&lt;/h2&gt;
+        &lt;p&gt;식물별 성장과정들을 모아놓았습니다. 어떻게 자라나는지 구경해보세요.&lt;/p&gt;
+        &lt;div class="card__inner container"&gt;
+            &lt;article class="card"&gt;
+                &lt;figure class="card__header"&gt;
+                    &lt;img src="assets/img/card_bg01.jpg" alt="헤더영역"&gt;
+                &lt;/figure&gt;
+                &lt;div class="card__body"&gt;
+                    &lt;h3 class="tit"&gt;몬스테라 성장일기&lt;/h3&gt;
+                    &lt;p class="desc"&gt;몬스테라를 키우며 기록한 성장일기입니다. 몬스테라가 어떻게 성장하는지 엿볼 수 있습니다. 성장과정에서 어떤 어려움이 있었는지도 확인해 보세요!
+                    &lt;/p&gt;
+                    &lt;a class="btn" href="/"&gt;
+                        더 자세히 보기
+                        &lt;span aria-hidden="true"&gt;
+                            &lt;svg width="59" height="8" viewBox="0 0 59 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg"&gt;
+                                &lt;path
+                                    d="M58.3536 4.35355C58.5488 4.15829 58.5488 3.84171 58.3536 3.64645L55.1716 0.464466C54.9763 0.269204 54.6597 0.269204 54.4645 0.464466C54.2692 0.659728 54.2692 0.976311 54.4645 1.17157L57.2929 4L54.4645 6.82843C54.2692 7.02369 54.2692 7.34027 54.4645 7.53553C54.6597 7.7308 54.9763 7.7308 55.1716 7.53553L58.3536 4.35355ZM0 4.5H58V3.5H0L0 4.5Z"
+                                    fill="black" /&gt;
+                            &lt;/svg&gt;
+                        &lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/article&gt;
+            &lt;article class="card"&gt;
+                &lt;figure class="card__header"&gt;
+                    &lt;img src="assets/img/card_bg02.jpg" alt="리포머 운동"&gt;
+                &lt;/figure&gt;
+                &lt;div class="card__body"&gt;
+                    &lt;h3 class="tit"&gt;금황환 선인장 성장일기&lt;/h3&gt;
+                    &lt;p class="desc"&gt;금황환 선인장의 성장일기입니다. 황금색을 띠어 금전운을 가져다준다는 의미가 있어 선물하기 좋은 선인장이에요. 성장과정도 확인해 보세요!
+                    &lt;/p&gt;
+                    &lt;a class="btn" href="/"&gt;
+                        더 자세히 보기
+                        &lt;span aria-hidden="true"&gt;
+                            &lt;svg width="59" height="8" viewBox="0 0 59 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg"&gt;
+                                &lt;path
+                                    d="M58.3536 4.35355C58.5488 4.15829 58.5488 3.84171 58.3536 3.64645L55.1716 0.464466C54.9763 0.269204 54.6597 0.269204 54.4645 0.464466C54.2692 0.659728 54.2692 0.976311 54.4645 1.17157L57.2929 4L54.4645 6.82843C54.2692 7.02369 54.2692 7.34027 54.4645 7.53553C54.6597 7.7308 54.9763 7.7308 55.1716 7.53553L58.3536 4.35355ZM0 4.5H58V3.5H0L0 4.5Z"
+                                    fill="black" /&gt;
+                            &lt;/svg&gt;
+                        &lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/article&gt;
+            &lt;article class="card"&gt;
+                &lt;figure&gt;
+                    &lt;img src="assets/img/card_bg03.jpg" alt="캐딜락 운동"&gt;
+                &lt;/figure&gt;
+                &lt;div class="card__body"&gt;
+                    &lt;h3 class="tit"&gt;스위트 바질 성장일기&lt;/h3&gt;
+                    &lt;p class="desc"&gt;바질은 허브의 왕이라고도 불려요. 종류가 다양하지만 흔히 키우는 바질은 스위트 바질입니다. 잘 키우면 식탁에서도 만나볼 수 있으니, 성장과정을
+                        확인해 보세요!&lt;/p&gt;
+                    &lt;a class="btn" href="/"&gt;
+                        더 자세히 보기
+                        &lt;span aria-hidden="true"&gt;
+                            &lt;svg width="59" height="8" viewBox="0 0 59 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg"&gt;
+                                &lt;path
+                                    d="M58.3536 4.35355C58.5488 4.15829 58.5488 3.84171 58.3536 3.64645L55.1716 0.464466C54.9763 0.269204 54.6597 0.269204 54.4645 0.464466C54.2692 0.659728 54.2692 0.976311 54.4645 1.17157L57.2929 4L54.4645 6.82843C54.2692 7.02369 54.2692 7.34027 54.4645 7.53553C54.6597 7.7308 54.9763 7.7308 55.1716 7.53553L58.3536 4.35355ZM0 4.5H58V3.5H0L0 4.5Z"
+                                    fill="black" /&gt;
+                            &lt;/svg&gt;
+                        &lt;/span&gt;
+                    &lt;/a&gt;
+                &lt;/div&gt;
+            &lt;/article&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- cardType --&gt;
+
+    &lt;section id="bannerType" class="banner__wrap nexon content__item"&gt;
+        &lt;h2 class="blind"&gt;배너 영역&lt;/h2&gt;
+        &lt;div class="banner__inner"&gt;
+            &lt;h3 class="title"&gt;반려식물 키우기&lt;/h3&gt;
+            &lt;p class="desc"&gt;
+                어렵지만 함께라면 할 수 있습니다. 다른 문의사항은 아래로 남겨주세요.
+                &lt;a href="#" title="유투브 페이지로 이동"&gt;chanmi1320@gmail.com&lt;/a&gt;
+            &lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- bannerType --&gt;
+
+    &lt;section id="textType01" class="text__wrap nexon section content__item"&gt;
+        &lt;span&gt;다양한 꿀Tip!&lt;/span&gt;
+        &lt;h2 class="mb70"&gt;반려식물 기르기&lt;/h2&gt;
+        &lt;div class="text__inner container"&gt;
+            &lt;div class="text t1"&gt;
+                &lt;h3 class="text__title"&gt;분갈이&lt;/h3&gt;
+                &lt;p class="text__desc"&gt;분갈이 시기와 정확한 방법을 알고 계신가요? 식물에 맞는 화분도 따로 있답니다. 여기서는 분갈이 시기와 정확한 방법을 알...&lt;/p&gt;
+                &lt;a class="text_btn" href="/"&gt;더보기&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="text t2"&gt;
+                &lt;h3 class="text__title"&gt;물 주기&lt;/h3&gt;
+                &lt;p class="text__desc"&gt;식물마다 얼마나 자주, 어느 정도의 물을 줘야 하는지 궁금하시죠? 식물에게 물을 주는 정확한 방법을 알려드리겠습니다.&lt;/p&gt;
+                &lt;a class="text_btn" href="/"&gt;더보기&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="text t3"&gt;
+                &lt;h3 class="text__title"&gt;인테리어&lt;/h3&gt;
+                &lt;p class="text__desc"&gt;식물을 이용한 다양한 인테리어들이 있습니다. 집의 구조와 환경에 맞는 다양한 인테리어들을 볼 수 있습니다.&lt;/p&gt;
+                &lt;a class="text_btn" href="/"&gt;더보기&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="text t4"&gt;
+                &lt;h3 class="text__title"&gt;영양분&lt;/h3&gt;
+                &lt;p class="text__desc"&gt;사람이 영양제를 섭취하듯이 식물들도 영양분이 필요합니다. 식물마다 필요한 영양분에 대해 알아보겠습니다.&lt;/p&gt;
+                &lt;a class="text_btn" href="/"&gt;더보기&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="text t5"&gt;
+                &lt;h3 class="text__title"&gt;병충해&lt;/h3&gt;
+                &lt;p class="text__desc"&gt;식물을 키우면 벌레가 생길까봐, 그리고 그 벌레로 인해 식물이 죽을까봐 걱정이 많으시죠? 그 예방법에 대해 알아보겠습니다. &lt;/p&gt;
+                &lt;a class="text_btn" href="/"&gt;더보기&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div class="text t6"&gt;
+                &lt;h3 class="text__title"&gt;계절관리&lt;/h3&gt;
+                &lt;p class="text__desc"&gt;계절의 변화에 따라 온도와 습도가 달라지게 됩니다. 이러한 환경에 식물들은 큰 영향을 받는데요. 계절 변화에 따른 관리법을...&lt;/p&gt;
+                &lt;a class="text_btn" href="/"&gt;더보기&lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- textType --&gt;
+&lt;/main&gt;
+&lt;!-- main --&gt;
+
+&lt;footer id="footerType" class="footer__wrap nexon section gray content__item"&gt;
+    &lt;h2 class="blind"&gt;푸터 영역&lt;/h2&gt;
+    &lt;div class="footer__inner container"&gt;
+        &lt;div class="footer__menu"&gt;
+            &lt;div&gt;
+                &lt;h3&gt;사이트&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;웹표준 사이트&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;반응형 사이트&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;패럴랙스 사이트&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;포트폴리오 사이트&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;헤더 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;메뉴 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;메뉴 유형02&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;슬라이드 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;슬라이드 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;슬라이드 유형02&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;이미지 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href=""&gt;이미지 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;이미지 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;이미지/텍스트 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;이미지/텍스트 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=""&gt;텍스트 유형01&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;컨텍츠 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;카드 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;카드 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;카드 유형03&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+            &lt;div&gt;
+                &lt;h3&gt;푸터 영역&lt;/h3&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;푸터 메뉴 유형01&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;푸터 컨택트 유형02&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="#"&gt;푸터 이메일 유형03&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="footer__right"&gt;
+            2022 Chanmi. Portfolio is Power&lt;br&gt;
+            All rights reserved.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+&lt;!-- footerType --&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_desc">
+                CSS는 유형별로 따로 파일을 만들어 작업하여 본문에는 링크로 넣었습니다.
+                자세한 코드는 원본 소스 보기를 참고해 주시면 감사하겠습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;!-- CSS --&gt;
+&lt;link rel="stylesheet" href="assets/css/fonts.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/reset.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/common.css"&gt;
+
+&lt;!-- CSS(섹션별) --&gt;
+&lt;link rel="stylesheet" href="assets/css/header.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/slider.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/card.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/image.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/text.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/imgText.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/banner.css"&gt;
+&lt;link rel="stylesheet" href="assets/css/footer.css"&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">JAVASCRIPT</h3>
+            <p class="t_desc">
+                스크롤 이동 시 메뉴에 active를 넣어주는 것과, 메뉴를 클릭했을 때 부드럽게 이동하는 효과, 반응형 메뉴를 위한 자바스크립트입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">//스크롤
+window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    document.querySelectorAll(".content__item").forEach((element, index) => {
+        if (scrollTop >= element.offsetTop - 400) {
+            document.querySelectorAll(".header__menu li").forEach(li => {
+                li.classList.remove("active");
+            });
+            document.querySelector(".header__menu li:nth-child(" + (index + 1) + ")").classList.add("active");
+        };
+    });
+});
+
+// 메뉴 클릭
+document.querySelectorAll("#headerType .header__inner .header__menu li a").forEach(li => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"  // 부드러운 효과
+        });
+    });
+});
+
+// 메뉴
+const menuBtn = document.querySelector(".header__icon");  // 메뉴 버튼
+const menu = document.querySelector(".header__menu");   // 메뉴
+
+menuBtn.addEventListener("mouseover", () => {
+    menu.classList.add("show");   // 메뉴 버튼에 마우스오버 했을 때 메뉴가 보이게
+});
+menu.addEventListener("mouseleave", () => {
+    menu.classList.remove("show");    // 메뉴에서 마우스 벗어나면 메뉴 사라지게. 메뉴 버튼에서 마우스가 벗어나면 메뉴를 클릭할 수 없음
+});
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">최종 결과</h3>
+            <div class="t_iframe" style="height: 1000px; padding-top: 0;">
+                <iframe src="https://Kim-chanmi.github.io/coding/site/site1/index.html" frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://Kim-chanmi.github.io/coding/site/site1/index.html">원본 사이트 보기</a>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/site/site1/index.html">원본 소스 보기</a>
+            </div>
+            <!-- // 최종 결과 -->
+
+        </div>
+    </main>
+    <!-- // main -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- // footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>
