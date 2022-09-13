@@ -70,3 +70,24 @@
     text-underline-position: under;
     color: #666;
 }
+@media(max-width:1160px){
+    #textType01{
+        width: 96%;
+        margin: 0 auto;
+    }
+    .text__inner.container {
+        min-width: auto;
+        width: auto;
+    }
+}
+@media(max-width:768px){
+    .text__inner{
+        display: block;
+    }
+
+    .text {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+}

@@ -54,3 +54,36 @@
   background-color: #000;
   color: #fff;
 }
+
+@media(max-width:1160px){
+  .header__inner ul {
+      display: none;
+  }
+  .header__icon {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background: url(../img/menu__icon.svg) no-repeat center;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .header__menu.on {
+    display: block;
+    width: auto;
+    height: 150px;
+    background-color: rgba(0,0,0);
+  }
+  .header__member {
+    position: absolute;
+    right: 70px;
+  }
+} 
+@media(max-width:820px) {
+  .header__logo {
+    width: 50%;
+  }
+  .header__member {
+    width: 50%;
+  }
+}

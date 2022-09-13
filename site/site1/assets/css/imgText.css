@@ -78,3 +78,28 @@
 .imgText__img.img2 {
     background: url(../img/imgText_bg02.jpg) no-repeat center / cover;
 }
+@media(max-width:1160px){
+    #imgTextType{
+        width: 96%;
+        margin: 0 auto;
+    }
+
+    .imgText__inner.container{
+        min-width: auto;
+        width: auto;
+    }
+}
+
+@media(max-width: 768px) {
+    .imgText__inner{
+        display: block;
+    }
+
+    .imgText__inner>div {
+        width: 96%;
+    }
+
+    .imgText__inner .imgText__img{
+        margin-bottom: 30px;
+    }
+}

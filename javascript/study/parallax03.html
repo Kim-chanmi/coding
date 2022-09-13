@@ -44,10 +44,11 @@
     <!-- //header -->
     <main id="main">
         <div class="document">
-            <h2 class="t_tit">패럴랙스 효과02</h2>
+            <h2 class="t_tit">패럴랙스 효과03</h2>
             <p class="t_desc2">
                 자바스크립트를 이용하여 패럴랙스 효과를 만들 수 있습니다.
-                스크롤을 움직였을 때 해당 섹션에 맞는 사이드 메뉴에 변화가 생깁니다. 그리고, 사이드 메뉴의 닷을 클릭했을 때 해당 섹션으로 부드럽게 이동합니다.
+                이번 패럴랙스는 스크롤을 최하단으로 내렸을 때, top 버튼이 보이고, 클릭하면 화면이 최상단으로 올라갑니다.
+                스크롤을 내릴 때 네비게이션 메뉴가 사라지고, 스크롤을 올리면 다시 나타납니다.
             </p>
 
             <hr>
@@ -68,41 +69,76 @@
                 패럴랙스 효과를 만들기 위한 자바스크립트 작성법입니다.
             </p>
             <div class="t_code">
-                <pre><code class="language-js">document.querySelectorAll("#parallax__dot a").forEach(el => {    
-    el.addEventListener("click", e => {     //요소를 클릭했을 때
-        e.preventDefault(); //해당 이벤트에 대한 기본동작 실행하지 않도록
+                <pre><code class="language-js">window.addEventListener("scroll", () => {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;      //세로 스크롤 값 구하는 3가지 방법(브라우저마다 지원 여부 다름)
 
-        document.querySelector(el.getAttribute("href")).scrollIntoView({ behavior: "smooth" }); //부드러운 효과를 위해 getAttribute이용하여 href 불러온 후 behavior: "smooth" 적용
+    if (scrollTop >= document.body.scrollHeight - (window.innerHeight - 10)) {     // scrollTop > ( 문서 전체높이 - 브라우저 높이 )
+        document.querySelector("#parallax__top").classList.add("show");         //최하단으로 갔을 때 top버튼 보이게
+    } else {
+        document.querySelector("#parallax__top").classList.remove("show");      //최하단이 아닐 때 top버튼 숨기기
+    }
+
+    document.querySelector("#parallax__top").addEventListener("click", () => {  //top버튼 클릭했을 때
+        window.scrollTo({ left: 0, top: 0, behavior: "smooth" });               //최상단으로 부드럽게 이동시킴
     });
-});
 
-window.addEventListener("scroll", () => {
-    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;     //세로 스크롤 값 구하는 3가지 방법(브라우저마다 지원 여부 다름)
-
-    document.querySelector("#parallax__info span").innerText = Math.floor(scrollTop);   //scrollTop값 parallax__info에 입력. 소숫점 버리기 위해 Math.floor 사용
-
-    document.querySelectorAll(".content__item").forEach((e, i) => {     //forEach를 이용하여 각 .content__item 클래스의 요소들을 가져옵니다.
-        if (scrollTop >= e.offsetTop - 10) {                만약 scrollTop(브라우저의 최상단에서 스크롤 한 값)이 .content__item 클래스 요소의 상단과의 거리 값의 이상이라면
-            document.querySelectorAll("#parallax__dot li").forEach(li => {
-                li.classList.remove("active");      //parallax__dot li의 active 값을 지워주고
+    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop);
+    //forEach()
+    document.querySelectorAll(".content__item").forEach((element, index) => {
+        if (scrollTop >= element.offsetTop - 600) {
+            document.querySelectorAll("#parallax__nav li").forEach(li => {
+                li.classList.remove("active")
             });
-            document.querySelector("#parallax__dot li:nth-child(" + (i + 1) + ")").classList.add("active"); //li의 n번째 값에 active를 추가합니다. index는 0부터 인식하기 때문에 + 1을 합니다.
+            document.querySelector("#parallax__nav li:nth-child(" + (index + 1) + ")").classList.add("active");
         }
     });
 
+    //info
+    document.querySelector(".scroll span").innerText = Math.round(scrollTop);
+
+    for (let i = 1; i < 10; i++) {
+        document.querySelector(".offset" + i).innerText = document.getElementById("section" + i).offsetTop;
+    }
+
 });
 
-        //window.scroll(0, 1000);   (스크롤 값 설정)
-        //window.scroll({ left: 0, top: 2000 });
-        //window.scroll({ left: 0, top: 2000, behavior: "smooth" });
+//스크롤 이동
+document.querySelectorAll("#parallax__nav li a").forEach(li => {
+    li.addEventListener("click", (e) => {
+        e.preventDefault();
+        document.querySelector(li.getAttribute("href")).scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+});
 
-        //window.scrollTo(0, 1000); (scrollTo=절대기준)
-        //window.scrollTo({ left: 0, top: 2000 });
-        //window.scrollTo({ left: 0, top: 2000, behavior: "smooth" });
+// 트리거 변수 이용
+let nowScroll = true;   // true일때 실행. false일 경우 실행x
+let lastScroll = 0;
 
-        //window.scrollBy(0, 1000); (scrollBy=상대 기준)
-        //window.scrollBy({ left: 0, top: 2000 });
-        //window.scrollBy({ left: 0, top: 2000, behavior: "smooth" });
+function scrollProgress() {
+    nowScroll = true;
+
+    setInterval(() => {     //시간차를 위해 setInterval 사용. 
+        if (nowScroll) {
+            nowScroll = false;
+            hasScroll();
+        }
+    }, 300) // 0.3초마다
+}
+
+function hasScroll() {
+    let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+    if (scrollTop &lt; lastScroll) {   // scrollTop값이 lastScroll보다 작으면
+        document.querySelector("#parallax__nav").classList.add("show");   //내비게이션 메뉴 보여주기
+    } else {
+        document.querySelector("#parallax__nav").classList.remove("show");    // 아니면 숨기기
+    }
+    lastScroll = scrollTop;     // scrollTop값을 lastScroll에 저장하여 반복
+}
+
+window.addEventListener("scroll", scrollProgress);
 </code></pre>
             </div>
             </details>
@@ -256,11 +292,16 @@ window.addEventListener("scroll", () => {
     #parallax__nav {
         position: fixed;
         right: 20px;
-        top: 20px;
+        top: -200px;
         z-index: 2000;
         background-color: rgba(0, 0, 0, 0.4);
         padding: 20px 30px;
         border-radius: 50px;
+        transition: top .4s ease;
+    }
+
+    #parallax__nav.show {
+        top: 20px;
     }
 
     #parallax__nav li {
@@ -454,48 +495,30 @@ window.addEventListener("scroll", () => {
         }
     }
 
-    #parallax__dot {
+    #parallax__top {
         position: fixed;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10000;
-        background: rgba(0, 0, 0, 0.4);
-        padding: 20px 10px;
-        border-radius: 30px;
-    }
-
-    #parallax__dot li {
-        position: relative;
-        width: 20px;
-        height: 20px;
+        left: 50%;
+        bottom: -120px;
+        z-index: 2000;
+        transform: translateX(50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.4);
+        text-align: center;
+        line-height: 40px;
+        color: #fff;
         border-radius: 50%;
-        margin: 12px 8px;
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0);
-        transition: box-shadow .2s ease;
+        cursor: pointer;
+        transition: all 0.3s;
     }
 
-    #parallax__dot li a {
+    #parallax__top.show {
+        bottom: 20px;
+    }
+
+    #parallax__top:hover {
         background: #fff;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-radius: 50%;
-        transition: transform .2s ease;
-    }
-
-    #parallax__dot li.active {
-        box-shadow: 0 0 0 2px rgba(255, 255, 255, 1);
-    }
-
-    #parallax__dot li.active a {
-        scale: 0.4;
-    }
-
-    #parallax__dot li span {
-        display: none;
+        color: #000;
     }
 </code></pre>
                 </div>

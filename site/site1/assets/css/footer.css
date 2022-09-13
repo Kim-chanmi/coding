@@ -22,3 +22,28 @@
   color: #666;
   line-height: 1.5;
 }
+@media(max-width:1220px){
+  #textType{
+      width: 96%;
+      margin: 0 auto;
+  }
+
+  .footer__inner.container{
+      min-width: auto;
+      width: auto;
+  }
+}
+
+@media(max-width:468px){
+  .footer__menu{
+      justify-content: space-between;
+  }
+
+  .footer__menu>div>h3 {
+      font-size: 14px;
+  }
+
+  .footer__menu li a{
+      font-size: 12px;
+  }
+}

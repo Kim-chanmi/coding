@@ -32,3 +32,30 @@
     -webkit-line-clamp: 4; 
     -webkit-box-orient: vertical;
 }
+@media(max-width:1160px){
+    #cardType{
+        width: 96%;
+        margin: 0 auto;
+    }
+
+    .card__inner.container{
+        min-width: auto;
+        width: auto;
+    }
+}
+
+@media(max-width:768px){
+    .card__inner{
+        display: block;
+        margin: 0 auto;
+    }
+
+    .card{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .card:last-child{
+        margin-bottom: 0;
+    }
+}
