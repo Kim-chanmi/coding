@@ -36,8 +36,9 @@
   transition: background-color 0.3s;
 }
 .header__menu li a:hover {
-  background-color: #f1f1f1;
-  border-radius: 5px;
+  background: #222;
+  color: #fff;
+  border-radius: 50px;
 }
 .header__member {
   width: 20%;
@@ -55,25 +56,34 @@
   color: #fff;
 }
 
-@media(max-width:1160px){
-  .header__inner ul {
+@media(max-width:1390px){
+  .header__menu {
       display: none;
+  }
+  .header__menu ul {
+    position: fixed;
+    right: 20px;
+    top: 60px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 0 4px #999;
+    border-radius: 5px;
+  } 
+  .header__menu.show {
+    display: block;
+    line-height: 70px;
   }
   .header__icon {
     position: absolute;
-    right: 20px;
-    top: 10px;
+    right: 0;
+    top: 15px;
     background: url(../img/menu__icon.svg) no-repeat center;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
   }
-  .header__menu.on {
-    display: block;
-    width: auto;
-    height: 150px;
-    background-color: rgba(0,0,0);
-  }
+  
   .header__member {
     position: absolute;
     right: 70px;

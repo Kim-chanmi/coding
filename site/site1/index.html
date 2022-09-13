@@ -65,10 +65,11 @@
             </div>
             <nav class="header__menu">
                 <ul>
-                    <li class="active"><a href="#mainType">MAIN</a></li>
+                    <li class="active"><a href="#slider">MAIN</a></li>
                     <li><a href="#imageType">반려식물</a></li>
                     <li><a href="#imgTextType">칼럼/뉴스</a></li>
                     <li><a href="#cardType">식물성장</a></li>
+                    <li><a href="#bannerType">문의사항</a></li>
                     <li><a href="#textType01">식물정보</a></li>
                 </ul>
             </nav>
@@ -353,7 +354,7 @@
             let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
 
             document.querySelectorAll(".content__item").forEach((element, index) => {
-                if (scrollTop >= element.offsetTop - 500) {
+                if (scrollTop >= element.offsetTop - 400) {
                     document.querySelectorAll(".header__menu li").forEach(li => {
                         li.classList.remove("active");
                     });
@@ -363,7 +364,7 @@
         });
 
         // 스크롤 이동
-        document.querySelectorAll("header__menu li a").forEach(li => {
+        document.querySelectorAll("#headerType .header__inner .header__menu li a").forEach(li => {
             li.addEventListener("click", (e) => {
                 e.preventDefault();
                 document.querySelector(li.getAttribute("href")).scrollIntoView({
@@ -372,15 +373,15 @@
             });
         });
 
-        //메뉴
-        const menuBtn = document.querySelector(".header__icon") //메뉴 아이콘
-        const menu = document.querySelector(".header__menu")    //메뉴
+        // 메뉴 버튼 (반응형)
+        const menuBtn = document.querySelector(".header__icon");  // 메뉴 아이콘
+        const menu = document.querySelector(".header__menu");   // 메뉴
 
-        menuBtn.addEventListener("mouseover", (e) => {
-            menu.classList.add("on")
+        menuBtn.addEventListener("mouseover", () => {
+            menu.classList.add("show");   // 메뉴 아이콘에 마우스 커서 올려놓으면 메뉴 보이기
         });
-        menuBtn.addEventListener("mouseleave", () => {
-            menu.classList.remove("on");    // 메뉴 아이콘에 마우스 커서 벗어나면 메뉴 사라지기
+        menu.addEventListener("mouseleave", () => {
+            menu.classList.remove("show");    // 메뉴 아이콘에 마우스 커서 벗어나면 메뉴 사라지기
         });
     </script>
 </body>
