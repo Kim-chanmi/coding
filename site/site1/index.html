@@ -28,6 +28,9 @@
     <link rel="stylesheet" href="assets/css/banner.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/swiper.css" />
+
     <style>
         /* 모바일 수평 스크롤 금지 */
         html,
@@ -41,6 +44,10 @@
             color: #fff;
             border-radius: 20px;
             box-sizing: content-box;
+        }
+
+        #headerType {
+            display: none;
         }
     </style>
 
@@ -86,7 +93,7 @@
         <section id="slider" class="slider__wrap nexon content__item">
             <h2 class="blind">슬라이드 영역</h2>
             <div class="slider__inner">
-                <div class="slider">
+                <!-- <div class="slider">
                     <div class="slider__img">
                         <div class="desc">
                             <span>PLANT</span>
@@ -112,6 +119,56 @@
                         <a href="#" class="play"><span class="ir">플레이</span></a>
                         <a href="#" class="stop"><span class="ir">정지</span></a>
                     </div>
+                </div> -->
+
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="desc">
+                                <span>PLANT</span>
+                                <h3>반려식물 키우기</h3>
+                                <p>
+                                    반려식물 혼자 키우기 힘드시죠? <br>
+                                    우리가 당신과 함께하겠습니다.
+                                </p>
+                                <div class="btn">
+                                    <a href="#">자세히 보기</a>
+                                    <a href="#" class="black">사이트 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="desc">
+                                <span>PLANT</span>
+                                <h3>반려식물 키우기</h3>
+                                <p>
+                                    반려식물 혼자 키우기 힘드시죠? <br>
+                                    우리가 당신과 함께하겠습니다.
+                                </p>
+                                <div class="btn">
+                                    <a href="#">자세히 보기</a>
+                                    <a href="#" class="black">사이트 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="desc">
+                                <span>PLANT</span>
+                                <h3>반려식물 키우기</h3>
+                                <p>
+                                    반려식물 혼자 키우기 힘드시죠? <br>
+                                    우리가 당신과 함께하겠습니다.
+                                </p>
+                                <div class="btn">
+                                    <a href="#">자세히 보기</a>
+                                    <a href="#" class="black">사이트 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
             </div>
         </section>
@@ -349,6 +406,22 @@
     </footer>
     <!-- footerType -->
 
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 2000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+            },
+        });
+    </script>
     <script>
         window.addEventListener("scroll", () => {
             let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;

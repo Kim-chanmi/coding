@@ -22,7 +22,19 @@
   color: #666;
   line-height: 1.5;
 }
-@media(max-width:1220px){
+@media (max-width:960px) {
+  .footer__menu {
+    display: none;
+  }
+  .footer__right {
+    padding-top: 0;
+    border-top: 0;
+  }
+  .footer__wrap {
+    padding: 40px 0;
+  }
+}
+/* @media(max-width:1220px){
   #textType{
       width: 96%;
       margin: 0 auto;
@@ -46,4 +58,4 @@
   .footer__menu li a{
       font-size: 12px;
   }
-}
+} */

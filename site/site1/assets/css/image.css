@@ -18,6 +18,9 @@
   font-size: 32px;
   margin-bottom: 10px;
   color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .image__desc {
   font-size: 18px;
@@ -48,7 +51,25 @@
 .image__btn.yellow {
   background-color: #daad40;
 }
-@media(max-width:1160px){
+@media (max-width: 960px){
+
+}
+@media (max-width: 600px) {
+  .image__inner {
+    flex-direction: column;
+  }
+  .image {
+    width: 100%;
+    padding: 210px 20px 20px 20px;
+  }
+  .image:first-child {
+    margin-bottom: 20px;
+  }
+  .image__title {
+    font-size: 24px;
+  }
+}
+/* @media(max-width:1160px){
   #imageType{
       width: 96%;
       margin: 0 auto;
@@ -77,4 +98,4 @@
   .image.img2{
       margin-bottom: 0;
   }
-}
+} */
