@@ -44,8 +44,10 @@
                 웹표준 준수를 위해 시맨틱 태그를 사용합니다. 또한, 스킵네비게이션을 사용하였습니다. 스킵네비게이션은 웹접근성을 위한 가장 기본적인 버튼으로, 키보드의 TAB 키를 눌렀을 때 해당
                 영역으로 갈 수 있는 메뉴 바로가기를 나타냅니다.
             </p>
-            <div class="t_code">
-                <pre><code class="language-html">&lt;div id="skip"&gt;
+            <details>
+                <summary>소스보기</summary>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;div id="skip"&gt;
     &lt;a href="#"&gt;헤더 영역 바로가기&lt;/a&gt;
     &lt;a href="#"&gt;슬라이드 영역 바로가기&lt;/a&gt;
     &lt;a href="#"&gt;이미지 영역 바로가기&lt;/a&gt;
@@ -74,7 +76,10 @@
         &lt;div class="header__member"&gt;
             &lt;a href="#"&gt;로그인&lt;/a&gt;
         &lt;/div&gt;
-        &lt;div class="header__icon"&gt;
+        &lt;div class="header__ham"&gt;
+            &lt;span&gt;&lt;/span&gt;
+            &lt;span&gt;&lt;/span&gt;
+            &lt;span&gt;&lt;/span&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/header&gt;
@@ -396,7 +401,8 @@
 &lt;/footer&gt;
 &lt;!-- footerType --&gt;
 </code></pre>
-            </div>
+                </div>
+            </details>
 
             <h3 class="t_tit2">03. CSS</h3>
             <p class="t_desc">
@@ -418,6 +424,9 @@
 &lt;link rel="stylesheet" href="assets/css/imgText.css"&gt;
 &lt;link rel="stylesheet" href="assets/css/banner.css"&gt;
 &lt;link rel="stylesheet" href="assets/css/footer.css"&gt;
+
+&lt;!-- CSS --&gt;
+&lt;link rel="stylesheet" href="assets/css/swiper.css" /&gt;
 </code></pre>
             </div>
 
@@ -426,7 +435,62 @@
                 스크롤 이동 시 메뉴에 active를 넣어주는 것과, 메뉴를 클릭했을 때 부드럽게 이동하는 효과, 반응형 메뉴를 위한 자바스크립트입니다.
             </p>
             <div class="t_code">
-                <pre><code class="language-js">//스크롤
+                <pre><code class="language-js">var swiper = new Swiper(".mySwiper", {
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true,
+    },
+});
+const btnstop = document.querySelector(".swiper-button-stop");  //슬라이드 stop버튼
+const btnstart = document.querySelector(".swiper-button-play"); //슬라이드 play버튼
+const btnham = document.querySelector(".header__ham");  //햄버거메뉴
+const btnMenu = document.querySelector(".header__menu");    //메뉴
+const btnMenuList = btnMenu.querySelectorAll("ul li a");    //메뉴 리스트
+
+btnstart.style.display = "none";    //play버튼 없애기
+
+btnstop.addEventListener("click", () => {   //stop버튼 클릭하면
+    swiper.autoplay.stop();     //움직임 stop
+    btnstart.style.display = "block"; //start버튼 나타나게
+    btnstop.style.display = "none"; //stop버튼 없애기
+});
+btnstart.addEventListener("click", () => {  //start버튼 클릭하면
+    swiper.autoplay.start();    //움직임 strat
+    btnstart.style.display = "none";    //play버튼 없애기
+    btnstop.style.display = "block";    //stop버튼 나타나게
+});
+
+btnham.addEventListener("click", () => {    //햄버거메뉴 클릭하면
+    btnham.classList.toggle("active");      //.header__ham에 active 추가
+    btnMenu.classList.toggle("active");     //.header__menu에 active 추가
+    document.body.classList.toggle("fixed");    //body에 fixed 추가
+});
+
+btnMenuList.forEach((list) => {
+    list.addEventListener("click", () => {          //메뉴리스트 클릭하면
+        document.body.classList.remove("fixed");    //body에 있는 fixed 없애기
+        btnMenu.classList.remove("active");         //.header__menu에 active 없애기
+        btnham.classList.remove("active");          //.header__ham에 active 없애기
+    });
+});
+
+window.addEventListener("resize", () => {
+    let width = window.innerWidth;  //현재 보이는 화면 너비 구하기
+    if (width > 1388) {             //화면 너비가 1388보다 크면
+        document.body.classList.remove("fixed");    
+        btnMenu.classList.remove("active");         
+        btnham.classList.remove("active");
+    }
+});
 window.addEventListener("scroll", () => {
     let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
 
@@ -440,25 +504,14 @@ window.addEventListener("scroll", () => {
     });
 });
 
-// 메뉴 클릭
+// 스크롤 이동
 document.querySelectorAll("#headerType .header__inner .header__menu li a").forEach(li => {
     li.addEventListener("click", (e) => {
         e.preventDefault();
         document.querySelector(li.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"  // 부드러운 효과
+            behavior: "smooth"  // 이동 부드럽게
         });
     });
-});
-
-// 메뉴
-const menuBtn = document.querySelector(".header__icon");  // 메뉴 버튼
-const menu = document.querySelector(".header__menu");   // 메뉴
-
-menuBtn.addEventListener("mouseover", () => {
-    menu.classList.add("show");   // 메뉴 버튼에 마우스오버 했을 때 메뉴가 보이게
-});
-menu.addEventListener("mouseleave", () => {
-    menu.classList.remove("show");    // 메뉴에서 마우스 벗어나면 메뉴 사라지게. 메뉴 버튼에서 마우스가 벗어나면 메뉴를 클릭할 수 없음
 });
 </code></pre>
             </div>
