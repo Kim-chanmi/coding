@@ -32,13 +32,6 @@
     <link rel="stylesheet" href="assets/css/swiper.css" />
 
     <style>
-        /* 모바일 수평 스크롤 금지 */
-        /* html,
-        body {
-            max-width: 100%;
-            overflow-x: hidden;
-        } */
-
         .header__menu li.active a {
             background: #000;
             color: #fff;
@@ -46,9 +39,10 @@
             box-sizing: content-box;
         }
 
-        /* #headerType {
-            display: none;
-        } */
+        .header__menu li.active a:hover {
+            background: #222;
+            color: #fff;
+        }
     </style>
 
 </head>
@@ -83,7 +77,10 @@
             <div class="header__member">
                 <a href="#">로그인</a>
             </div>
-            <div class="header__icon">
+            <div class="header__ham">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
     </header>
@@ -167,6 +164,10 @@
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
+                    <div class="swiper-button">
+                        <div class="swiper-button-play"><span class="ir">play</span></div>
+                        <div class="swiper-button-stop"><span class="ir">stop</span></div>
+                    </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
@@ -415,11 +416,54 @@
             },
             autoplay: {
                 delay: 2000,
+                disableOnInteraction: false,
             },
             pagination: {
                 el: '.swiper-pagination',
                 type: 'bullets',
+                clickable: true,
             },
+        });
+        const btnstop = document.querySelector(".swiper-button-stop");
+        const btnstart = document.querySelector(".swiper-button-play");
+        const btnham = document.querySelector(".header__ham");
+        const btnMenu = document.querySelector(".header__menu");
+        const btnMenuList = btnMenu.querySelectorAll("ul li a");
+
+        btnstart.style.display = "none";
+
+        btnstop.addEventListener("click", () => {
+            swiper.autoplay.stop();
+            btnstart.style.display = "block";
+            btnstop.style.display = "none";
+        });
+        btnstart.addEventListener("click", () => {
+            swiper.autoplay.start();
+            btnstart.style.display = "none";
+            btnstop.style.display = "block";
+        });
+
+        btnham.addEventListener("click", () => {
+            btnham.classList.toggle("active");
+            btnMenu.classList.toggle("active");
+            document.body.classList.toggle("fixed");
+        });
+
+        btnMenuList.forEach((list) => {
+            list.addEventListener("click", () => {
+                document.body.classList.remove("fixed");
+                btnMenu.classList.remove("active");
+                btnham.classList.remove("active");
+            });
+        });
+
+        window.addEventListener("resize", () => {
+            let width = window.innerWidth;
+            if (width > 1388) {
+                document.body.classList.remove("fixed");
+                btnMenu.classList.remove("active");
+                btnham.classList.remove("active");
+            }
         });
     </script>
     <script>
@@ -446,16 +490,16 @@
             });
         });
 
-        // 메뉴 버튼 (반응형)
-        const menuBtn = document.querySelector(".header__icon");  // 메뉴 아이콘
-        const menu = document.querySelector(".header__menu");   // 메뉴
+        // // 메뉴 버튼 (반응형)
+        // const menuBtn = document.querySelector(".header__ham");  // 메뉴 아이콘
+        // const menu = document.querySelector(".header__menu");   // 메뉴
 
-        menuBtn.addEventListener("mouseover", () => {
-            menu.classList.add("show");   // 메뉴 아이콘에 마우스 커서 올려놓으면 메뉴 보이기
-        });
-        menu.addEventListener("mouseleave", () => {
-            menu.classList.remove("show");    // 메뉴 아이콘에 마우스 커서 벗어나면 메뉴 사라지기
-        });
+        // menuBtn.addEventListener("mouseover", () => {
+        //     menu.classList.add("show");   // 메뉴 아이콘에 마우스 커서 올려놓으면 메뉴 보이기
+        // });
+        // menu.addEventListener("mouseleave", () => {
+        //     menu.classList.remove("show");    // 메뉴 아이콘에 마우스 커서 벗어나면 메뉴 사라지기
+        // });
     </script>
 </body>
 
