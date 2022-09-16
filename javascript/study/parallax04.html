@@ -44,23 +44,22 @@
     <!-- //header -->
     <main id="main">
         <div class="document">
-            <h2 class="t_tit">패럴랙스 효과03</h2>
+            <h2 class="t_tit">패럴랙스 효과04</h2>
             <p class="t_desc2">
                 자바스크립트를 이용하여 패럴랙스 효과를 만들 수 있습니다.
-                이번 패럴랙스는 스크롤을 최하단으로 내렸을 때, top 버튼이 보이고, 클릭하면 화면이 최상단으로 올라갑니다.
-                스크롤을 내릴 때 네비게이션 메뉴가 사라지고, 스크롤을 올리면 다시 나타납니다.
+                이번 패럴랙스는 스크롤을 내릴 때 영역들이 효과를 내면서 나타나는 방법입니다.
             </p>
 
             <hr>
 
             <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
-                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/parallaxEffect03.html"
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/parallaxEffect04.html"
                     frameborder="0"></iframe>
             </div>
             <div class="t_link">
-                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/parallaxEffect03.html"
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/parallaxEffect04.html"
                     target="_blank">원본 소스 보기</a>
-                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/parallaxEffect03.html" target="_blank">원본
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/parallaxEffect04.html" target="_blank">원본
                     사이트 보기</a>
             </div>
             <hr>
@@ -79,7 +78,7 @@ function scroll() {
         }
     });
 
-    requestAnimationFrame(scroll);  //브라우저에 최적화.1분에 60번 window.addEventListener("scroll", scrollProgress);
+    requestAnimationFrame(scroll);  //브라우저에 최적화. 1분에 60번 window.addEventListener("scroll", scrollProgress);
 }
 
 scroll();
