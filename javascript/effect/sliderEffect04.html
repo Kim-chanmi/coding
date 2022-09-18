@@ -320,10 +320,10 @@
 
         //왼쪽 버튼 클릭했을 때
         sliderBtnPrev.addEventListener("click", () => {
-            let prevIndex = (currentIndex - 1) % sliderCount;
+            let prevIndex = (currentIndex + 4) % sliderCount;   //4,3,2,1,0 반복시키기 위해 +4
             gotoSlider(prevIndex);
 
-            console.log(currentIndex)
+            console.log(currentIndex) //4,3,2,1,0,4,3,2,1,0 반복
         });
 
         //오른쪽 버튼 클릭했을 때
