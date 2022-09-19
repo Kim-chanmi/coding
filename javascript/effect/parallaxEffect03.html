@@ -512,7 +512,7 @@ function scrollProgress() {
 function hasScroll() {
     let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
 
-    if (scrollTop < lastScroll) {   // scrollTop값이 lastScroll보다 작으면
+    if (scrollTop &lt; lastScroll) {   // scrollTop값이 lastScroll보다 작으면
         document.querySelector("#parallax__nav").classList.add("show");   //내비게이션 메뉴 보여주기
     } else {
         document.querySelector("#parallax__nav").classList.remove("show");    // 아니면 숨기기

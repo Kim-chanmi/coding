@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 기본 규칙</title>
+    <link rel="stylesheet" href="../../javascript/assets/css/style.css">
+    <link rel="stylesheet" href="../../javascript/assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit2">VScode 확장 프로그램 이용해 SASS compile 하기</h2>
+            <p class="t_desc2">
+                VScode에서 SASS를 설치하고 compile 하는 방법을 알아보겠습니다.
+            </p>
+            <h2 class="t_tit2">1. SASS Compile 설치</h2>
+            <p class="t_desc">
+                Extensions(ctrl + shift + X)에 들어가서 sass와 Live Sass Compiler를 검색 후 설치 해줍니다.
+                화면 하단에 Watch SASS가 추가됐는지 확인합니다.
+
+            </p>
+            <h2 class="t_tit2">2. SASS Compile 설정</h2>
+            <p class="t_desc">
+                F1 버튼을 눌러 Preference Open User Setting(JSON)을 검색 후 클릭합니다.
+
+            </p>
+            <div class="t_code">
+                <pre><code>"liveSassCompile.settings.generateMap": false,
+"liveSassCompile.settings.formats": [
+    {
+    "format": "expanded",
+    "extensionName": ".css",
+    "savePath": "~/../css/"
+    },
+    {
+    "format": "compressed",
+    "extensionName": ".min.css",
+    "savePath": "~/../css/"
+    }
+</code></pre>
+            </div>
+            <h3 class="t_tit3">01. format</h3>
+            <div class="t_box">expanded, compact, compressed, nested가 있고 default 값은 expanded입니다.</div>
+
+            <h3 class="t_tit3">02. extensionName</h3>
+            <div class="t_box">default 값은 .css이고 .min.css(공백x)로 설정할 수 있습니다.</div>
+
+            <h3 class="t_tit3">03. savePath</h3>
+            <div class="t_box">default 값은 null이고, 현재 폴더(위치)에 css 파일을 컴파일링 합니다.
+                다른 폴더로 컴파일링 하고 싶으면 "~/../css"와 같이 경로를 입력합니다. <br>
+                "~" : 현재 SASS 파일의 위치로부터 상대 경로를 적어줄 때 사용 <br>
+                "/" : 루트 경로
+            </div>
+
+            <h2 class="t_tit2">3. SASS Compile 사용</h2>
+            <div class="t_bpx">
+                .scss 파일을 열고, VScode 하단 바의 Watch SASS를 클릭합니다. 그럼 Watching으로 바뀌면서
+                위에 설정해 놓은 위치와 포맷으로 저장할 때마다 scss 파일이 컴파일링 됩니다.
+            </div>
+
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../../javascript/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

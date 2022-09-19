@@ -241,10 +241,9 @@ Query OK, 0 rows affected (0.02 sec)
 </code></pre>
                     <h3 id="intro5-5" class="page-header">테이블 복사</h3>
                     <div class="bs-callout bs-callout-info">
-
+                        CREATE TABLE 새로운 테이블명 SELECT * FROM 복사할 테이블명
                     </div>
-                    <pre><code class="language-js">
-
+                    <pre><code class="language-js">CREATE TABLE member3 SELECT * FROM member;
 </code></pre>
                 </div>
                 <!-- intro5 -->
@@ -255,16 +254,16 @@ Query OK, 0 rows affected (0.02 sec)
                     <div class="bs-callout bs-callout-info">
                         INSERT INTO 테이블이름(필드명) VALUE(데이터)
                     </div>
-                    <pre><code class="language-js">INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('chanmi0517@naver.com','김찬미','1234','19990303','20','1234567');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('webstoryboy@naver.com','황상연','1234','19990303','20','1234567');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('thdtjdgml415@naver.com', '송성희', '1234', '19970415', '20', '1234567');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('mo0647@naver.com', '김민정', '1234', '19970530', '20', '1234567');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('tjrwnsrkdtj@naver.com', '김석준', '1234', '19941009', '20', '1234567');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('jwor124@naver.com', '정은 비', '1234', '19990303', '20', '1234567');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('leesh3432@naver.com','이영환','1234','19970205','20','1234567');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('sshin4882@naver.com','박현신','1234','19990303','20','1234567');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('to_before@naver.com', '김상준', '1234', '19970809', '20', '04');
-INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('kkb7528@naver.com','권규비','1234','19990303','20','1234567');
+                    <pre><code class="language-js">INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('chanmi0517@naver.com','김찬미','1234','19990303','20','abcde','1234567');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('webstoryboy@naver.com','황상연','1234','19990303','20','abcde','1234567');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('thdtjdgml415@naver.com', '송성희', '1234', '19970415', '20', 'abcde', '1234567');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('mo0647@naver.com', '김민정', '1234', '19970530', '20', 'abcde', '1234567');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('tjrwnsrkdtj@naver.com', '김석준', '1234', '19941009', '20', 'abcde', '1234567');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('jwor124@naver.com', '정은 비', '1234', '19990303', '20', 'abcde', '1234567');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('leesh3432@naver.com','이영환','1234','19970205','20','abcde','1234567');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('sshin4882@naver.com','박현신','1234','19990303','20','abcde','1234567');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('to_before@naver.com', '김상준', '1234', '19970809', '20', 'abcde', '04');
+INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, youIntro, regTime) VALUES('kkb7528@naver.com','권규비','1234','19990303','20','abcde','1234567');
 INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('piowm123@gmail.com', '문병내', '1234', '19990303', '20', '1234567');
 INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUE('ghkddbwls96@gmail.com', '황유진', '1234', '19990303', '20', '1234567');
 INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES('eodnjs9605@naver.com','김대원','1234','19960530','20','1234567');
@@ -336,6 +335,43 @@ INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES
                     <h4 class="pt20">email 중에 com 텍스트로 끝나는 경우</h4>
                     <pre><code class="language-js">mysql> SELECT * FROM member WHERE youEmail LIKE '%com';
 </code></pre>
+                    <h4 class="pt20">이름 중에 '김'으로 시작하는 멤버 출력</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member WHERE youName LIKE '김%';
+</code></pre>
+                    <h4 class="pt20">이름 중에 '김'이거나 '황'씨인 경우 멤버 출력</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member WHERE youName LIKE '김%' OR youName LIKE '황%';
+</code></pre>
+                    <h4 class="pt20">이름 중간에 '상'이 있는 멤버 출력</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member WHERE youName LIKE '_상_';
+SELECT * FROM member WHERE youName LIKE '__연';
+</code></pre>
+                    <h4 class="pt20">이름 중에 데이터가 없는 경우 출력</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member WHERE youName IS NULL;
+mysql> SELECT * FROM member WHERE youName IS NOT NULL;
+</code></pre>
+
+                    <h4 class="pt20">멤버 중에 나이가 18세 이상이면서 김씨인 멤버 출력</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member WHERE youAge >=18 AND youName LIKE '김__';
+</code></pre>
+                    <h4 class="pt20">멤버 중에 나이가 18세 이상이거나 김씨인 멤버 출력</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member WHERE youAge >=18 OR youName LIKE '김__';
+</code></pre>
+                    <h4 class="pt20">멤버 중에 나이가 20세 이상이면서 아이디가 2 또는 10인 멤버</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member WHERE (myMemberID = 2 OR myMemberID = 10) AND youAge >=20;
+</code></pre>
+
+                    <h4 class="pt20">회원 데이터 5개만 불러오기(1~5)</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member LIMIT 5;
+</code></pre>
+
+                    <h4 class="pt20">회원 데이터 5개만 불러오기(6~10)</h4>
+                    <pre><code class="language-js">mysql> SELECT * FROM member LIMIT 5, 5;
+</code></pre>
+                    <h4 class="pt20">회원 이메일을 기준으로 5개만 불러오기(1~5)</h4>
+                    <pre><code class="language-js">mysql> SELECT youEmail FROM member LIMIT 5;
+</code></pre>
+
+
                     <h3 id="intro6-3" class="page-header">데이터 수정하기</h3>
                     <div class="bs-callout bs-callout-info">
                         UPDATE 테이블명(필드명) SET 컬럼명 조건
@@ -343,10 +379,33 @@ INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES
                     <h4 class="pt20">모든 회원의 핸드폰 번호 변경</h4>
                     <pre><code class="language-js">mysql> UPDATE member SET youPhone = "010-0000-0000";
 </code></pre>
+                    <h4 class="pt20">아이디가 3번인 회원의 비밀번호를 '0123'으로 변경</h4>
+                    <pre><code class="language-js">mysql> UPDATE member SET youPass = "0123" WHERE myMemberID = 3;
+</code></pre>
+                    <h4 class="pt20">아이디가 5~10번까지 비밀번호를 '1234567'으로 변경</h4>
+                    <pre><code class="language-js">mysql> UPDATE member SET youPass = "1234567" WHERE myMemberID BETWEEN 5 AND 10;
+</code></pre>
+                    <h4 class="pt20">비밀번호를 '1234567'으로 변경하고 내림차순으로 10개 변경</h4>
+                    <pre><code class="language-js">mysql> UPDATE member SET youPass = ‘1234567’ ORDER BY youPass DESC LIMIT 10;
+</code></pre>
+
                     <h3 id="intro6-4" class="page-header">데이터 삭제하기</h3>
                     <div class="bs-callout bs-callout-info">
-
+                        DELETE FROM 테이블명 조건
                     </div>
+                    <h4 class="pt20">회원 아이디가 5번인 멤버 삭제</h4>
+                    <pre><code class="language-js">DELETE FROM member WHERE myMemberID = 5;
+</code></pre>
+                    <h4 class="pt20">회원 비밀번호가 '1234'인 멤버 삭제</h4>
+                    <pre><code class="language-js">DELETE FROM member WHERE youPass = '1234';
+</code></pre>
+                    <h4 class="pt20">회원 이름을 기준으로 5번째까지 멤버 삭제</h4>
+                    <pre><code class="language-js">DELETE FROM member ORDER BY youName LIMIT 5;
+</code></pre>
+                    <h4 class="pt20">지정한 멤버 삭제</h4>
+                    <pre><code class="language-js">DELETE FROM member WHERE myMemberID IN(7,9,10);
+</code></pre>
+
                     <!-- intro6 -->
 
                     <div class="bs-docs-section">
@@ -374,6 +433,65 @@ INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES
                         <pre><code class="language-js">ALTER TABLE member DROP youGender;
 </code></pre>
                         <!-- intro7 -->
+
+                        <div class="bs-docs-section">
+                            <h2 id="intro8" class="page-header">테이블 합치기</h2>
+                            <h3 id="intro8-1" class="page-header">테이블 JOIN</h3>
+                            <div class="bs-callout bs-callout-info">
+                                SELECT 필드명 FROM 테이블명 앨리언스 JOIN 연결할 테이블명 앨리언스 ON(조건문);
+                            </div>
+                            <pre><code class="language-js">create table myMember (
+    myMemberID int(10) unsigned auto_increment, 
+    youEmail varchar(40) NOT NULL,
+    youName varchar(20) NOT NULL,
+    youPass varchar(20) NOT NULL,
+    youBirth int(20) NOT NULL,
+    youAge int(5) NOT NULL,
+    youPhone varchar(20) NOT NULL,
+    regTime int(20) NOT NULL,
+    PRIMARY KEY (myMemberID)
+) charset=utf8;
+
+create table myReview (
+    myReviewID int(10) unsigned auto_increment, 
+    myMemberID int(10) unsigned, 
+    youText tinytext NOT NULL,
+    regTime int(20) NOT NULL,
+    PRIMARY KEY (myReviewID)
+) charset=utf8;
+
+INSERT INTO myMember(youEmail, youName, youPass, youBirth, youAge, youPhone, regTime) VALUES('chanmi0517@naver.com','김찬미','1234','19990303','20','01012345678','1234567');
+INSERT INTO myMember(youEmail, youName, youPass, youBirth, youAge, youPhone, regTime) VALUES('webstoryboy@naver.com','황상연','1234','19990303','20','01012345678','1234567');
+INSERT INTO myMember(youEmail, youName, youPass, youBirth, youAge, youPhone, regTime) VALUES('thdtjdgml415@naver.com', '송성희', '1234', '19970415', '20', '01012345678', '1234567');
+INSERT INTO myMember(youEmail, youName, youPass, youBirth, youAge, youPhone, regTime) VALUES('mo0647@naver.com', '김민정', '1234', '19970530', '20', '01012345678', '1234567');
+INSERT INTO myMember(youEmail, youName, youPass, youBirth, youAge, youPhone, regTime) VALUES('tjrwnsrkdtj@naver.com', '김석준', '1234', '19941009', '20', '01012345678', '1234567');
+
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("1", "정말 감사합니다.", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("2", "정말 별로에요.", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("3", "좋은 정보 감사합니다.", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("4", "잘 보고가요.", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("5", "이게 뭐죠?", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("4", "제 취향은 아니네요.", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("3", "비추", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("2", "강추강추", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("1", "완전 별론데?", "1234567");
+INSERT INTO myReview(myMemberID, youText, regTime) VALUES("4", "괜찮네요.", "1234567");
+
+SELECT m.youName, m.youEmail, r.youText, r.regTime FROM myMember m JOIN myReview r ON(m.myMemberID = r.myMemberID) ORDER BY myReviewID DESC LIMIT 5;
+
++---------+------------------------+---------------------+---------+
+| youName | youEmail               | youText             | regTime |
++---------+------------------------+---------------------+---------+
+| 김민정  | mo0647@naver.com       | 괜찮네요.           | 1234567 |
+| 김찬미  | chanmi0517@naver.com   | 완전 별론데?        | 1234567 |
+| 황상연  | webstoryboy@naver.com  | 강추강추            | 1234567 |
+| 송성희  | thdtjdgml415@naver.com | 비추                | 1234567 |
+| 김민정  | mo0647@naver.com       | 제 취향은 아니네요. | 1234567 |
++---------+------------------------+---------------------+---------+
+5 rows in set (0.01 sec)
+    </code></pre>
+                        </div>
+                        <!-- intro8 -->
                     </div>
                 </div>
             </div>
@@ -416,7 +534,7 @@ INSERT INTO member(youEmail, youName, youPass, youBirth, youAge, regTime) VALUES
                                 <li><a href="#intro7-3">필드 삭제하기</a></li>
                             </ul>
                         </li>
-                        <li><a href="#intro8">테이블 JOIN</a></li>
+                        <li><a href="#intro8">테이블 합치기</a></li>
                     </ul>
                 </div>
             </div>

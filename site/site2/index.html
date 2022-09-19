@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 만들기02</title>
+
+    <!-- SEO -->
+    <meta name="author" content="chanmi">
+    <meta name="description" content="사이트 만들기 튜토리얼입니다.">
+    <meta name="keyword" content="사이트, 만들기, 튜토리얼, 김찬미">
+    <meta name="robots" content="all">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+
+    <!-- CSS(섹션별) -->
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/slider.css">
+    <link rel="stylesheet" href="assets/css/card.css">
+    <link rel="stylesheet" href="assets/css/image.css">
+    <link rel="stylesheet" href="assets/css/text.css">
+    <link rel="stylesheet" href="assets/css/imgText.css">
+    <link rel="stylesheet" href="assets/css/banner.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/swiper.css" />
+
+
+</head>
+
+<body>
+    <div id="skip">
+        <a href="#headerType">헤더 영역 바로가기</a>
+        <a href="#slider">슬라이드 영역 바로가기</a>
+        <a href="#imageType">이미지 영역 바로가기</a>
+        <a href="#imgTextType">이미지/텍스트 영역 바로가기</a>
+        <a href="#cardType">카드 영역 바로가기</a>
+        <a href="#bannerType">배너 영역 바로가기</a>
+        <a href="#textType01">텍스트 영역 바로가기</a>
+        <a href="#footerType">푸터 영역 바로가기</a>
+    </div>
+    <!-- skip -->
+    <header id="headerType" class="header__wrap nexon">
+        <div class="header__inner">
+            <div class="header__logo">
+                <a href="#">GYM <em>site</em></a>
+            </div>
+            <nav class="header__menu">
+                <ul>
+                    <li><a href="#sliderType">헬스장</a></li>
+                    <li><a href="#imgTextType">트레이너 양성과정</a></li>
+                    <li><a href="#imageType">트레이너 소개</a></li>
+                    <li><a href="#cardType">운동기구</a></li>
+                    <li><a href="#bannerType">운동기구</a></li>
+                    <li><a href="#textType01">수강생 후기</a></li>
+                </ul>
+            </nav>
+            <div class="header__ham">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+    <!-- headerType -->
+
+    <main id="mainType">
+        <section id="slider" class="slider__wrap nexon content__item">
+            <h2 class="blind">슬라이드 영역</h2>
+            <div class="slider__inner">
+                <!-- <div class="slider">
+                    <div class="slider__img">
+                        <div class="desc">
+                            <span>PLANT</span>
+                            <h3>반려식물 키우기</h3>
+                            <p>
+                                반려식물 혼자 키우기 힘드시죠? <br>
+                                우리가 당신과 함께하겠습니다.
+                            </p>
+                            <div class="btn">
+                                <a href="#">자세히 보기</a>
+                                <a href="#" class="black">사이트 보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider__arrow">
+                        <a href="#" class="left"><span class="ir">이전 이미지</span></a>
+                        <a href="#" class="right"><span class="ir">다음 이미지</span></a>
+                    </div>
+                    <div class="slider__dot">
+                        <a href="#" class="dot active"><span class="ir">1</span></a>
+                        <a href="#" class="dot"><span class="ir">2</span></a>
+                        <a href="#" class="dot"><span class="ir">3</span></a>
+                        <a href="#" class="play"><span class="ir">플레이</span></a>
+                        <a href="#" class="stop"><span class="ir">정지</span></a>
+                    </div>
+                </div> -->
+
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="desc">
+                                <h3>GYM <br>BBAEBBAE</h3>
+                                <p>
+                                    쾌적한 운동환경! <br>
+                                    준비된 트레이너들과 <br>
+                                    건강한 몸을 위한 운동 시작하세요.
+                                </p>
+                                <div class="btn">
+                                    <a href="#">더 알아보기</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <!-- sliderType -->
+
+        <section id="imageType" class="image__wrap nexon section content__item">
+
+        </section>
+        <!-- imageType -->
+
+        <section id="imgTextType" class="imgText__wrap nexon section gray content__item">
+
+        </section>
+        <!-- imgTextType -->
+
+        <section id="cardType" class="card__wrap nexon section content__item">
+
+        </section>
+        <!-- cardType -->
+
+        <section id="bannerType" class="banner__wrap nexon content__item">
+
+        </section>
+        <!-- bannerType -->
+
+        <section id="textType01" class="text__wrap nexon section content__item">
+
+        </section>
+        <!-- textType -->
+    </main>
+    <!-- main -->
+
+    <footer id="footerType" class="footer__wrap nexon section gray content__item">
+        <h2 class="blind">푸터 영역</h2>
+        <div class="footer__inner container">
+
+        </div>
+    </footer>
+    <!-- footerType -->
+
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script>
+        // var swiper = new Swiper(".mySwiper", {
+        //     navigation: {
+        //         nextEl: ".swiper-button-next",
+        //         prevEl: ".swiper-button-prev",
+        //     },
+        //     autoplay: {
+        //         delay: 2000,
+        //         disableOnInteraction: false,
+        //     },
+        //     pagination: {
+        //         el: '.swiper-pagination',
+        //         type: 'bullets',
+        //         clickable: true,
+        //     },
+        // });
+        // const btnstop = document.querySelector(".swiper-button-stop");
+        // const btnstart = document.querySelector(".swiper-button-play");
+        // const btnham = document.querySelector(".header__ham");
+        // const btnMenu = document.querySelector(".header__menu");
+        // const btnMenuList = btnMenu.querySelectorAll("ul li a");
+
+        // btnstart.style.display = "none";
+
+        // btnstop.addEventListener("click", () => {
+        //     swiper.autoplay.stop();
+        //     btnstart.style.display = "block";
+        //     btnstop.style.display = "none";
+        // });
+        // btnstart.addEventListener("click", () => {
+        //     swiper.autoplay.start();
+        //     btnstart.style.display = "none";
+        //     btnstop.style.display = "block";
+        // });
+
+        // btnham.addEventListener("click", () => {
+        //     btnham.classList.toggle("active");
+        //     btnMenu.classList.toggle("active");
+        //     document.body.classList.toggle("fixed");
+        // });
+
+        // btnMenuList.forEach((list) => {
+        //     list.addEventListener("click", () => {
+        //         document.body.classList.remove("fixed");
+        //         btnMenu.classList.remove("active");
+        //         btnham.classList.remove("active");
+        //     });
+        // });
+
+        // window.addEventListener("resize", () => {
+        //     let width = window.innerWidth;
+        //     if (width > 1388) {
+        //         document.body.classList.remove("fixed");
+        //         btnMenu.classList.remove("active");
+        //         btnham.classList.remove("active");
+        //     }
+        // });
+    </script>
+    <script>
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;
+
+            document.querySelectorAll(".content__item").forEach((element, index) => {
+                if (scrollTop >= element.offsetTop - 400) {
+                    document.querySelectorAll(".header__menu li").forEach(li => {
+                        li.classList.remove("active");
+                    });
+                    document.querySelector(".header__menu li:nth-child(" + (index + 1) + ")").classList.add("active");
+                };
+            });
+        });
+
+        // 스크롤 이동
+        document.querySelectorAll("#headerType .header__inner .header__menu li a").forEach(li => {
+            li.addEventListener("click", (e) => {
+                e.preventDefault();
+                document.querySelector(li.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"  // 이동 부드럽게
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -71,38 +71,38 @@
             <div class="sample01_result">
                 <div class="t_code">
                     <pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
-    const sliderImg = document.querySelector(".slider__img");       //보여지는 영역
-    const sliderInner = document.querySelector(".slider__inner");   //움직이는 영역
-    const slider = document.querySelectorAll(".slider");            //각각의 이미지
-    const sliderBtn = document.querySelector(".slider__btn");            //버튼
-    const sliderBtnPrev = sliderBtn.querySelector(".prev");            //왼쪽버튼
-    const sliderBtnNext = sliderBtn.querySelector(".next");            //오른쪽버튼
+const sliderImg = document.querySelector(".slider__img");       //보여지는 영역
+const sliderInner = document.querySelector(".slider__inner");   //움직이는 영역
+const slider = document.querySelectorAll(".slider");            //각각의 이미지
+const sliderBtn = document.querySelector(".slider__btn");            //버튼
+const sliderBtnPrev = sliderBtn.querySelector(".prev");            //왼쪽버튼
+const sliderBtnNext = sliderBtn.querySelector(".next");            //오른쪽버튼
 
-    let currentIndex = 0;                       //현재 이미지
-    let sliderCount = slider.length             //이미지 갯수
-    let sliderWidth = sliderImg.offsetWidth;    //이미지 가로값
+let currentIndex = 0;                       //현재 이미지
+let sliderCount = slider.length             //이미지 갯수
+let sliderWidth = sliderImg.offsetWidth;    //이미지 가로값
 
-    //이미지 움직이는 영역
-    function gotoSlider(num) {
-        sliderInner.style.transition = "all 400ms";     //400ms -> 0.4s
-        sliderInner.style.transform = "translateX(" + -sliderWidth * num + "px)";
-        currentIndex = num;
-    }
+//이미지 움직이는 영역
+function gotoSlider(num) {
+    sliderInner.style.transition = "all 400ms";     //400ms -> 0.4s
+    sliderInner.style.transform = "translateX(" + -sliderWidth * num + "px)";
+    currentIndex = num;
+}
 
-    //왼쪽 버튼 클릭했을 때
-    sliderBtnPrev.addEventListener("click", () => {
-        let prevIndex = (currentIndex + 4) % sliderCount;   //4,3,2,1,0 반복시키기 위해 +4
-        gotoSlider(prevIndex);
+//왼쪽 버튼 클릭했을 때
+sliderBtnPrev.addEventListener("click", () => {
+    let prevIndex = (currentIndex + (sliderCount - 1)) % sliderCount;   
+    gotoSlider(prevIndex);
 
-        console.log(currentIndex) //4,3,2,1,0,4,3,2,1,0 반복
-    });
+    console.log(currentIndex) //4,3,2,1,0,4,3,2,1,0 반복
+});
 
-    //오른쪽 버튼 클릭했을 때
-    sliderBtnNext.addEventListener("click", () => {
-        let nextIndex = (currentIndex + 1) % sliderCount;
-        gotoSlider(nextIndex);
-        //0, 1, 2, 3, 4
-    });  
+//오른쪽 버튼 클릭했을 때
+sliderBtnNext.addEventListener("click", () => {
+    let nextIndex = (currentIndex + 1) % sliderCount;
+    gotoSlider(nextIndex);
+    //0, 1, 2, 3, 4
+}); 
 </code></pre>
                 </div>
             </div>
