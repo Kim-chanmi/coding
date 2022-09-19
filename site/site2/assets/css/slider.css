@@ -1,5 +1,5 @@
 .slider__inner {
-    margin-top: 70px;
+    /* margin-top: 70px; */
 }
 
 .slider__arrow a {
@@ -8,7 +8,7 @@
     transform: translateY(-50%);
     width: 30px;
     height: 56px;
-    background-image: url(../img/slider_icon.svg);
+    background-image: url(../img/slider_icon2.svg);
 }
 
 .slider__arrow a.left {
@@ -31,7 +31,7 @@
     display: inline-block;
     width: 16px;
     height: 16px;
-    background-image: url(../img/dot.svg);
+    background-image: url(../img/slider_icon2.svg);
     background-position: -20px -70px;
 }
 
@@ -49,20 +49,22 @@
 
 /* swiper */
 .swiper-slide:nth-child(1) {
-    background: url(../img/slider_bg01.jpg) no-repeat center / cover;
+    background: url(../img/SLIDER_Image01.jpg) no-repeat center / cover;
 }
 
 .swiper-slide:nth-child(2) {
-    background: url(../img/slider_bg02.jpg) no-repeat center/ cover;
+    background: url(../img/SLIDER_Image02.jpg) no-repeat center/ cover;
 }
 
 .swiper-slide:nth-child(3) {
-    background: url(../img/slider_bg03.jpg) no-repeat center/ cover;
+    background: url(../img/SLIDER_Image03.jpg) no-repeat center/ cover;
 }
 
 .swiper-slide .desc {
     width: 1160px;
     margin: 0 auto;
+    padding: 100px 20px;
+    box-sizing: border-box;
 }
 
 .swiper-slide .desc h3 {
@@ -72,6 +74,7 @@
     text-transform: uppercase;
     margin-bottom: 16px;
     margin-left: -8px;
+    color: #fff;
 }
 
 .swiper-slide .desc p {
@@ -79,7 +82,7 @@
     font-weight: 500;
     line-height: 1.38;
     margin-bottom: 30px;
-    color: #0c0c0c;
+    color: #999;
 }
 
 .swiper-slide .desc .btn a {
@@ -96,7 +99,7 @@
 .swiper-button-prev {
     width: 30px !important;
     height: 56px !important;
-    background: url(../img/slider_icon.svg);
+    background: url(../img/slider_icon2.svg);
 }
 
 .swiper-button-next {
@@ -111,7 +114,7 @@
 .swiper-pagination-bullet {
     width: 16px !important;
     height: 16px !important;
-    background-image: url(../img/dot.svg) !important;
+    background-image: url(../img/slider_icon2.svg) !important;
     background-position: -20px -70px !important;
     background-color: transparent !important;
     opacity: 1 !important;
@@ -119,6 +122,31 @@
 
 .swiper-pagination-bullet-active {
     background-position: 0px -70px !important;
+}
+
+.swiper-button {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    margin-left: 40px;
+    bottom: 24px;
+    z-index: 1000;
+}
+
+.swiper-button-stop {
+    background-image: url(../img/slider_icon2.svg);
+    background-position: -60px -70px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.swiper-button-play {
+    background-image: url(../img/slider_icon2.svg);
+    background-position: -40px -70px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
 }
 
 

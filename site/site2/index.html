@@ -120,6 +120,10 @@
 
                     </div>
                     <div class="swiper-pagination"></div>
+                    <div class="swiper-button">
+                        <div class="swiper-button-play"><span class="ir">play</span></div>
+                        <div class="swiper-button-stop"><span class="ir">stop</span></div>
+                    </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
@@ -164,62 +168,62 @@
 
     <script src="assets/js/swiper-bundle.min.js"></script>
     <script>
-        // var swiper = new Swiper(".mySwiper", {
-        //     navigation: {
-        //         nextEl: ".swiper-button-next",
-        //         prevEl: ".swiper-button-prev",
-        //     },
-        //     autoplay: {
-        //         delay: 2000,
-        //         disableOnInteraction: false,
-        //     },
-        //     pagination: {
-        //         el: '.swiper-pagination',
-        //         type: 'bullets',
-        //         clickable: true,
-        //     },
-        // });
-        // const btnstop = document.querySelector(".swiper-button-stop");
-        // const btnstart = document.querySelector(".swiper-button-play");
-        // const btnham = document.querySelector(".header__ham");
-        // const btnMenu = document.querySelector(".header__menu");
-        // const btnMenuList = btnMenu.querySelectorAll("ul li a");
+        var swiper = new Swiper(".mySwiper", {
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                clickable: true,
+            },
+        });
+        const btnstop = document.querySelector(".swiper-button-stop");
+        const btnstart = document.querySelector(".swiper-button-play");
+        const btnham = document.querySelector(".header__ham");
+        const btnMenu = document.querySelector(".header__menu");
+        const btnMenuList = btnMenu.querySelectorAll("ul li a");
 
-        // btnstart.style.display = "none";
+        btnstart.style.display = "none";
 
-        // btnstop.addEventListener("click", () => {
-        //     swiper.autoplay.stop();
-        //     btnstart.style.display = "block";
-        //     btnstop.style.display = "none";
-        // });
-        // btnstart.addEventListener("click", () => {
-        //     swiper.autoplay.start();
-        //     btnstart.style.display = "none";
-        //     btnstop.style.display = "block";
-        // });
+        btnstop.addEventListener("click", () => {
+            swiper.autoplay.stop();
+            btnstart.style.display = "block";
+            btnstop.style.display = "none";
+        });
+        btnstart.addEventListener("click", () => {
+            swiper.autoplay.start();
+            btnstart.style.display = "none";
+            btnstop.style.display = "block";
+        });
 
-        // btnham.addEventListener("click", () => {
-        //     btnham.classList.toggle("active");
-        //     btnMenu.classList.toggle("active");
-        //     document.body.classList.toggle("fixed");
-        // });
+        btnham.addEventListener("click", () => {
+            btnham.classList.toggle("active");
+            btnMenu.classList.toggle("active");
+            document.body.classList.toggle("fixed");
+        });
 
-        // btnMenuList.forEach((list) => {
-        //     list.addEventListener("click", () => {
-        //         document.body.classList.remove("fixed");
-        //         btnMenu.classList.remove("active");
-        //         btnham.classList.remove("active");
-        //     });
-        // });
+        btnMenuList.forEach((list) => {
+            list.addEventListener("click", () => {
+                document.body.classList.remove("fixed");
+                btnMenu.classList.remove("active");
+                btnham.classList.remove("active");
+            });
+        });
 
-        // window.addEventListener("resize", () => {
-        //     let width = window.innerWidth;
-        //     if (width > 1388) {
-        //         document.body.classList.remove("fixed");
-        //         btnMenu.classList.remove("active");
-        //         btnham.classList.remove("active");
-        //     }
-        // });
+        window.addEventListener("resize", () => {
+            let width = window.innerWidth;
+            if (width > 1388) {
+                document.body.classList.remove("fixed");
+                btnMenu.classList.remove("active");
+                btnham.classList.remove("active");
+            }
+        });
     </script>
     <script>
         window.addEventListener("scroll", () => {
