@@ -1,13 +1,17 @@
 /* fonts */
 @import url("https://fonts.googleapis.com/css?family=Inconsolata");
+
 /* reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-*, *:before, *:after {
-    box-sizing:border-box;
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
 a {
@@ -58,6 +62,7 @@ body {
     font-size: 30px;
     color: rgb(187, 87, 87);
 }
+
 #header h1 a {
     color: #fff;
 }
@@ -67,7 +72,8 @@ body {
     font-style: normal;
     color: #fff;
 }
-@media (max-width: 600px){
+
+@media (max-width: 600px) {
     #header h1 em {
         display: none;
     }
@@ -105,6 +111,7 @@ body {
     z-index: 10000;
     text-align: center;
 }
+
 #footer a {
     color: #000;
     font-family: "DungGeunMo";
@@ -186,6 +193,7 @@ body {
     text-align: center;
     font-family: "Wooridaum";
 }
+
 .quiz__answer .input {
     width: 100%;
     border: 6px ridge #cacaca;
@@ -193,19 +201,21 @@ body {
     padding: 13px 20px;
     background-color: #fff;
     font-family: "Wooridaum";
-    margin-bottom: 10px;  
+    margin-bottom: 10px;
 }
+
 .quiz__view {
     background-color: #f5f5f5;
     font-family: "Wooridaum";
     position: relative;
     overflow: hidden;
 }
+
 .quiz__view .true {
     width: 120px;
     height: 120px;
     line-height: 120px;
-    background-color:  rgb(187, 87, 87);
+    background-color: rgb(187, 87, 87);
     color: #fff;
     border-radius: 50%;
     text-align: center;
@@ -214,11 +224,12 @@ body {
     top: 100px;
     opacity: 0;
 }
+
 .quiz__view .false {
     width: 120px;
     height: 120px;
     line-height: 120px;
-    background-color:  #fff;
+    background-color: #fff;
     border-radius: 50%;
     text-align: center;
     position: absolute;
@@ -226,24 +237,30 @@ body {
     top: 100px;
     opacity: 0;
 }
+
 .quiz__view.like .true {
     opacity: 1;
     animation: wobble 0.6s;
 }
+
 .quiz__view.dislike .false {
     opacity: 1;
     animation: wobble 0.6s;
 }
+
 .quiz__selects {
     margin: 5px 0;
 }
+
 .quiz__selects label {
     display: flex;
 }
+
 .quiz__selects label input {
     position: absolute;
     left: -9999px;
 }
+
 .quiz__selects label span {
     font-size: 20px;
     line-height: 1.3;
@@ -255,7 +272,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-.quiz__selects label span::before{
+
+.quiz__selects label span::before {
     content: '';
     width: 30px;
     height: 30px;
@@ -267,16 +285,20 @@ body {
     box-shadow: inset 0px 0px 0px 4px rgb(187, 87, 87);
     transition: all 0.25s;
 }
-.quiz__selects label input:checked + span {
+
+.quiz__selects label input:checked+span {
     background-color: rgb(244, 202, 202);
 }
-.quiz__selects label input:checked + span::before {
+
+.quiz__selects label input:checked+span::before {
     box-shadow: inset 0px 0px 0px 10px rgb(187, 87, 87);
 }
+
 .quiz__confirm {
     width: 100%;
     text-align: center;
 }
+
 .quiz__confirm .check {
     font-size: 22px;
     line-height: 1.3;
@@ -289,20 +311,44 @@ body {
     margin: 40px 0;
     transition: background 0.3s;
 }
+
 .quiz__confirm .check:hover {
     background: rgba(187, 87, 87, 0.263)
 }
+
 @keyframes wobble {
-    0%   {transform: translateX(0) rotate(0deg)}
-    15%  {transform: translateX(-25%) rotate(-5deg)}
-    30%  {transform: translateX(20%) rotate(3deg)}
-    45%  {transform: translateX(-15%) rotate(-3deg)}
-    60%  {transform: translateX(10%) rotate(2deg)}
-    75%  {transform: translateX(-5%) rotate(-1deg)}
-    100% {transform: translateX(0) rotate(0deg)}
+    0% {
+        transform: translateX(0) rotate(0deg)
+    }
+
+    15% {
+        transform: translateX(-25%) rotate(-5deg)
+    }
+
+    30% {
+        transform: translateX(20%) rotate(3deg)
+    }
+
+    45% {
+        transform: translateX(-15%) rotate(-3deg)
+    }
+
+    60% {
+        transform: translateX(10%) rotate(2deg)
+    }
+
+    75% {
+        transform: translateX(-5%) rotate(-1deg)
+    }
+
+    100% {
+        transform: translateX(0) rotate(0deg)
+    }
 }
+
 /* modal__wrap */
 .modal__wrap {}
+
 .modal__btn {
     color: #000;
     border: 1px solid #bababa;
@@ -317,10 +363,12 @@ body {
     transition: background-color 0.3s, color 0.3s;
     font-family: "DungGeunMo";
 }
+
 .modal__btn:hover {
     background-color: #a4a2a2;
     color: #1B1C2E;
 }
+
 .modal__cont {
     font-family: "Inconsolata", monospace;
     width: 100%;
@@ -335,6 +383,7 @@ body {
     justify-content: center;
     transform: scale(0);
 }
+
 .window {
     width: 70%;
     height: 70vh;
@@ -344,8 +393,8 @@ body {
     border-top: 2px solid #FCFCFC;
     border-right: 2px solid #2A2A2A;
     border-bottom: 2px solid #2A2A2A;
-  }
-  
+}
+
 .title-bar {
     background-color: #000080;
     padding: 4px;
@@ -355,13 +404,17 @@ body {
     justify-content: flex-end;
     align-items: center;
     position: relative;
-  }
+}
+
 .title-bar .title {
     position: absolute;
     left: 10px;
     color: #fff;
 }
-.title-bar > .minimize, .title-bar > .maximize, .title-bar > .close {
+
+.title-bar>.minimize,
+.title-bar>.maximize,
+.title-bar>.close {
     width: 26px;
     height: 22px;
     background-color: #c7c7c7;
@@ -372,36 +425,44 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-  }
-.title-bar > .minimize:hover, .title-bar > .maximize:hover, .title-bar > .close:hover {
+}
+
+.title-bar>.minimize:hover,
+.title-bar>.maximize:hover,
+.title-bar>.close:hover {
     background-color: #bababa;
     border-left: 2px solid #2A2A2A;
     border-top: 2px solid #2A2A2A;
     border-right: 2px solid #FCFCFC;
     border-bottom: 2px solid #FCFCFC;
-  }
-.title-bar > .minimize {
+}
+
+.title-bar>.minimize {
     align-items: flex-end;
-  }
-.title-bar > .minimize > .symbol {
+}
+
+.title-bar>.minimize>.symbol {
     width: 60%;
     height: 3px;
     background-color: #000000;
     margin-bottom: 2px;
-  }
-.title-bar > .maximize > .symbol {
+}
+
+.title-bar>.maximize>.symbol {
     width: 70%;
     height: 80%;
     border: 2px solid #000000;
     border-top-width: 4px;
-  }
-.title-bar > .close > .symbol {
+}
+
+.title-bar>.close>.symbol {
     width: 70%;
     height: 3px;
     background-color: #000000;
     transform: rotate(45deg);
-  }
-.title-bar > .close > .symbol::after {
+}
+
+.title-bar>.close>.symbol::after {
     content: "";
     top: 0;
     left: 0;
@@ -410,53 +471,65 @@ body {
     height: 3px;
     background-color: #000000;
     transform: rotate(90deg);
-  }
+}
+
 .menu-bar .active {
     background-color: #aeadad;
 }
-.menu-bar > span {
+
+.menu-bar>span {
     padding: 5px 15px;
     display: inline-block;
     text-align: left;
     cursor: pointer;
-  }
-.menu-bar > span::first-letter {
+}
+
+.menu-bar>span::first-letter {
     text-decoration: underline;
-  }
-.menu-bar > span:hover {
+}
+
+.menu-bar>span:hover {
     background-color: #bababa;
-  }
+}
+
 .content-container {
     height: 62vh;
     text-align: left;
     border: 2px solid #000;
     background-color: #282936;
-  }
+}
+
 .content-container .content {
     display: flex;
     height: 100%;
     overflow-y: auto;
-  }
+}
+
 .content-container .content .main {
     width: 100%;
     padding: 0.1px 0 0 0.3px;
     box-sizing: border-box;
-  }
-.content .main > div {
+}
+
+.content .main>div {
     display: none;
-  }
-.content .main > div.active {
+}
+
+.content .main>div.active {
     height: 100%;
     display: block;
-  }
+}
+
 /* scroll */
 ::-webkit-scrollbar {
     width: 20px;
     height: 20px;
 }
+
 ::-webkit-scrollbar-track {
     background: #d7d7d7;
 }
+
 ::-webkit-scrollbar-thumb {
     cursor: pointer;
     background: #c7c7c7;
@@ -465,81 +538,138 @@ body {
     border-right: 1px solid #2A2A2A;
     border-bottom: 1px solid #2A2A2A;
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: #bababa;
 }
-  
-  /* 모달 애니메이션 */
-.modal__cont.show { /* 전체 배경 */
+
+/* 모달 애니메이션 */
+.modal__cont.show {
+    /* 전체 배경 */
     animation: foldOut 1s ease forwards;
 }
-.modal__cont.show .modal__box { /* 스크립트 박스 */
-    animation: zoomOut 0.5s 1s ease forwards; /* 앞에 시간은 duration, 뒤에 시간은 delay */
+
+.modal__cont.show .modal__box {
+    /* 스크립트 박스 */
+    animation: zoomOut 0.5s 1s ease forwards;
+    /* 앞에 시간은 duration, 뒤에 시간은 delay */
 }
 
-.modal__cont.show .modal__close { /* 닫기 버튼 */
+.modal__cont.show .modal__close {
+    /* 닫기 버튼 */
     animation: opacityOut 0.5s 1.5s ease forwards;
     opacity: 0;
 }
 
 
-.modal__cont.show.hide {    
+.modal__cont.show.hide {
     animation: foldIn 0.3s 0.5s ease backwards;
 }
+
 .modal__cont.show.hide .modal__box {
     animation: zoomIn 0.5s ease forwards;
 }
+
 .modal__cont.show.hide .modal__close {
     animation: opacityIn 0.5s ease forwards;
 }
+
 @keyframes foldOut {
-    0%   {transform: scaleX(0) scaleY(0.003);}
-    50%  {transform: scaleX(1) scaleY(0.003);}
-    100% {transform: scaleX(1) scaleY(1);}
+    0% {
+        transform: scaleX(0) scaleY(0.003);
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0.003);
+    }
+
+    100% {
+        transform: scaleX(1) scaleY(1);
+    }
 }
+
 @keyframes foldIn {
-    0%   {transform: scaleX(1) scaleY(1);}
-    50%  {transform: scaleX(1) scaleY(0.003);}
-    100% {transform: scaleX(0) scaleY(0.003);}
+    0% {
+        transform: scaleX(1) scaleY(1);
+    }
+
+    50% {
+        transform: scaleX(1) scaleY(0.003);
+    }
+
+    100% {
+        transform: scaleX(0) scaleY(0.003);
+    }
 }
+
 @keyframes zoomOut {
-    0%   {transform: scale(0);}
-    100% {transform: scale(1);}
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
+
 @keyframes zoomIn {
-    0%   {transform: scale(1);}
-    100% {transform: scale(0);}
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(0);
+    }
 }
+
 @keyframes opacityOut {
-    0%   {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
+
 @keyframes opacityIn {
-    0%   {opacity:1;}
-    100% {opacity:0;}
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
-@media (max-width: 1100px){
+
+@media (max-width: 1100px) {
     .modal__box .title {
         overflow: hidden;
     }
+
     .modal__box .title .dot {
         display: none;
     }
+
     .modal__box .title .tabs {
         margin-left: 0;
     }
-    .modal__box .title .tabs > div .close {
+
+    .modal__box .title .tabs>div .close {
         display: none;
     }
 }
-@media (max-width: 800px){
+
+@media (max-width: 800px) {
     #header {
         width: 100%;
         text-align: center;
     }
+
     #header h1 {
         line-height: 1.4;
     }
+
     .modal__box {
         width: 96%;
     }
