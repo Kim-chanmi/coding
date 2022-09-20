@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 : 함수</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h1 class="t_tit">01. 클래스</h1>
+            <p class="t_desc2">
+                클래스는 함수의 집합체입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">class study {
+    constructor(num, name, job) {
+        this.num = num;
+        this.name = name;
+        this.job = job;
+    }
+
+    result() {
+        document.write(this.num + ". 내 이름은 " + this.name + "이며, 직업은 " + this.job + "입니다.")
+    }
+}
+
+const info1 = new study("1", "웹쓰", "웹퍼블리셔");
+const info2 = new study("2", "웹스토리보이", "프론트앤드 개발자");
+
+info1.result();
+info2.result();
+</code></pre>
+            </div>
+            <div class="result">
+                <details>
+                    <summary>결과보기</summary>
+                    <div class="sample01_result">
+                        <script>
+                            {
+                                class study {
+                                    constructor(num, name, job) {
+                                        this.num = num;
+                                        this.name = name;
+                                        this.job = job;
+                                    }
+
+                                    result() {
+                                        document.write(this.num + ". 내 이름은 " + this.name + "이며, 직업은 " + this.job + "입니다.")
+                                    }
+                                }
+
+                                const info1 = new study("1", "웹쓰", "웹퍼블리셔");
+                                const info2 = new study("2", "웹스토리보이", "프론트앤드 개발자");
+
+                                info1.result();
+                                info2.result();
+                            }
+                        </script>
+                    </div>
+                </details>
+            </div>
+            <h1 class="t_tit">02. 클래스 상속</h1>
+            <p class="t_desc2">
+                클래스 상속을 사용하면 클래스를 다른 클래스로 확장할 수 있습니다.
+                기존에 존재하던 기능을 토대로 새로운 기능을 만들 수 있습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">class study {
+    constructor(num, name, job) {
+        this.num = num;
+        this.name = name;
+        this.job = job;
+    }
+
+    result() {
+        document.write(this.num + ". 내 이름은 " + this.name + "이며, 직업은 " + this.job + "입니다.")
+    }
+}
+
+class study2 extends study {
+    constructor(num, name, job, age) {
+        super(num, name, job);
+        this.age = age;
+    }
+
+    result() {
+        document.write(this.num + ". 내 이름은 " + this.name + "이며, 직업은 " + this.job + "이며 나이는 " + this.age + "세 입니다.")
+    }
+}
+
+const info1 = new study("1", "웹쓰", "웹퍼블리셔");
+const info2 = new study2("2", "웹스토리보이", "프론트앤드 개발자", 100);
+
+info1.result();
+info2.result();
+info2.result();
+</code></pre>
+            </div>
+            <div class="result">
+                <details>
+                    <summary>결과보기</summary>
+                    <div class="sample01_result">
+                        <script>
+                            {
+                                class study {
+                                    constructor(num, name, job) {
+                                        this.num = num;
+                                        this.name = name;
+                                        this.job = job;
+                                    }
+
+                                    result() {
+                                        document.write(this.num + ". 내 이름은 " + this.name + "이며, 직업은 " + this.job + "입니다.")
+                                    }
+                                }
+
+                                class study2 extends study {
+                                    constructor(num, name, job, age) {
+                                        super(num, name, job);
+                                        this.age = age;
+                                    }
+
+                                    result() {
+                                        document.write(this.num + ". 내 이름은 " + this.name + "이며, 직업은 " + this.job + "이며 나이는 " + this.age + "세 입니다.")
+                                    }
+                                }
+
+                                const info1 = new study("1", "웹쓰", "웹퍼블리셔");
+                                const info2 = new study2("2", "웹스토리보이", "프론트앤드 개발자", 100);
+
+                                info1.result();
+                                info2.result();
+                                info2.result();
+                            }
+                        </script>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>
