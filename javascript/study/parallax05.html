@@ -69,32 +69,32 @@
             </p>
             <div class="t_code">
                 <pre><code class="language-js">function scroll() {
-                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-                    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop)
-        
-                    document.querySelectorAll(".content__item").forEach(item => {
-        
-                        const target1 = item.querySelector(".content__item__img");
-                        const target2 = item.querySelector(".content__item__desc");
-                        const target3 = item.querySelector(".content__item__num");
-        
-                        let offset1 = (scrollTop - item.offsetTop) * 0.1;
-                        let offset2 = (scrollTop - item.offsetTop) * 0.15;
-                        let offset3 = (scrollTop - item.offsetTop) * 0.2;
-        
-                        // target1.style.transform = `translateY(${offset1}px)`;
-                        // target2.style.transform = `translateX(${offset2}px)`;
-        
-                        //gsap를 이용
-                        gsap.to(target1, { duration: .3, y: offset1, ease: "power4.out" });
-                        gsap.to(target2, { duration: .3, y: offset2 });
-                        gsap.to(target3, { duration: .3, x: offset3 });
-                    });
-        
-                    requestAnimationFrame(scroll);
-                }
-                scroll();
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;   //세로스크롤값 구하기
+
+    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop)     //#parallax__info에 있는 span에 scrollTop값 입력. Math.ceil = 올림
+
+    document.querySelectorAll(".content__item").forEach(item => {
+
+        const target1 = item.querySelector(".content__item__img");
+        const target2 = item.querySelector(".content__item__desc");
+        const target3 = item.querySelector(".content__item__num");
+
+        let offset1 = (scrollTop - item.offsetTop) * 0.1;   //scrollTop과 item.offsetTop은 동일. *를 통해 시간차 조절
+        let offset2 = (scrollTop - item.offsetTop) * 0.15;
+        let offset3 = (scrollTop - item.offsetTop) * 0.2;
+
+        // target1.style.transform = `translateY(${offset1}px)`;
+        // target2.style.transform = `translateX(${offset2}px)`;
+
+        //gsap를 이용
+        gsap.to(target1, { duration: .3, y: offset1, ease: "power4.out" });
+        gsap.to(target2, { duration: .3, y: offset2 });
+        gsap.to(target3, { duration: .3, x: offset3 });
+    });
+
+    requestAnimationFrame(scroll);
+}
+scroll();
 </code></pre>
             </div>
             </details>
@@ -106,22 +106,7 @@
             <details>
                 <summary>소스보기</summary>
                 <div class="t_code">
-                    <pre><code class="language-html">&lt;header id="header"&gt;
-    &lt;h1&gt;Javascript parallax Effect03&lt;/h1&gt;
-    &lt;p&gt;패럴랙스 이펙트 - 나타내기&lt;/p&gt;
-    &lt;ul&gt;
-        &lt;li&gt;&lt;a href="parallaxEffect01.html"&gt;1&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="parallaxEffect02.html"&gt;2&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="parallaxEffect03.html"&gt;3&lt;/a&gt;&lt;/li&gt;
-        &lt;li class="active"&gt;&lt;a href="parallaxEffect04.html"&gt;4&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="parallaxEffect05.html"&gt;5&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="parallaxEffect06.html"&gt;6&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href="parallaxEffect07.html"&gt;7&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-&lt;/header&gt;
-&lt;!-- header --&gt;
-
-&lt;main id="parallax__cont"&gt;
+                    <pre><code class="language-html">&lt;main id="parallax__cont"&gt;
     &lt;div id="contents"&gt;
         &lt;section id="section1" class="content__item"&gt;
             &lt;span class="content__item__num"&gt;01&lt;/span&gt;
@@ -214,6 +199,12 @@
         &lt;!-- section9 --&gt;
     &lt;/div&gt;
 &lt;/main&gt;
+&lt;!-- main --&gt;
+
+&lt;aside id="parallax__info"&gt;
+    &lt;div class="scroll"&gt;scrollTop : &lt;span&gt;0&lt;/span&gt;px&lt;/div&gt;
+&lt;/aside&gt;
+&lt;!-- parallax__info --&gt;
 </code></pre>
                 </div>
             </details>
