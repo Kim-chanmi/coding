@@ -275,7 +275,7 @@ li {
 
 .modal__box .title {
     padding-inline: 1rem;
-    background-color: #1b1c2e;
+    background-color: #223547;
     display: flex;
     align-items: center;
     color: #fff;
@@ -317,7 +317,7 @@ li {
 }
 
 .modal__box .title .plus {
-    background: #282936;
+    background: #223547;
     padding: 0.5rem 0.5rem 0.3rem 0.5rem;
     border-radius: 0.5rem;
     color: #7a7d9d;
@@ -330,7 +330,7 @@ li {
 
 .modal__box .title .tabs>div {
     color: #7a7d9d;
-    background-color: #282936;
+    background-color: #223547;
     padding: 0.35rem 0.8rem 0.25rem 0.8rem;
     margin-right: 0.5rem;
     display: flex;
@@ -341,7 +341,7 @@ li {
 }
 
 .modal__box .title .tabs>div.active {
-    background-color: #111229;
+    background-color: #406282;
 }
 
 .modal__box .title .tabs>div em {
@@ -359,7 +359,7 @@ li {
 }
 
 .modal__box .cont {
-    background-color: #282936;
+    background-color: #223547;
     height: 100%;
     overflow-y: auto;
     box-sizing: border-box;
@@ -380,7 +380,7 @@ li {
     position: absolute;
     right: 20px;
     top: 20px;
-    background-color: #111229;
+    background-color: #223547;
     padding: 1rem 1rem 0.8rem 1rem;
     border-radius: 5px;
     box-shadow: 0 5px 7px -5px hsl(180deg 2% 10%);
@@ -390,11 +390,30 @@ li {
 }
 
 .modal__close:hover {
-    background-color: #1f2049;
+    background-color: #406282;
 }
 
 .modal__close svg {
     color: #fff;
+}
+
+/* scroll */
+.modal__box ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.modal__box ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.modal__box ::-webkit-scrollbar-thumb {
+    background: #1b1c2e;
+    border-radius: 20px;
+}
+
+.modal__box ::-webkit-scrollbar-thumb:hover {
+    background: #2d2e49;
 }
 
 /* 모달 애니메이션 */
