@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 유형03</title>
+    <!-- flex 방식 레이아웃 -->
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            background-color: #e1f5fe;
+        }
+
+        #wrap {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        #header {
+            height: 100px;
+            background-color: #b3e5fc;
+        }
+
+        #nav {
+            height: 100px;
+            background-color: #81d4fa;
+        }
+
+        #main {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 780px;
+        }
+
+        #aside {
+            width: 30%;
+            height: 780px;
+            background-color: #4fc3f7;
+        }
+
+        #article1 {
+            width: 70%;
+            height: 260px;
+            display: flex;
+        }
+
+        .article1_1 {
+            width: 50%;
+            height: 260px;
+            background-color: #29b6f6;
+        }
+
+        .article1_2 {
+            width: 50%;
+            height: 260px;
+            background-color: #22a1dc;
+        }
+
+        #article2 {
+            width: 70%;
+            height: 260px;
+            background-color: #03a9f4;
+        }
+
+        #article3 {
+            width: 70%;
+            height: 260px;
+            background-color: #039be5;
+        }
+
+        #footer {
+            height: 100px;
+            background-color: #0288d1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div id="header"></div>
+        <div id="nav"></div>
+        <div id="main" class="clearfix">
+            <div id="aside"></div>
+            <div id="article1">
+                <div class="article1_1"></div>
+                <div class="article1_2"></div>
+            </div>
+            <div id="article2"></div>
+            <div id="article3"></div>
+        </div>
+        <div id="footer"></div>
+    </div>
+</body>
+
+</html>

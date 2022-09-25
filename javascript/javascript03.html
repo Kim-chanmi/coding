@@ -1422,7 +1422,7 @@ info2.result();
         window.addEventListener("scroll", () => {
             let scrollTop = window.pageYOffset || window.scrollY || document.documentElement.scrollTop;      //세로 스크롤 값 구하는 3가지 방법(브라우저마다 지원 여부 다름)
 
-            if (scrollTop >= document.body.scrollHeight - window.innerHeight) {     // scrollTop > ( 문서 전체높이 - 브라우저 높이 )
+            if (scrollTop >= document.body.scrollHeight - window.innerHeight - 10) {     // scrollTop > ( 문서 전체높이 - 브라우저 높이 )
                 document.querySelector("#top").classList.add("show");         //최하단으로 갔을 때 top버튼 보이게
             } else {
                 document.querySelector("#top").classList.remove("show");      //최하단이 아닐 때 top버튼 숨기기

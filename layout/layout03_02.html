@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,48 +11,54 @@
         * {
             margin: 0;
         }
+
         body {
             background-color: #e1f5fe;
         }
+
         #wrap {
             width: 1200px;
             margin: 0 auto;
         }
+
         #header {
             height: 100px;
             background-color: #b3e5fc;
         }
+
         #nav {
             height: 100px;
             background-color: #81d4fa;
         }
-        #main {
 
-        }
         #aside {
             width: 30%;
             height: 780px;
             background-color: #4fc3f7;
             float: left;
         }
+
         #article1 {
             width: 70%;
             height: 260px;
             background-color: #29b6f6;
             float: left;
         }
+
         #article2 {
             width: 70%;
             height: 260px;
             background-color: #03a9f4;
             float: left;
         }
+
         #article3 {
             width: 70%;
             height: 260px;
             background-color: #039be5;
             float: left;
         }
+
         #footer {
             height: 100px;
             background-color: #0288d1;
@@ -64,57 +71,70 @@
             display: block;
             line-height: 0;
         }
+
         .clearfix::after {
             clear: both;
         }
+
         @media (max-width: 1300px) {
             #wrap {
                 width: 96%;
             }
+
             #article2 {
                 width: 35%;
                 height: 520px;
             }
+
             #article3 {
                 width: 35%;
                 height: 520px;
             }
         }
+
         @media (max-width: 768px) {
             #wrap {
                 width: 100%;
             }
+
             #article1 {
                 width: 70%;
                 height: 390px;
             }
+
             #article2 {
                 width: 70%;
                 height: 390px;
             }
+
             #article3 {
                 display: none;
             }
         }
+
         @media (max-width: 480px) {
             #aside {
                 width: 100%;
                 height: 200px;
             }
+
             #article1 {
                 width: 100%;
                 height: 430px;
             }
+
             #article2 {
                 width: 100%;
                 height: 150px;
             }
+
             #article3 {
                 display: none;
             }
         }
     </style>
 </head>
+
 <body>
     <div id="wrap">
         <div id="header"></div>
@@ -128,4 +148,5 @@
         <div id="footer"></div>
     </div>
 </body>
+
 </html>

@@ -44,9 +44,9 @@
     <!-- //header -->
     <main id="main">
         <div class="document">
-            <h2 class="t_tit">마우스 효과02</h2>
+            <h2 class="t_tit">마우스 효과03</h2>
             <p class="t_desc2">
-                자바스크립트를 이용하여 마우스 효과를 만들어 보겠습니다. 동그라미 두 개가 마우스를 따라다닙니다. 메뉴에 갔을 때, 소스보기에 갔을 때 마우스효과가 다르게 나타납니다.
+                자바스크립트를 이용하여 마우스 효과를 만들어 보겠습니다. 이미지에 마우스를 올렸을 때 조명을 비춘 것처럼 보이는 효과입니다.
             </p>
 
             <hr>
@@ -58,22 +58,24 @@
             <div class="t_link">
                 <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/mouseEffect03.html"
                     target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/mouseEffect03.html" target="_blank">원본
+                    사이트 보기</a>
             </div>
             <hr>
             <h3 class="t_tit2">자바스크립트</h3>
             <p class="t_desc">
-                마우스 효과를 만들기 위한 자바스크립트 작성법입니다.
+                마우스 효과를 만들기 위한 자바스크립트 작성법입니다. gsap를 이용하여 효과를 주었습니다.
             </p>
             <div class="t_code">
                 <pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor");
 
-// const circleW = cursor.offsetWidth; //200
-// const circleH = cursor.offsetHeight; //200
-// const circle2 = cursor.clientWidth; //190 : 보더값 제외
+// const circleW = cursor.offsetWidth; //200  -> 보더/패딩 포함한 가로값
+// const circleH = cursor.offsetHeight; //200   -> 보더/패딩 포함한 세로값
+// const circle2 = cursor.clientWidth; //190 -> 보더/마진 제외한 가로값
 
-const circle = cursor.getBoundingClientRect();
+const circle = cursor.getBoundingClientRect();      //getBoundingClientRect : 뷰포트 기준으로 요소 위치 찾아내기 -> 커서의 너비/높이값 구하기
 
-console.log(circle)
+console.log(circle) //위치값 확인
 // const DOMRect = {
 //     x : 0,
 //     y : 0,
@@ -85,11 +87,11 @@ console.log(circle)
 //     width : 200
 // }
 
-window.addEventListener("mousemove", (e) => {
-    gsap.to(cursor, {
-        duration: 0.3,
-        left: e.pageX - circle.width / 2,
-        top: e.pageY - circle.height / 2,
+window.addEventListener("mousemove", (e) => {       //마우스를 움직였을 때 이벤트 추가
+    gsap.to(cursor, {                               //gsap.to는 css의 animation 효과와 유사
+        duration: 0.3,                              //애니메이션 지속 시간을 의미하며 기본은 0.5초. 지속시간이 누적되기 때문에 마우스가 계속 따라오는 것처럼 보임
+        left: e.pageX - circle.width / 2,           //pageX | pageY : 전체 문서를 기준으로 한 값 좌표 
+        top: e.pageY - circle.height / 2,           //커서가 가운데에 올 수 있게 /2
     });
 });
 </code></pre>
@@ -116,56 +118,10 @@ window.addEventListener("mousemove", (e) => {
 
             <h3 class="t_tit2">CSS</h3>
             <p class="t_desc">
-                마우스 효과를 만들기 위한 css 작성법입니다.
+                마우스 효과를 만들기 위한 css 작성법입니다. 마우스 효과를 위해 cursor는 none으로 설정합니다. 마우스 커서의 백그라운드에 배경 이미지를 넣어줍니다.
             </p>
             <div class="t_code">
-                <pre><code class="language-css">/* mouseType */
-.mouse__wrap {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    overflow: hidden;
-    cursor: none;
-}
-
-.mouse__wrap p {
-    font-size: 2vw;
-    line-height: 2;
-    font-weight: 300;
-}
-
-.mouse__wrap p:last-child {
-    font-size: 3vw;
-    font-weight: 300;
-}
-
-.mouse__wrap p span {
-    border-bottom: 0.15vw dashed rgb(15, 27, 29);
-    color: rgb(21, 50, 52);
-}
-
-@media (max-width: 800px) {
-    .mouse__wrap p {
-        padding: 0 20px;
-        font-size: 24px;
-        text-align: center;
-        line-height: 1.5;
-        margin-bottom: 10px;
-    }
-
-    .mouse__wrap p:last-child {
-        font-size: 40px;
-        line-height: 1.5;
-        text-align: center;
-        word-break: keep-all;
-    }
-}
-
-.mouse__cursor {
+                <pre><code class="language-css">.mouse__cursor {
     position: absolute;
     left: 0;
     top: 0;
@@ -176,7 +132,7 @@ window.addEventListener("mousemove", (e) => {
     background: url(../assets/img/effect_bg12@2x-min.jpg);
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
+    background-attachment: fixed;   //위치 고정
     border: 5px solid #fff;
 }
 </code></pre>

@@ -1,4 +1,4 @@
-/* skip 메뉴 */
+/* 스킵 메뉴 */
 #skip {
     position: relative;
     z-index: 100000;
@@ -18,20 +18,19 @@
     left: 5px;
 }
 
-/* container */
+/* 컨테이너 */
+
 .container {
     width: 100%;
     max-width: 1160px;
+    padding: 20px;
     margin: 0 auto;
-    padding: 0 20px;
     box-sizing: border-box;
 }
 
-@media (max-width: 960px) {}
+@media (max-width: 1200px) {}
 
-@media (max-width: 600px) {}
-
-/* section 공통 요소 */
+/* 섹션 공통요소 */
 .section {
     padding: 120px 0;
 }
@@ -44,7 +43,7 @@
 }
 
 .section>p {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 300;
     color: #666;
     text-align: center;
@@ -63,39 +62,9 @@
     margin-bottom: 20px;
 }
 
-@media (max-width: 960px) {
-    .section {
-        padding: 100px 0;
-    }
-
-    .section>h2 {
-        font-size: 40px;
-    }
-
-    .section>p {
-        font-size: 18px;
-        margin-bottom: 60px;
-    }
-}
-
-@media (max-width: 600px) {
-    .section {
-        padding: 80px 0;
-    }
-
-    .section>h2 {
-        font-size: 30px;
-    }
-
-    .section>p {
-        font-size: 16px;
-        margin-bottom: 50px;
-    }
-}
-
-/* font */
+/* 폰트 */
 .nexon {
-    font-family: 'GmarketSans';
+    font-family: "NexonLv1Gothic";
     font-weight: 400;
 }
 
@@ -104,19 +73,15 @@
     background-color: #f5f5f5;
 }
 
-body {
-    overflow: overlay;
-}
-
 /* fixed */
 body.fixed {
     height: 100vh;
     overflow: hidden;
 }
 
-/* 간격 세팅 */
+/* 간격 셋팅 */
 .mb0 {
-    margin-bottom: 0px !important;
+    margin-bottom: 0 !important;
 }
 
 .mb10 {
@@ -148,7 +113,7 @@ body.fixed {
 }
 
 .mt0 {
-    margin-top: 0px !important;
+    margin-top: 0 !important;
 }
 
 .mt10 {

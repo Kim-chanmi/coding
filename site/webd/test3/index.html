@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* fonts */
+        @import url('https://webfontworld.github.io/score/SCoreDream.css');
+
+        .score {
+            font-family: 'SCoreDream';
+            font-weight: 400;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .container {
+            width: 1000px;
+            padding: 0 20px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        /* aside */
+        #aside {
+            margin-top: 100px;
+            width: 20%;
+        }
+
+        .logo {
+            margin-bottom: 40px;
+            font-size: 24px;
+            color: #666;
+        }
+
+        .ul_title {
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 2.5;
+        }
+
+        .ul_subtit {
+            color: #555;
+            font-size: 18px;
+            margin-left: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .ul_subtit li {
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* slide__wrap */
+        .slide__wrap {
+            margin-top: 80px;
+            width: 100%;
+        }
+
+        .slide__inner {
+            width: 2400px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .slide__img {
+            width: 800px;
+            overflow: hidden;
+            margin-left: 30px;
+        }
+
+        .slide {
+            width: 800px;
+        }
+
+        .slide:nth-child(1) {
+            z-index: 3;
+        }
+
+        .slide:nth-child(2) {
+            z-index: 2;
+        }
+
+        .slide:nth-child(3) {
+            z-index: 1;
+        }
+
+        /* contents */
+        .contents {
+            margin-top: 20px;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .contents_tit {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
+        .content_wrap2.active {
+            display: block;
+        }
+
+        .img_inner {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .img_inner img {
+            width: 18%;
+        }
+
+        .desc {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* textImage */
+        .textImage__wrap {
+            margin-top: 80px;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .textImage__inner {
+            padding: 20px;
+            box-sizing: border-box;
+            width: 31%;
+            border: 1px solid #e0e0e0;
+            background-color: #fff;
+        }
+
+        .textImage__inner h3 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: 500;
+            background: url(img/plus.jpg) no-repeat right;
+        }
+
+        .textImage__inner img {
+            margin-top: 20px;
+            width: 40%;
+            margin-left: 65px;
+        }
+
+        .textImage__inner li {
+            margin-top: 20px;
+            list-style-type: disc;
+            list-style-position: inside;
+            font-size: 16px;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* footer */
+        #footer {
+            background-color: rgb(218, 224, 235);
+            margin: 30px auto 50px;
+            padding: 20px 20px 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .footer_logo img {
+            width: 50px;
+            height: 50px;
+            margin-right: 40px;
+        }
+
+        .footer_left span {
+            font-size: 20px;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .footer__inner {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer_copy {
+            width: 80%;
+            margin-right: 200px;
+            line-height: 1.6;
+        }
+
+        .footer_sns {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container score">
+        <aside id="aside">
+            <div class="header">
+                <div class="logo">
+                    <img src="img/logo.jpg" alt="정부로고">
+                    <span>정부24</span>
+                </div>
+                <ul class="ul_title">
+                    <li>서비스
+                        <ul class="ul_subtit">
+                            <li>분야별 정책정보</li>
+                            <li>정책뉴스</li>
+                            <li>연구보고서</li>
+                            <li>간행물</li>
+                            <li>정책자료</li>
+                        </ul>
+                    </li>
+                    <li>정책정보</li>
+                    <li>기관정보</li>
+                    <li>고객센터</li>
+                </ul>
+            </div>
+        </aside>
+        <main id="main">
+            <div class="slide__wrap">
+                <div class="slide__img">
+                    <figure class="slide__inner">
+                        <div class="slide"><img src="img/slider01.jpg" alt=""></div>
+                        <div class="slide"><img src="img/slider02.jpg" alt=""></div>
+                        <div class="slide"><img src="img/slider03.jpg" alt=""></div>
+                    </figure>
+                </div>
+            </div>
+            <div class="contents">
+                <div class="contents_tit">
+                    <h2>자주 찾는 서비스 | </h2>
+                    <h2>&nbsp;키워드 서비스</h2>
+                </div>
+                <div class="content_wrap">
+                    <figure class="img_inner">
+                        <img src="img/contents01.jpg" alt="">
+                        <img src="img/contents02.jpg" alt="">
+                        <img src="img/contents03.jpg" alt="">
+                        <img src="img/contents04.jpg" alt="">
+                        <img src="img/contents05.jpg" alt="">
+                    </figure>
+                    <div class="desc">
+                        <div>주민등록표등본<br>(초본) 교부</div>
+                        <div>토지(임야)대장<br>열람/등본 발급신청</div>
+                        <div>건축물대장 등/초본<br>발급(열람) 신청</div>
+                        <div>지방세 납세증명</div>
+                        <div>지적도(임야도) 등본<br>발급 및 열람</div>
+                    </div>
+                </div>
+                <div class="content_wrap2">
+                    <figure class="img_inner">
+                        <img src="img/contents05.jpg" alt="">
+                        <img src="img/contents04.jpg" alt="">
+                        <img src="img/contents03.jpg" alt="">
+                        <img src="img/contents02.jpg" alt="">
+                        <img src="img/contents01.jpg" alt="">
+                    </figure>
+                    <div class="desc">
+                        <div>주민등록표등본<br>(초본) 교부</div>
+                        <div>토지(임야)대장<br>열람/등본 발급신청</div>
+                        <div>건축물대장 등/초본<br>발급(열람) 신청</div>
+                        <div>지방세 납세증명</div>
+                        <div>지적도(임야도) 등본<br>발급 및 열람</div>
+                    </div>
+                </div>
+            </div>
+            <div class="textImage">
+                <div class="textImage__wrap">
+                    <div class="textImage__inner">
+                        <h3>공지사항</h3>
+                        <img src="img/textImage01.jpg" alt="">
+                        <ul>
+                            <li>[어디서나 대학민원] 호서대학교 팩스...</li>
+                            <li>[전라북도 고창군] 새올행정시스템 D...</li>
+                            <li>교육부 행정전자서명인증센터 시스템...</li>
+                        </ul>
+                    </div>
+                    <div class="textImage__inner">
+                        <h3>공지사항</h3>
+                        <img src="img/textImage02.jpg" alt="">
+                        <ul>
+                            <li>[어디서나 대학민원] 호서대학교 팩스...</li>
+                            <li>[전라북도 고창군] 새올행정시스템 D...</li>
+                            <li>교육부 행정전자서명인증센터 시스템...</li>
+                        </ul>
+                    </div>
+                    <div class="textImage__inner">
+                        <h3>공지사항</h3>
+                        <img src="img/textImage03.jpg" alt="">
+                        <ul>
+                            <li>[어디서나 대학민원] 호서대학교 팩스...</li>
+                            <li>[전라북도 고창군] 새올행정시스템 D...</li>
+                            <li>교육부 행정전자서명인증센터 시스템...</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer id="footer" class="container">
+        <div class="footer__inner">
+            <div class="footer_left">
+                <div class="footer_logo">
+                    <img src="img/logo.jpg" alt="">
+                </div>
+                <span>정부24</span>
+            </div>
+            <div>
+                <p class="footer_copy">03171 서울특별시 세종대로 209(세종로) 행정안전부 <br>
+                    정부24 콜센터 1588-2188 정부민원안내콜센터 국번없이 110 <br>
+                    Copyright © Minstry of the Interior and Safety. All Right reserved.</p>
+            </div>
+            <figure class="footer_sns">
+                <img src="img/footer_sns.jpg" alt="">
+            </figure>
+        </div>
+    </footer>
+</body>
+<script>
+    const sliderInner = document.querySelector(".slide__inner");
+    const slider = document.querySelectorAll(".slide");
+    let currentIndex = 0;
+
+    sliderInner.style.transition = "all 0.6s";
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slider.length;
+        sliderInner.style.transform = "translateX(" + -800 * currentIndex + "px)";
+    }, 2000);
+</script>
+<script>
+    const tabBtn = document.querySelectorAll(".contents_tit h2");
+    const tabCon = document.querySelectorAll(".content_wrap");
+
+    tabBtn.forEach((element, index) => {
+
+        element.addEventListener("click", () => {
+            event.preventDefault();
+
+            tabCon.forEach(e => {
+                e.style.display = "none";
+            });
+
+            tabCon[index].style.display = "block";
+
+        })
+
+
+    });
+</script>
+
+</html>

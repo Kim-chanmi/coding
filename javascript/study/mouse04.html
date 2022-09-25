@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈이펙트01</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과04</h2>
+            <p class="t_desc2">
+                자바스크립트를 이용하여 마우스 효과를 만들어 보겠습니다. 이미지 안에서만 커서 모양이 바뀌고, 마우스를 움직일 때 마우스 방향에 따라 이미지가 움직입니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/mouseEffect04.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/mouseEffect04.html"
+                    target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/mouseEffect04.html" target="_blank">원본
+                    사이트 보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 자바스크립트 작성법입니다. 이번에도 gsap를 이용하여 효과를 주었습니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">const cursor = document.querySelector(".mouse__cursor")
+const cursorRect = cursor.getBoundingClientRect();      //커서의 너비/높이값 구하기
+document.querySelector(".mouse__wrap figure").addEventListener("mousemove", (e) => {    //가운데 이미지 영역에서 마우스를 움직였을 때
+
+    //커서
+    gsap.to(cursor, {
+        duration: .2,   //애니메이션 지속시간. 지속시간이 누적되기 때문에 마우스가 계속 따라오는 것처럼 보임
+        left: e.pageX - cursorRect.width / 2,   //커서가 가운데에 올 수 있게 /2
+        top: e.pageY - cursorRect.height / 2     
+    });
+
+    // 마우스 좌표 값
+    let mousePageX = e.pageX;
+    let mousePageY = e.pageY;
+
+    // 전체 가로 값
+    // window.innerWidth;  //1920 : 브라우저 크기
+    // window.outerWidth;  //1920 : 브라우저 크기(스크롤바 포함)
+    // window.screen.width //1920 : 화면 크기
+
+    // 마우스 좌표 값 가운데로 초기화 하기 위해 전체 길이/2 - 마우스 좌표값 == 0
+    let centerPageX = window.innerWidth / 2 - mousePageX;   
+    let centerPageY = window.innerHeight / 2 - mousePageY;
+
+    // 이미지 움직이기 
+    const imgMove = document.querySelector(".mouse__wrap figure img");
+    // imgMove.style.transform = "translate("+ centerPageX/20 +", "+ centerPageY/20 +")";
+    gsap.to(imgMove, {
+        duration: 0.3,
+        x: centerPageX / 20,    //이미지가 버벅거리며 움직이지 않고 부드럽게 움직일 수 있음
+        y: centerPageY / 20
+    });
+
+    // 출력 -> mouse__info에 mousePageX, mousePageY, centerPageX, centerPageY값 입력
+    document.querySelector(".mousePageX").textContent = mousePageX;
+    document.querySelector(".mousePageY").textContent = mousePageY;
+    document.querySelector(".centerPageX").textContent = centerPageX;
+    document.querySelector(".centerPageY").textContent = centerPageY;
+});
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 html 작성법입니다. &lt;div class="mouse__wrap"&gt; 으로 가운데 이미지 영역을 잡아줍니다. figcaption 태그는 부모
+                &lt;figure&gt; 요소가 포함하는 다른 콘텐츠에 대한 설명 혹은 범례를 나타냅니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+        &lt;div class="mouse__wrap"&gt;
+            &lt;figure&gt;
+                &lt;img src="../assets/img/effect_bg13-min.jpg" alt="이미지"&gt;
+                &lt;figcaption&gt;
+                    &lt;p&gt;Time is flying never to return.&lt;/p&gt;
+                    &lt;p&gt;시간은 흘러 다시 돌아오지 않는다.&lt;/p&gt;
+                &lt;/figcaption&gt;
+            &lt;/figure&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div class="mouse__info"&gt;
+        &lt;ul&gt;
+            &lt;li&gt;mousePageX : &lt;span class="mousePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;mousePageY : &lt;span class="mousePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;centerPageX : &lt;span class="centerPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
+            &lt;li&gt;centerPageY : &lt;span class="centerPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+&lt;!-- main --&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 css 작성법입니다. object-fit 속성은 이미지나 비디오 요소와 같은 컨텐츠 크기를 어떤 방식으로 조절해 맞출지를 결정합니다.
+                여기서는 cover를 사용했는데요. cover는 대체 콘텐츠의 가로세로비를 유지하면서, 요소 콘텐츠 박스를 가득 채웁니다.
+            </p>
+            <div class="t_box">
+                user-select : 사용자가 텍스트를 선택할 수 있는지 여부를 제어 <br>
+                pointer-events : 마우스 포인터 이벤트의 반응을 정의
+
+            </div>
+            <div class="t_code">
+                <pre><code class="language-css">/* mouseType */
+.mouse__wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.mouse__wrap figure {
+    width: 50vw;
+    height: 50vh;
+    position: relative;
+    overflow: hidden;
+    transition: transform 500ms ease;
+    cursor: none;
+}
+
+.mouse__wrap figure img {
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+}
+
+.mouse__wrap figure:hover {
+    transform: scale(1.025);
+}
+
+.mouse__wrap figure figcaption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 18px;
+    white-space: nowrap;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 1000;
+    user-select: none;  
+    pointer-events: none;
+}
+
+.mouse__info {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+}
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>
