@@ -44,19 +44,26 @@
     <!-- //header -->
     <main id="main">
         <div class="document">
-            <h1 class="t_tit">charAt()</h1>
+            <h1 class="t_tit">charAt() / charCodeAt()</h1>
             <p class="t_desc2">
                 charAt() 메서드는 지정한 인덱스의 문자를 추출하여 문자열을 반환합니다.
+                charCodeAt() 메서드는 지정한 숫자의 유니코드 값을 반환합니다.
             </p>
             <div class="t_box">
-                "문자열".charAt(숫자);
+                "문자열".charAt(숫자);<br>
+                "문자열".charCodeAt(숫자);
             </div>
             <div class="t_code">
-<pre><code class="language-js">const str1 = "javascript reference";
+                <pre><code class="language-js">const str1 = "javascript reference";
 const currentStr1 = str1.charAt(); 
 const currentStr2 = str1.charAt("0"); 
 const currentStr3 = str1.charAt("1"); 
 const currentStr4 = str1.charAt("2");
+
+const currentStr5 = str1.charCodeAt();  
+const currentStr6 = str1.charCodeAt("0");   
+const currentStr7 = str1.charCodeAt("1"); 
+const currentStr8 = str1.charCodeAt("2");  
 </code></pre>
             </div>
             <div class="result">
@@ -64,18 +71,26 @@ const currentStr4 = str1.charAt("2");
                     <summary>결과보기</summary>
                     <div class="sample01_result">
                         <script>
-                        {
-                            const str1 = "javascript reference";
-                            const currentStr1 = str1.charAt(); //j
-                            const currentStr2 = str1.charAt("0"); //j
-                            const currentStr3 = str1.charAt("1"); //a
-                            const currentStr4 = str1.charAt("2"); //v
-                            
-                            document.write(currentStr1, "<br>")
-                            document.write(currentStr2, "<br>")
-                            document.write(currentStr3, "<br>")
-                            document.write(currentStr4, "<br>")
-                        }
+                            {
+                                const str1 = "javascript reference";
+                                const currentStr1 = str1.charAt(); //j
+                                const currentStr2 = str1.charAt("0"); //j
+                                const currentStr3 = str1.charAt("1"); //a
+                                const currentStr4 = str1.charAt("2"); //v
+                                const currentStr5 = str1.charCodeAt();  //106
+                                const currentStr6 = str1.charCodeAt("0");   //106
+                                const currentStr7 = str1.charCodeAt("1");   //97
+                                const currentStr8 = str1.charCodeAt("2");   //118
+
+                                document.write(currentStr1, "<br>")
+                                document.write(currentStr2, "<br>")
+                                document.write(currentStr3, "<br>")
+                                document.write(currentStr4, "<br>")
+                                document.write(currentStr5, "<br>")
+                                document.write(currentStr6, "<br>")
+                                document.write(currentStr7, "<br>")
+                                document.write(currentStr8)
+                            }
                         </script>
                     </div>
                 </details>
@@ -92,7 +107,7 @@ const currentStr4 = str1.charAt("2");
         hljs.highlightAll();
     </script>
     <script>
-        
+
     </script>
 </body>
 
