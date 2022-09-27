@@ -86,8 +86,6 @@
     line-height: 1.4;
 }
 
-.desc .btn {}
-
 .swiper-slide .desc .btn a {
     margin-top: 15px;
     font-size: 16px;
@@ -218,7 +216,7 @@
 
 @media (max-width: 600px) {
     .swiper-slide .desc .slider_img01 {
-        /* display: none; */
+        display: none;
         z-index: -4;
         position: absolute;
         left: 45%;
@@ -227,7 +225,7 @@
     }
 
     .swiper-slide .desc .slider_img02 {
-        /* display: none; */
+        display: none;
         z-index: -3;
         left: 55%;
         width: 5rem;
@@ -236,7 +234,7 @@
     }
 
     .swiper-slide .desc .slider_img03 {
-        /* display: none; */
+        display: none;
         z-index: -2;
         width: 5rem;
         height: 5rem;
@@ -246,7 +244,7 @@
     }
 
     .swiper-slide .desc .slider_img04 {
-        /* display: none; */
+        display: none;
         z-index: -1;
         width: 5rem;
         height: 5rem;

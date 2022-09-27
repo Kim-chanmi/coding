@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 레퍼런스 북</title>
+
+    <link rel="stylesheet" href="../../html/assets/css/style.css">
+    <link rel="stylesheet" href="../../html/assets/css/dracula.css">
+
+    <!-- 구글 아이콘 -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">라인 중학교 1학년 코딩반</a></h1>
+        <span>이름 : 김찬미</span>
+    </header>
+    <!-- header -->
+
+    <main id="main">
+        <header class="main_header">
+            <h2>HTML <em>레퍼런스 북</em></h2>
+        </header>
+        <div class="main_menu">
+            <ul>
+                <li><a href="alphabet.html">알파벳</a></li>
+                <li><a href="basic.html">기초 문법</a></li>
+                <li><a href="block.html">블록구조/인라인구조</a></li>
+                <li><a href="web.html">웹표준/웹접근성/웹호환성</a></li>
+                <li><a href="semantic.html">시멘틱 태그</a></li>
+                <li><a href="seo.html">검색엔진시스템(SEO)</a></li>
+            </ul>
+            <ul>
+                <li class="active"><a href="layout01.html">레이아웃01</a></li>
+                <li><a href="layout02.html">레이아웃02</a></li>
+                <li><a href="layout03.html">레이아웃03</a></li>
+                <li><a href="layout04.html">레이아웃04</a></li>
+                <li><a href="layout05.html">레이아웃05</a></li>
+            </ul>
+        </div>
+        <div class="main_refer">
+            <div class="document">
+                <h1 class="t_tit">애니메이션07</h1>
+                <p class="t_desc2">
+                    오늘은 아래와 같이 마우스 움직임이나 키보드 방향키에 따라 눈알과 카드가 돌아가는 애니메이션을 만들어 보았습니다.
+                </p>
+                <div class="t_iframe">
+                    <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled"
+                        src="https://codepen.io/kim-chanmi/embed/QWrOxBo?default-tab=result" frameborder="no"
+                        loading="lazy" allowtransparency="true" allowfullscreen="true">
+                        See the Pen <a href="https://codepen.io/kim-chanmi/pen/QWrOxBo">
+                            Untitled</a> by Kim-chanmi (<a href="https://codepen.io/kim-chanmi">@kim-chanmi</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                    </iframe>
+                </div>
+                <h3 class="t_tit2">HTML</h3>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;div class="wrapper"&gt;
+    &lt;div class="card"&gt;
+        &lt;div class="me"&gt;
+        &lt;div class="eye"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="text"&gt;ABCDE&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+                </div>
+                <h3 class="t_tit2">CSS</h3>
+                <div class="t_desc">
+                    애니메이션을 위한 css입니다.
+                </div>
+                <div class="t_code">
+                    <pre><code class="language-css">*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    overflow: hidden;
+}
+.wrapper{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 369px;
+    height: 547px;
+    transform-style: preserve-3d;
+    perspective: 600px;
+}
+.me{
+    position: absolute;
+    width: 369px;
+    height: 547px;
+    transform: translateZ(80px) scale(0.8);
+}
+.me::before,
+.me::after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: url(http://www.supah.it/dribbble/006/profile.png) no-repeat 0 0;
+}
+.me::after {
+    height: 30px;
+    top: auto;
+    bottom: -15px;
+    filter: blur(15px);
+    background-size: 100% 30px;
+    border-radius: 100px;
+}
+.eye, .eye::before{
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 175px;
+    left: 119px;
+    z-index: -1;
+    background: url(http://www.supah.it/dribbble/006/eye.png)
+}
+.eye::before{
+    content: '';
+    top: -3px;
+    left: 99px;
+}
+.text{
+    position; absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    width: 390px;
+    height: 595px;
+    transform: translatez(150px) translatex(-11px) translatey(-26px) scale(.55);
+    border: 3px solid #fff;
+    text-align: center;
+    line-height: 1000px;
+    color: #fff;
+    opacity: 0.3;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.36) 39%, rgba(255,255,255,0) 51%, #000 100%)
+}
+.text::after {
+    content: 'eye moving';
+    width: 100%;
+    position: absolute;
+    bottom: 22px;
+    left: 0;
+    z-index: 1;
+    line-height: 1;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+    text-indent: 20px;
+}
+</code></pre>
+                </div>
+                <h3 class="t_tit2">javascript</h3>
+                <div class="t_desc">
+                    애니메이션을 위한 javascript입니다.
+                </div>
+                <div class="t_code">
+                    <pre><code class="language-js">const wrap = document.querySelector('.wrapper');
+const eye = document.querySelector('.eye');
+const speed = 1;
+let x = 0;
+let y = 0;
+let followX = 0;
+let followY = 0;
+function animate() {
+    x += (followX - x) * speed;
+    y += (followY - y) * speed;
+    eye.style.transform = `translate(${-x}px, ${-y}px)`;
+    wrap.style.transform = `translate(-50%,-50%) perspective(600px) rotateX(${-y}deg) rotateY(${-x}deg)`;
+    requestAnimationFrame(animate);
+}
+window.addEventListener('mousemove', (e) => {
+    let mouseX = Math.max(-100, Math.min(100,window.innerWidth / 2 - e.clientX));
+    let mouseY = Math.max(-100, Math.min(100,window.innerHeight / 2 - e.clientY));
+    followX = (12 * mouseX) / 100;
+    followY = (10 * mouseY) / 100;
+});
+window.addEventListener('keydown', (e)=>{
+    switch(e.keyCode) {
+    case 37:
+        followX = 12;
+        break;
+    case 38:
+        followY = 10;
+        break;
+    case 39:
+        followX = -12;
+        break;
+    case 40:
+        followY = -10;
+        break;
+    default:
+        break;
+    }
+});
+animate();
+</code></pre>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+    <!-- header -->
+
+    <footer id="footer">
+        <a href="chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- footer -->
+    <script src="../../html/assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+</body>
+
+</html>

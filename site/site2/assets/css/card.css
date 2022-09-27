@@ -3,7 +3,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    /*양쪽 정렬*/
 }
 
 .card__inner .card {
@@ -23,7 +22,6 @@
 .card__inner .card .tit {
     font-size: 28px;
     margin-bottom: 10px;
-    /* 한줄효과 */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -34,7 +32,6 @@
     font-size: 18;
     font-weight: 300;
     line-height: 1.4;
-    /* 세줄이상이면 ...으로 보이게 */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
