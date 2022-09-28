@@ -1895,8 +1895,9 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             });
 
             const num4 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
-            const result = num4.filter(number => number % 2 === 0);
+            const result = num4.filter(el => el === "b" || el === "d" || el === "f" || el === "h" || el === "k");
             console.log(result)
+
         }
     </script>
 </body>
