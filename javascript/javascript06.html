@@ -1854,24 +1854,49 @@ document.querySelector(".sample14_P3").innerHTML = result3;
             //     document.write(i[3])
             // }
 
-            //결과값이 400, 500 5가지
-            const number1 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-            const result1 = number1.splice(-6, 2);
+            //결과값이 400, 500 4가지
+            // const number1 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            // const result1 = number1.splice(-6, 2);
 
-            const number2 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-            const result2 = number2.slice(3, 5)
+            // const number2 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            // const result2 = number2.slice(3, 5)
 
-            const number3 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-            const result3 = number3.splice(3, 2)
+            // const number3 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            // const result3 = number3.splice(3, 2)
 
-            const number4 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
-            const result4 = number2.slice(-6, 5)
+            // const number4 = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+            // const result4 = number2.slice(-6, 5)
 
-            console.log(result1)
-            console.log(result2)
-            console.log(result3)
-            console.log(result4)
+            // console.log(result1)
+            // console.log(result2)
+            // console.log(result3)
+            // console.log(result4)
 
+            //b, d, f, h, k 출력 4가지 
+            const num1 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            for (let i = 0; i < num1.length; i++) {
+                if (i % 2 == 1) {
+                    console.log(num1[i]);
+                }
+            }
+
+            const num2 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            num2.forEach((e, i) => {
+                if (i % 2 == 1) {
+                    console.log(num2[i]);
+                }
+            })
+
+            const num3 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            num3.map(function (e, i) {
+                if (i % 2 == 1) {
+                    console.log(num3[i])
+                }
+            });
+
+            const num4 = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "k"];
+            const result = num4.filter(number => number % 2 === 0);
+            console.log(result)
         }
     </script>
 </body>

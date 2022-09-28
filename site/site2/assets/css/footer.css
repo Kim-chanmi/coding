@@ -1,6 +1,4 @@
-/* footer */
-
-#footer .footer_inner {
+footer #footer .footer_inner {
     justify-content: space-between;
     display: flex;
     flex-wrap: wrap;
