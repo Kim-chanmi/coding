@@ -79,7 +79,8 @@ li {
 }
 
 #header li.active a {
-  background-color: #343644;
+  background-color: #fff;
+  color: #000;
 }
 
 /* layout */
