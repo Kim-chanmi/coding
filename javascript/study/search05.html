@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색이펙트01</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">검색 효과05</h2>
+            <p class="t_desc2">
+                자바스크립트를 이용하여 검색효과 만들 수 있습니다. filter()를 이용하여 속성의 중요도를 보여줍니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/searchEffect05.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/searchEffect05.html"
+                    target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/searchEffect05.html" target="_blank">원본
+                    사이트 보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                검색효과를 만들기 위한 자바스크립트 작성법입니다. 여기서는 <i>filter()</i>메서드를 이용하여 출력하였습니다.
+                filter() 메서드는 조건에 일치하는 배열 요소를 검색하여 <i>배열</i>로 반환합니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">const cssProperty = [    //배열 속의 객체 형태로 속성 정보 저장
+    { name: "all", desc: "all 속성은 CSS 속성을 재설정하는데 사용할 수 있는 약식 속성입니다." },
+    { name: "animation", desc: "animation 속성은 애니메이션 속성을 설정하기 위한 약식 속성입니다." },
+    { name: "animation-delay", desc: "animation-delay 속성은 애니메이션이 시작되는 시간을 설정합니다." },
+    { name: "animation-direction", desc: "animation-direction 속성은 애니메이션이 움직이는 방향을 설정합니다." },
+    { name: "animation-duration", desc: "animation-duration 속성은 애니메이션이 움직이는 시간을 설정합니다." },
+    { name: "animation-fill-mode", desc: "animation-fill-mode 속성은 애니메이션이 끝난 후의 상태를 설정합니다." },
+    { name: "animation-iteration-count", desc: "animation-iteration-count 속성은 애니메이션 반복 횟수를 설정합니다." },
+    { name: "animation-name", desc: "animation-name 속성은 애니메이션 키프레임 이름을 설정합니다." },
+    { name: "animation-play-state", desc: "animation-play-state 속성은 애니메이션의 진행상태를 설정합니다." },
+    { name: "backdrop-filter", desc: "backdrop-filter 속성은 요소 뒤에 필터효과를 설정합니다." },
+    { name: "backface-visibility", desc: "backface-visibility 속성은 요소 뒷면 출력 여부 설정합니다." },
+    { name: "caption-side", desc: "caption-side 속성은 테이블 caption의 위치를 설정합니다." },
+    { name: "direction", desc: "direction 속성은 문장의 방향을 설정합니다." },
+    { name: "filter", desc: "filter 속성은 그래픽 효과를 설정합니다." },
+    { name: "flex", desc: "flex 속성은 콘텐츠의 성질을 flex로 정의합니다." },
+    { name: "grid-template-columns", desc: "grid-template-columns 속성은 가로 컬럼의 크기와 위치 설정합니다." },
+];
+const searchList = document.querySelector(".search__list ul");  // 각각의 속성이 들어갈 자리
+const searchClick = document.querySelectorAll(".search__click ul li");  // 우리가 클릭하는 list
+const star = document.querySelectorAll(".search__click ul li a");   // 별, 조건
+const searchInfo = document.querySelector(".search__info .num");  //  속성 갯수
+
+let count = 0;  //갯수 세기
+
+// 출력하기
+function updatelist(list) {
+    listCSS = "";   //리스트를 저장할 곳
+
+    for (const data of list) {  //for of문 
+        starList = star[data.star].innerText;   //cssProperty에 있는 star의 값 starList에 저장
+
+        count++;    //갯수 카운트
+
+        listCSS += `&lt;li&gt;${data.name} : ${data.desc} &lt;em&gt;${starList}&lt;/em&gt;&lt;/li&gt;`; //속성의 이름, 설명, 별을 li와 em 태그를 만들어 비어있는 listCSS에 저장
+    }
+    searchInfo.innerHTML = count; //속성 갯수에 count 저장
+    count = 0;
+
+    searchList.innerHTML = listCSS; //비어있는 searchList에 listCSS 출력
+}
+updatelist(cssProperty);
+
+// 클릭하기
+searchClick.forEach((star, index) => {  //클릭하는 곳이 여러곳이기 때문에 forEach문 사용
+    star.addEventListener("click", () => {
+
+        //console.log(index) => 별 클릭 index 확인
+
+        filterList = cssProperty.filter(data => data.star == index || data.star >= star.innerText.charAt()); //별 클릭했을 때 -> index 이용 || 조건 클릭했을 때 -> charAt() 사용
+
+        updatelist(filterList);
+    });
+});
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

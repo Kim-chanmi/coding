@@ -581,31 +581,51 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-                            <pre><code class="language-js">function scroll() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                            <pre><code class="language-js">// 글씨 나누기
+// let text = document.querySelector("#section1 .content__item__desc");
+// let splitText = text.innerText;
+// let splitWrap = splitText.split('').join('&lt;/span&gt;&lt;span&gt;');
+// text.innerHTML = splitWrap = "&lt;span&gt;" + splitWrap + "&lt;/span&gt;";
 
-    document.querySelector("#parallax__info span").innerText = Math.ceil(scrollTop)
+//글씨 쪼개기(다중이)
+// text.forEach((e, i) =&gt; {
+//     let splitText = e.innerText;
+//     let splitWrap = splitText.split('').join('&lt;/span&gt;&lt;span&gt;');
+//     e.innerHTML = splitWrap = "&lt;span&gt;" + splitWrap + "&lt;/span&gt;";
+//     console.log(splitWrap);
+// });
+
+document.querySelectorAll(".split").forEach(text =&gt; {
+    let splitText = text.innerText;
+    let splitWrap = splitText.split('').join("&lt;/span&gt;&lt;span aria-hidden='true'&gt;");   //시각리더기가 한 글자씩 끊어서 읽는 문제 발생. 접근성 저하
+    splitWrap = "&lt;span aria-hidden='true'&gt;" + splitWrap + "&lt;/span&gt;";
+    text.innerHTML = splitWrap;
+    text.setAttribute("aria-label", splitText); //접근성을 위해 setAttribute사용. setAttribute : 선택한 요소(element)의 속성(attribute) 값을 부여
+});
+
+function scroll() {
+    let scrollTop = window.scrollY // == window.pageYOffset;
+    document.querySelector("#parallax__info .scroll").innerText = Math.round(scrollTop);
+
+    // CSS 클래스 추가(노가다)
+    // document.querySelectorAll(".content__item").forEach(item => {       //선택자에 split을 넣으면 한 번에 나오는 오류가 생겨서 부모박스 선택
+    //     if (scrollTop >= item.offsetTop) {
+    //         item.querySelector(".split").classList.add("show");
+    //     }
+    // })
 
     document.querySelectorAll(".content__item").forEach(item => {
-
-        const target1 = item.querySelector(".content__item__img");
-        const target2 = item.querySelector(".content__item__desc");
-        const target3 = item.querySelector(".content__item__num");
-
-        let offset1 = (scrollTop - item.offsetTop) * 0.1;
-        let offset2 = (scrollTop - item.offsetTop) * 0.15;
-        let offset3 = (scrollTop - item.offsetTop) * 0.2;
-
-        // target1.style.transform = `translateY(${offset1}px)`;
-        // target2.style.transform = `translateX(${offset2}px)`;
-
-        //gsap를 이용
-        gsap.to(target1, { duration: .3, y: offset1, ease: "power4.out" });
-        gsap.to(target2, { duration: .3, y: offset2 });
-        gsap.to(target3, { duration: .3, x: offset3 });
+        if (scrollTop >= item.offsetTop) {
+            item.querySelector(".split").classList.add("show")  //split에 show class 추가
+            item.querySelectorAll(".split span").forEach((span, index) => {
+                span.style.transitionDelay = `${index * 50}ms`;     //index 이용하여 transition-delay효과 추가
+                // console.log(span[index])
+            });
+        }
     });
 
     requestAnimationFrame(scroll);
+
 }
 scroll();
 </code></pre>
@@ -905,6 +925,21 @@ scroll();
         border-radius: 5px;
     }
 }
+
+/* option */
+.split span {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s cubic-bezier(0, 0.71, 0.11, 1.66);
+    display: inline-block;
+    /* 띄어쓰기 */
+    min-width: 1vw;
+}
+
+.split.show span {
+    opacity: 1;
+    transform: translateY(0);
+}
 </code></pre>
                         </div>
                     </div>
@@ -971,9 +1006,6 @@ scroll();
 
             requestAnimationFrame(scroll);
 
-            // 첫 번째 span --> 0.01
-            // 두 번째 span --> 0.02
-            // 세 번째 span --> 0.03
         }
         scroll();
     </script>

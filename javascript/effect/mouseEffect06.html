@@ -83,7 +83,6 @@
             background-color: rgba(255, 255, 255, 0.9);
             user-select: none;
             pointer-events: none;
-            /* mix-blend-mode: difference; */
             transition: transform 0.25s;
         }
     </style>
@@ -262,46 +261,31 @@
                     <div class="cont">
                         <div class="active">
                             <pre><code class="language-js">const mouseMove = (e) => {
-    //마우스 좌표값
-    let mousePageX = e.pageX;
-    let mousePageY = e.pageY;
+    let positionSlow = (e.pageX - (window.innerWidth / 2)) * 0.1;  //가운데 정렬, * 0.1 은 이질감 효과
+    let positionFast = (e.pageX - (window.innerWidth / 2)) * 0.2;  //속도조절
 
-    //마우스 좌표 기준점 가운데로 변경
-    let centerPageX = window.innerWidth / 2 - mousePageX;
-    let centerPageY = window.innerHeight / 2 - mousePageY;
+    gsap.to(".spanSlow", { duration: 0.4, x: positionSlow });
+    gsap.to(".spanFast", { duration: 0.4, x: -positionFast });
+    gsap.to(".mouse__cursor", { duration: 0.3, left: e.pageX - 5, top: e.pageY - 5 });
 
-    //최소값은 -100, 최대값은 100설정
-    let maxPageX = Math.max(-200, Math.min(200, centerPageX));
-    let maxPageY = Math.max(-200, Math.min(200, centerPageY));
 
-    //각도 줄이는 설정
-    let anglePageX = maxPageX * 0.1;
-    let anglePageY = maxPageY * 0.1;
 
-    //부드럽게 설정
-    let softPageX = 0, softPageY = 0; // == softPageX, softPageY = 0;
-    softPageX += (anglePageX - softPageX) * 0.4;
-    softPageY += (anglePageY - softPageY) * 0.4;
+}
+window.addEventListener("mousemove", mouseMove);
 
-    //이미지 움직이기
-    const imgMove = document.querySelector(".mouse__img");
-    imgMove.style.transform = "perspective(600px) rotateX(" + softPageY + "deg) rotateY(" + -softPageX + "deg)"
+const text = document.querySelectorAll(".spanWrap span");   //글씨
+const cursor = document.querySelector(".mouse__cursor");    //마우스 커서
 
-    //커서
-    gsap.to(".mouse__cursor", { duration: .3, left: mousePageX - 50, top: mousePageY - 50 });
-
-    //출력
-    document.querySelector(".mousePageX").textContent = mousePageX;
-    document.querySelector(".mousePageY").textContent = mousePageY;
-    document.querySelector(".centerPageX").textContent = centerPageX;
-    document.querySelector(".centerPageY").textContent = centerPageY;
-    document.querySelector(".maxPageX").textContent = maxPageX;
-    document.querySelector(".maxPageY").textContent = maxPageY;
-    document.querySelector(".anglePageX").textContent = Math.round(anglePageX);
-    document.querySelector(".anglePageY").textContent = Math.round(anglePageY);
-};
-
-window.addEventListener("mousemove", mouseMove);    // == document.addEventListener("mousemove", mouseMove);
+text.forEach(e => {
+    e.addEventListener("mouseenter", () => {    //text에 마우스 올렸을 때
+        cursor.style.transform = "scale(5)";     //cursor가 5배 확대
+        cursor.style.mixBlendMode = "difference";   //글씨 반전 효과 추가
+    })
+    e.addEventListener("mouseleave", () => {    //text에서 마우스를 떼면
+        cursor.style.transform = "scale(1)";     //cursor가 다시 원래크기로
+        cursor.style.mixBlendMode = "normal";       //글씨 반전 효과 제거
+    })
+})
 </code></pre>
                         </div>
                         <div>
@@ -311,102 +295,137 @@ window.addEventListener("mousemove", mouseMove);    // == document.addEventListe
         &lt;div class="mouse__wrap"&gt;
             &lt;div class="mouse__img"&gt;
                 &lt;figure&gt;
-                    &lt;img src="../assets/img/effect_bg19-min.jpg" alt="이미지"&gt;
+                    &lt;img src="../assets/img/effect_bg20@2x-min.jpg" alt=""&gt;
                 &lt;/figure&gt;
-                &lt;figcaption&gt;
-                    &lt;p&gt;After black clouds, clear weather.&lt;/p&gt;
-                    &lt;p&gt;먹구름 뒤에, 화창한 날씨.&lt;/p&gt;
-                &lt;/figcaption&gt;
+            &lt;/div&gt;
+            &lt;div class="mouse__text"&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;The time&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;The time&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;never stops.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;never stops.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;시간은&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;시간은&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;멈추지 않고 간다.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;멈추지 않고 간다.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
             &lt;/div&gt;
         &lt;/div&gt;
     &lt;/section&gt;
-    &lt;div class="mouse__info"&gt;
-        &lt;ul&gt;
-            &lt;li&gt;mousePageX : &lt;span class="mousePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
-            &lt;li&gt;mousePageY : &lt;span class="mousePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
-            &lt;li&gt;centerPageX : &lt;span class="centerPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
-            &lt;li&gt;centerPageY : &lt;span class="centerPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
-            &lt;li&gt;maxPageX : &lt;span class="maxPageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
-            &lt;li&gt;maxPageY : &lt;span class="maxPageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
-            &lt;li&gt;anglePageX : &lt;span class="anglePageX"&gt;0&lt;/span&gt;px&lt;/li&gt;
-            &lt;li&gt;anglePageY : &lt;span class="anglePageY"&gt;0&lt;/span&gt;px&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
 &lt;/main&gt;
 </code></pre>
                         </div>
                         <div>
-                            <pre><code class="language-css">.mouse__wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+                            <pre><code class="language-css"> /* mouseType */
+.mouse__wrap {
     color: #fff;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
     cursor: none;
 }
 
 .mouse__img {
-    transform: perspective(600px) rotateX(0deg) rotateY(0deg);
-    transform-style: preserve-3d;
-    will-change: transform;
-}
-
-.mouse__img figure {
-    width: 50vw;
-    position: relative;
-}
-
-.mouse__img figure::before {
-    content: '';
-    position: absolute;
-    left: 5%;
-    bottom: -30px;
-    width: 90%;
-    height: 40px;
-    background: url(../assets/img/effect_bg19-min.jpg) no-repeat center;
-    background-size: 100% 40px;
-    filter: blur(15px) grayscale(50%);
-    z-index: -1;
-    opacity: 0.7;
-}
-
-.mouse__img figcaption {
     position: absolute;
     left: 50%;
     top: 50%;
-    font-size: 1vw;
-    line-height: 1.6;
-    transform: translate3d(-50%, -50%, 100px);
-    padding: 1vw;
-    white-space: nowrap;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.mouse__text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -20%);
+    font-size: 3vw;
+    line-height: 1.5;
+}
+
+.mouse__text .line {
+    width: 100%;
+    display: flex;
+}
+
+.mouse__text .line .left {
+    width: 50vw;
+    color: #738dc5;
+    /* 반 안보이게 */
+    overflow: hidden;
+    /* 기울이기 */
+    transform: skew(0deg, -15deg);
+}
+
+.mouse__text .line .left .spanWrap {
+    width: 100vw;
     text-align: center;
-    background: rgba(0, 0, 0, 0.4);
+}
+
+.mouse__text .line .right {
+    width: 50vw;
+    overflow: hidden;
+    transform: skew(0deg, 15deg);
+}
+
+.mouse__text .line .right .spanWrap {
+    width: 100vw;
+    text-align: center;
+    transform: translateX(-50vw);
+}
+
+.mouse__text span {
+    display: inline-block;
 }
 
 .mouse__cursor {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100px;
-    height: 100px;
+    width: 20px;
+    height: 20px;
+    z-index: 9999;
     border-radius: 50%;
-    background: #fff;
-    z-index: 1000;
-    pointer-events: none;
+    background-color: rgba(255, 255, 255, 0.9);
     user-select: none;
-    mix-blend-mode: difference;
-}
-
-.mouse__info {
-    position: absolute;
-    left: 20px;
-    bottom: 10px;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #444;
+    pointer-events: none;
+    transition: transform 0.25s;
 }
 </code></pre>
                         </div>
@@ -455,8 +474,6 @@ window.addEventListener("mousemove", mouseMove);    // == document.addEventListe
                 cursor.style.mixBlendMode = "normal";       //글씨 반전 효과 제거
             })
         })
-
-
         //마우스 커서가 글씨 위에 올라가면 원의 크기는 5배 크게, 글씨 반전효과 추가
     </script>
 </body>

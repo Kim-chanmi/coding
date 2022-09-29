@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈이펙트01</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">마우스 효과06</h2>
+            <p class="t_desc2">
+                자바스크립트를 이용하여 마우스 효과를 만들어 보겠습니다. 이번에는 텍스트 효과로, 마우스 방향에 따라 글씨가 좌, 우로 움직입니다.
+                또한, 텍스트에 마우스를 올렸을 때 커서가 확대되고 글씨가 반전되는 효과가 나타납니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 1000px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/mouseEffect06.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/mouseEffect06.html"
+                    target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/mouseEffect06.html" target="_blank">원본
+                    사이트 보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 자바스크립트 작성법입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">const mouseMove = (e) => {
+    let positionSlow = (e.pageX - (window.innerWidth / 2)) * 0.1;  //가운데 정렬, * 0.1 은 이질감 효과
+    let positionFast = (e.pageX - (window.innerWidth / 2)) * 0.2;  //속도조절
+
+    gsap.to(".spanSlow", { duration: 0.4, x: positionSlow });
+    gsap.to(".spanFast", { duration: 0.4, x: -positionFast });
+    gsap.to(".mouse__cursor", { duration: 0.3, left: e.pageX - 5, top: e.pageY - 5 });
+
+
+
+}
+window.addEventListener("mousemove", mouseMove);
+
+const text = document.querySelectorAll(".spanWrap span");   //글씨
+const cursor = document.querySelector(".mouse__cursor");    //마우스 커서
+
+text.forEach(e => {
+    e.addEventListener("mouseenter", () => {    //text에 마우스 올렸을 때
+        cursor.style.transform = "scale(5)";     //cursor가 5배 확대
+        cursor.style.mixBlendMode = "difference";   //글씨 반전 효과 추가
+    })
+    e.addEventListener("mouseleave", () => {    //text에서 마우스를 떼면
+        cursor.style.transform = "scale(1)";     //cursor가 다시 원래크기로
+        cursor.style.mixBlendMode = "normal";       //글씨 반전 효과 제거
+    })
+})
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 html 작성법입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-html">&lt;main id="main"&gt;
+    &lt;section id="mouseType"&gt;
+        &lt;div class="mouse__cursor"&gt;&lt;/div&gt;
+        &lt;div class="mouse__wrap"&gt;
+            &lt;div class="mouse__img"&gt;
+                &lt;figure&gt;
+                    &lt;img src="../assets/img/effect_bg20@2x-min.jpg" alt=""&gt;
+                &lt;/figure&gt;
+            &lt;/div&gt;
+            &lt;div class="mouse__text"&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;The time&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;The time&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;never stops.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;never stops.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;시간은&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanSlow"&gt;시간은&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="line"&gt;
+                    &lt;div class="left"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;멈추지 않고 간다.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class="right"&gt;
+                        &lt;div class="spanWrap"&gt;
+                            &lt;span class="spanFast"&gt;멈추지 않고 간다.&lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+</code></pre>
+            </div>
+
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_desc">
+                마우스 효과를 만들기 위한 css 작성법입니다.
+            </p>
+            <div class="t_box">
+                <i>overflow: hidden</i> => width값 반으로 정해서 나머지 반은 보이지 않게 <br>
+                <i>transform: skew(0deg, -15deg)</i> => 기울이기 효과<br>
+            </div>
+            <div class="t_code">
+                <pre><code class="language-css"> /* mouseType */
+.mouse__wrap {
+    color: #fff;
+    width: 100%;
+    height: 100vh;
+    cursor: none;
+}
+
+.mouse__img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.mouse__text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -20%);
+    font-size: 3vw;
+    line-height: 1.5;
+}
+
+.mouse__text .line {
+    width: 100%;
+    display: flex;
+}
+
+.mouse__text .line .left {
+    width: 50vw;
+    color: #738dc5;
+    /* 반 안보이게 */
+    overflow: hidden;
+    /* 기울이기 */
+    transform: skew(0deg, -15deg);
+}
+
+.mouse__text .line .left .spanWrap {
+    width: 100vw;
+    text-align: center;
+}
+
+.mouse__text .line .right {
+    width: 50vw;
+    overflow: hidden;
+    transform: skew(0deg, 15deg);
+}
+
+.mouse__text .line .right .spanWrap {
+    width: 100vw;
+    text-align: center;
+    transform: translateX(-50vw);
+}
+
+.mouse__text span {
+    display: inline-block;
+}
+
+.mouse__cursor {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    z-index: 9999;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.25s;
+}
+</code></pre>
+            </div>
+
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>
