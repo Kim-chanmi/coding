@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://webfontworld.github.io/naver/NanumGothic.css');
+
+        .nanum {
+            font-family: 'NanumGothic';
+            font-weight: 400;
+        }
+
+        * {
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: normal;
+        }
+
+        em,
+        address {
+            font-style: normal;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        .container {
+            width: 1300px;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+
+        /* header */
+        #header {
+            margin-top: 50px;
+        }
+
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .logo {
+            width: 20%;
+            display: flex;
+        }
+
+        .logo__img img {
+            width: 200px;
+        }
+
+        .logo__name {
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .logo__name em {
+            font-size: 18px;
+        }
+
+        .menu {
+            width: 80%;
+            text-align: right;
+        }
+
+        .menu ul li {
+            display: inline;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .menu ul li a {
+            font-weight: 500;
+        }
+
+        /* slider */
+        #slider {
+            width: 100%;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .slider__img {
+            width: 1690px;
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider__inner {
+            display: flex;
+            flex-wrap: wrap;
+            width: 5070px;
+            height: 600px;
+        }
+
+        .slider img {
+            width: 1690px;
+            height: 600px;
+        }
+
+        .slider__text {
+            background-color: rgba(0, 0, 0);
+            color: #fff;
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.4;
+            display: inline-block;
+            padding: 10px 50px;
+            box-sizing: border-box;
+            position: absolute;
+            bottom: 100px;
+            left: 200px;
+
+        }
+
+        .slider__text em {
+            font-size: 20px;
+        }
+
+        .prev__btn {
+            position: absolute;
+            top: 250px;
+            left: 20px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 80px;
+        }
+
+        .next__btn {
+            position: absolute;
+            top: 250px;
+            right: 20px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 80px;
+        }
+
+        /* card */
+        #card {
+            width: 100%;
+            padding: 50px 0;
+            box-sizing: border-box;
+            background: rgb(243, 247, 248);
+            position: relative;
+        }
+
+        #card h2 {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 50px;
+        }
+
+        #card h2>em {
+            border: 1px solid #000;
+            padding: 5px 10px;
+            position: absolute;
+            right: 210px;
+        }
+
+        .card__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .card {
+            width: 23%;
+            background: #fff;
+            border: 1px solid #c5c5c5;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+
+        .card__top {
+            border: 2px solid skyblue;
+            border-radius: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        .card__name {
+            background-color: #688dd3;
+            color: #fff;
+            padding: 2px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .card__date {
+            font-size: 14px;
+            color: #666;
+            margin-left: 10px;
+        }
+
+        /* text */
+        #text {
+            padding: 50px;
+        }
+
+        .text__top {
+            display: flex;
+            justify-content: space-between;
+            background: #fff;
+            margin-bottom: 30px;
+        }
+
+        .text1 {
+            width: 28%;
+            height: 220px;
+            overflow: hidden;
+            border: 1px solid #c5c5c5;
+            padding: 20px 20px 0 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .text1 h3 {
+            display: inline-block;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .text1 h3.active {
+            color: #000;
+            font-weight: 500;
+        }
+
+        .text1 h3 em {
+            border: 1px solid #000;
+            padding: 5px 10px;
+            position: absolute;
+            right: 20px;
+            color: #000;
+            font-weight: 500;
+        }
+
+        .text1 .list {
+            font-size: 16px;
+        }
+
+        .text1 .date {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .text2 {
+            width: 68%;
+            border: 1px solid #c5c5c5;
+            padding: 20px 20px 20px 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .text2 h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .text2 h3 em {
+            border: 1px solid #000;
+            padding: 5px 10px;
+            position: absolute;
+            right: 20px;
+            color: #000;
+        }
+
+        .text2__li {
+            line-height: 2.3;
+        }
+
+        .text2__li a .tit {
+            background-color: #3174cf;
+            display: inline-block;
+            text-align: center;
+            width: 110px;
+            height: 30px;
+            box-sizing: border-box;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .text2__li .date {
+            color: #666;
+            float: right;
+        }
+
+        .text3 {
+            width: 28%;
+            position: relative;
+        }
+
+        .text3 img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ad__text {
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            top: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .ad__text h3 {
+            margin-bottom: 25px;
+        }
+
+        .ad__text p {
+            font-size: 14px;
+            margin-bottom: 35px;
+        }
+
+        .ad__text .btn a {
+            border: 2px solid #fff;
+            color: #fff;
+            padding: 5px 30px;
+        }
+
+        .text__btm {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .text4 {
+            width: 68%;
+            border: 1px solid #c5c5c5;
+            padding: 20px 20px 0 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .text4 h3 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .text4 h3 em {
+            border: 1px solid #000;
+            padding: 5px 10px;
+            position: absolute;
+            right: 20px;
+            color: #000;
+        }
+
+        .text4__inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .text4__left {
+            width: 50%;
+            border-right: 1px solid #c5c5c5;
+        }
+
+        .text4__right {
+            width: 50%;
+            margin-left: 25px;
+        }
+
+        .text4__inner .tit a {
+            color: #444;
+            font-size: 16px;
+        }
+
+        .text4__inner .date a {
+            color: #666;
+            font-size: 15px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        /* footer */
+        #footer {
+            background-color: #27405f;
+            margin-bottom: 150px;
+        }
+
+        .footer__top {
+            border-bottom: 1px solid #818e9f;
+        }
+
+        .footer__menu {
+            padding: 20px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .footer__menu li {
+            display: inline;
+            border-right: 1px solid #818e9f;
+        }
+
+        .footer__menu li a {
+            padding: 0 20px;
+            color: #818e9f;
+            font-size: 14px;
+        }
+
+        .footer__menu .btn {
+            color: #f5f5f5;
+            border: 1px solid #818e9f;
+            padding: 10px;
+            font-size: 14px;
+            position: absolute;
+            top: 10px;
+            right: 0;
+        }
+
+        .footer__btm {
+            margin-top: 30px;
+            padding-bottom: 80px;
+            position: relative;
+        }
+
+        .footer__btm .footer__logo {
+            width: 15%;
+            margin-right: 30px;
+        }
+
+        .footer__btm address {
+            color: #818e9f;
+            font-size: 14px;
+            display: inline-block;
+            position: absolute;
+            top: 14px;
+            line-height: 1.6;
+        }
+
+        .footer__btm span {
+            position: absolute;
+            right: 50%;
+            top: 16px;
+        }
+
+        .footer__btm span img {
+            width: 30px;
+        }
+
+        .footer__btm .call {
+            float: right;
+            color: #f5f5f5;
+            font-size: 12px;
+            border-left: 1px solid #818e9f;
+            padding-left: 20px;
+        }
+
+        .footer__btm .call em {
+            font-size: 26px;
+        }
+    </style>
+</head>
+
+<body class="nanum">
+    <header id="header" class="container">
+        <div class="header__inner">
+            <div class="logo">
+                <figure class="logo__img">
+                    <img src="img/logo.jpg" alt="">
+                </figure>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">무역통상정보</a></li>
+                    <li><a href="">회원/업무지원</a></li>
+                    <li><a href="">무역통계</a></li>
+                    <li><a href="">협회안내</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main id="main">
+        <section id="slider" class="slider__wrap">
+            <div class="slider__img">
+                <div class="slider__inner">
+                    <div class="slider"><img src="img/slider_01.jpg" alt=""></div>
+                    <div class="slider"><img src="img/slider_02.jpg" alt=""></div>
+                    <div class="slider"><img src="img/slider_03.jpg" alt=""></div>
+
+                </div>
+                <div class="slider__text">STARTUP Germany <br> 2019 참가업체 모집 <br> <em>사업기간 2019-07-02 ~
+                        2019-08-09</em></div>
+            </div>
+            <div class="prev__btn">
+                &lt;
+            </div>
+            <div class="next__btn">
+                >
+            </div>
+        </section>
+        <section id="card" class="container">
+            <h2>KITA 사업 일정 <em>+</em></h2>
+            <div class="card__inner container">
+                <div class="card">
+                    <span class="card__top">모집마감 -4일</span>
+                    <h3>『2019 태국 국제식품전시회』업체모집</h3>
+                    <div>
+                        <span class="card__name">사업기간</span>
+                        <span class="card__date">2019-05-28 ~ 2019-06-01</span>
+                    </div>
+                    <span class="card__name">모집기간</span>
+                    <span class="card__date">2019-01-17 ~ 2019-02-12</span>
+                </div>
+                <div class="card">
+                    <span class="card__top">모집마감 -4일</span>
+                    <h3>[아카데미] 무역실무기초 단기속성(1차, 야간) 개최</h3>
+                    <div>
+                        <span class="card__name">사업기간</span>
+                        <span class="card__date">2019-02-18 ~ 2019-02-22</span>
+                    </div>
+                    <span class="card__name">모집기간</span>
+                    <span class="card__date">2019-01-23 ~ 2019-02-12</span>
+                </div>
+                <div class="card">
+                    <span class="card__top">모집마감 -4일</span>
+                    <h3>해외 온라인판매 글로벌 셀러 양성과정 참가자 모집</h3>
+                    <div>
+                        <span class="card__name">사업기간</span>
+                        <span class="card__date">2019-02-14 ~ 2019-03-05</span>
+                    </div>
+                    <span class="card__name">모집기간</span>
+                    <span class="card__date">2019-01-25 ~ 2019-02-12</span>
+                </div>
+                <div class="card">
+                    <span class="card__top">모집마감 -4일</span>
+                    <h3>대전 수출활력 촉진단 행사 개최(2/14)</h3>
+                    <div>
+                        <span class="card__name">사업기간</span>
+                        <span class="card__date">2019-02-14 ~ 2019-02-14</span>
+                    </div>
+                    <span class="card__name">모집기간</span>
+                    <span class="card__date">2019-02-01 ~ 2019-02-12</span>
+                </div>
+            </div>
+        </section>
+        <section id="text" class="container">
+            <div class="text__inner">
+                <div class="text__top">
+                    <div class="text1">
+                        <h3 class="active">보도자료 | </h3>
+                        <h3>언론기고 <em>+</em></h3>
+                        <div class="text__cont">
+                            <div class="list">민관합동 현장중심 수출활력촉진단 가동</div>
+                            <div class="date">2019-01-31</div>
+                            <div class="list">민간기업이 주도하는 유럽 스타트업 캠퍼스</div>
+                            <div class="date">2019-01-29</div>
+                        </div>
+                        <div class="text__cont">
+                            <div class="list">민관합동 현장중심 수출활력촉진단 가기</div>
+                            <div class="date">2019-01-31</div>
+                            <div class="list">민간기업이 주도하는 유럽 스타트업 캠퍼스</div>
+                            <div class="date">2019-01-29</div>
+                        </div>
+                    </div>
+                    <div class="text2">
+                        <h3>KITA 연구보고서 <em>+</em></h3>
+                        <ul class="text2__li">
+                            <li><a href="#"><span class="tit">[Trade Brief]</span><span class="desc">2019년 수출기업의 경영환경 전망
+                                        조사
+                                        <em class="date">2019-01-17</em></span></a></li>
+
+                            <li><a href="#"><span class="tit">[KITA]</span><span class="desc">[토론회 자료] WTO 전자상거래 협상을 위한
+                                        공청회 겸 디지털통상정책 토론회 발표
+                                        <em class="date">2019-01-16</em></span></a></li>
+                            <li><a href="#"><span class="tit">[KITA]</span><span class="desc">[설명회 자료] 브렉시트(Brexit) 설명회
+                                        발표 자료
+                                        <em class="date">2019-01-10</em></span></a></li>
+                            <li><a href="#"><span class="tit">[Trade Brief]</span><span class="desc">스타트업 사례를 통해 본 2018
+                                        중국 AI 시장 트렌드
+                                        <em class="date">2019-01-10</em></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text__btm">
+                    <div class="text3">
+                        <img src="img/ad.jpg" alt="">
+                        <div class="ad__text">
+                            <h3>온라인 세미나</h3>
+                            <p>무역협회에서 실시하는 국내 무역 관련 세미나, <br> 설명회 등을 VOD 서비스로 제공</p>
+                            <div class="btn"><a href="#">바로가기</a></div>
+                        </div>
+                    </div>
+                    <div class="text4">
+                        <h3>KITA 통상정보 <em>+</em></h3>
+                        <div class="text4__inner">
+                            <ul class="text4__left">
+                                <li class="tit"><a href="#">한미 통상현안 사례분석집</a></li>
+                                <li class="date"><a href="#">2019-01-15</a></li>
+                                <li class="tit"><a href="#">[통상리포트] 킥오프된 브렉시트 후반전 : 향후 통</a></li>
+                                <li class="date"><a href="#">2018-10-31</a></li>
+                            </ul>
+                            <ul class="text4__right">
+                                <li class="tit"><a href="#">[통상리포트]2018년 통상이슈 점검 및 2019년 통</a></li>
+                                <li class="date"><a href="#">2018-12-10</a></li>
+                                <li class="tit"><a href="#">[통상리포트]미중 통상 분쟁 영향 및 시사점</a></li>
+                                <li class="date"><a href="#">2018-10-30</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="footer__inner container">
+            <div class="footer__top">
+                <ul class="footer__menu">
+                    <li><a href="#">이용약관</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                    <li><a href="#">저작권 정책</a></li>
+                    <li><a href="#">이메일주소무단수집거부</a></li>
+                    <li><a href="#">온라인 고객상담</a></li>
+                    <li><a href="#">신문고</a></li>
+                    <span class="btn">국내외지부 ▲</span>
+                </ul>
+            </div>
+            <div class="footer__btm">
+                <img class="footer__logo" src="img/footer_logo.jpg" alt="">
+                <address>(06164)서울시 강남구 영동대로 511 (삼성동) <br> Copyright©KITA All rights reserved</address>
+                <span>
+                    <img src="img/footer_facebook.jpg" alt="">
+                    <img src="img/footer_twjpg.jpg" alt="">
+                    <img src="img/footer_youtjpg.jpg" alt="">
+                </span>
+                <div class="call">
+                    트레이드 콜센터 <br> <em>1566-5114</em>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        //탭버튼
+        const tabBtn = document.querySelectorAll(".text1 h3");
+        const tabCont = document.querySelectorAll(".text__cont")
+
+        tabBtn.forEach((e, i) => {
+            e.addEventListener("click", (event) => {
+                event.preventDefault;
+                tabBtn.forEach(el => {
+                    el.classList.remove("active");
+                });
+                e.classList.add("active")
+                tabCont.forEach((e) => {
+                    e.style.display = "none";
+                });
+                tabCont[i].style.display = "block";
+            })
+        })
+
+        //슬라이드
+        const sliderWrap = document.querySelector(".slider__wrap");
+        const sliderImg = document.querySelector(".slider__img");       //보여지는 영역
+        const sliderInner = document.querySelector(".slider__inner");   //움직이는 영역
+        const slider = document.querySelectorAll(".slider");            //각각의 이미지
+        const sliderBtnPrev = document.querySelector(".prev__btn");            //왼쪽버튼
+        const sliderBtnNext = document.querySelector(".next__btn");            //오른쪽버튼
+
+        let currentIndex = 0;                       //현재 이미지
+        let sliderCount = slider.length             //이미지 갯수
+        let sliderWidth = sliderImg.offsetWidth;    //이미지 가로값
+        let width = window.screen.width
+        console.log(width)
+        //이미지 움직이는 영역
+        function gotoSlider(num) {
+            sliderInner.style.transition = "all 400ms";     //400ms -> 0.4s
+            sliderInner.style.transform = "translateX(" + -sliderWidth * num + "px)";
+            currentIndex = num;
+        }
+
+        //왼쪽 버튼 클릭했을 때
+        sliderBtnPrev.addEventListener("click", () => {
+            let prevIndex = (currentIndex + (sliderCount - 1)) % sliderCount;   //4,3,2,1,0 반복시키기 위해 +4
+            gotoSlider(prevIndex);
+
+            console.log(currentIndex) //4,3,2,1,0,4,3,2,1,0 반복
+        });
+
+        //오른쪽 버튼 클릭했을 때
+        sliderBtnNext.addEventListener("click", () => {
+            let nextIndex = (currentIndex + 1) % sliderCount;
+            gotoSlider(nextIndex);
+            console.log(nextIndex)
+            //0, 1, 2, 3, 4
+        });  
+    </script>
+</body>
+
+</html>

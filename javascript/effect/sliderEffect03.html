@@ -19,21 +19,25 @@
             justify-content: center;
         }
 
-        .slider__img {          /* 이미지 보이는 영역 */
+        .slider__img {
+            /* 이미지 보이는 영역 */
             position: relative;
             width: 800px;
             height: 520px;
             overflow: hidden;
         }
 
-        .slider__inner {        /* 이미지를 감싸고 있는 부모 : 움직이는 부분 */
+        .slider__inner {
+            /* 이미지를 감싸고 있는 부모 : 움직이는 부분 */
             display: flex;
             flex-wrap: wrap;
-            width: 4800px;      /* 총 이미지 6개 */
+            width: 4800px;
+            /* 총 이미지 6개 */
             height: 520px;
         }
 
-        .slider {               /* 개별적인 이미지 */
+        .slider {
+            /* 개별적인 이미지 */
             position: relative;
             width: 800px;
             height: 520px;
@@ -48,24 +52,56 @@
             padding: 5px 10px;
         }
 
-        .slider:nth-child(1)::before {content: '이미지1';}
-        .slider:nth-child(2)::before {content: '이미지2';}
-        .slider:nth-child(3)::before {content: '이미지3';}
-        .slider:nth-child(4)::before {content: '이미지4';}
-        .slider:nth-child(5)::before {content: '이미지5';}
-        .slider:nth-child(6)::before {content: '이미지1';}
+        .slider:nth-child(1)::before {
+            content: '이미지1';
+        }
 
-        .slider:nth-child(1) {z-index: 5;}
-        .slider:nth-child(2) {z-index: 4;}
-        .slider:nth-child(3) {z-index: 3;}
-        .slider:nth-child(4) {z-index: 2;}
-        .slider:nth-child(5) {z-index: 1;}
-        
+        .slider:nth-child(2)::before {
+            content: '이미지2';
+        }
+
+        .slider:nth-child(3)::before {
+            content: '이미지3';
+        }
+
+        .slider:nth-child(4)::before {
+            content: '이미지4';
+        }
+
+        .slider:nth-child(5)::before {
+            content: '이미지5';
+        }
+
+        .slider:nth-child(6)::before {
+            content: '이미지1';
+        }
+
+        .slider:nth-child(1) {
+            z-index: 5;
+        }
+
+        .slider:nth-child(2) {
+            z-index: 4;
+        }
+
+        .slider:nth-child(3) {
+            z-index: 3;
+        }
+
+        .slider:nth-child(4) {
+            z-index: 2;
+        }
+
+        .slider:nth-child(5) {
+            z-index: 1;
+        }
+
         @media (max-width: 800px) {
             .slider__img {
                 width: 400px;
                 height: 260px;
             }
+
             #header {
                 line-height: 1.4;
             }
@@ -199,7 +235,7 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-<pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
+                            <pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");
     const sliderImg = document.querySelector(".slider__img");       //보여지는 영역
     const sliderInner = document.querySelector(".slider__inner");   //움직이는 영역
     const slider = document.querySelectorAll(".slider");            //각각의 이미지
@@ -229,7 +265,7 @@
 </code></pre>
                         </div>
                         <div>
-<pre><code class="language-html">&lt;div class="slider__wrap"&gt;
+                            <pre><code class="language-html">&lt;div class="slider__wrap"&gt;
     &lt;div class="slider__img"&gt;
         &lt;div class="slider__inner"&gt;
             &lt;div class="slider"&gt;&lt;img src="../assets/img/effect_bg16-min.jpg" alt="이미지1"&gt;&lt;/div&gt;
@@ -243,7 +279,7 @@
 </code></pre>
                         </div>
                         <div>
-<pre><code class="language-css">.slider__wrap {
+                            <pre><code class="language-css">.slider__wrap {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -332,10 +368,10 @@
         let sliderClone = sliderInner.firstElementChild.cloneNode(true);    //첫 번째 이미지 복사
         sliderInner.appendChild(sliderClone);                               //첫 번째 이미지를 마지막에 넣어줌
 
-        function sliderEffect(){
+        function sliderEffect() {
             currentIndex++;
             sliderInner.style.transition = "all 0.6s";
-            sliderInner.style.transform = "translateX(-"+ sliderWidth * currentIndex + "px)";
+            sliderInner.style.transform = "translateX(-" + sliderWidth * currentIndex + "px)";
 
             // sliderInner.style.transform = "translateX(-800px)";  800 * 1
             // sliderInner.style.transform = "translateX(-1600px)"; 800 * 2
@@ -345,12 +381,12 @@
             // sliderInner.style.transform = "translateX(-4800px)"; 800 * 6
 
             //마지막 사진에 위치했을 때
-            if(currentIndex == sliderCount){
+            if (currentIndex == sliderCount) {
                 setTimeout(() => {
                     sliderInner.style.transition = "0s";
                     sliderInner.style.transform = "translateX(0px)";
                 }, 700);
-                
+
                 currentIndex = 0;
             }
         }
