@@ -697,8 +697,8 @@
         let currentIndex = 0;                       //현재 이미지
         let sliderCount = slider.length             //이미지 갯수
         let sliderWidth = sliderImg.offsetWidth;    //이미지 가로값
-        let width = window.screen.width
-        console.log(width)
+        // let width = window.screen.width
+        // console.log(width)
         //이미지 움직이는 영역
         function gotoSlider(num) {
             sliderInner.style.transition = "all 400ms";     //400ms -> 0.4s
@@ -721,6 +721,23 @@
             console.log(nextIndex)
             //0, 1, 2, 3, 4
         });  
+    </script>
+    <script>
+        {
+            let o = 0;
+            let q = 1;
+            let c = 0;
+
+            for (let a = 0; a <= 1; a++) {
+                for (let x = 0; x <= 10; x++) {
+                    o = a * x;
+                    if (0) {
+                        o += 10;
+                    }
+                }
+            }
+            console.log(o);
+        }
     </script>
 </body>
 
