@@ -208,19 +208,20 @@
         }
 
         /* option */
-        .split span {
+        /* .split span {
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.6s cubic-bezier(0, 0.71, 0.11, 1.66);
-            display: inline-block;
-            /* 띄어쓰기 */
-            min-width: 1vw;
-        }
+            display: inline-block; */
+        /* 띄어쓰기 */
+        /* min-width: 1vw;
+        } */
 
-        .split.show span {
+        /* .split.show span {
             opacity: 1;
             transform: translateY(0);
-        }
+        } */
+
 
         /* .split span:nth-child(1) {
             transition-delay: 100ms;
@@ -369,12 +370,234 @@
         .split span:nth-child(37) {
             transition-delay: 2050ms;
         } */
+
+        /* 순차적으로 나타나기 */
+        .style1.split span {
+            opacity: 0;
+            min-width: 1vw;
+            transition: all 0.3s cubic-bezier(0, 0.71, 0.11, 1.66);
+        }
+
+        .style1.split span.show {
+            opacity: 1;
+        }
+
+        .style2.split span {
+            opacity: 0;
+            min-width: 1vw;
+            transform: translateY(50px);
+            /* transform 먹히게 하려고 */
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0, 0.71, 0.11, 1.66);
+        }
+
+        .style2.split span.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .style3.split span {
+            opacity: 0;
+            min-width: 1vw;
+            transform: translateY(50px) translateX(45px) rotate(360deg);
+            /* transform 먹히게 하려고 */
+            display: inline-block;
+            transition: all 0.3s cubic-bezier(0, 0.71, 0.11, 1.66);
+        }
+
+        .style3.split span.show {
+            opacity: 1;
+            transform: translateY(0) translateX(0) rotate(0);
+        }
+
+        .style4.split span {
+            opacity: 0;
+            min-width: 1vw;
+            display: inline-block;
+        }
+
+        .style4.split span.show {
+            /* opacity: 1; */
+            animation: wobble 0.5s 1 ease-in forwards;
+        }
+
+        @keyframes wobble {
+            0% {
+                transform: translate3d(0, 0, 0);
+                opacity: 0;
+            }
+
+            15% {
+                transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+            }
+
+            30% {
+                transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+            }
+
+            45% {
+                transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+            }
+
+            60% {
+                transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+            }
+
+            75% {
+                transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        .style5.split span {
+            opacity: 0;
+            min-width: 1vw;
+            display: inline-block;
+        }
+
+        .style5.split span.show {
+            /* opacity: 1; */
+            animation: fadeInRight 0.3s 1 cubic-bezier(0.18, 1.35, 1, 1) forwards;
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translate3d(100%, 0, 0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
+        .style6.split span {
+            opacity: 0;
+            min-width: 1vw;
+            display: inline-block;
+        }
+
+        .style6.split span.show {
+            opacity: 1;
+            animation: flipInY 0.3s 1 cubic-bezier(0.18, 1.35, 1, 1) forwards;
+        }
+
+        @keyframes flipInY {
+            from {
+                transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+                animation-timing-function: ease-in;
+                opacity: 0;
+            }
+
+            40% {
+                transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+                animation-timing-function: ease-in;
+            }
+
+            60% {
+                transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+                opacity: 1;
+            }
+
+            80% {
+                transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+            }
+
+            to {
+                transform: perspective(400px);
+            }
+        }
+
+        .style7.split span {
+            opacity: 0;
+            min-width: 1vw;
+            display: inline-block;
+        }
+
+        .style7.split span.show {
+            opacity: 1;
+            animation: rotateInDownLeft 0.3s 1 cubic-bezier(0.18, 1.35, 1, 1) forwards;
+        }
+
+        @keyframes rotateInDownLeft {
+            0% {
+                transform: rotate3d(0, 0, 1, -45deg);
+                opacity: 0;
+            }
+
+            100% {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        .style8.split span {
+            opacity: 0;
+            min-width: 1vw;
+            display: inline-block;
+        }
+
+        .style8.split span.show {
+            opacity: 1;
+            animation: jackInTheBox 0.3s 1 cubic-bezier(0.18, 1.35, 1, 1) forwards;
+        }
+
+        @keyframes jackInTheBox {
+            0% {
+                opacity: 0;
+                transform: scale(0.1) rotate(30deg);
+                transform-origin: center bottom;
+            }
+
+            50% {
+                transform: rotate(-10deg);
+            }
+
+            70% {
+                transform: rotate(3deg);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .style9.split span {
+            opacity: 0;
+            min-width: 1vw;
+            display: inline-block;
+        }
+
+        .style9.split span.show {
+            opacity: 1;
+            animation: zoomInDown 0.5s 1 cubic-bezier(0.18, 1.35, 1, 1) forwards;
+        }
+
+        @keyframes zoomInDown {
+            0% {
+                opacity: 0;
+                transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+                animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+                animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+            }
+        }
     </style>
 </head>
 
 <body>
     <header id="header">
-        <h1><a href="parallaxEffect.html">Javascript parallax Effect05</a></h1>
+        <h1><a href="parallaxEffect.html">Javascript parallax Effect06</a></h1>
         <p>패럴랙스 이펙트 - 텍스트 효과</p>
         <ul>
             <li><a href="parallaxEffect01.html">1</a></li>
@@ -396,7 +619,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">언제나 현재에 집중할수 있다면 행복할것이다.</p>
+                <p class="content__item__desc split style1">언제나 현재에 집중할수 있다면 행복할것이다.</p>
             </section>
             <!-- section1 -->
 
@@ -406,7 +629,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">진정으로 웃으려면 고통을 참아야하며, 고통을 즐길 줄 알아야 한다.</p>
+                <p class="content__item__desc split style2">진정으로 웃으려면 고통을 참아야하며, 고통을 즐길 줄 알아야 한다.</p>
             </section>
             <!-- section2 -->
 
@@ -416,7 +639,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">한번의 실패와 영원한 실패를 혼동하지 마라.</p>
+                <p class="content__item__desc split style3">한번의 실패와 영원한 실패를 혼동하지 마라.</p>
             </section>
             <!-- section3 -->
 
@@ -426,7 +649,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">계단을 밟아야 계단 위에 올라설수 있다.</p>
+                <p class="content__item__desc split style4">계단을 밟아야 계단 위에 올라설수 있다.</p>
             </section>
             <!-- section4 -->
 
@@ -436,7 +659,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">행복은 습관이다,그것을 몸에 지니라.</p>
+                <p class="content__item__desc split style5">행복은 습관이다,그것을 몸에 지니라.</p>
             </section>
             <!-- section5 -->
 
@@ -446,7 +669,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">1퍼센트의 가능성, 그것이 나의 길이다.</p>
+                <p class="content__item__desc split style6">1퍼센트의 가능성, 그것이 나의 길이다.</p>
             </section>
             <!-- section6 -->
 
@@ -456,7 +679,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">그대의 하루 하루를 그대의 마지막 날이라고 생각하라.</p>
+                <p class="content__item__desc split style7">그대의 하루 하루를 그대의 마지막 날이라고 생각하라.</p>
             </section>
             <!-- section7 -->
 
@@ -466,7 +689,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">작은 기회로 부터 종종 위대한 업적이 시작된다.</p>
+                <p class="content__item__desc split style8">작은 기회로 부터 종종 위대한 업적이 시작된다.</p>
             </section>
             <!-- section8 -->
 
@@ -476,7 +699,7 @@
                 <figure class="content__item__imgWrap">
                     <div class="content__item__img"></div>
                 </figure>
-                <p class="content__item__desc split">최고에 도달하려면 최저에서 시작하라.</p>
+                <p class="content__item__desc split style9">최고에 도달하려면 최저에서 시작하라.</p>
             </section>
             <!-- section9 -->
         </div>
@@ -998,8 +1221,13 @@ scroll();
                 if (scrollTop >= item.offsetTop) {
                     item.querySelector(".split").classList.add("show")  //split에 show class 추가
                     item.querySelectorAll(".split span").forEach((span, index) => {
-                        span.style.transitionDelay = `${index * 50}ms`;     //index 이용하여 transition-delay효과 추가
+                        // span.style.transitionDelay = `${index * 50}ms`;     //index 이용하여 transition-delay효과 추가 대신 transition 쓰면 비효율적임 javascript가 css쓰면 왔다갔다
                         // console.log(span[index])
+
+                        // setTimeout 이용
+                        setTimeout(() => {
+                            span.classList.add("show");
+                        }, 50 * index)
                     });
                 }
             });
