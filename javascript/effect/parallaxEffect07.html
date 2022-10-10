@@ -622,15 +622,539 @@
                     </div>
                     <div class="cont">
                         <div class="active">
-                            <pre><code class="language-js">
+                            <pre><code class="language-js">//reveal 클래스 자식에 글씨가 있다면, 가상으로 span태그 만들어 넣어주기
+const revealText = document.querySelectorAll(".reveal");
+revealText.forEach((el) => {
+    let splitText = el.innerText;
+
+    if (splitText) {
+        el.innerHTML = '&lt;span&gt;' + splitText + '&lt;/span&gt;';
+    }
+})
+
+//자기 자신을 호출하는 재귀함수 사용
+function scroll() {
+    let scrollTop = window.scrollY;
+
+    const reveal = document.querySelectorAll(".reveal");
+    reveal.forEach(el => {
+        let revealOffset = el.offsetTop + el.parentElement.offsetTop;
+        let revealDelay = el.dataset.delay; //dataset 이용하여 delay 주기
+
+        // if (scrollTop > revealOffset - window.innerHeight) {
+        //     el.classList.add("show");
+        // }
+
+        if (scrollTop >= revealOffset - window.innerHeight) {
+            if (revealDelay == undefined) {
+                el.classList.add("show");
+            } else {
+                setTimeout(() => {
+                    el.classList.add("show");
+                }, revealDelay)
+            }
+        }
+    })
+
+    document.querySelector(".scroll span").innerText = Math.round(scrollTop);
+    requestAnimationFrame(scroll);  //무한실행을 막기 위해 1초에 60회 실행
+}
+scroll();
 </code></pre>
                         </div>
                         <div>
-                            <pre><code class="language-html">
+                            <pre><code class="language-html">&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal"&gt;언제나 현재에 집중할수 있다면 행복할것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-RTL"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-RTL" data-delay="500"&gt;진정으로 웃으려면 고통을 참아야하며, 고통을 즐길 줄
+                알아야 한다.&lt;/span&gt;&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TTB"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TTB" data-delay="500"&gt;한번의 실패와 영원한 실패를 혼동하지 마라.
+            &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-BTT" data-delay="500"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-BTT"&gt;계단을 밟아야 계단 위에 올라설수 있다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TWO"&gt;행복은 습관이다,그것을 몸에 지니라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-RTL"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TWO reveal-RTL"&gt;1퍼센트의 가능성, 그것이 나의 길이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-TTB"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TWO reveal-TTB"&gt;그대의 하루 하루를 그대의 마지막 날이라고 생각하라.
+            &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-BTT"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TWO reveal-BTT"&gt;작은 기회로 부터 종종 위대한 업적이 시작된다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal reveal-TWO reveal-TTB"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal reveal-TWO reveal-TTB"&gt;최고에 도달하려면 최저에서 시작하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
 </code></pre>
                         </div>
                         <div>
-                            <pre><code class="language-css">
+                            <pre><code class="language-css">/* parallaxType  */
+#parallax__nav {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2000;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 20px 30px;
+    border-radius: 50px;
+    transition: top .4s ease;
+}
+
+#parallax__nav li {
+    display: inline;
+    margin: 0 5px;
+}
+
+#parallax__nav li a {
+    display: inline-block;
+    height: 30px;
+    padding: 5px 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
+#parallax__nav li.active a {
+    background: #fff;
+    color: #000;
+    border-radius: 20px;
+    box-sizing: content-box;
+}
+
+#parallax__cont {
+    max-width: 1600px;
+    width: 98%;
+    margin: 0 auto;
+    /* background-color: rgba(255, 255, 255, 0.1); */
+}
+
+.content__item {
+    width: 1000px;
+    max-width: 70vw;
+    margin: 30vw auto;
+    /* background-color: rgba(255, 255, 255, 0.3); */
+    text-align: left;
+    margin-right: 0;
+    position: relative;
+    padding-top: 7vw;
+}
+
+.content__item:nth-child(2n) {
+    /* even, 2n+1, 2n*8 등등 가능 */
+    margin-left: 0;
+    text-align: right;
+}
+
+.content__item__num {
+    font-size: 35vw;
+    font-family: "Lato";
+    font-weight: 100;
+    position: absolute;
+    left: -5vw;
+    top: -16vw;
+    opacity: 0.07;
+    z-index: -2;
+}
+
+.content__item:nth-child(2n) .content__item__num {
+    left: auto;
+    right: -5vw;
+}
+
+.content__item__title {
+    font-weight: 400;
+    text-transform: capitalize;
+}
+
+.content__item__imgWrap {
+    width: 100%;
+    padding-bottom: 56.25%;
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.content__item__img {
+    position: absolute;
+    background: url(../assets/img/effect_bg05@2x-min.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 110%;
+    height: 110%;
+    left: -5%;
+    top: -5%;
+    filter: saturate(0%);
+    /* transition: all 1s; */
+}
+
+.content__item:nth-child(1) .content__item__img {
+    background-image: url(../assets/img/effect_bg11-min.jpg);
+}
+
+.content__item:nth-child(2) .content__item__img {
+    background-image: url(../assets/img/effect_bg12-min.jpg);
+}
+
+.content__item:nth-child(3) .content__item__img {
+    background-image: url(../assets/img/effect_bg13-min.jpg);
+}
+
+.content__item:nth-child(4) .content__item__img {
+    background-image: url(../assets/img/effect_bg14-min.jpg);
+}
+
+.content__item:nth-child(5) .content__item__img {
+    background-image: url(../assets/img/effect_bg15-min.jpg);
+}
+
+.content__item:nth-child(6) .content__item__img {
+    background-image: url(../assets/img/effect_bg16-min.jpg);
+}
+
+.content__item:nth-child(7) .content__item__img {
+    background-image: url(../assets/img/effect_bg17-min.jpg);
+}
+
+.content__item:nth-child(8) .content__item__img {
+    background-image: url(../assets/img/effect_bg18-min.jpg);
+}
+
+.content__item:nth-child(9) .content__item__img {
+    background-image: url(../assets/img/effect_bg19-min.jpg);
+}
+
+.content__item__desc {
+    font-size: 4vw;
+    line-height: 1.4;
+    margin-top: -5vw;
+    margin-left: -4vw;
+    word-break: keep-all;
+}
+
+.content__item:nth-child(even) .content__item__desc {
+    margin-left: auto;
+    margin-right: -4vw;
+}
+
+#parallax__info {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 2000;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+    #parallax__cont {
+        margin-top: 70vw;
+    }
+
+    #parallax__nav {
+        padding: 10px;
+        right: auto;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 5px;
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    #parallax__nav li {
+        display: block;
+        margin: 5px;
+    }
+
+    #parallax__nav li a {
+        font-size: 14px;
+        padding: 5px;
+        border-radius: 5px;
+        height: auto;
+        line-height: 1;
+    }
+
+    #parallax__nav li.active a {
+        border-radius: 5px;
+    }
+}
+
+/* option */
+.reveal>div,
+.reveal>span {
+    opacity: 0;
+}
+
+.reveal.show>div,
+.reveal.show>span {
+    animation: opacity 1s linear forwards;
+}
+
+.reveal {
+    position: relative;
+}
+
+.reveal::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+}
+
+.reveal.reveal-TWO::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 1;
+    background: orange;
+}
+
+/* 1개 */
+.reveal.show::before {
+    animation: reveal 1s;
+}
+
+.reveal.reveal-RTL.show::before {
+    animation: reveal-RTL 1s;
+}
+
+.reveal.reveal-TTB.show::before {
+    animation: reveal-TTB 1s;
+}
+
+.reveal.reveal-BTT.show::before {
+    animation: reveal-BTT 1s;
+}
+
+/* 2개 */
+.reveal.show::after {
+    animation: reveal 1s 0.3s;
+}
+
+.reveal.reveal-RTL.show::after {
+    animation: reveal-RTL 1s 0.3s;
+}
+
+.reveal.reveal-TTB.show::after {
+    animation: reveal-TTB 1s 0.3s;
+}
+
+.reveal.reveal-BTT.show::after {
+    animation: reveal-BTT 1s 0.3s;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        width: 0;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    80% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes reveal-RTL {
+    0% {
+        width: 0;
+        right: 0;
+        left: auto;
+    }
+
+    50% {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+
+    80% {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+
+    100% {
+        width: 0;
+        right: 100%;
+        left: auto;
+    }
+}
+
+@keyframes reveal-TTB {
+    0% {
+        width: 100%;
+        height: 0;
+        top: 0;
+        left: auto;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: auto;
+    }
+
+    80% {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: auto;
+    }
+
+    100% {
+        width: 100%;
+        height: 0;
+        top: 100%;
+        left: auto;
+    }
+}
+
+@keyframes reveal-BTT {
+    0% {
+        width: 100%;
+        height: 0;
+        bottom: 0;
+        top: auto;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        top: auto;
+    }
+
+    80% {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        top: auto;
+    }
+
+    100% {
+        width: 100%;
+        height: 0;
+        bottom: 100%;
+        top: auto;
+    }
+}
+
+.content__item__num,
+.content__item__title {
+    display: none;
+}
 </code></pre>
                         </div>
                     </div>
@@ -652,22 +1176,24 @@
     <script src="../assets/js/common.js"></script>
     <script src="../assets/js/gsap.min.js"></script>
     <script>
-        //reveal 클래스 자식에 글씨만 있다면, 가상으로 span태그 만들어 넣어주기
-        document.querySelectorAll(".content__item__desc .reveal").forEach(text => {
-            let revealText = text.innerText;
-            let revealWrap = revealText.split('').join("</span><span>");   //시각리더기가 한 글자씩 끊어서 읽는 문제 발생. 접근성 저하
-            revealWrap = "<span>" + revealWrap + "</span>";
-            text.innerHTML = revealWrap;
-            console.log(revealWrap);
-        });
+        //reveal 클래스 자식에 글씨가 있다면, 가상으로 span태그 만들어 넣어주기
+        const revealText = document.querySelectorAll(".reveal");
+        revealText.forEach((el) => {
+            let splitText = el.innerText;
 
+            if (splitText) {
+                el.innerHTML = '<span>' + splitText + '</span>';
+            }
+        })
+
+        //자기 자신을 호출하는 재귀함수 사용
         function scroll() {
             let scrollTop = window.scrollY;
 
             const reveal = document.querySelectorAll(".reveal");
             reveal.forEach(el => {
                 let revealOffset = el.offsetTop + el.parentElement.offsetTop;
-                let revealDelay = el.dataset.delay;
+                let revealDelay = el.dataset.delay; //dataset 이용하여 delay 주기
 
                 // if (scrollTop > revealOffset - window.innerHeight) {
                 //     el.classList.add("show");
@@ -677,6 +1203,7 @@
                     if (revealDelay == undefined) {
                         el.classList.add("show");
                     } else {
+                        //일정 시간 지난 이후에 함수 실행
                         setTimeout(() => {
                             el.classList.add("show");
                         }, revealDelay)
@@ -684,8 +1211,8 @@
                 }
             })
 
-            document.querySelector(".scroll span").innerText = Math.round(scrollTop);
-            requestAnimationFrame(scroll);
+            document.querySelector(".scroll span").innerText = Math.round(scrollTop);   //scrollTop값 부여. Math.round() : 반올림
+            requestAnimationFrame(scroll);  //무한실행을 막기 위해 1초에 60회 실행
         }
         scroll();
     </script>

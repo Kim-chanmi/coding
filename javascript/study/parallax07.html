@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>검색이펙트01</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">패럴랙스 효과07</h2>
+            <p class="t_desc2">
+                자바스크립트를 이용하여 패럴랙스 효과를 만들 수 있습니다.
+                가려져 있던 그림과 글씨가 스크롤을 내리면서 점점 드러납니다.
+            </p>
+
+            <hr>
+
+            <div class="t_iframe" style="min-height: 800px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/parallaxEffect07.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/parallaxEffect07.html"
+                    target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/parallaxEffect07.html" target="_blank">원본
+                    사이트 보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">자바스크립트</h3>
+            <p class="t_desc">
+                패럴랙스 효과를 만들기 위한 자바스크립트 작성법입니다.
+            </p>
+            <div class="t_code">
+                <pre><code class="language-js">//reveal 클래스 자식에 글씨가 있다면, 가상으로 span태그 만들어 넣어주기
+const revealText = document.querySelectorAll(".reveal");
+revealText.forEach((el) => {
+    let splitText = el.innerText;
+
+    if (splitText) {
+        el.innerHTML = '<span>' + splitText + '</span>';
+    }
+})
+
+//자기 자신을 호출하는 재귀함수 사용
+function scroll() {
+    let scrollTop = window.scrollY;
+
+    const reveal = document.querySelectorAll(".reveal");
+    reveal.forEach(el => {
+        let revealOffset = el.offsetTop + el.parentElement.offsetTop;
+        let revealDelay = el.dataset.delay; //dataset 이용하여 delay 주기
+
+        // if (scrollTop > revealOffset - window.innerHeight) {
+        //     el.classList.add("show");
+        // }
+
+        if (scrollTop >= revealOffset - window.innerHeight) {
+            if (revealDelay == undefined) {
+                el.classList.add("show");
+            } else {
+                //일정 시간 지난 이후에 함수 실행
+                setTimeout(() => {
+                    el.classList.add("show");
+                }, revealDelay)
+            }
+        }
+    })
+
+    document.querySelector(".scroll span").innerText = Math.round(scrollTop);   //scrollTop값 부여. Math.round() : 반올림
+    requestAnimationFrame(scroll);  //무한실행을 막기 위해 1초에 60회 실행
+}
+scroll();
+</code></pre>
+            </div>
+            </details>
+
+            <h3 class="t_tit2">HTML</h3>
+            <p class="t_desc">
+                패럴랙스 효과를 만들기 위한 HTML 작성법입니다. reveal 효과를 위해 ".split" 클래스를 추가하였습니다.
+            </p>
+            <details>
+                <summary>소스보기</summary>
+                <div class="t_code">
+                    <pre><code class="language-html">&lt;main id="parallax__cont"&gt;
+    &lt;div id="contents"&gt;
+        &lt;section id="section1" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;01&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section1&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal"&gt;언제나 현재에 집중할수 있다면 행복할것이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section1 --&gt;
+
+        &lt;section id="section2" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;02&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section2&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-RTL"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-RTL" data-delay="500"&gt;진정으로 웃으려면 고통을 참아야하며, 고통을 즐길 줄
+                알아야 한다.&lt;/span&gt;&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section2 --&gt;
+
+        &lt;section id="section3" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;03&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section3&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TTB"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TTB" data-delay="500"&gt;한번의 실패와 영원한 실패를 혼동하지 마라.
+            &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section3 --&gt;
+
+        &lt;section id="section4" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;04&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section4&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-BTT" data-delay="500"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-BTT"&gt;계단을 밟아야 계단 위에 올라설수 있다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section4 --&gt;
+
+        &lt;section id="section5" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;05&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section5&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TWO"&gt;행복은 습관이다,그것을 몸에 지니라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section5 --&gt;
+
+        &lt;section id="section6" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;06&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section6&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-RTL"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TWO reveal-RTL"&gt;1퍼센트의 가능성, 그것이 나의 길이다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section6 --&gt;
+
+        &lt;section id="section7" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;07&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section7&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-TTB"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TWO reveal-TTB"&gt;그대의 하루 하루를 그대의 마지막 날이라고 생각하라.
+            &lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section7 --&gt;
+
+        &lt;section id="section8" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;08&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section8&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal-TWO reveal-BTT"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal-TWO reveal-BTT"&gt;작은 기회로 부터 종종 위대한 업적이 시작된다.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section8 --&gt;
+
+        &lt;section id="section9" class="content__item"&gt;
+            &lt;span class="content__item__num"&gt;09&lt;/span&gt;
+            &lt;h2 class="content__item__title"&gt;section9&lt;/h2&gt;
+            &lt;figure class="content__item__imgWrap reveal reveal reveal-TWO reveal-TTB"&gt;
+                &lt;div class="content__item__img"&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+            &lt;p class="content__item__desc reveal reveal reveal-TWO reveal-TTB"&gt;최고에 도달하려면 최저에서 시작하라.&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;!-- section9 --&gt;
+    &lt;/div&gt;
+&lt;/main&gt;
+</code></pre>
+                </div>
+            </details>
+            <h3 class="t_tit2">CSS</h3>
+            <p class="t_desc">
+                패럴랙스 효과를 만들기 위한 CSS 작성법입니다. 다양한 애니메이션 효과를 주었습니다.
+            </p>
+            <details>
+                <summary>소스보기</summary>
+                <div class="t_code">
+                    <pre><code class="language-css">/* option */
+.reveal>div,
+.reveal>span {
+    opacity: 0;
+}
+
+.reveal.show>div,
+.reveal.show>span {
+    animation: opacity 1s linear forwards;
+}
+
+.reveal {
+    position: relative;
+}
+
+.reveal::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+    z-index: 1;
+}
+
+.reveal.reveal-TWO::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    z-index: 1;
+    background: orange;
+}
+
+/* 1개 */
+.reveal.show::before {
+    animation: reveal 1s;
+}
+
+.reveal.reveal-RTL.show::before {
+    animation: reveal-RTL 1s;
+}
+
+.reveal.reveal-TTB.show::before {
+    animation: reveal-TTB 1s;
+}
+
+.reveal.reveal-BTT.show::before {
+    animation: reveal-BTT 1s;
+}
+
+/* 2개 */
+.reveal.show::after {
+    animation: reveal 1s 0.3s;
+}
+
+.reveal.reveal-RTL.show::after {
+    animation: reveal-RTL 1s 0.3s;
+}
+
+.reveal.reveal-TTB.show::after {
+    animation: reveal-TTB 1s 0.3s;
+}
+
+.reveal.reveal-BTT.show::after {
+    animation: reveal-BTT 1s 0.3s;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    60% {
+        opacity: 0;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes reveal {
+    0% {
+        width: 0;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        left: 0;
+    }
+
+    80% {
+        width: 100%;
+        left: 0;
+    }
+
+    100% {
+        width: 0;
+        left: 100%;
+    }
+}
+
+@keyframes reveal-RTL {
+    0% {
+        width: 0;
+        right: 0;
+        left: auto;
+    }
+
+    50% {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+
+    80% {
+        width: 100%;
+        right: 0;
+        left: auto;
+    }
+
+    100% {
+        width: 0;
+        right: 100%;
+        left: auto;
+    }
+}
+
+@keyframes reveal-TTB {
+    0% {
+        width: 100%;
+        height: 0;
+        top: 0;
+        left: auto;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: auto;
+    }
+
+    80% {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: auto;
+    }
+
+    100% {
+        width: 100%;
+        height: 0;
+        top: 100%;
+        left: auto;
+    }
+}
+
+@keyframes reveal-BTT {
+    0% {
+        width: 100%;
+        height: 0;
+        bottom: 0;
+        top: auto;
+    }
+
+    50% {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        top: auto;
+    }
+
+    80% {
+        width: 100%;
+        height: 100%;
+        bottom: 0;
+        top: auto;
+    }
+
+    100% {
+        width: 100%;
+        height: 0;
+        bottom: 100%;
+        top: auto;
+    }
+}
+
+.content__item__num,
+.content__item__title {
+    display: none;
+}
+</code></pre>
+                </div>
+            </details>
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>
