@@ -19,10 +19,8 @@
     </header>
     <!-- header -->
     <main id="main">
-        <div id="mouseType">
-            <div class="mouse__cursor">
-                <img src="../assets/img/gameMouse01.svg" alt="">
-            </div>
+        <div class="mouse__cursor">
+            <img src="../assets/img/gameMouse01.svg" alt="">
         </div>
         <div class="icon_box">
             <div class="icon">
@@ -120,65 +118,64 @@
     <script src="../assets/js/gsap.min.js"></script>
     <script src="../assets/js/music.js"></script>
     <script>
-        $(".icon1").draggable();    //jquery로 드래그
-        $(".icon2").draggable();    //jquery로 드래그
-        $(".icon3").draggable();    //jquery로 드래그
-        $(".icon4").draggable();    //jquery로 드래그
-        $(".icon5").draggable();    //jquery로 드래그
-        $(".music__wrap").draggable();    //jquery로 드래그
-
         const cursor = document.querySelector(".mouse__cursor");
 
         window.addEventListener("mousemove", e => {
-
-            //GSAP
-            gsap.to(cursor, { duration: 0.3, left: e.pageX - 15, top: e.pageY - 15 });
+            gsap.to(cursor, { duration: 0, left: e.pageX + 5, top: e.pageY + 5 })
         })
 
-        $(".icon1").draggable({
-            drag: function () {
-                $(".mouse__cursor img").attr("src", "../assets/img/gameMouse01.svg")
-            },
-        })
-
-        $(".icon2").draggable({
-            drag: function () {
-                $(".mouse__cursor img").attr("src", "../assets/img/gameMouse02.png")
-            },
-        })
-
-        $(".icon3").draggable({
-            drag: function () {
-                $(".mouse__cursor img").attr("src", "../assets/img/gameMouse03.svg")
-            },
-        })
-
-        $(".icon4").draggable({
-            drag: function () {
-                $(".mouse__cursor img").attr("src", "../assets/img/gameMouse04.png")
-            },
-        })
-
-        $(".icon5").draggable({
-            drag: function () {
-                $(".mouse__cursor img").attr("src", "../assets/img/gameMouse05.png")
-            },
-        })
-
-        $(".icon6").draggable({
-            drag: function () {
-                $(".mouse__cursor img").attr("src", "../assets/img/gameMouse05.png")
-            },
-        })
+        $(function () {
+            $(".icon1").draggable({
+                drag: function () {
+                    $(".mouse__cursor img").attr("src", "../assets/img/gameMouse01.svg")
+                },
+            });
+            $(".icon2").draggable({
+                drag: function () {
+                    $(".mouse__cursor img").attr("src", "../assets/img/gameMouse03.svg")
+                },
+            });
+            $(".icon3").draggable({
+                drag: function () {
+                    $(".mouse__cursor img").attr("src", "../assets/img/gameMouse04.png")
+                },
+            });
+            $(".icon4").draggable({
+                drag: function () {
+                    $(".mouse__cursor img").attr("src", "../assets/img/gameMouse05.png")
+                },
+            });
+            $(".icon5").draggable({
+                drag: function () {
+                    $(".mouse__cursor img").attr("src", "../assets/img/gameMouse02.png")
+                },
+            });
+            $(".icon6").draggable({
+                drag: function () {
+                    $(".mouse__cursor img").attr("src", "../assets/img/gameMouse06.png")
+                },
+            });
+            $(".music__wrap").draggable({
+            });
+        });
 
         function printTime() {
             const clock = document.querySelector(".time");
             const now = new Date(); //현재 날짜 시간에 대한 모든 데이터
             let nowHours = now.getHours();
-            if (nowHours < 12) {
-                nowHours = `오전 0${nowHours - 12}`;
-            } else {
-                nowHours = `오후 0${nowHours - 12}`;
+            if (nowHours >= 12) {
+                nowHours = nowHours % 12;
+                if (nowHours > 10) {
+                    nowHours = "오후 " + nowHours;
+                } else if (nowHours < 10) {
+                    nowHours = "오후 " + `0${nowHours}`;
+                }
+            } else if (nowHours < 12) {
+                if (nowHours > 10) {
+                    nowHours = "오전 " + nowHours;
+                } else if (nowHours < 10) {
+                    nowHours = "오전 " + `0${nowHours}`;
+                }
             }
 
             let nowMinute = Math.floor((now.getMinutes()) % 60);
