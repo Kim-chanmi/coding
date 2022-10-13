@@ -179,6 +179,7 @@ em {
 
 .music__list {
     padding: 20px;
+    position: relative;
 }
 
 .music__list h3 {
@@ -204,11 +205,21 @@ em {
     vertical-align: -5px;
 }
 
+.music__list .close {
+    position: absolute;
+    right: 20px;
+}
+
+
 .music__list li {
     border-bottom: 1px solid #000;
     list-style: none;
     position: relative;
     padding: 7px 0 5px 0;
+}
+
+.music__list li.playing {
+    color: #FF5C5C;
 }
 
 .music__list li strong {
@@ -226,4 +237,27 @@ em {
     right: 0;
     top: 32px;
     font-size: 16px;
+}
+
+/* scroll */
+::-webkit-scrollbar {
+    width: 15px;
+    /* height: 20px; */
+}
+
+::-webkit-scrollbar-track {
+    background: #d7d7d7;
+}
+
+::-webkit-scrollbar-thumb {
+    cursor: pointer;
+    background: #c7c7c7;
+    border-left: 1px solid #FCFCFC;
+    border-top: 1px solid #FCFCFC;
+    border-right: 1px solid #2A2A2A;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bababa;
 }

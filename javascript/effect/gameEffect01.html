@@ -99,7 +99,9 @@
             </div>
             <div class="music__footer">
                 <div class="music__list">
-                    <h3><span class="list"></span>뮤직 리스트</h3>
+                    <h3><span class="list"></span>뮤직 리스트 <a href="#" class="close"><img src="../assets/img/close.png"
+                                alt=""></a></h3>
+                    <!-- <h3><span class="list"></span>뮤직 리스트 <a href="#" class="open">+</a></h3> -->
                     <ul>
                         <!-- <li>
                             <strong>제목</strong>
@@ -121,7 +123,7 @@
         const cursor = document.querySelector(".mouse__cursor");
 
         window.addEventListener("mousemove", e => {
-            gsap.to(cursor, { duration: 0, left: e.pageX + 5, top: e.pageY + 5 })
+            gsap.to(cursor, { duration: 0, left: e.pageX, top: e.pageY })
         })
 
         $(function () {
