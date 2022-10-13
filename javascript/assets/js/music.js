@@ -1,60 +1,60 @@
 const allMusic = [
     {
-        name : "1. summer solstice on the june planet",
+        name : "summer solstice on the june planet",
         artist: "bail bonds",
         img: "musicCover01",
         audio: "music_audio01"
     },
     {
-        name : "2. swimming lessons",
+        name : "swimming lessons",
         artist: "bail bonds",
         img: "musicCover02",
         audio: "music_audio02"
     },
     {
-        name : "3. GEMNI",
+        name : "GEMNI",
         artist: "halfcool",
         img: "musicCover03",
         audio: "music_audio03"
     },
     {
-        name : "4. HEY THERE",
+        name : "HEY THERE",
         artist: "halfcool",
         img: "musicCover04",
         audio: "music_audio04"
     },
     {
-        name : "5. Keep On Movin Visualizer",
+        name : "Keep On Movin Visualizer",
         artist: "King Canyon",
         img: "musicCover05",
         audio: "music_audio05"
     },
     {
-        name : "6. THIS CLOSE",
+        name : "THIS CLOSE",
         artist: "halfcool",
         img: "musicCover06",
         audio: "music_audio06"
     },
     {
-        name : "7. Baby We Did It",
+        name : "Baby We Did It",
         artist: "The Whole Other",
         img: "musicCover07",
         audio: "music_audio07"
     },
     {
-        name : "8. Breakfast Alone",
+        name : "Breakfast Alone",
         artist: "The Whole Other",
         img: "musicCover08",
         audio: "music_audio08"
     },
     {
-        name : "9. 8Bit Dreamscape",
+        name : "8Bit Dreamscape",
         artist: "The Whole Other",
         img: "musicCover09",
         audio: "music_audio09"
     },
     {
-        name : "10. Beyond the Lows",
+        name : "Beyond the Lows",
         artist: "The Whole Other",
         img: "musicCover10",
         audio: "music_audio10"
@@ -126,10 +126,6 @@ function nextMusic(){
     playListMusic();
 }
 
-// 뮤직 리스트 닫기
-musicListClose.addEventListener("click", e => {
-    musicList.style.display = "none";
-})
 
 
 
@@ -237,8 +233,15 @@ musicNextBtn.addEventListener("click", () => {
 
 // 뮤직 리스트 버튼 클릭
 musicListBtn.addEventListener("click", () => {
-    musicList.classList.add("show");
+    // musicList.classList.add("show");
+    musicList.style.display = "block";
 });
+
+// 뮤직 리스트 닫기
+musicListClose.addEventListener("click", e => {
+    musicList.style.display = "none";
+})
+
 
 // 뮤직 리스트 구현하기
 for(let i=0; i<allMusic.length; i++){
@@ -304,4 +307,6 @@ function clicked(el){
 window.addEventListener("load", () => {
 loadMusic(musicIndex);      // 음악 재생
     playListMusic();        // 리스트 초기화
+    playMusic();    
+    musicList.style.display = "none";
 });
