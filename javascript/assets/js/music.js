@@ -188,33 +188,6 @@ musicRepeat.addEventListener("click", () => {
     }
 });
 
-// 오디오가 끝나면
-musicAudio.addEventListener("ended", () => {
-    let getAttr = musicRepeat.getAttribute("class");
-
-    switch(getAttr){
-        case "repeat" : // 전체 반복에서는 다음 음악으로
-            nextMusic();
-        break;
-
-        case "repeat_one" : // 한 곡 반복은 한 곡만 반복되게
-            playMusic();
-        break;
-
-        case "shuffle" :    // 랜덤 재생 오디오가 끝나면 다음 곡은 랜덤으로 재생
-            let randomIndex = Math.floor(Math.random() * allMusic.length + 1)  // 랜덤 인덱스 생성
-
-            do {
-                randomIndex = Math.floor(Math.random() * allMusic.length + 1)
-            } while (musicIndex == randomIndex)
-            musicIndex = randomIndex;   // 현재 인덱스를 랜덤 인덱스로 변경
-            loadMusic(musicIndex);      // 랜덤 인덱스가 반영된 현재 인덱스 값으로 음악을 다시 로드
-            playMusic();                // 로드한 음악을 재생
-        break;
-    }
-    playListMusic();    // 재생목록 업데이트
-})
-
 // 플레이 버튼 클릭
 musicPlay.addEventListener("click", () => {
     const isMusicPaused = musicWrap.classList.contains("paused");   // 변수에게 paused 클래스가 있는지 확인 -> 있으면 음악이 재생중이라는 뜻
@@ -233,14 +206,14 @@ musicNextBtn.addEventListener("click", () => {
 
 // 뮤직 리스트 버튼 클릭
 musicListBtn.addEventListener("click", () => {
-    // musicList.classList.add("show");
-    musicList.style.display = "block";
+    musicList.classList.toggle("show");
+    musicList.classList.toggle("close");
 });
 
-// 뮤직 리스트 닫기
-musicListClose.addEventListener("click", e => {
-    musicList.style.display = "none";
-})
+// // 뮤직 리스트 닫기
+// musicListClose.addEventListener("click", e => {
+//     musicList.style.display = "none";
+// })
 
 
 // 뮤직 리스트 구현하기
@@ -303,10 +276,36 @@ function clicked(el){
     playListMusic();                                // 음악 리스트 업데이트
 }
 
+// 오디오가 끝나면
+musicAudio.addEventListener("ended", () => {
+    let getAttr = musicRepeat.getAttribute("class");
+
+    switch(getAttr){
+        case "repeat" : // 전체 반복에서는 다음 음악으로
+            nextMusic();
+        break;
+
+        case "repeat_one" : // 한 곡 반복은 한 곡만 반복되게
+            playMusic();
+        break;
+
+        case "shuffle" :    // 랜덤 재생 오디오가 끝나면 다음 곡은 랜덤으로 재생
+            let randomIndex = Math.floor(Math.random() * allMusic.length + 1)  // 랜덤 인덱스 생성
+
+            do {
+                randomIndex = Math.floor(Math.random() * allMusic.length + 1)
+            } while (musicIndex == randomIndex)
+            musicIndex = randomIndex;   // 현재 인덱스를 랜덤 인덱스로 변경
+            loadMusic(musicIndex);      // 랜덤 인덱스가 반영된 현재 인덱스 값으로 음악을 다시 로드
+            playMusic();                // 로드한 음악을 재생
+        break;
+    }
+    playListMusic();    // 재생목록 업데이트
+})
 
 window.addEventListener("load", () => {
-loadMusic(musicIndex);      // 음악 재생
+    loadMusic(musicIndex);      // 음악 재생
     playListMusic();        // 리스트 초기화
-    playMusic();    
-    musicList.style.display = "none";
+    // playMusic();    
+    // musicList.style.display = "none";
 });
