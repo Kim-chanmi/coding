@@ -101,7 +101,8 @@ function loadMusic(num) {
 // 재생 버튼을 누르면 음악이 재생되고, 정지 버튼으로 바뀌게
 function playMusic() {
     musicWrap.classList.add("paused");
-    musicPlay.setAttribute("id", "control-stop");
+    // musicPlay.setAttribute("id", "control-stop");
+    musicPlay.setAttribute("title", "정지");
     musicPlay.setAttribute("class", "stop");
     musicAudio.play();
 }
@@ -293,7 +294,7 @@ function playListMusic(){
     }
 }
 
-// 리스트를 클릭하면 음악 재생 : 이게 찐
+// 리스트를 클릭하면 음악 재생 
 function clicked(el){
     let getLiIndex = el.getAttribute("data-index");  // 클릭한 리스트의 인덱스값 저장
     musicIndex = getLiIndex;                         // 클릭한 인덱스값을 뮤직 인덱스에 저장
