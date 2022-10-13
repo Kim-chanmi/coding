@@ -181,6 +181,11 @@ em {
 .music__list {
     padding: 10px;
     position: relative;
+    display: none;
+}
+
+.music__list.show {
+    display: block;
 }
 
 .music__list h3 {
@@ -207,9 +212,14 @@ em {
 }
 
 .music__list .close {
-    position: absolute;
+    /* position: absolute;
     right: 20px;
-    top: 20px;
+    top: 20px; */
+    float: right;
+    background: url(../img/close.png) no-repeat;
+    width: 28px;
+    height: 24px;
+    background-size: 20px;
 }
 
 
