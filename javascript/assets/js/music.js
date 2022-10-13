@@ -305,4 +305,5 @@ function clicked(el){
 window.addEventListener("load", () => {
     loadMusic(musicIndex);  // 음악 재생
     playListMusic();  // 리스트 초기화(리스트를 클릭하면 음악 재생)
+    playMusic();
 });
