@@ -40,6 +40,7 @@
                     <li><a href="#" class="btn3">오름차순 정렬하기</a></li>
                     <li><a href="#" class="btn4">알파벳순(a~z)</a></li>
                     <li><a href="#" class="btn5">알파벳순(z~a)</a></li>
+                    <li><a href="#" class="btn6">랜덤 정렬하기</a></li>
                 </ul>
             </div>
             <div class="search__info">
@@ -906,7 +907,7 @@ searchClick.forEach((star, index) => {  //클릭하는 곳이 여러곳이기 �
             { num: 169, name: "grid-row-start", desc: " 그리드 영역 의 인라인 시작 가장자리를 지정합니다." },
             { num: 170, name: "grid-template", desc: " 그리드의 열, 행 및 지역을 정의하기위한 약식속성입니다." },
             { num: 171, name: "grid-template-areas", desc: " 레이아웃이 어떤 형태로 구성되는지 설계도의 역할을 한다." },
-            { num: 172, name: " grid-template-columns", desc: " 열 넓이를 지정한다." },
+            { num: 172, name: "grid-template-columns", desc: " 열 넓이를 지정한다." },
             { num: 173, name: "grid-template-rows", desc: " 행 높이를 지정한다." },
             { num: 174, name: "hanging-punctuation", desc: " 구두점이 시작 정지 또는 텍스트 행의 종료 여부를 속성 지정합니다." },
             { num: 175, name: "height", desc: " 블럭레벨 요소의 높이를 지정한다." },
@@ -1120,28 +1121,33 @@ searchClick.forEach((star, index) => {  //클릭하는 곳이 여러곳이기 �
         ];
 
         const cssList = document.querySelector(".search__list .line");
+        const searchInfo = document.querySelector(".search__info .num");  //  속성 갯수
+
+        let count = 0;
 
         // 데이터 출력하기
         const updateList = () => {
-            let listCSS = "";
+            let listCSS = "";   // 빈 문자열
 
             cssProperty.forEach((data, index) => {
-                listCSS += `<li>${data.num}. ${data.name} : ${data.desc}</li>`;
+                listCSS += `<li>${data.num}. ${data.name} : ${data.desc}</li>`; // 빈 문자열인 listCSS에 데이터 정보 추가
+                count++
             });
-
-            cssList.innerHTML = listCSS;
+            searchInfo.innerHTML = count;   // 속성 갯수에 카운트 저장
+            count = 0;  // 카운트가 계속 누적되지 않도록 0으로 초기화
+            cssList.innerHTML = listCSS;    // listCSS에 추가된 데이터 정보들을 cssList에 출력
         }
         updateList();
 
         // 반대로 정렬 함수
         function sortReverse() {
-            cssProperty.reverse();
+            cssProperty.reverse(); // 반대로 정렬하는 reverse() 사용
             updateList();
         }
 
         // 내림차순 정렬 함수
         function sortDescending() {
-            cssProperty.sort((a, b) => {
+            cssProperty.sort((a, b) => {    // 내림차순이니까 뒤에 있는 큰 숫자부터 정렬
                 return b.num - a.num;
             })
             updateList();
@@ -1149,7 +1155,7 @@ searchClick.forEach((star, index) => {  //클릭하는 곳이 여러곳이기 �
 
         // 오름차순 정렬 함수
         function sortAscending() {
-            cssProperty.sort((a, b) => {
+            cssProperty.sort((a, b) => {    // 오름차순이니까 1부터 시작
                 return a.num - b.num;
             })
             updateList();
@@ -1158,14 +1164,17 @@ searchClick.forEach((star, index) => {  //클릭하는 곳이 여러곳이기 �
         // 알파벳 정렬(a~z)
         function sortAlphabet() {
             cssProperty.sort((a, b) => {
-                return a.name - b.name;
-            })
+                return a.name.localeCompare(b.name);    // localeCompare => 참조 문자열이 정렬 순서에서 앞 또는 뒤에 오는지 또는 주어진 문자열과 같은지를 숫자로 반환
+            });
             updateList();
         }
 
         // 알파벳 정렬(z~a)
         function sortAlphabetZ() {
-
+            cssProperty.sort((a, b) => {
+                return b.name.localeCompare(a.name);
+            });
+            updateList();
         }
 
         // 반대로 정렬 클릭
@@ -1192,6 +1201,18 @@ searchClick.forEach((star, index) => {  //클릭하는 곳이 여러곳이기 �
         document.querySelector(".btn5").addEventListener("click", () => {
             sortAlphabetZ();
         })
+
+        // 피셔 예이츠  알고리즘 이용한 랜덤 정렬
+        document.querySelector(".btn6").addEventListener("click", (e) => {
+            e.preventDefault();
+            for (let i = cssProperty.length - 1; i >= 0; i--) {
+                const randomIndex = Math.floor(Math.random() * (i + 1));
+                //console.log(randomIndex) => 중복된 숫자가 나옴
+                [cssProperty[i], cssProperty[randomIndex]] = [cssProperty[randomIndex], cssProperty[i]]; // 구조분해할당으로 중복 없애기
+                cssProperty.innerHTML += cssProperty[i]
+            }
+            updateList();
+        });
     </script>
 
 </body>

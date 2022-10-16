@@ -1,61 +1,61 @@
 const allMusic = [
     {
-        name : "summer solstice on the june planet",
-        artist: "bail bonds",
+        name : "I Am Better Off",
+        artist: "Wildson feat. LaKesha Nugent",
         img: "musicCover01",
         audio: "music_audio01"
     },
     {
-        name : "swimming lessons",
-        artist: "bail bonds",
+        name : "Out Of Control",
+        artist: "Cloria Tells",
         img: "musicCover02",
         audio: "music_audio02"
     },
     {
-        name : "GEMNI",
-        artist: "halfcool",
+        name : "A Little Bit of Faith",
+        artist: "Malena Stark feat. Mia Niles",
         img: "musicCover03",
         audio: "music_audio03"
     },
     {
-        name : "HEY THERE",
-        artist: "halfcool",
+        name : "For As Long As I Remember",
+        artist: "Malena Stark",
         img: "musicCover04",
         audio: "music_audio04"
     },
     {
-        name : "Keep On Movin Visualizer",
-        artist: "King Canyon",
+        name : "A One Way Ticket",
+        artist: "Stonekeepers feat. Ed Mills",
         img: "musicCover05",
         audio: "music_audio05"
     },
     {
-        name : "THIS CLOSE",
-        artist: "halfcool",
+        name : "A Faded Photograph",
+        artist: "Stonekeepers feat. Russell Vista",
         img: "musicCover06",
         audio: "music_audio06"
     },
     {
-        name : "Baby We Did It",
-        artist: "The Whole Other",
+        name : "A Splash Of Paint",
+        artist: "Elias Naslin feat. Paulina Froling",
         img: "musicCover07",
         audio: "music_audio07"
     },
     {
-        name : "Breakfast Alone",
-        artist: "The Whole Other",
+        name : "Baby Without You",
+        artist: "Loving Caliber feat. Joe Leone",
         img: "musicCover08",
         audio: "music_audio08"
     },
     {
-        name : "8Bit Dreamscape",
-        artist: "The Whole Other",
+        name : "Balcony",
+        artist: "Velvet Moon",
         img: "musicCover09",
         audio: "music_audio09"
     },
     {
-        name : "Beyond the Lows",
-        artist: "The Whole Other",
+        name : "Friendliest Time of Year",
+        artist: "Wildson feat. Easton",
         img: "musicCover10",
         audio: "music_audio10"
     },
@@ -130,6 +130,18 @@ function nextMusic() {
     playMusic();
     playListMusic();
 }
+
+// 볼륨 조절
+const audio = document.querySelector(".volume");
+const audioVolume = document.querySelector(".volumeControl");
+
+audioVolume.addEventListener("input", e => {
+    document.querySelector(".volumeNumber").innerHTML=e.target.value;
+});
+
+audioVolume.addEventListener("change", function(e) {
+    musicAudio.volume = this.value/100;
+});
 
 // 뮤직 진행바
 musicAudio.addEventListener("timeupdate", (e) => {
