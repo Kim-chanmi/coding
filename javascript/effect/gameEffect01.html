@@ -45,8 +45,8 @@
                     <span>뮤직 듣기</span>
                 </div>
                 <div class="icon6">
-                    <img src="../assets/img/icon6.svg" alt="뮤직">
-                    <span>뮤직 듣기</span>
+                    <img src="../assets/img/icon6.svg" alt="소스보기">
+                    <span class="source_btn">소스 보기</span>
                 </div>
             </div>
         </div>
@@ -54,6 +54,10 @@
     <!-- main -->
     <footer id="footer">
         <div class="agent"></div>
+        <div class="source_view">
+            <iframe src="https://github1s.com/Kim-chanmi/coding/blob/main/javascript/effect/searchEffect02.html"
+                frameborder="0"></iframe>
+        </div>
     </footer>
     <!-- footer -->
 
@@ -125,6 +129,13 @@
     <script src="../assets/js/music.js"></script>
     <script>
         const cursor = document.querySelector(".mouse__cursor");
+        const modalBtn = document.querySelector(".source_btn");
+        const modalCont = document.querySelector(".source_view");
+
+        modalBtn.addEventListener("click", () => {
+            modalCont.classList.add("show");
+            modalCont.classList.remove("hide");
+        })
 
         window.addEventListener("mousemove", e => {
             gsap.to(cursor, { duration: 0, left: e.pageX, top: e.pageY })

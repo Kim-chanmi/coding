@@ -144,3 +144,12 @@ body {
 .mac #footer {}
 
 .window #footer {}
+
+#footer .source_view {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: scale(0);
+}
