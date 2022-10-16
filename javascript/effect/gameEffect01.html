@@ -25,20 +25,20 @@
         <div class="icon_box">
             <div class="icon">
                 <div class="icon1">
-                    <img src="../assets/img/icon1.svg" alt="뮤직">
-                    <span>뮤직 듣기</span>
+                    <img src="../assets/img/icon1.svg" alt="게임">
+                    <span>게임 01</span>
                 </div>
                 <div class="icon2">
-                    <img src="../assets/img/icon2.svg" alt="뮤직">
-                    <span>뮤직 듣기</span>
+                    <img src="../assets/img/icon2.svg" alt="게임">
+                    <span>게임 02</span>
                 </div>
                 <div class="icon3">
-                    <img src="../assets/img/icon3.svg" alt="뮤직">
-                    <span>뮤직 듣기</span>
+                    <img src="../assets/img/icon3.svg" alt="게임">
+                    <span>게임 03</span>
                 </div>
                 <div class="icon4">
-                    <img src="../assets/img/icon4.svg" alt="뮤직">
-                    <span>뮤직 듣기</span>
+                    <img src="../assets/img/icon4.svg" alt="게임">
+                    <span>게임 04</span>
                 </div>
                 <div class="icon5">
                     <img src="../assets/img/icon5.svg" alt="뮤직">
@@ -46,18 +46,24 @@
                 </div>
                 <div class="icon6">
                     <img src="../assets/img/icon6.svg" alt="소스보기">
-                    <span class="source_btn">소스 보기</span>
+                    <span>소스 보기</span>
+
                 </div>
+            </div>
+            <div class="source__wrap">
+                <div class="source_header">
+                    <span>Source View</span>
+                    <img class="source_close" src="../assets/img/close.png" alt="닫기">
+                </div>
+                <iframe class="source_view"
+                    src="https://github1s.com/Kim-chanmi/coding/blob/main/javascript/effect/searchEffect02.html"
+                    frameborder="0"></iframe>
             </div>
         </div>
     </main>
     <!-- main -->
     <footer id="footer">
         <div class="agent"></div>
-        <div class="source_view">
-            <iframe src="https://github1s.com/Kim-chanmi/coding/blob/main/javascript/effect/searchEffect02.html"
-                frameborder="0"></iframe>
-        </div>
     </footer>
     <!-- footer -->
 
@@ -67,7 +73,7 @@
             <div class="music__header">
                 <div>***</div>
                 <h2>MUSIC PLAYER</h2>
-                <div>***</div>
+                <div class="music_close">***</div>
             </div>
             <div class="music__contents">
                 <div class="music__view">
@@ -129,12 +135,20 @@
     <script src="../assets/js/music.js"></script>
     <script>
         const cursor = document.querySelector(".mouse__cursor");
-        const modalBtn = document.querySelector(".source_btn");
-        const modalCont = document.querySelector(".source_view");
+        const modalBtn = document.querySelector(".icon6");
+        const modalCont = document.querySelector(".source__wrap");
+        const modalClose = document.querySelector(".source_close")
 
         modalBtn.addEventListener("click", () => {
-            modalCont.classList.add("show");
-            modalCont.classList.remove("hide");
+            modalCont.style.display = "block";
+        })
+
+        modalClose.addEventListener("click", () => {
+            modalCont.style.display = "none";
+        })
+
+        musicClose.addEventListener("click", () => {
+
         })
 
         window.addEventListener("mousemove", e => {

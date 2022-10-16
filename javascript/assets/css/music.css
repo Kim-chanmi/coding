@@ -4,14 +4,16 @@ em {
     font-style: normal;
 }
 
-.music__wrap {}
+.music__wrap {
+    display: none;
+}
 
 .music__inner {
     width: 450px;
     background: #000;
     position: absolute;
-    right: 100px;
-    top: 100px;
+    right: 500px;
+    top: 250px;
     padding: 10px;
     padding-top: 0;
 }

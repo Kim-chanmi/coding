@@ -62,8 +62,9 @@ const allMusic = [
 ]
 
 
-
+const musicBtn = document.querySelector(".icon5");
 const musicWrap = document.querySelector(".music__wrap");
+const musicClose = document.querySelector(".music_close");
 const musicView = musicWrap.querySelector(".music__view .img img");
 const musicName = musicWrap.querySelector(".music__view .title h3");
 const MusicArtist = musicWrap.querySelector(".music__view .title p");
@@ -88,6 +89,16 @@ const musicProgressCurrent = musicWrap.querySelector(".progress .timer .current"
 const musicProgressDuration = musicWrap.querySelector(".progress .timer .duration");
 
 let musicIndex = 1;  // 현재 음악 인덱스
+
+// 뮤직 듣기 버튼 클릭
+musicBtn.addEventListener("click", () => {
+    musicWrap.style.display = "block";
+});
+
+// 뮤직 플레이어 닫기
+musicClose.addEventListener("click", () => {
+    musicWrap.style.display = "none";
+})
 
 // 음악 재생
 function loadMusic(num) {
