@@ -401,7 +401,7 @@ const scoreResultWrap= document.querySelector(".search__result");
 const scoreRestart= document.querySelector(".search__result .restart");
 
 
-let timeReamining = 120,    //남은 시간
+let timeReamining = 5,    //남은 시간
     timeInterval = "",      //시간 간격
     score = 0,              //점수
     answers = {};           //새로운 정답

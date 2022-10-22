@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라이드 이펙트02</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/dracula.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="../javascript01.html">데이터 저장하기</a></li>
+                <li><a href="../javascript02.html">데이터 불러오기</a></li>
+                <li><a href="../javascript03.html">데이터 실행하기</a></li>
+                <li><a href="../javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="../javascript05.html">문자열 객체</a></li>
+                <li><a href="../javascript06.html">배열 객체</a></li>
+                <li><a href="../javascript07.html">수학 객체</a></li>
+                <li><a href="../javascript08.html">숫자 객체</a></li>
+                <li><a href="../javascript09.html">브라우저 객체</a></li>
+                <li><a href="../javascript10.html">요소 객체</a></li>
+                <li><a href="../javascript11.html">이벤트 객체</a></li>
+            </ul>
+            <ul class="study">
+                <li><a href="basic.html">기본 규칙</a></li>
+                <li><a href="operator.html">연산자</a></li>
+                <li><a href="for.html">반복문</a></li>
+                <li><a href="if.html">조건문</a></li>
+                <li><a href="type.html">타입</a></li>
+                <li><a href="function.html">함수</a></li>
+                <li><a href="var.html">지역변수/전역변수</a></li>
+                <li><a href="element.html">요소 선택</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+    <main id="main">
+        <div class="document">
+            <h2 class="t_tit">슬라이드 이펙트 - 이미지 슬라이드(버튼, 닷메뉴, 무한, 플레이 버튼, 정지 버튼, 자동 플레이)</h2>
+            <p class="t_desc2">
+                이번에는 지금까지 했던 기능들에 자동플레이, 플레이 버튼, 정지 버튼이 추가되었습니다.
+            </p>
+            <div class="t_iframe" style="min-height: 900px; padding-top: 0;">
+                <iframe src="https://kim-chanmi.github.io/coding/javascript/effect/sliderEffect07.html"
+                    frameborder="0"></iframe>
+            </div>
+            <div class="t_link">
+                <a href="https://github.com/Kim-chanmi/coding/blob/main/javascript/effect/sliderEffect07.html"
+                    target="_blank">원본 소스 보기</a>
+                <a href="https://Kim-chanmi.github.io/coding/javascript/effect/sliderEffect07.html" target="_blank">원본
+                    사이트
+                    보기</a>
+            </div>
+            <hr>
+            <h3 class="t_tit2">자바스크립트 방식</h3>
+            <p class="t_desc">
+                슬라이드 효과를 위한 자바스크립트 작성법입니다. 자동으로 슬라이드가 재생되며, 플레이버튼, 정지버튼을 통해 슬라이드를 정지 또는 재생시킬 수 있습니다.
+                또한, 이미지 위에 마우스를 올리면 슬라이드가 멈추고, 다시 마우스를 떼면 슬라이드가 재생됩니다.
+            </p>
+            <div class="sample01_result">
+                <div class="t_code">
+                    <pre><code class="language-js">const sliderWrap = document.querySelector(".slider__wrap");      // 전체 이미지 슬라이드
+const sliderImg = document.querySelector(".slider__img");       // 보여지는 영역
+const sliderInner = document.querySelector(".slider__inner");   // 움직이는 영역
+const slider = document.querySelectorAll(".slider");            // 각각의 이미지
+const sliderDot = document.querySelector(".slider__dot");   // 닷메뉴
+const sliderBtn = document.querySelector(".slider__btn");       // 버튼
+const sliderBtnPrev = document.querySelector(".slider__btn .prev");   // 왼쪽 버튼    
+const sliderBtnNext = document.querySelector(".slider__btn .next");   // 오른쪽 버튼
+// const sliderBtnPlay = document.querySelector(".slider__dot .play");   // play 버튼
+// const sliderBtnStop = document.querySelector(".slider__dot .stop");   // stop 버튼
+
+let currentIndex = 0,                               // 현재 이미지
+    sliderLength = slider.length,                   // 슬라이더 갯수
+    sliderWidth = slider[0].offsetWidth,            // 슬라이더 크기
+    sliderFirst = slider[0],                        // 첫 번째 이미지
+    sliderLast = slider[sliderLength - 1],          // 마지막 이미지
+    cloneFirst = sliderFirst.cloneNode(true),       // 첫 번째 이미지 복사
+    cloneLast = sliderLast.cloneNode(true),          // 마지막 이미지 복사
+    dotIndex = "",
+    interval = 3000,    // 3초
+    sliderTimer = "";
+
+function init() {
+    imgClone();     // 이미지 복사
+    createDot();    // 닷 버튼 생성
+    autoPlay();     // 자동 재생
+}
+init();
+
+function autoPlay() {
+    sliderTimer = setInterval(() => {
+        let intervalNum = currentIndex + 1; // currentIndex 값이 계속 증가해야 하니까
+        gotoSlider(intervalNum)
+    }, interval)    // 3초에 한 번씩 반복   
+}
+
+function stopPlay() {
+    clearInterval(sliderTimer); // clearInterval => setinterval 막아주기
+}
+
+function imgClone() {
+    sliderInner.appendChild(cloneFirst);     // appendChild(마지막 자식) => sliderInner의 마지막 자식에 첫 번째 이미지 복사
+    sliderInner.insertBefore(cloneLast, sliderFirst);
+}
+
+function createDot() {
+    for (let i = 0; i &lt; sliderLength; i++) {                // for문 이용해서 닷메뉴 추가
+        dotIndex += "&lt;a href='#'' class='dot'&gt;이미지1&lt;/a&gt;";
+    }
+    dotIndex += "&lt;a href='#'' class='play'&gt;&lt;/a&gt;"    // play 버튼
+    dotIndex += "&lt;a href='#'' class='stop'&gt;&lt;/a&gt;"    // stop 버튼
+    sliderDot.innerHTML = dotIndex;
+    sliderDot.firstChild.classList.add("active");       // 첫 번째 이미지에만 active 생기게
+}
+
+function gotoSlider(index) {
+    sliderInner.classList.add("transition");    // transition 효과 css로 주기
+    let posInitial = sliderInner.offsetLeft;    // -800
+
+    sliderInner.style.left = -sliderWidth * (index + 1) + "px";
+
+    currentIndex = index;           // 현재 이미지에 index값 넣어서 계속 증가하게
+}
+
+function checkIndex() {
+    sliderInner.classList.remove("transition");     // 순간이동 할 때는 transition 효과 제거
+
+    // 마지막 이미지
+    if (currentIndex == sliderLength) {
+        sliderInner.style.left = -(1 * sliderWidth) + "px";
+        currentIndex = 0;
+    }
+
+    // 처음 이미지
+    if (currentIndex == -1) {
+        sliderInner.style.left = -(sliderLength * sliderWidth) + "px";
+        currentIndex = sliderLength - 1;
+    }
+
+    // 두번째 이미지를 보면 두번째 닷에 클래스 추가
+    let dotActive = document.querySelectorAll(".slider__dot .dot"); // 개별의 닷메뉴
+    dotActive.forEach(el => el.classList.remove("active")); // 1. 닷메뉴 클래스 모두 삭제
+
+    dotActive[currentIndex].classList.add("active");    // 2. 해당 이미지의 해당 닷메뉴에 클래스 추가
+}
+
+// prev 버튼 클릭하면
+sliderBtnPrev.addEventListener("click", () => {
+    let prevIndex = currentIndex - 1;
+    gotoSlider(prevIndex);
+});
+
+// next 버튼 클릭하면
+sliderBtnNext.addEventListener("click", () => {
+    let nextIndex = currentIndex + 1;
+    gotoSlider(nextIndex);
+});
+
+// 재생 버튼 클릭하면
+document.querySelector(".slider__dot .play").addEventListener("click", () => {
+    // alert("ddd")
+    document.querySelector(".slider__dot .play").style.display = "none";
+    document.querySelector(".slider__dot .stop").style.display = "inline-block";
+    autoPlay();
+})
+
+// 정지 버튼 클릭하면
+document.querySelector(".slider__dot .stop").addEventListener("click", () => {
+    // alert("ddd")
+    document.querySelector(".slider__dot .stop").style.display = "none";
+    document.querySelector(".slider__dot .play").style.display = "inline-block";
+    stopPlay();
+})
+
+// 닷 버튼 클릭했을 때 해당 닷버튼의 이미지로 이동
+document.querySelectorAll(".slider__dot .dot").forEach((dot, index) => {        // 위에서 이미 쓴 선택자지만 지역변수라 못 씀
+    dot.addEventListener("click", () => {
+        gotoSlider(index);
+    })
+})
+
+sliderInner.addEventListener("mouseenter", stopPlay);  // 마우스 오버하면 자동재생 멈추게
+sliderInner.addEventListener("mouseleave", autoPlay);  // 마우스 떼면 다시 자동재생
+sliderInner.addEventListener("transitionend", checkIndex);  // transitionend : transition이 끝났을 때 => transition이 끝나면 순간이동 위해 checkIndex 함수 실행
+</code></pre>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+    <footer id="footer">
+        <a href="mailto:chanmi0517@naver.com">chanmi0517@naver.com</a>
+    </footer>
+    <!-- //footer -->
+    <script src="../assets/js/highlight.min.js"></script>
+    <script>
+        hljs.highlightAll();
+    </script>
+
+</body>
+
+</html>

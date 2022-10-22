@@ -289,11 +289,11 @@
 /* 결과 창 */
 .search__result {
     position: fixed;
-    right: 3vw;
+    right: 8vw;
     top: 3vw;
     transform: scale3d(0, 0, 0);
-    width: 45vw;
-    height: 45vw;
+    width: 35vw;
+    height: 35vw;
     background: #fff;
     z-index: 10000;
     display: flex;
