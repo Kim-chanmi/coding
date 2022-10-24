@@ -21,9 +21,7 @@ https://kim-chanmi.github.io/coding/index.html
  https://kim-chanmi.github.io/coding/javascript/effect/quizEffect04.html   
  https://kim-chanmi.github.io/coding/javascript/effect/quizEffect05.html   
  https://kim-chanmi.github.io/coding/javascript/effect/quizEffect06.html   
- 
- https://kim-chanmi.github.io/coding/javascript/study/quiz_test.html   
- 
+  
  
  ### 서치 이펙트
  https://kim-chanmi.github.io/coding/javascript/effect/searchEffect01.html   
