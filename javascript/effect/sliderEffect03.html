@@ -367,6 +367,7 @@
         let sliderWidth = sliderImg.offsetWidth;                            //이미지 가로값
         let sliderClone = sliderInner.firstElementChild.cloneNode(true);    //첫 번째 이미지 복사
         sliderInner.appendChild(sliderClone);                               //첫 번째 이미지를 마지막에 넣어줌
+        console.log(sliderCount)
 
         function sliderEffect() {
             currentIndex++;

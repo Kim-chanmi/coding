@@ -1,0 +1,136 @@
+.memory__wrap {
+  /* display: none; */
+}
+.memory__inner {
+  width: 700px;
+  height: 700px;
+  border: 3px solid rgb(213, 180, 236);
+  background: #000;
+  position: absolute;
+  left: 300px;
+  top: 100px;
+  border-radius: 20px;
+  animation: flicker 1.5s infinite alternate;
+}
+.memory__header {
+  display: flex;
+  justify-content: space-between;
+  background: #000;
+  animation: flicker 1.5s infinite alternate;
+}
+.memory__header h2 {
+  font-size: 28px;
+  text-align: center;
+}
+.memory__card {
+  padding: 30px;
+}
+.memory__card .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.memory__card .cards li {
+  list-style: none;
+  width: 150px;
+  height: 150px;
+  /* background: #2A0E11; */
+  position: relative;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+.memory__card .cards li img {
+  width: 100%;
+}
+.memory__card .cards li .front {
+  transition: all 0.4s;
+}
+.memory__card .cards li.flip .front {
+  transform: rotateY(180deg);
+}
+.memory__card .cards li .view {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(242, 242, 184);
+  backface-visibility: hidden;
+  padding: 10%;
+  border-radius: 20px;
+  transition: all 0.3s;
+  user-select: none;
+  pointer-events: none;
+}
+.memory__card .cards li .back {
+  transform: rotateY(180deg);
+  transition: all 0.5s;
+}
+.memory__card .cards li.flip .back {
+  transform: rotateY(0deg);
+}
+
+.memory__card .cards li.shakeX {
+  animation: shakeX 1s 1;
+}
+
+.memory__card .cards li.shakeY {
+  animation: shakeY 1s 1;
+}
+@keyframes flicker {
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
+    box-shadow: 0 0 0.5rem #fff, inset 0 0 0.5rem #fff,
+      0 0 2rem rgb(213, 180, 236), inset 0 0 2rem rgb(213, 180, 236),
+      0 0 4rem rgb(213, 180, 236), inset 0 0 4rem rgb(213, 180, 236);
+  }
+}
+
+@keyframes shakeX {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes shakeY {
+  from,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translate3d(0, 10px, 0);
+  }
+}
