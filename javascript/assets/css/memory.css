@@ -3,7 +3,6 @@
 }
 .memory__inner {
   width: 700px;
-  height: 700px;
   border: 3px solid rgb(213, 180, 236);
   background: #000;
   position: absolute;

@@ -217,8 +217,6 @@
   cursor: pointer;
 }
 
-
-
 /* media */
 @media (max-width: 960px) {
   .swiper-slide .desc {
@@ -249,23 +247,3 @@
     padding: 10px 25px;
   }
 }
-
-/* @media(max-width:1160px){
-  #slideType{
-      margin: 0 auto;
-  }
-
-  .slider__img .desc h3{
-      font-size: 10vw;
-  }
-
-  .slider__arrow{
-      display: none;
-  }
-}
-
-@media(max-width:468px){
-  .slider__img .desc .btn a {
-      padding: 10px 30px;
-  }
-} */
